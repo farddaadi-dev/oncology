@@ -1,0 +1,407 @@
+---
+
+---
+
+<header class="header">
+    <div class="header-container">
+        
+        <a href="/" class="logo-box">
+            <img src="/assets/images/logo.svg" alt="لوگوی سایت" width="60" height="60" class="header-logo-img">
+            <div class="logo-text">
+                <span class="site-title">وب‌سایت علمی درمانی</span>
+                <span class="doctors-names">دکتر نفیسه انصاری‌نژاد | دکتر فرشید فرداد</span>
+            </div>
+        </a>
+
+        
+       
+      <nav class="nav-links">
+
+        <a href="/" class="active-link">خانه</a>
+
+        <a href="/about">درباره ما</a>
+
+        <a href="/services">خدمات</a>
+
+        <a href="/articles">مقالات</a>
+
+        <a href="/reservation">ویزیت</a>
+
+        <a href="/contact">تماس با ما</a>
+        <a href="/online-consultation" class="cta-consultation">مشاوره آنلاین</a>
+
+      </nav>
+
+      <!-- HAMBURGER -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
+
+        <svg viewBox="0 0 100 80">
+
+          <rect width="100" height="10" rx="5"></rect>
+
+          <rect y="30" width="100" height="10" rx="5"></rect>
+
+          <rect y="60" width="100" height="10" rx="5"></rect>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+    </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">&times;</button>
+    <a href="/">خانه</a>
+    <a href="/about">درباره ما</a>
+    <a href="/services">خدمات</a>
+    <a href="/articles">مقالات</a>
+    <a href="/reservation">نوبت دهی</a>
+    <a href="/contact">تماس با ما</a>
+    <a href="/online-consultation" class="cta-consultation">مشاوره آنلاین</a>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <style>
+    
+.header {
+  background-color: var(--color-bg-main);
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.059);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(26, 46, 38, 0.02);
+}
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* =========================
+    LOGO Box
+========================= */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.header-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.site-title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-normal);
+  color: var(--color-text-muted);
+}
+.doctors-names {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-main);
+}
+/* =========================
+   NAVIGATION
+========================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition-normal);
+}
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+.active-link {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+.nav-links .cta-consultation {
+  background-color: #e53e3e; /* A distinct accent color (e.g., warm red/coral or medical gold) */
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: var(--text-sm, 14px);
+  transition: background-color var(--transition-fast, 0.2s ease), transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.15);
+}
+
+/* Prevent the active underline effect from sticking to this button */
+.nav-links .cta-consultation::after {
+  display: none;
+}
+
+.nav-links .cta-consultation:hover {
+  background-color: #c53030; /* Slightly darker shade on hover */
+  color: #ffffff;
+  transform: translateY(-1px); /* Gentle lift effect */
+}
+
+/* =========================
+   MOBILE MENU CTA ADJUSTMENT
+========================= */
+.mobile-menu .cta-consultation.mobile-cta {
+  background-color: #e53e3e;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: auto; /* Pushes the button cleanly to the bottom of the drawer menu */
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(229, 62, 62, 0.2);
+}
+
+.mobile-menu .cta-consultation.mobile-cta:hover {
+  background-color: #c53030;
+}
+/* =========================
+   HAMBURGER BUTTON
+========================= */
+
+.hamburger {
+  display: none;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger svg {
+  width: 28px;
+  height: 28px;
+  fill: #2f372d;
+}
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.close-menu:hover {
+  transform: rotate(90deg);
+}
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -280px;
+
+  width: 280px;
+  height: 100vh;
+
+  background: #f7f5ef;
+
+  padding: 100px 24px 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  transition: 0.35s ease;
+
+  z-index: 2000;
+
+  box-shadow: 4px 0 20px rgba(0,0,0,0.08);
+}
+
+.mobile-menu.active {
+  left: 0;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #2f372d;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.35);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s;
+
+  z-index: 1500;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 992px) {
+
+  .header-container {
+    height: 80px;
+    padding: 0 18px;
+  }
+
+  .doctors-names {
+    font-size: 17px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 790px) {
+
+  .header-container {
+    height: 72px;
+  }
+
+  /* Hide desktop nav */
+  .nav-links {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Smaller logo */
+  .logo-box img {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Hide top line */
+  .site-title{
+    display: none;
+  }
+
+  .doctors-names{
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  .logo-box {
+    gap: 10px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .header-container {
+    padding: 0 12px;
+  }
+
+  .logo-box {
+    gap: 2px;
+  }
+
+  .doctors-names {
+    font-size: 12px;
+  }
+
+  .logo-box img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mobile-menu {
+    width: 240px;
+  }
+}
+  </style>
+
+<script>
+    // Astro automatically processes and bundles this block down to optimized client JS.
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const closeMenuBtn = document.getElementById("closeMenuBtn");
+    const mobileLinks = document.querySelectorAll(".mobile-menu a");
+  
+    function toggleMenu() {
+      mobileMenu?.classList.toggle("active");
+      menuOverlay?.classList.toggle("active");
+    }
+  
+    function closeMenu() {
+      mobileMenu?.classList.remove("active");
+      menuOverlay?.classList.remove("active");
+    }
+  
+    hamburgerBtn?.addEventListener("click", toggleMenu);
+    menuOverlay?.addEventListener("click", closeMenu);
+    closeMenuBtn?.addEventListener("click", closeMenu);
+  
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  </script>
