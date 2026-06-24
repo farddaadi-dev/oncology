@@ -1,38 +1,4 @@
-@font-face {
-    font-family: "Vazirmatn RD";
-    src: url("../fonts/Vazirmatn-RD-Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Estedad";
-    src: url("../fonts/Estedad-ExtraBold.woff2") format("woff2");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Vazirmatn RD";
-    src: url("../fonts/Vazirmatn-RD-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Vazirmatn RD";
-    src: url("../fonts/Vazirmatn-RD-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Vazirmatn RD";
-    src: url("../fonts/Vazirmatn-RD-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
+
   
   /* =========================
       CSS Variables
@@ -121,7 +87,7 @@
        FONT FAMILY
     ========================== */
   
-    --font-main: "Vazirmatn RD", sans-serif;
+    /* --font-main: "Vazirmatn RD", sans-serif; */
   
     /* =========================
        FONT SIZES
@@ -152,11 +118,11 @@
        FONT WEIGHTS
     ========================== */
   
-    --weight-light: 300;
+    /* --weight-light: 300;
     --weight-normal: 400;
     --weight-medium: 500;
     --weight-semibold: 600;
-    --weight-bold: 700;
+    --weight-bold: 700; */
   
     /* =========================
        LINE HEIGHTS
@@ -191,8 +157,8 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: var(--font-main);
-    font-weight: var(--weight-normal);
+    font-family: var(--font-vazirmatn-regular), sans-serif;
+    font-weight: 400;
     background-color: var(--color-bg-main);
     color: var(--color-text-secondary);
     line-height: var(--line-normal);
@@ -201,14 +167,14 @@
   h1 {
       color: var(--color-text-main);
       line-height: var(--line-tight);
-      font-family: Estedad, var(--font-main);
-      font-weight: 800;
+      font-family: var(--font-heading);
+      font-weight: 700;
   }
   h2,
   h3 {
     color: var(--color-text-main);
     line-height: var(--line-tight);
-    font-weight: var(--weight-bold);
+    font-weight: 700;
   }
   ul {
     list-style: none;
