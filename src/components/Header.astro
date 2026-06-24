@@ -1,5 +1,5 @@
 ---
-
+import '../styles/global.css';
 ---
 
 <header class="header">
@@ -65,7 +65,10 @@
   <!-- OVERLAY -->
   <div class="menu-overlay" id="menuOverlay"></div>
 
-  <style>
+
+  
+
+  <style is:global>
     
 .header {
   background-color: var(--color-bg-main);
@@ -109,6 +112,7 @@
   color: var(--color-text-muted);
 }
 .doctors-names {
+  /* font-family: var(--font-vazirmatn), sans-serif; */
   font-size: var(--text-md);
   font-weight: var(--weight-bold);
   color: var(--color-text-main);
