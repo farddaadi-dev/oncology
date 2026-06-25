@@ -1,0 +1,65 @@
+:root {
+    /* =========================================
+       1. Spacing Scale (Based on an 8px / 0.5rem grid)
+       ========================================= */
+    --space-xs: 0.25rem; /* 4px   - Ultra tight (inline elements) */
+    --space-sm: 0.5rem;  /* 8px   - Tight (small padding, icon gap) */
+    --space-md: 1rem;    /* 16px  - Base (standard padding, small gaps) */
+    --space-lg: 1.5rem;  /* 24px  - Content (paragraph gaps, card padding) */
+    --space-xl: 2rem;    /* 32px  - Section elements separation */
+    --space-2xl: 3rem;   /* 48px  - Large layout padding */
+    --space-3xl: 4rem;   /* 64px  - Section-to-section separation */
+  
+    /* =========================================
+       2. Page Constraints
+       ========================================= */
+    --max-width-content: 1200px; /* Standard reading/browsing width */
+    --max-width-narrow: 800px;   /* Perfect for readable medical articles/blogs */
+  }
+  
+  /* =========================================
+     3. Global Layout Utilities
+     ========================================= */
+  
+  /* The Main Content Wrapper */
+  .container {
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  
+  /* Narrow Container for purely text-driven pages (e.g., Article details) */
+  .container-narrow {
+    width: 100%;
+    max-width: var(--max-width-narrow);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  
+  /* Global Section Spacing (Saves you from writing margins everywhere) */
+  .section-padding {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+  
+  @media (max-width: 768px) {
+    .section-padding {
+      padding-top: var(--space-2xl);
+      padding-bottom: var(--space-2xl);
+    }
+  }
+  
+  /* =========================================
+     4. Flexible Grid System
+     ========================================= */
+  .grid-auto {
+    display: grid;
+    gap: var(--space-xl);
+    /* Automatically wraps columns when they get too squished on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
