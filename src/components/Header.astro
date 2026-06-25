@@ -53,13 +53,13 @@
   box-shadow: 0 2px 10px rgba(26, 46, 38, 0.02);
 }
 .header-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding-inline: 1rem;
 }
 
 /* =========================
@@ -109,7 +109,7 @@
 .nav-links a:hover {
   color: var(--color-brand-accent);
 }
-.active-link {
+.nav-links a.active-link {
   color: var(--color-brand-accent-dark);
   font-weight: 700;
 }
@@ -117,15 +117,15 @@
 .active-link::after {
   content: "";
   position: absolute;
-  bottom: -2px;
+  bottom: 6px;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-brand-accent-dark);
   border-radius: 2px;
 }
 .nav-links .cta-consultation {
-  background-color: #e53e3e; /* A distinct accent color (e.g., warm red/coral or medical gold) */
+  background-color: var(--color-brand-accent); /* A distinct accent color (e.g., warm red/coral or medical gold) */
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 6px;
@@ -141,7 +141,7 @@
 }
 
 .nav-links .cta-consultation:hover {
-  background-color: #c53030; /* Slightly darker shade on hover */
+  background-color: var(--color-brand-accent-dark); /* Slightly darker shade on hover */
   color: #ffffff;
   transform: translateY(-1px); /* Gentle lift effect */
 }
