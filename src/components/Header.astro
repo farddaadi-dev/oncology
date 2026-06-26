@@ -1,5 +1,5 @@
 ---
-
+const { pathname } = Astro.url;
 ---
 
 <header class="header">
@@ -12,12 +12,12 @@
       </div>
     </a>      
     <nav class="nav-links">
-      <a href="/" class="active-link">خانه</a>
-      <a href="/about">درباره ما</a>
-      <a href="/services">خدمات</a>
-      <a href="/articles">مقالات</a>
-      <a href="/reservation">ویزیت</a>
-      <a href="/contact">تماس با ما</a>
+      <a href="/" class:list={[{ 'active-link': pathname === '/' }]}>خانه</a>
+      <a href="/about" class:list={[{ 'active-link': pathname.startsWith('/about') }]}>درباره ما</a>
+      <a href="/services" class:list={[{ 'active-link': pathname.startsWith('/services') }]}>خدمات</a>
+      <a href="/articles" class:list={[{ 'active-link': pathname.startsWith('/articles') }]}>مقالات</a>
+      <a href="/visit" class:list={[{ 'active-link': pathname.startsWith('/visit') }]}>ویزیت</a>
+      <a href="/contact" class:list={[{ 'active-link': pathname.startsWith('/contact') }]}>تماس با ما</a>
       <a href="/online-consultation" class="cta-consultation">مشاوره آنلاین</a>
     </nav>
     <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
@@ -35,7 +35,7 @@
     <a href="/about">درباره ما</a>
     <a href="/services">خدمات</a>
     <a href="/articles">مقالات</a>
-    <a href="/reservation">نوبت دهی</a>
+    <a href="/visit">ویزیت</a>
     <a href="/contact">تماس با ما</a>
     <a href="/online-consultation" class="cta-consultation">مشاوره آنلاین</a>
   </div>
@@ -104,7 +104,7 @@
   color: var(--color-text-secondary);
   position: relative;
   padding-bottom: 4px;
-  transition: color 0.3s;
+  transition: color var(--transition-normal);
 }
 .nav-links a:hover {
   color: var(--color-brand-accent);
@@ -149,19 +149,19 @@
 /* =========================
    MOBILE MENU CTA ADJUSTMENT
 ========================= */
-.mobile-menu .cta-consultation.mobile-cta {
-  background-color: #e53e3e;
+.mobile-menu .cta-consultation {
+  background-color: var(--color-brand-accent);
   color: #ffffff;
   text-align: center;
   padding: 12px;
   border-radius: 8px;
-  margin-top: auto; /* Pushes the button cleanly to the bottom of the drawer menu */
+  margin-bottom: auto; /* Pushes the button cleanly to the bottom of the drawer menu */
   font-size: 16px;
   box-shadow: 0 4px 10px rgba(229, 62, 62, 0.2);
 }
 
-.mobile-menu .cta-consultation.mobile-cta:hover {
-  background-color: #c53030;
+.mobile-menu .cta-consultation:hover {
+  background-color: var(--color-brand-accent-dark);
 }
 /* =========================
    HAMBURGER BUTTON
@@ -194,7 +194,7 @@
   border: none;
   font-size: 36px;
   line-height: 1;
-  color: var(--color-text-main);
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: var(--transition-fast);
 }

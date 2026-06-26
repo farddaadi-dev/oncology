@@ -21,7 +21,13 @@
     /* Backgrounds: Warm, comforting off-whites instead of stark white */
     --color-bg-primary: #FCFBF9;   /* Main page background */
     --color-bg-secondary: #F2EFEA; /* Section backgrounds, cards, or footers */
-  
+    --color-bg-dark: #1f241e;
+    --color-dark-heading: #1A2E26;
+    --color-secondary-gold: #D1A153;
+    --color-primary-sage: #7A8B6E;
+    --color-body-text: #2F3E37;
+    --color-bg-warm: #FDFBF7;
+    --color-bg-section: #F3F6F1;
     /* Text: Soft charcoals instead of harsh pure black */
     --color-text-primary: #2C2E2A;   /* Main body text (highly readable) */
     --color-text-secondary: #5C6057; /* Subtitles, muted text, dates */

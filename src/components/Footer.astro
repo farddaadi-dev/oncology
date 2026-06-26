@@ -1,0 +1,226 @@
+---
+
+---
+
+<footer class="main-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1: Clinic Overview -->
+        <div class="footer-column brand-column">
+            <h3>دکتر نفیسه انصاری‌نژاد <br>دکتر فرشید فرداد</h3>
+            <p class="brand-desc">وب‌سایت علمی و درمانی فوق تخصصی بیماری‌های خون و سرطان بالینی (هماتولوژی و آنکولوژی) در تهران.</p>
+            <div class="social-links">
+                <!-- Instagram Link -->
+                <a href="https://instagram.com" class="social-icon instagram-bg" target="_blank" title="اینستاگرام"><img src="assets/images/instagram-line.svg" alt=""></a>
+    
+                <!-- Telegram Link -->
+                <a href="https://t.me" class="social-icon telegram-bg" target="_blank" title="تلگرام"><img src="assets/images/telegram-line.svg" alt=""></a>
+    
+                <!-- WhatsApp Link (Excellent for clinic appointment coordinators) -->
+                <a href="https://wa.me" class="social-icon whatsapp-bg" target="_blank" title="واتس‌اپ"><img src="assets/images/whatsapp-line.svg" alt=""></a>
+            </div>
+
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-column links-column">
+            <h4>دسترسی سریع</h4>
+            <ul>
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="services.html">خدمات درمانی</a></li>
+                <li><a href="articles.html">مقاله‌ها</a></li>
+                <li><a href="schedule.html">برنامه حضور</a></li>
+                <li><a href="contact.html">تماس با ما</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Contact Info Summary -->
+        <div class="footer-column contact-column">
+            <h4>اطلاعات تماس مطب</h4>
+            <p><img src="assets/images/map-pin-line.svg" alt="" class="footer-address"> <strong>آدرس:</strong> تهران، [نام خیابان اصلی]، [نام کوچه یا خیابان فرعی]، پلاک [شماره]، ساختمان پزشکان [نام ساختمان]، طبقه [شماره]</p>
+            <p><img src="assets/images/phone-line.svg" alt="" class="footer-address"> <strong>تلفن مطب:</strong> <span class="phone-number">۰۲۱-XXXXXXXX</span></p>
+            <p><img src="assets/images/time-line.svg" alt="" class="footer-address"> <strong>ساعات پاسخگویی:</strong> شنبه تا چهارشنبه، از ساعت ۱۵ الی ۲۰</p>
+        </div>
+
+    </div>
+
+    <!-- Bottom Bar: Medical Disclaimer & Copyright -->
+    <div class="footer-bottom">
+        <div class="bottom-container">
+            <p class="disclaimer-text">
+                 <strong>سلب مسئولیت پزشکی:</strong> مطالب آموزشی و اطلاعات موجود در این وب‌سایت صرفاً جهت افزایش آگاهی عمومی است و به هیچ عنوان جایگزین مشاوره تخصصی، تشخیص یا درمان پزشکی نمی‌شود. جهت هرگونه اقدام درمانی حتماً به پزشک معالج مراجعه فرمایید.
+            </p>
+            <p class="copyright-text">
+                حقوق مادی و معنوی این وب‌سایت متعلق به دکتر انصاری‌نژاد و دکتر فرداد می‌باشد. © ۱۴۰۵
+            </p>
+        </div>
+    </div>
+
+</footer>
+
+<style>
+    .main-footer {
+    background-color: var(--color-dark-heading); /* Uses your deep charcoal color as background */
+    color: #e2e8f0; /* Soft off-white text color for excellent contrast */
+    padding-top: 60px;
+    border-top: 3px solid #7A8B6E;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin-inline: auto;
+    padding: 0 20px 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+/* --- Brand Column (Right side) --- */
+.brand-column h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.brand-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* --- Customized Social Branding Hover Colors --- */
+.social-icon {
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.07);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+
+/* Instagram Hover Effect (Warm Pink/Purple gradient feel) */
+.instagram-bg:hover {
+    background-color: #E1306C;
+    transform: translateY(-3px);
+}
+
+/* Telegram Hover Effect (Official Blue) */
+.telegram-bg:hover {
+    background-color: #0088cc;
+    transform: translateY(-3px);
+}
+
+/* WhatsApp Hover Effect (Official Green) */
+.whatsapp-bg:hover {
+    background-color: #25D366;
+    transform: translateY(-3px);
+}
+
+
+/* --- Links Column (Center) --- */
+.links-column h4, .contact-column h4 {
+    color: var(--color-secondary-gold); /* Highlight headers with your gold accent */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.links-column ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Splits the links menu neatly into 2 columns */
+    gap: 12px;
+}
+
+.links-column a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.links-column a:hover {
+    color: var(--color-secondary-gold);
+}
+
+/* --- Contact Column (Left side) --- */
+.footer-address {
+    display: inline;
+}
+.contact-column p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: #cbd5e1;
+}
+
+.phone-number {
+    direction: ltr; /* Keeps the area code format looking correct */
+    display: inline-block;
+}
+
+/* --- Footer Bottom Bar & Disclaimer --- */
+.footer-bottom {
+    background-color: #11201a; /* Even darker shade for structural contrast */
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottom-container {
+    max-width: 1400px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.disclaimer-text {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #94a3b8; /* Muted slate color for secondary metadata texts */
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 15px;
+    border-radius: 6px;
+    border-right: 3px solid var(--color-secondary-gold); /* Gold strip alert design */
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+/* --- Responsiveness Layer --- */
+@media (max-width: 992px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 35px;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .links-column ul {
+        justify-items: center;
+    }
+}
+</style>

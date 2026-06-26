@@ -16,6 +16,14 @@
     --max-width-hero: 1400px;   /* For hero sections with large images */
     --max-width-content: 1200px; /* Standard reading/browsing width */
     --max-width-narrow: 800px;   /* Perfect for readable medical articles/blogs */
+  
+   /* =========================
+     TRANSITIONS
+  ========================== */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
   }
   
   /* =========================================
@@ -67,3 +75,5 @@
     /* Automatically wraps columns when they get too squished on mobile */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+
+  
