@@ -15,8 +15,8 @@ const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
 <section class="hero">
     <div class="container-hero">
         <div class="content">
-            <div class="badge">{badge}</div>
-            <h1 class="title">
+            <div class="badge animate-fade-up delay-1">{badge}</div>
+            <h1 class="hero-title animate-fade-up delay-2">
                 {titleLine1}
                 {titleLine2 && (
                     <>
@@ -26,10 +26,10 @@ const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
                 )}
                 
             </h1>
-            <p class="description">
+            <p class="description animate-fade-up delay-3">
                 {description}
             </p>
-            <div class="button">
+            <div class="hero-button animate-fade-up delay-4">
                 <ButtonLink href="/contact">
                    مشاوره آنلاین
                 </ButtonLink>
@@ -38,8 +38,130 @@ const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
                 </ButtonLink>
             </div>
         </div>
-        <div class="visual">
-            <Image src={image} alt={alt} />
+        <div class="visual animate-fade-left delay-2">
+            <Image class="heroImg" src={image} alt={alt} />
         </div>
     </div>
 </section>
+
+<style>
+    .hero {
+        padding: 5rem 1.25rem;
+        background-color: var(--color-bg-hero);
+        overflow: hidden;
+    }
+    .container-hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+
+    }
+    .content {
+        max-width: 700px;
+        flex: 1;
+    }
+    .badge {
+        display: inline-block;
+        background-color: var(--color-brand-green-light);
+        color: white;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.4;
+        color: var(--color-text-primary);
+        font-weight: 700;
+        text-shadow: 1px 1px 1px var(--color-brand-accent);
+        margin-bottom: 1.25rem;
+        font-family: var(--font-estedad);
+    }
+    .description {
+        font-size: 1.15rem;
+        line-height: 1.9;
+        color: var(--color-text-primary);
+        margin-bottom: 2rem;
+    }
+    .hero-button {
+        display: flex;
+        gap: 1rem;
+    }
+    .visual {
+        width: 100%;
+        max-width: 700px;
+        flex: 1;
+    }
+    .heroImg {
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 15px 35px rgba(26, 46, 38, 0.08);
+
+    }
+    .animate-fade-up {
+    opacity: 0; 
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-fade-left {
+    opacity: 0;
+    animation: fadeInLeft 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px); /* Slides smoothly upwards */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px); /* Slides smoothly from the left side */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gentleFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); } /* Softly hovers up and down */
+    100% { transform: translateY(0px); }
+}
+</style>
+
+<style is:global>
+    @media (max-width: 992px) {
+    .container-hero {
+        flex-direction: column; 
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+      
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-button {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+</style>

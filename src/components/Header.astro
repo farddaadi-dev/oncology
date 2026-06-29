@@ -163,6 +163,7 @@ const { pathname } = Astro.url;
 
 .mobile-menu .cta-consultation:hover {
   background-color: var(--color-brand-accent-dark);
+
 }
 /* =========================
    HAMBURGER BUTTON
@@ -212,20 +213,20 @@ const { pathname } = Astro.url;
   left: -280px;
   
   width: 280px;
-  height: 100vh;
+  max-height: 100vh;
  
   background: #f7f5ef;
 
-  padding: 20px 24px 40px;
+  padding: 80px 24px 40px;
   
   display: flex;
   flex-direction: column;
-  gap: 10px;
-
+  gap: 25px;
+  overflow-y: auto;
   transition: 0.35s ease;
   align-items:center;
   z-index: 2000;
-
+  -webkit-overflow-scrolling: touch;
   box-shadow: 4px 0 20px rgba(0,0,0,0.08);
 }
 
