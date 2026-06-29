@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
+import Hero from '../components/Hero.astro';
+import homeImage from '../assets/images/hero.webp';
 ---
 
 <BaseLayout 
@@ -8,5 +9,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	description= "سایت علمی و درمانی دکتر نفیسه انصاری‌نژاد و دکتر فرشید فرداد. ارائه خدمات تخصصی درمان سرطان، شیمی‌درمانی و بیماری‌های خون در تهران."
 	image="/default-og-image.jpg"
 	>
-	<h1>My Content</h1>
+	<Hero 
+		badge="مطب فوق تخصصی هماتولوژی و آنکولوژی"
+		titleLine1="تخصص در درمان"
+		titleLine2="تعهد به لبخند"
+		description="مشاوره، تشخیص و درمان نوین با رویکردی دقیق، علمی و انسانی ما در تمامی مراحل درمان، همراه و پشتیبان شما هستیم."
+		image={homeImage}
+		alt="تصویر یک اتاق با محیط گرم همراه با کتاب و گیاه"
+	/>
 </BaseLayout>

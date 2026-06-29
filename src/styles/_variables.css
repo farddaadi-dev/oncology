@@ -4,9 +4,9 @@
        ========================================= */
     
     /* The earthy green from the leaves and circle arc */
-    --color-brand-green: #6F7A5E;       
-    --color-brand-green-light: #8A9677; /* Lighter tint for hover states */
-    --color-brand-green-dark: #555E47;  /* Darker shade for contrast/text */
+    --color-brand-green: rgb(111, 122, 94);       
+    --color-brand-green-light: rgb(138, 150, 119); /* Lighter tint for hover states */
+    --color-brand-green-dark: rgb(85, 94, 71);  /* Darker shade for contrast/text */
   
     /* The warm amber/orange from the sun rays */
     --color-brand-accent: #F08A00;      
@@ -24,13 +24,13 @@
     --color-bg-dark: #1f241e;
     --color-dark-heading: #1A2E26;
     --color-secondary-gold: #D1A153;
-    --color-primary-sage: #7A8B6E;
+    --color-primary-sage: rgb(122, 139, 110);
     --color-body-text: #2F3E37;
     --color-bg-warm: #FDFBF7;
     --color-bg-section: #F3F6F1;
     /* Text: Soft charcoals instead of harsh pure black */
     --color-text-primary: #2C2E2A;   /* Main body text (highly readable) */
-    --color-text-secondary: #5C6057; /* Subtitles, muted text, dates */
+    --color-text-secondary: rgb(92, 96, 87); /* Subtitles, muted text, dates */
     --color-text-inverse: #FFFFFF;   /* Text on top of dark buttons/banners */
   
     /* Borders & Dividers */

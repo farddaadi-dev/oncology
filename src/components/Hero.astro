@@ -1,0 +1,45 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+import {Image} from "astro:assets";
+interface Props {
+    badge: string;
+    titleLine1: string;
+    titleLine2?: string;
+    description: string;
+    image: ImageMetadata;
+    alt: string;
+}
+const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
+---
+
+<section class="hero">
+    <div class="container-hero">
+        <div class="content">
+            <div class="badge">{badge}</div>
+            <h1 class="title">
+                {titleLine1}
+                {titleLine2 && (
+                    <>
+                    <br />
+                    {titleLine2}
+                    </>
+                )}
+                
+            </h1>
+            <p class="description">
+                {description}
+            </p>
+            <div class="button">
+                <ButtonLink href="/contact">
+                   مشاوره آنلاین
+                </ButtonLink>
+                <ButtonLink href="/contact" variant="secondary">
+                   رزرو نوبت
+                </ButtonLink>
+            </div>
+        </div>
+        <div class="visual">
+            <Image src={image} alt={alt} />
+        </div>
+    </div>
+</section>
