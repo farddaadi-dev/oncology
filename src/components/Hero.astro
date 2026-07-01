@@ -30,11 +30,18 @@ const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
                 {description}
             </p>
             <div class="hero-button animate-fade-up delay-4">
-                <ButtonLink href="/contact">
-                   مشاوره آنلاین
+                <ButtonLink 
+                href="/contact"
+                text= "مشاوره آنلاین"
+                >
+                  
                 </ButtonLink>
-                <ButtonLink href="/contact" variant="secondary">
-                   رزرو نوبت
+                <ButtonLink 
+                href="/contact" 
+                variant="secondary"
+                text="رزرو نوبت"
+                >
+                   
                 </ButtonLink>
             </div>
         </div>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  id?: string;
+  background?: "white" | "secondary" | "primary";
+  width?: "normal" | "wide";
+}
+
+const {
+  id, 
+  background = "white",
+  width = "normal"
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    "section",
+    `section--${background}`,
+    `section--${width}`
+  ]}
+>
+  <div class="section__container">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .section__container {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+  }
+
+  .section--wide .section__container {
+    width: min(100% - 2rem, 1400px);
+  }
+
+  .section--white {
+    background-color: white;
+  }
+
+  .section--secondary {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .section--primary {
+    background-color: var(--color-bg-primary);
+    color: white;
+  }
+</style>

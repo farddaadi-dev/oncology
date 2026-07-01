@@ -1,0 +1,65 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  description?: string;
+}
+
+const {
+  number,
+  title,
+  description
+} = Astro.props;
+---
+
+<article class="process-step">
+
+  <div class="process-step__number">
+    {number}
+  </div>
+
+  <h3>{title}</h3>
+
+  {description && (
+    <p>{description}</p>
+  )}
+
+</article>
+
+<style>
+  .process-step {
+    text-align: center;
+  }
+
+  .process-step__number {
+    width: 70px;
+    height: 70px;
+
+    margin-inline: auto;
+    margin-bottom: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+    color: white;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .process-step h3 {
+    margin: 0 0 0.75rem;
+  }
+
+  .process-step p {
+    margin: 0;
+
+    line-height: 1.8;
+
+    color: #555;
+  }
+</style>

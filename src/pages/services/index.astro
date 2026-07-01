@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import Section from "../../components/Section.astro"
+import SectionHeading from "../../components/SectionHeading.astro";
+import ServiceGrid from "../../components/ServiceGrid.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import servicesImage from "../../assets/images/Services.png"
+---
+
+<BaseLayout
+    title="خدمات"
+    description="توضیحات کامل در مورد خدمات ارائه شده شامل ویزیت، مشاوره، شیمی درمانی، نمونه برداری از مغز استخوان و غیره"
+    image="/default-og-image.jpg"
+	>
+    <Hero 
+    badge="مطب فوق تخصصی هماتولوژی و آنکولوژی"
+    titleLine1="خدمات تخصصی"
+    titleLine2="آنکولوژی و هماتولوژی"
+    description="ارائه خدمات تشخیصی، درمانی و مراقبتی برای بیماران مبتلا به سرطان، بیماری‌های خونی و اختلالات هماتولوژیک"
+    image={servicesImage}
+    alt="warm clinic environment"
+    >
+    </Hero>
+    <Section
+    background="primary"
+    >
+        <SectionHeading
+        title="خدمات تخصصی"
+         subtitle="خدمات تشخیصی و درمانی در حوزه آنکولوژی و هماتولوژی"
+        >
+        </SectionHeading>
+        <ServiceGrid>
+            <ServiceCard 
+            title="درمان‌های سرطان"
+            description="شیمی درمانی، ایمونوتراپی، درمان‌های هدفمند و پیگیری درمان بیماران مبتلا به سرطان"
+            href="/services/medical-oncology"
+            icon="/assets/icons/ribbon.svg"
+            >
+            </ServiceCard>
+            <ServiceCard
+            title="بیماری‌های خونی"
+            description="ارزیابی و درمان کم‌خونی، اختلالات انعقادی و سایر بیماری‌های هماتولوژیک"
+            href="/services/hematology"
+            icon="/assets/icons/blood.svg"
+            >
+            </ServiceCard>
+            <ServiceCard
+            title="اقدامات تخصصی"
+            description="بیوپسی مغز استخوان، آسپیراسیون، LP و شیمی‌درمانی داخل نخاعی  "
+            href="/services/procedures"
+            icon="/icons/procedure.svg"
+            >
+            </ServiceCard>
+            <ServiceCard
+            title="مراقبت حمایتی"
+            description="کنترل علمی دردهای سرطانی، تهوع، ضعف و بی‌اشتهایی ناشی از درمان‌ها جهت ارتقای جدی کیفیت زندگی (Quality of Life) بیماران در طول دوره درمان"
+            href="/services/supportive"
+            icon="/assets/icons/supportive.svg"
+            >
+            </ServiceCard>
+            <ServiceCard
+            title="اقدامات سرپایی"
+            description="سرم تراپی، تزریق فرآورده‌های آهن، درمانهای علامتی"
+            href="/services/ambulatory"
+            icon="/assets/icons/ambulatory"
+            >
+            </ServiceCard>
+            <ServiceCard
+            title="مشاوره تخصصی دوم (Second Opinion)"
+            description="بررسی دقیق پرونده‌های پیچیده پزشکی، پاتولوژی و گرافی‌ها جهت تایید تشخیص و ارائه بهترین و دقیق‌ترین پیشنهاد درمانی نوین"
+            href="/services/consult"
+            icon="/assets/icons/consult"
+            >
+            </ServiceCard>
+        </ServiceGrid>
+    </Section>
+</BaseLayout>
