@@ -1,18 +1,15 @@
 ---
-import ButtonLink from "./ButtonLink.astro";
+import ButtonLink from './ButtonLink.astro';
 
 interface Props {
   title: string;
   description?: string;
-  buttonText: string;
-  buttonHref: string;
+  
 }
 
 const {
   title,
-  description,
-  buttonText,
-  buttonHref
+  description
 } = Astro.props;
 ---
 
@@ -26,9 +23,21 @@ const {
       <p>{description}</p>
     )}
 
-    <ButtonLink href={buttonHref}>
-      {buttonText}
-    </ButtonLink>
+    <div class="hero-button">
+      <ButtonLink 
+      href="/contact"
+      text= "مشاوره آنلاین"
+      >
+    
+      </ButtonLink>
+      <ButtonLink 
+      href="/contact" 
+      variant="secondary"
+      text="رزرو نوبت"
+      >
+     
+      </ButtonLink>
+    </div>
 
   </div>
 
@@ -37,19 +46,25 @@ const {
 <style>
   .cta {
     padding: 4rem 2rem;
-
-    border-radius: 1.5rem;
+  
+    
 
     text-align: center;
 
-    background: var(--color-primary);
+    background: white;
 
-    color: white;
+    color: var(--color-text-primary);
   }
 
   .cta-content {
-    max-width: 700px;
+    max-width: 400px;
     margin-inline: auto;
+    background-color: var(--color-bg-hero);
+    border-radius: 1.5rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .cta h2 {
@@ -65,4 +80,8 @@ const {
 
     opacity: 0.9;
   }
+  .hero-button {
+        display: flex;
+        gap: 1rem;
+    }
 </style>
