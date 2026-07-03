@@ -1,0 +1,24 @@
+<div class="contact-grid" id="contact-grid">
+    <slot />
+</div>
+
+<style>
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2rem;
+}
+</style>
+<style is:global>
+    @media (max-width:1000px){
+        #contact-grid{
+            grid-template-columns:repeat(2,1fr);
+    }
+}
+
+    @media (max-width:600px){
+        #contact-grid{
+            grid-template-columns:1fr;
+    }
+}
+</style>

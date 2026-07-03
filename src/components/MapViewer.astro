@@ -1,0 +1,113 @@
+---
+interface MapItem {
+  name: string;
+  image: string;
+  url: string;
+  icon?: string;
+}
+
+interface Props {
+  maps: MapItem[];
+}
+
+const { maps } = Astro.props;
+---
+
+<div class="map-viewer">
+
+  <div class="map-preview">
+    <img
+      src={maps[0].image}
+      alt={maps[0].name}
+    />
+  </div>
+
+  <div class="map-selector">
+
+    {maps.map((map, index) => (
+
+      <button
+        type="button"
+        class:list={[
+          "map-button",
+          { active: index === 0 }
+        ]}
+        data-image={map.image}
+        data-url={map.url}
+        data-name={map.name}
+      >
+
+        {map.icon && (
+          <img
+            src={map.icon}
+            alt=""
+            aria-hidden="true"
+          />
+        )}
+
+        <span>{map.name}</span>
+
+      </button>
+
+    ))}
+
+  </div>
+
+  <a
+    class="map-link"
+    href={maps[0].url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    مشاهده در {maps[0].name}
+  </a>
+
+</div>
+
+<script>
+document.querySelectorAll(".map-viewer").forEach((viewer) => {
+
+  const image = viewer.querySelector(".map-preview img");
+  const link = viewer.querySelector(".map-link");
+  const buttons = viewer.querySelectorAll(".map-button");
+
+  if (
+    !(image instanceof HTMLImageElement) ||
+    !(link instanceof HTMLAnchorElement)
+  ) {
+    return;
+  }
+
+  buttons.forEach((button) => {
+
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    button.addEventListener("click", () => {
+
+      image.src = button.dataset.image ?? "";
+
+      image.alt = button.dataset.name ?? "";
+
+      link.href = button.dataset.url ?? "";
+
+      link.textContent =
+        `مشاهده در ${button.dataset.name ?? ""}`;
+
+      buttons.forEach((btn) => {
+
+        if (btn instanceof HTMLButtonElement) {
+          btn.classList.remove("active");
+        }
+
+      });
+
+      button.classList.add("active");
+
+    });
+
+  });
+
+});
+</script>

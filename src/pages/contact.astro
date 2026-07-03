@@ -1,5 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import contactHero from "../assets/images/contactHero.png"
+import Section from "../components/Section.astro";
+import ContactGrid from "../components/ContactGrid.astro";
+import ContactCard from "../components/ContactCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import MapViewer from "../components/MapViewer.astro";
+import {maps} from "../data/maps";
+import Faq from "../components/Faq.astro";
+import Cta from "../components/Cta.astro";
+
+const faqItems = [
+  {
+    question: "آیا برای ویزیت اولیه مدارک قبلی لازم است؟",
+    answer: "بله، لطفاً تمامی آزمایش‌ها، تصویربرداری‌ها و گزارش‌های پزشکی قبلی را همراه داشته باشید."
+  }, {
+    question:"آیا برای مراجعه نیاز به ارجاع از یک پزشک دیگر دارم؟", 
+    answer: "در صورتی که بخشی از اقدامات تشخیصی یا درمانی شما توسط پزشک دیگری انجام شده است، نامه ارجاع لازم است. اما اگر قبلا اقدامی انجام نشده یا برای مشاوره دوم مراجعه می‌کنید ضرورت ندارد."
+  }, {
+    question: "آیا پارکینگ در نزدیکی کلینیک وجود دارد؟", 
+    answer: "بله. روبروی کلینیک یک پارکینگ طبقاتی وجود دارد"
+  }
+  ];
 ---
 
 <BaseLayout
@@ -7,4 +30,65 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     description="اطلاعات تماس شامل شماره تلفن، آدرس، نقشه و لینک شبکه‌های اجتماعی"
     image="/default-og-image.jpg"
 	>
+    <Hero 
+    badge="ارتباط با کلینیک"
+    titleLine1="اطلاعات تماس،"
+    titleLine2="آدرس و نوبت‌دهی"
+    description="جهت هماهنگی زمان ویزیت و طرح سوالات خود، از طریق راه‌های ارتباطی زیر با منشی مطب در تماس باشید"
+    image={contactHero}
+    alt="تصویر بخش پذیرش کلینیک"
+    >
+    </Hero>
+    <Section 
+    background="primary"
+    >
+        <ContactGrid>
+            <ContactCard 
+            title="تلفن مطب"
+            value="۰۲۱۴۶۱۲۹۱۴۳"
+            href="tel://+982146129143"
+            icon="/assets/icons/telephone.svg"
+            >
+            </ContactCard>
+            <ContactCard 
+            title="ایمیل"
+            value="info@example.com"
+            href="mailto:info@example.com"
+            icon="/assets/icons/email.svg"
+            >
+            </ContactCard>
+            <ContactCard 
+            title="آدرس"
+            value="تهران،صادقیه،خ ستارخان،بلوار شهدای صادقیه،خ پرویز،پ ۱۵، طبقه ششم"
+            href="https://balad.ir/p/%DA%A9%D9%84%DB%8C%D9%86%DB%8C%DA%A9-%D8%A2%D8%B1%D9%88%DB%8C%D9%86-tehran-nei-sadeqiyeh_home-health-care-service-6xa1QNpXQKdCQD#15/35.72173/51.34081"
+            icon="/assets/icons/address.svg"
+            >
+
+            </ContactCard>
+        </ContactGrid>
+    </Section>
+    <Section background="secondary">
+        <SectionHeading 
+        title="نقشه و مسیریابی کلینیک"
+        subtitle="برای مشاهده مسیر، پلتفرم موردنظر خود را انتخاب کنید"
+        >
+        </SectionHeading>
+        <MapViewer
+        maps={maps}>
+        </MapViewer>
+    </Section>
+    <Section>
+        <SectionHeading 
+        title="سوالات متداول">
+        </SectionHeading>
+        <Faq 
+        items={faqItems}>
+        </Faq>
+    </Section>
+    <Cta 
+    title="اطلاعات بیشتری نیاز دارید؟"
+    description="برای گرفتن نوبت ویزیت حضوری یا مشاوره آنلاین اقدام کنید"
+    >
+
+    </Cta>
 </BaseLayout>
