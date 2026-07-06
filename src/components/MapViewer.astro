@@ -64,6 +64,101 @@ const { maps } = Astro.props;
 
 </div>
 
+<style>
+.map-viewer{
+
+    display:grid;
+
+    gap:2rem;
+
+}
+
+.map-preview{
+
+    overflow:hidden;
+
+    border-radius:1rem;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.map-preview img{
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+}
+
+.map-selector{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:1rem;
+
+}
+
+.map-button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    cursor:pointer;
+
+    padding:.75rem 1.25rem;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#f5f5f5;
+
+    transition:.25s;
+
+}
+
+.map-button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.map-button.active{
+
+    background:var(--color-primary);
+
+    color:white;
+
+}
+
+.map-button img{
+
+    width:22px;
+
+    height:22px;
+
+}
+
+.map-link{
+
+    justify-self:center;
+
+}
+
+</style>
+
 <script>
 document.querySelectorAll(".map-viewer").forEach((viewer) => {
 

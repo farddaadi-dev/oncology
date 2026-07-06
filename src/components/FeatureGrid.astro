@@ -1,4 +1,4 @@
-<div class="feature-grid">
+<div class="feature-grid" id="feature-grid">
     <slot />
   </div>
   
@@ -12,15 +12,16 @@
   
       gap: 2rem;
     }
-  
+  </style>
+  <style is:global>
     @media (max-width: 1000px) {
-      .feature-grid {
+      #feature-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
   
     @media (max-width: 600px) {
-      .feature-grid {
+      #feature-grid {
         grid-template-columns: 1fr;
       }
     }

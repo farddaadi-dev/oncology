@@ -1,4 +1,4 @@
-<div class="services-grid">
+<div class="services-grid" id="services-grid">
     <slot />
 </div>
 
@@ -11,15 +11,17 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
+</style>
 
-    @media (max-width: 900px) {
-        .services-grid {
+<style is:global>
+    @media (max-width: 1000px) {
+        #services-grid {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
     @media (max-width: 600px) {
-        .services-grid {
+        #services-grid {
             grid-template-columns: 1fr;
         }
     }
