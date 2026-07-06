@@ -68,14 +68,22 @@ const faqItems = [
         </ContactGrid>
     </Section>
     <Section background="secondary">
-        <SectionHeading 
+      <SectionHeading 
         title="نقشه و مسیریابی کلینیک"
         subtitle="برای مشاهده مسیر، پلتفرم موردنظر خود را انتخاب کنید"
         >
-        </SectionHeading>
-        <MapViewer
-        maps={maps}>
-        </MapViewer>
+      </SectionHeading>
+      <div class="map-hour" id="map-hour">
+        <div class="work-hour">
+          <h3>راهنمای مسیریابی</h3>
+          <p>پس از انتخاب پلتفرم، بر روی لینک «مشاهده در» کلیک کنید تا پلتفرم مسیریابی انتخاب شده فعال گردد.</p>
+        </div>
+        <div class="map">
+          <MapViewer
+            maps={maps}>
+          </MapViewer>
+        </div>
+      </div>
     </Section>
     <Section>
         <SectionHeading 
@@ -92,3 +100,28 @@ const faqItems = [
 
     </Cta>
 </BaseLayout>
+
+
+<style>
+  .map-hour {
+    display: flex;
+  }
+
+  .work-hour {
+    flex: 2;
+  }
+  .map {
+    flex: 3;
+  }
+  
+</style>
+
+<style is:global>
+  @media (max-width:700px) {
+    #map-hour {
+      flex-direction: column;
+    }
+  }
+    
+
+</style>

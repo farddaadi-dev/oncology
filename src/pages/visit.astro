@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { doctors } from "../data/doctors";
+import DoctorScheduleCard from "../components/DoctorScheduleCard.astro";
 ---
 
 <BaseLayout
@@ -7,4 +9,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     description="روزها و ساعات ویزیت حضوری پزشکان در کلینیک و بیمارستان"
     image="/default-og-image.jpg"
 	>
+    {doctors.map((doctor) => (
+
+        <DoctorScheduleCard
+    
+            {...doctor}
+    
+        />
+    
+    ))}
 </BaseLayout>

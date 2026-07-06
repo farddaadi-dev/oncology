@@ -1,0 +1,65 @@
+---
+interface Props {
+    day: string;
+    hours: string;
+}
+
+const {
+    day,
+    hours
+} = Astro.props;
+---
+
+<div class="schedule-row">
+
+    <span class="day">
+        {day}
+    </span>
+
+    <span class="hours">
+        {hours}
+    </span>
+
+</div>
+
+<style>
+
+.schedule-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:1rem;
+
+    padding:.75rem 0;
+
+    border-bottom:1px solid var(--color-border);
+
+}
+
+.schedule-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.day{
+
+    font-weight:600;
+
+    color:var(--color-text-primary);
+
+}
+
+.hours{
+
+    color:var(--color-brand-green-dark);
+
+    white-space:nowrap;
+
+}
+
+</style>

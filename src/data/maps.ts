@@ -1,20 +1,20 @@
 export const maps = [
     {
       name: "نشان",
-      image: "/images/neshan.webp",
+      image: "../assets/images/neshan.webp",
       url: "https://nshn.ir/e1_bvkV-OxMQfI",
-      icon: "/icons/neshan.svg"
+      icon: "/assets/icons/neshan.webp"
     },
     {
       name: "بلد",
-      image: "/images/balad.webp",
+      image: "../assets/images/balad.webp",
       url: "https://balad.ir/p/6xa1QNpXQKdCQD",
-      icon: "/icons/balad.svg"
+      icon: "/assets/icons/balad.png"
     },
     {
       name: "Google Maps",
-      image: "/images/google.webp",
+      image: "../assets/images/google.webp",
       url: "https://maps.app.goo.gl/wW36vqp7AU6sw2Pm7",
-      icon: "/icons/google-maps.svg"
+      icon: "/assets/icons/google.webp"
     }
   ];
