@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import visitImage from "../assets/images/visit.webp";
+import Section from "../components/Section.astro";
 import { doctors } from "../data/doctors";
 import DoctorScheduleCard from "../components/DoctorScheduleCard.astro";
 ---
@@ -9,13 +12,28 @@ import DoctorScheduleCard from "../components/DoctorScheduleCard.astro";
     description="روزها و ساعات ویزیت حضوری پزشکان در کلینیک و بیمارستان"
     image="/default-og-image.jpg"
 	>
-    {doctors.map((doctor) => (
+    <Hero 
+        badge="زمان‌بندی ویزیت"
+        titleLine1="برنامه حضور پزشکان"
+        titleLine2="در مطب و بیمارستان"
+        description="لطفاً پیش از مراجعه حضوری، برنامه زمان‌بندی زیر را بررسی نموده و جهت هماهنگی نهایی با شماره‌های مطب تماس حاصل فرمایید."
+        image={visitImage}
+        alt="تصویر اتاق انتظار کلینیک"
+    >
+
+    </Hero>
+    <Section background="primary">
+        {doctors.map((doctor) => (
 
         <DoctorScheduleCard
     
             {...doctor}
+            >
+            </DoctorScheduleCard>
     
-        />
+        
     
     ))}
+    </Section>
+    
 </BaseLayout>

@@ -44,7 +44,7 @@ const {
 }=Astro.props;
 ---
 
-<article class="card doctor-card">
+<article class="card doctor-card" id="doctor-card">
 
     {image && (
 
@@ -120,6 +120,7 @@ const {
     gap:2rem;
 
     align-items:start;
+    padding:var(--space-lg);
 
 }
 
@@ -163,19 +164,16 @@ const {
 
 .location-header{
 
-    display:flex;
+    
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-md);
 
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:1rem;
-
-    margin-bottom:1rem;
-
-    flex-wrap:wrap;
-
+    margin-bottom: var(--space-md);
 }
+
+
 
 .location-header h4{
 
@@ -200,17 +198,20 @@ const {
     display:grid;
 
     gap:.25rem;
+    padding-inline: var(--space-lg);
 
 }
 
-@media(max-width:768px){
+</style>
 
-    .doctor-card{
+<style is:global>
+    @media(max-width:768px){
+
+    #doctor-card{
 
         grid-template-columns:1fr;
 
     }
 
 }
-
 </style>

@@ -1,6 +1,43 @@
 export const doctors = [
+    
     {
       id: 1,
+      
+      name: "دکتر نفیسه انصاری‌نژاد",
+      specialty: "متخصص خون و سرطان (هماتولوژی و انکولوژی)",
+      image: "/images/doctors/nafiseh-ansari-nejad.webp",
+      locations: [
+        {
+          name: "مطب",
+          phone: "021-23456789",
+          sessions: [
+            {
+              day: "شنبه",
+              hours: "10:00 - 14:00",
+            },
+            {
+              day: "سه‌شنبه",
+              hours: "12:00 - 16:00",
+            },
+          ],
+        },
+        {
+          name: "کلینیک بیمارستان",
+          phone: "021-98765432",
+          sessions: [
+            {
+              day: "یکشنبه",
+              hours: "09:00 - 13:00",
+            },
+            {
+              day: "چهارشنبه",
+              hours: "14:00 - 18:00",
+            },
+          ],
+        },
+      ],
+    },{
+      id: 2,
   
       name: "دکتر فرشید فرداد",
   
@@ -47,5 +84,5 @@ export const doctors = [
           ],
         },
       ],
-    },
+    }
   ];
