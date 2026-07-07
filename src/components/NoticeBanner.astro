@@ -1,0 +1,104 @@
+---
+interface Props {
+
+title?: string;
+
+text: string;
+
+type?: "info" | "warning" | "success";
+
+}
+
+const {
+
+title,
+
+text,
+
+type="info"
+
+}=Astro.props;
+---
+
+<div class={`notice notice--${type}`}>
+
+<div class="notice__icon">
+
+    {type==="warning" && "⚠️"}
+
+    {type==="info" && "ℹ️"}
+
+    {type==="success" && "✓"}
+
+</div>
+
+<div>
+
+    {title &&
+
+        <h3>{title}</h3>
+
+    }
+
+    <p>{text}</p>
+
+</div>
+
+</div>
+
+<style>
+
+.notice{
+
+display:flex;
+
+gap:1rem;
+
+padding:1.5rem;
+
+border-radius:var(--radius-lg);
+
+margin-block:2rem;
+
+}
+
+.notice__icon{
+
+font-size:2rem;
+
+}
+
+.notice--info{
+
+background:#eef6fb;
+
+}
+
+.notice--warning{
+
+background:#fff6df;
+
+}
+
+.notice--success{
+
+background:#edf8ef;
+
+}
+
+
+
+.notice h3{
+
+margin-bottom:.5rem;
+color: var(--color-text-primary);
+
+}
+
+.notice p{
+
+margin:0;
+color: var(--color-text-secondary);
+}
+
+</style>
