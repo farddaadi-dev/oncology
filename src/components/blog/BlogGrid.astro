@@ -1,0 +1,32 @@
+<div class="blog-grid" id="blog-gird">
+    <slot />
+</div>
+
+<style>
+
+.blog-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:var(--space-xl);
+
+    align-items:stretch;
+
+}
+</style>
+
+
+<style is:global>
+@media(max-width:768px){
+
+    #blog-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>

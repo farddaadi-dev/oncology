@@ -1,0 +1,48 @@
+---
+import { authors } from "../../data/authors";
+
+interface Props {
+
+    author: keyof typeof authors;
+
+}
+
+const { author } = Astro.props;
+
+const info = authors[author];
+---
+
+<section class="author-card">
+
+    <img
+        src={info.image}
+        alt={info.name}
+        class="author-card__image"
+    />
+
+    <div class="author-card__content">
+
+        <span class="author-card__label">
+            نویسنده مقاله
+        </span>
+
+        <h2>{info.name}</h2>
+
+        <p class="author-card__title">
+            {info.title}
+        </p>
+
+        <p>
+            {info.bio}
+        </p>
+
+        <a
+            href={info.profileUrl}
+            class="author-card__link"
+        >
+            مشاهده صفحه معرفی پزشک
+        </a>
+
+    </div>
+
+</section>

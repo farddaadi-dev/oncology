@@ -1,0 +1,102 @@
+---
+
+interface Props {
+
+offset?: string;
+
+height?: string;
+
+}
+
+const {
+
+offset = "80px",
+
+height = "4px"
+
+} = Astro.props;
+
+---
+
+<div
+class="reading-progress"
+style={`
+    --progress-offset:${offset};
+    --progress-height:${height};
+`}
+>
+
+<div class="reading-progress__bar"></div>
+
+</div>
+
+<script>
+
+const bar = document.querySelector<HTMLElement>(
+".reading-progress__bar"
+);
+
+if (bar) {
+
+const updateProgress = () => {
+
+    const scrollTop = window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        documentHeight > 0
+            ? (scrollTop / documentHeight) * 100
+            : 0;
+
+    bar.style.width = `${Math.min(progress,100)}%`;
+
+};
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    { passive: true }
+);
+
+updateProgress();
+
+}
+
+</script>
+
+<style>
+
+.reading-progress{
+
+position:fixed;
+
+inset-inline:0;
+
+top:var(--progress-offset);
+
+height:var(--progress-height);
+
+background:transparent;
+
+z-index:90;
+
+pointer-events:none;
+
+}
+
+.reading-progress__bar{
+
+width:0;
+
+height:100%;
+
+background:var(--color-brand-accent);
+
+transition:width .05s linear;
+
+}
+
+</style>

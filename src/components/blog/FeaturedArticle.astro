@@ -1,0 +1,255 @@
+---
+interface Props {
+
+title:string;
+
+description:string;
+
+image:string;
+
+imageAlt?:string;
+
+category:string;
+
+date:string;
+
+readingTime:string;
+
+href:string;
+
+}
+
+const{
+
+title,
+
+description,
+
+image,
+
+imageAlt=title,
+
+category,
+
+date,
+
+readingTime,
+
+href
+
+}=Astro.props;
+---
+
+<article class="featured-article" id="featured-article">
+
+<a
+    href={href}
+    class="featured-article__image"
+>
+
+    <img
+        src={image}
+        alt={imageAlt}
+        loading="eager"
+    />
+
+</a>
+
+<div class="featured-article__content">
+
+    <span class="featured-article__category">
+
+        {category}
+
+    </span>
+
+    <h2 class="featured-article__title">
+
+        <a href={href}>
+
+            {title}
+
+        </a>
+
+    </h2>
+
+    <p class="featured-article__description">
+
+        {description}
+
+    </p>
+
+    <div class="featured-article__footer">
+
+        <time datetime={date}>
+
+            {date}
+
+        </time>
+
+        <span>
+
+            {readingTime}
+
+        </span>
+
+        <a
+            href={href}
+            class="featured-article__link"
+        >
+
+            مطالعه مقاله
+
+        </a>
+
+    </div>
+
+</div>
+
+</article>
+
+<style>
+
+.featured-article{
+
+display:grid;
+
+grid-template-columns:1.1fr 1fr;
+
+gap:var(--space-2xl);
+
+align-items:center;
+
+padding:var(--space-xl);
+
+background:var(--color-bg-primary);
+
+border:1px solid var(--color-border);
+
+border-radius:var(--radius-xl);
+
+box-shadow:var(--shadow-soft);
+
+}
+
+.featured-article__image{
+
+display:block;
+
+overflow:hidden;
+
+border-radius:var(--radius-lg);
+
+}
+
+.featured-article__image img{
+
+width:100%;
+
+aspect-ratio:16/9;
+
+object-fit:cover;
+
+display:block;
+
+transition:transform .4s ease;
+
+}
+
+.featured-article:hover img{
+
+transform:scale(1.03);
+
+}
+
+.featured-article__category{
+
+display:inline-block;
+
+padding:.4rem 1rem;
+
+margin-bottom:var(--space-md);
+
+background:var(--color-bg-section);
+
+color:var(--color-brand-green-dark);
+
+border-radius:999px;
+
+font-size:var(--text-sm);
+
+font-weight:600;
+
+}
+
+.featured-article__title{
+
+margin-bottom:var(--space-md);
+
+}
+
+.featured-article__title a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+.featured-article__title a:hover{
+
+color:var(--color-brand-green);
+
+}
+
+.featured-article__description{
+
+color:var(--color-text-secondary);
+
+margin-bottom:var(--space-xl);
+
+}
+
+.featured-article__footer{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:var(--space-lg);
+
+align-items:center;
+
+color:var(--color-text-secondary);
+
+font-size:var(--text-sm);
+
+}
+
+.featured-article__link{
+
+margin-inline-start:auto;
+
+color:var(--color-brand-accent);
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+</style>
+
+<style is:global>
+
+@media(max-width:900px){
+
+#featured-article{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+</style>

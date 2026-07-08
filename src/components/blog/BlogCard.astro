@@ -1,0 +1,266 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt?: string;
+  category: string;
+  readingTime: string;
+  date: string;
+  href: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt = title,
+  category,
+  readingTime,
+  date,
+  href,
+} = Astro.props;
+---
+
+<article class="blog-card">
+
+  <a href={href} class="blog-card__image-link">
+
+    <img
+      src={image}
+      alt={imageAlt}
+      class="blog-card__image"
+      loading="lazy"
+    />
+
+  </a>
+
+  <div class="blog-card__content">
+
+    <div class="blog-card__meta">
+
+      <span class="blog-card__category">
+        {category}
+      </span>
+
+      <span class="blog-card__reading-time">
+        {readingTime}
+      </span>
+
+    </div>
+
+    <h3 class="blog-card__title">
+
+      <a href={href}>
+        {title}
+      </a>
+
+    </h3>
+
+    <p class="blog-card__description">
+      {description}
+    </p>
+
+    <footer class="blog-card__footer">
+
+      <time datetime={date}>
+        {date}
+      </time>
+
+      <a
+        href={href}
+        class="blog-card__link"
+      >
+        مطالعه مقاله
+      </a>
+
+    </footer>
+
+  </div>
+
+</article>
+
+<style>
+
+.blog-card{
+
+    background:var(--color-bg-primary);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-soft);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+}
+
+.blog-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.blog-card__image{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .5s ease;
+
+}
+
+.blog-card:hover .blog-card__image{
+
+    transform:scale(1.04);
+
+}
+
+.blog-card__content{
+
+    padding:var(--space-lg);
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+.blog-card__meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:var(--space-md);
+
+    font-size:var(--text-sm);
+
+}
+
+.blog-card__category{
+
+    background:var(--color-bg-section);
+
+    color:var(--color-brand-green-dark);
+
+    padding:.35rem .8rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+}
+
+.blog-card__reading-time{
+
+    color:var(--color-text-secondary);
+
+}
+
+.blog-card__title{
+
+    margin:0 0 var(--space-md);
+
+    font-size:var(--text-xl);
+
+    line-height:1.4;
+
+}
+
+.blog-card__title a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+.blog-card__title a:hover{
+
+    color:var(--color-brand-green);
+
+}
+
+.blog-card__description{
+
+    color:var(--color-text-secondary);
+
+    margin-bottom:auto;
+
+}
+
+.blog-card__footer{
+
+    margin-top:var(--space-xl);
+
+    padding-top:var(--space-md);
+
+    border-top:1px solid var(--color-border);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:var(--text-sm);
+
+}
+
+.blog-card__footer time{
+
+    color:var(--color-text-secondary);
+
+}
+
+.blog-card__link{
+
+    text-decoration:none;
+
+    color:var(--color-brand-accent);
+
+    font-weight:600;
+
+}
+
+.blog-card__link:hover{
+
+    color:var(--color-brand-accent-dark);
+
+}
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.blog-card:hover .blog-card__title {
+    color: var(--color-brand-green);
+}
+
+.blog-card:hover .blog-card__image {
+    transform: scale(1.03);
+}
+
+</style>

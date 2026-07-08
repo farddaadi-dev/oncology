@@ -1,0 +1,237 @@
+---
+interface Props {
+  author: string;
+  date: string;
+  readingTime: string;
+  updatedDate?: string;
+}
+
+const {
+  author,
+  date,
+  readingTime,
+  updatedDate
+} = Astro.props;
+---
+
+<div class="article-meta" id="article-meta">
+
+    <!-- Author -->
+    <div class="article-meta__card">
+
+        <div class="article-meta__icon">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                <circle cx="12" cy="8" r="4"/>
+
+                <path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/>
+
+            </svg>
+
+        </div>
+
+        <span class="article-meta__label">
+            نویسنده
+        </span>
+
+        <strong>
+            {author}
+        </strong>
+
+    </div>
+
+    <!-- Publish Date -->
+    <div class="article-meta__card">
+
+        <div class="article-meta__icon">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                <rect x="3" y="5" width="18" height="16" rx="2"/>
+
+                <path d="M8 3v4M16 3v4M3 10h18"/>
+
+            </svg>
+
+        </div>
+
+        <span class="article-meta__label">
+            تاریخ انتشار
+        </span>
+
+        <time datetime={date}>
+            {date}
+        </time>
+
+    </div>
+
+    <!-- Reading Time -->
+    <div class="article-meta__card">
+
+        <div class="article-meta__icon">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                <circle cx="12" cy="12" r="9"/>
+
+                <path d="M12 7v6l4 2"/>
+
+            </svg>
+
+        </div>
+
+        <span class="article-meta__label">
+            زمان مطالعه
+        </span>
+
+        <span>
+            {readingTime}
+        </span>
+
+    </div>
+
+    <!-- Updated -->
+    {updatedDate && (
+
+        <div class="article-meta__card">
+
+            <div class="article-meta__icon">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                    <path d="M21 12a9 9 0 1 1-2.6-6.4"/>
+
+                    <path d="M21 3v6h-6"/>
+
+                </svg>
+
+            </div>
+
+            <span class="article-meta__label">
+                آخرین بروزرسانی
+            </span>
+
+            <time datetime={updatedDate}>
+                {updatedDate}
+            </time>
+
+        </div>
+
+    )}
+
+</div>
+
+<style>
+
+.article-meta{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:var(--space-lg);
+
+    margin-block:var(--space-3xl);
+
+}
+
+.article-meta__card{
+
+    background:var(--color-bg-primary);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-lg);
+
+    padding:var(--space-lg);
+
+    text-align:center;
+
+    box-shadow:var(--shadow-soft);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+
+}
+
+.article-meta__card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.article-meta__icon{
+
+    width:48px;
+
+    height:48px;
+
+    margin-inline:auto;
+
+    margin-bottom:var(--space-md);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--color-bg-section);
+
+    color:var(--color-brand-green);
+
+}
+
+.article-meta__icon svg{
+
+    width:24px;
+
+    height:24px;
+
+}
+
+.article-meta__label{
+
+    display:block;
+
+    margin-bottom:.4rem;
+
+    font-size:var(--text-sm);
+
+    color:var(--color-text-secondary);
+
+}
+
+.article-meta strong,
+.article-meta span:not(.article-meta__label),
+.article-meta time{
+
+    font-weight:600;
+
+    color:var(--color-text-primary);
+
+}
+
+
+
+</style>
+
+<style is:global>
+
+@media(max-width:768px){
+
+#article-meta{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+</style>

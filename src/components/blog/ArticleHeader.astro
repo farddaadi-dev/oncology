@@ -1,0 +1,93 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  excerpt?: string;
+}
+
+const {
+  title,
+  category,
+  excerpt
+} = Astro.props;
+---
+
+<header class="article-header">
+
+    <span class="article-header__category">
+
+        {category}
+
+    </span>
+
+    <h1 class="article-header__title">
+
+        {title}
+
+    </h1>
+
+    {excerpt && (
+
+        <p class="article-header__excerpt">
+
+            {excerpt}
+
+        </p>
+
+    )}
+
+</header>
+
+<style>
+
+.article-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:var(--space-lg);
+
+    margin-bottom:var(--space-2xl);
+
+}
+
+.article-header__category{
+
+    align-self:flex-start;
+
+    padding:.4rem 1rem;
+
+    background:var(--color-bg-section);
+
+    color:var(--color-brand-green-dark);
+
+    border-radius:var(--radius-full);
+
+    font-size:var(--text-sm);
+
+    font-weight:600;
+
+}
+
+.article-header__title{
+
+    margin:0;
+
+    line-height:1.25;
+
+}
+
+.article-header__excerpt{
+
+    font-size:var(--text-lg);
+
+    color:var(--color-text-secondary);
+
+    line-height:1.8;
+
+    margin:0;
+
+}
+
+</style>
