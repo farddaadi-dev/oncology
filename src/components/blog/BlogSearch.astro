@@ -1,0 +1,224 @@
+---
+interface Props {
+  placeholder?: string;
+  action?: string;
+  value?: string;
+}
+
+const {
+  placeholder = "جستجو در مقالات...",
+  action = "/blog",
+  value = ""
+} = Astro.props;
+---
+
+<form
+  class="blog-search"
+  action={action}
+  method="GET"
+  role="search"
+>
+
+  <label class="sr-only" for="search">
+    جستجو در مقالات
+  </label>
+
+  <div class="blog-search__wrapper">
+
+    <svg
+      class="blog-search__icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <circle
+        cx="11"
+        cy="11"
+        r="7"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+
+      <path
+        d="M20 20l-4-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+    </svg>
+
+    <input
+      id="search"
+      name="q"
+      type="search"
+      value={value}
+      placeholder={placeholder}
+      class="blog-search__input"
+      autocomplete="off"
+    />
+
+    <button
+      type="submit"
+      class="blog-search__button"
+    >
+      جستجو
+    </button>
+
+  </div>
+
+</form>
+
+<style>
+
+.blog-search{
+
+    width:100%;
+
+}
+
+.blog-search__wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:var(--space-md);
+
+    background:var(--color-bg-primary);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-xl);
+
+    padding:.5rem;
+
+    box-shadow:var(--shadow-soft);
+
+    transition:border-color var(--transition-normal),
+               box-shadow var(--transition-normal);
+
+}
+
+.blog-search__wrapper:focus-within{
+
+    border-color:var(--color-brand-green);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.blog-search__icon{
+
+    width:22px;
+
+    height:22px;
+
+    color:var(--color-text-secondary);
+
+    flex-shrink:0;
+
+    margin-inline-start:.5rem;
+
+}
+
+.blog-search__input{
+
+    flex:1;
+
+    border:none;
+
+    background:none;
+
+    font:inherit;
+
+    color:var(--color-text-primary);
+
+    outline:none;
+
+    padding:.75rem 0;
+
+}
+
+.blog-search__input::placeholder{
+
+    color:var(--color-text-secondary);
+
+}
+
+.blog-search__button{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:.75rem 1.5rem;
+
+    border-radius:var(--radius-lg);
+
+    background:var(--color-brand-accent);
+
+    color:white;
+
+    font:inherit;
+
+    font-weight:600;
+
+    transition:background var(--transition-normal);
+
+}
+
+.blog-search__button:hover{
+
+    background:var(--color-brand-accent-dark);
+
+}
+
+.sr-only{
+
+    position:absolute;
+
+    width:1px;
+
+    height:1px;
+
+    padding:0;
+
+    margin:-1px;
+
+    overflow:hidden;
+
+    clip:rect(0,0,0,0);
+
+    white-space:nowrap;
+
+    border:0;
+
+}
+</style>
+<style is:global>
+
+@media(max-width:640px){
+
+.blog-search .blog-search__wrapper{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.blog-search__wrapper .blog-search__icon{
+
+display:none;
+
+}
+
+.blog-search__wrapper .blog-search__button{
+
+width:100%;
+
+}
+
+}
+
+</style>

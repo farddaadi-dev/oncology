@@ -1,0 +1,253 @@
+---
+import { authors } from "../../data/authors";
+
+interface Props {
+
+    author: keyof typeof authors;
+
+    reviewedDate?: Date;
+
+    sources?: string[];
+
+}
+
+const {
+
+    author,
+
+    reviewedDate,
+
+    sources = []
+
+} = Astro.props;
+
+
+const authorInfo = authors[author];
+
+---
+
+<section class="trust-box">
+
+    <h2>
+        اعتبار علمی مقاله
+    </h2>
+
+
+    <ul class="trust-box__list">
+
+
+        <li>
+
+            <span class="icon">
+                ✓
+            </span>
+
+            <div>
+
+                <strong>
+                    نویسنده
+                </strong>
+
+                <br>
+
+                {authorInfo.name}
+
+                <br>
+
+                {authorInfo.title}
+
+            </div>
+
+        </li>
+
+
+
+        {reviewedDate && (
+
+            <li>
+
+                <span class="icon">
+                    ✓
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        آخرین بازبینی علمی
+                    </strong>
+
+                    <br>
+
+                    {reviewedDate.toLocaleDateString("fa-IR")}
+
+                </div>
+
+
+            </li>
+
+        )}
+
+
+
+        {sources.length > 0 && (
+
+            <li>
+
+                <span class="icon">
+                    ✓
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        منابع و شواهد علمی                    
+                    </strong>
+
+
+                    <div class="sources">
+
+
+                        {
+                            sources.map(source => (
+
+                                <span class="source-pill">
+
+                                    {source}
+
+                                </span>
+
+                            ))
+                        }
+
+
+                    </div>
+
+
+                </div>
+
+            </li>
+
+        )}
+
+
+
+    </ul>
+
+
+</section>
+
+
+
+<style>
+
+.trust-box{
+
+    margin-block:var(--space-3xl);
+
+    padding:var(--space-2xl);
+
+    background:var(--color-bg-section);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-xl);
+
+}
+
+
+.trust-box h2{
+
+    margin-top:0;
+
+    margin-bottom:var(--space-xl);
+
+}
+
+
+
+.trust-box__list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+    display:grid;
+
+    gap:var(--space-lg);
+
+}
+
+
+
+.trust-box__list li{
+
+    display:flex;
+
+    gap:var(--space-md);
+
+    align-items:flex-start;
+
+}
+
+
+
+.icon{
+
+    width:32px;
+
+    height:32px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--color-brand-green);
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+
+
+.sources{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:var(--space-sm);
+
+    margin-top:var(--space-sm);
+
+}
+
+
+
+.source-pill{
+
+    background:var(--color-bg-primary);
+
+    border:1px solid var(--color-border);
+
+    border-radius:999px;
+
+    padding:.35rem .8rem;
+
+    font-size:var(--text-sm);
+
+}
+
+
+</style>

@@ -1,0 +1,136 @@
+---
+interface Props {
+
+title: string;
+
+variant?: "info" | "tip" | "warning" | "success";
+
+}
+
+const {
+
+title,
+
+variant = "info"
+
+} = Astro.props;
+
+const icons = {
+
+info: "ℹ️",
+
+tip: "💡",
+
+warning: "⚠️",
+
+success: "✅"
+
+};
+---
+
+<aside
+class:list={[
+    "callout",
+    `callout--${variant}`
+]}
+>
+
+<div class="callout__header">
+
+    <span class="callout__icon">
+
+        {icons[variant]}
+
+    </span>
+
+    <h3>
+
+        {title}
+
+    </h3>
+
+</div>
+
+<div class="callout__content">
+
+    <slot />
+
+</div>
+
+</aside>
+
+<style>
+
+.callout{
+
+border-inline-start:5px solid;
+
+border-radius:var(--radius-lg);
+
+padding:var(--space-xl);
+
+margin-block:var(--space-2xl);
+
+background:var(--color-bg-primary);
+
+box-shadow:var(--shadow-soft);
+
+}
+
+.callout__header{
+
+display:flex;
+
+align-items:center;
+
+gap:var(--space-md);
+
+margin-bottom:var(--space-md);
+
+}
+
+.callout__header h3{
+
+margin:0;
+
+font-size:var(--text-lg);
+
+}
+
+.callout__icon{
+
+font-size:1.4rem;
+
+}
+
+.callout__content>:last-child{
+
+margin-bottom:0;
+
+}
+
+.callout--info{
+
+border-color:var(--color-brand-green);
+
+}
+
+.callout--tip{
+
+border-color:var(--color-brand-accent);
+
+}
+
+.callout--warning{
+
+border-color:#c97b00;
+
+}
+
+.callout--success{
+
+border-color:#5d8b67;
+
+}
+
+</style>

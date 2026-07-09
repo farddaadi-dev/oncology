@@ -1,0 +1,107 @@
+---
+import BlogCard from "./BlogCard.astro";
+
+interface RelatedPost {
+
+    title: string;
+
+    description: string;
+
+    image: string;
+
+    category: string;
+
+    href: string;
+
+    date: string;
+
+    readingTime: string;
+
+}
+
+interface Props {
+
+    posts: RelatedPost[];
+
+    title?: string;
+
+}
+
+const {
+
+    posts,
+
+    title = "مطالب مرتبط"
+
+} = Astro.props;
+---
+
+{posts.length > 0 && (
+
+<section class="related-articles">
+
+    <header class="related-articles__header">
+
+        <h2>{title}</h2>
+
+    </header>
+
+    <div class="related-articles__grid">
+
+        {
+
+            posts.map(post => (
+
+                <BlogCard
+
+                    title={post.title}
+
+                    description={post.description}
+
+                    image={post.image}
+
+                    category={post.category}
+
+                    href={post.href}
+
+                    date={post.date}
+
+                    readingTime={post.readingTime}
+
+                />
+
+            ))
+
+        }
+
+    </div>
+
+</section>
+
+)}
+
+<style>
+
+.related-articles{
+
+    margin-top:var(--space-3xl);
+
+}
+
+.related-articles__header{
+
+    margin-bottom:var(--space-xl);
+
+}
+
+.related-articles__grid{
+
+    display:grid;
+
+    gap:var(--space-xl);
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+}
+
+</style>
