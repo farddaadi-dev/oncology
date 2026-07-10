@@ -1,41 +1,169 @@
 ---
 import { Font } from "astro:assets";
+
 interface Props {
   title: string;
   description: string;
   image?: string;
+
+  /** Optional canonical URL */
+  canonical?: string;
+
+  /** Prevent search engines from indexing this page */
+  noindex?: boolean;
+
+  /** Open Graph type */
+  type?: "website" | "article";
 }
-const { title, description, image = '/default-og-image.jpg' } = Astro.props;
-const siteUrl = Astro.site ? Astro.site.toString() : 'http://localhost:4321';
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+
+const {
+  title,
+  description,
+  image = "/default-og-image.jpg",
+  canonical,
+  noindex = false,
+  type = "website",
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("http://localhost:4321");
+
+const canonicalURL = canonical
+  ? new URL(canonical)
+  : new URL(Astro.url.pathname, siteUrl);
+
 const imageURL = new URL(image, siteUrl);
 ---
 
-<!-- Global Metadata -->
+<!-- ========================================= -->
+<!-- Basic Metadata -->
+<!-- ========================================= -->
+
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" href="/favicon32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="canonical" href={canonicalURL} />
-<!-- Primary Meta Tags -->
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+/>
+
+<meta
+  http-equiv="content-language"
+  content="fa-IR"
+/>
+
+<meta
+  name="theme-color"
+  content="#6F7A5E"
+/>
+
+<meta
+  name="author"
+  content="Dr. Farshid Fardad"
+/>
+
+<meta
+  name="description"
+  content={description}
+/>
+
+<meta
+  name="robots"
+  content={noindex ? "noindex,nofollow" : "index,follow"}
+/>
+
 <title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={imageURL} />
+<link
+  rel="canonical"
+  href={canonicalURL}
+/>
 
-<!-- X / Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={imageURL} />
+<!-- ========================================= -->
+<!-- Icons -->
+<!-- ========================================= -->
+
+<link
+  rel="icon"
+  type="image/svg+xml"
+  href="/favicon.svg"
+/>
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/favicon32.png"
+/>
+
+<link
+  rel="apple-touch-icon"
+  href="/apple-touch-icon.png"
+/>
+
+<!-- ========================================= -->
+<!-- Open Graph -->
+<!-- ========================================= -->
+
+<meta
+  property="og:type"
+  content={type}
+/>
+
+<meta
+  property="og:locale"
+  content="fa_IR"
+/>
+
+<meta
+  property="og:site_name"
+  content="کلینیک دکتر فرشید فرداد"
+/>
+
+<meta
+  property="og:title"
+  content={title}
+/>
+
+<meta
+  property="og:description"
+  content={description}
+/>
+
+<meta
+  property="og:url"
+  content={canonicalURL}
+/>
+
+<meta
+  property="og:image"
+  content={imageURL}
+/>
+
+<!-- ========================================= -->
+<!-- X (Twitter) -->
+<!-- ========================================= -->
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+/>
+
+<meta
+  name="twitter:title"
+  content={title}
+/>
+
+<meta
+  name="twitter:description"
+  content={description}
+/>
+
+<meta
+  name="twitter:image"
+  content={imageURL}
+/>
+
+<!-- ========================================= -->
+<!-- Fonts -->
+<!-- ========================================= -->
 
 <Font cssVariable="--font-vazirmatn" preload />
 <Font cssVariable="--font-estedad" preload />
