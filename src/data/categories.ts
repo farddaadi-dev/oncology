@@ -29,5 +29,23 @@ export const categories: BlogCategory[] = [
         slug: "medications",
         label: "داروها",
         description: "اطلاعات داروهای شیمی‌درمانی، هدفمند و ایمونوتراپی"
+    }, 
+    {
+        slug: "nutrition",
+        label: "تغذیه",
+        description: "توصیه‌های تغذیه‌ای برای بیماران"
+    },
+    {
+        slug: "research-news",
+        label: "پژوهش‌های جدید",
+        description: "اخبار و نتایج پژوهش‌های علمی روز"
     }
 ];
+
+export function getCategory(slug: string): BlogCategory | undefined {
+    return categories.find((category) => category.slug === slug);
+  }
+  
+  export function getCategoryLabel(slug: string): string {
+    return getCategory(slug)?.label ?? slug;
+  }

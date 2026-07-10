@@ -1,27 +1,10 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import BlogCard from "./BlogCard.astro";
-
-interface RelatedPost {
-
-    title: string;
-
-    description: string;
-
-    image: string;
-
-    category: string;
-
-    href: string;
-
-    date: string;
-
-    readingTime: string;
-
-}
 
 interface Props {
 
-    posts: RelatedPost[];
+    posts: CollectionEntry<"blog">[];
 
     title?: string;
 
@@ -31,7 +14,7 @@ const {
 
     posts,
 
-    title = "مطالب مرتبط"
+    title = "مطالب مرتبط",
 
 } = Astro.props;
 ---
@@ -48,31 +31,11 @@ const {
 
     <div class="related-articles__grid">
 
-        {
+        {posts.map((post) => (
 
-            posts.map(post => (
+            <BlogCard post={post} />
 
-                <BlogCard
-
-                    title={post.title}
-
-                    description={post.description}
-
-                    image={post.image}
-
-                    category={post.category}
-
-                    href={post.href}
-
-                    date={post.date}
-
-                    readingTime={post.readingTime}
-
-                />
-
-            ))
-
-        }
+        ))}
 
     </div>
 
@@ -101,6 +64,20 @@ const {
     gap:var(--space-xl);
 
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+}
+
+</style>
+
+<style is:global>
+
+@media(max-width:768px){
+
+    .related-articles .related-articles__grid{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
 

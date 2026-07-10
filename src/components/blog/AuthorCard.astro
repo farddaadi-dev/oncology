@@ -1,15 +1,19 @@
 ---
-import { authors } from "../../data/authors";
+import { authors } from "@/data/authors";
+
+type AuthorId = keyof typeof authors;
 
 interface Props {
-
-    author: keyof typeof authors;
-
+    author: AuthorId;
 }
 
 const { author } = Astro.props;
 
 const info = authors[author];
+
+if (!info) {
+  throw new Error(`Unknown author: ${author}`);
+}
 ---
 
 <section class="author-card">
@@ -18,6 +22,8 @@ const info = authors[author];
         src={info.image}
         alt={info.name}
         class="author-card__image"
+        loading="lazy"
+        decoding="async"
     />
 
     <div class="author-card__content">
@@ -36,12 +42,28 @@ const info = authors[author];
             {info.bio}
         </p>
 
-        <a
+        {info.credentials.length > 0 && (
+
+            <ul class="author-card__credentials">
+            
+                {info.credentials.map((item) => (
+            
+                    <li>{item}</li>
+            
+                ))}
+            
+            </ul>
+            
+            )}
+
+        {info.profileUrl && (
+            <a
             href={info.profileUrl}
             class="author-card__link"
-        >
+            >
             مشاهده صفحه معرفی پزشک
-        </a>
+            </a>
+            )}
 
     </div>
 

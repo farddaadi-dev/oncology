@@ -1,6 +1,6 @@
 export interface Author {
 
-    id: string;
+    id: AuthorId;
 
     name: string;
 
@@ -16,7 +16,7 @@ export interface Author {
 
 }
 
-export const authors: Record<string, Author> = {
+export const authors: Record<AuthorId, Author> = {
 
     farshid: {
 
