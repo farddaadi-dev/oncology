@@ -1,5 +1,29 @@
-<div class="blog-grid" id="blog-gird">
-    <slot />
+---
+import type { CollectionEntry } from "astro:content";
+
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+
+    posts: CollectionEntry<"blog">[];
+
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="blog-grid" id="blog-grid">
+
+    {
+
+        posts.map(post => (
+
+            <BlogCard post={post} />
+
+        ))
+
+    }
+
 </div>
 
 <style>
@@ -15,17 +39,18 @@
     align-items:stretch;
 
 }
+
 </style>
 
-
 <style is:global>
+
 @media(max-width:768px){
 
-    #blog-grid{
+#blog-grid{
 
-        grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-    }
+}
 
 }
 

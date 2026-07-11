@@ -42,7 +42,7 @@
      --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.08);
      --shadow-glow: 0 0 8px rgba(242, 155, 23, 0.18);
 
-     :root {
+     
 
       /* Border Radius */
       --radius-sm: 0.375rem;
@@ -57,7 +57,7 @@
       --z-modal: 500;
       --z-toast: 1000;
     
-    }
+    
   }
    
 

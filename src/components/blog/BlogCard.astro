@@ -13,14 +13,16 @@ const { post } = Astro.props;
 
 const {
   title,
-  description,
+  excerpt,
   category,
   image,
   imageAlt,
   publishDate,
 } = post.data;
 
-const href = `/blog/${post.id}`;
+import { getPostUrl } from "@/lib/getPostUrl";
+
+const href = getPostUrl(post);
 
 const readingTime = getReadingTime(post.body);
 ---
@@ -54,7 +56,7 @@ const readingTime = getReadingTime(post.body);
       </h3>
 
       <p class="blog-card__description">
-        {description}
+        {excerpt}
       </p>
 
       <div class="blog-card__meta">
@@ -63,7 +65,9 @@ const readingTime = getReadingTime(post.body);
           {formatDate(publishDate)}
         </time>
 
-        <span aria-hidden="true">•</span>
+        <span class="blog-card__separator" aria-hidden="true">
+          •
+        </span>
 
         <span>
           {readingTime}
@@ -81,6 +85,8 @@ const readingTime = getReadingTime(post.body);
 
 .blog-card{
 
+    display:flex;  
+  
     height:100%;
 
     border:1px solid var(--color-border);
@@ -101,9 +107,15 @@ const readingTime = getReadingTime(post.body);
 
 .blog-card:hover{
 
-    transform:translateY(-6px);
+    transform:translateY(-4px);
 
     box-shadow:var(--shadow-medium);
+
+}
+
+.blog-card:hover .blog-card__image{
+
+    transform:scale(1.03);
 
 }
 
@@ -121,6 +133,14 @@ const readingTime = getReadingTime(post.body);
 
 }
 
+.blog-card__link:focus-visible{
+
+    outline:3px solid var(--color-brand-accent);
+
+    outline-offset:4px;
+
+}
+
 .blog-card__image{
 
     width:100%;
@@ -130,6 +150,10 @@ const readingTime = getReadingTime(post.body);
     object-fit:cover;
 
     display:block;
+
+    border-bottom:1px solid var(--color-border);
+
+    transition:transform var(--transition-normal);
 
 }
 
@@ -163,6 +187,8 @@ const readingTime = getReadingTime(post.body);
 
     font-weight:600;
 
+    user-select:none;
+
 }
 
 .blog-card__title{
@@ -194,6 +220,12 @@ const readingTime = getReadingTime(post.body);
     font-size:var(--text-sm);
 
     color:var(--color-text-secondary);
+
+}
+
+.blog-card__separator{
+
+    opacity:.5;
 
 }
 

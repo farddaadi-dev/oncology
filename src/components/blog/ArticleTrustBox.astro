@@ -1,9 +1,10 @@
 ---
-import { authors } from "../../data/authors";
+import { authors, type AuthorId } from "../../data/authors";
+import { formatDate } from "@/lib/formatDate";
 
 interface Props {
 
-    author: keyof typeof authors;
+    author: AuthorId;
 
     reviewedDate?: Date;
 
@@ -26,11 +27,16 @@ const authorInfo = authors[author];
 
 ---
 
-<section class="trust-box">
+<section class="trust-box" id="trust-box">
 
     <h2>
-        اعتبار علمی مقاله
+        اعتبار و منابع علمی مقاله
     </h2>
+
+
+    <p class="trust-box__intro">
+        این مقاله توسط پزشکان متخصص هماتولوژی و انکولوژی تهیه شده و بر اساس منابع معتبر علمی به‌روز شده است.
+    </p>
 
 
     <ul class="trust-box__list">
@@ -42,10 +48,10 @@ const authorInfo = authors[author];
                 ✓
             </span>
 
-            <div>
+            <div class="trust-box__item-text">
 
                 <strong>
-                    نویسنده
+                    نویسنده مقاله
                 </strong>
 
                 <br>
@@ -71,15 +77,16 @@ const authorInfo = authors[author];
                 </span>
 
 
-                <div>
+                <div class="trust-box__item-text">
 
                     <strong>
                         آخرین بازبینی علمی
                     </strong>
 
+
                     <br>
 
-                    {reviewedDate.toLocaleDateString("fa-IR")}
+                    {formatDate(reviewedDate)}
 
                 </div>
 
@@ -99,10 +106,10 @@ const authorInfo = authors[author];
                 </span>
 
 
-                <div>
+                <div class="trust-box__item-text">
 
                     <strong>
-                        منابع و شواهد علمی                    
+                        منابع علمی و راهنماهای مورد استفاده
                     </strong>
 
 
@@ -153,6 +160,7 @@ const authorInfo = authors[author];
     border:1px solid var(--color-border);
 
     border-radius:var(--radius-xl);
+    
 
 }
 
@@ -160,6 +168,17 @@ const authorInfo = authors[author];
 .trust-box h2{
 
     margin-top:0;
+
+    margin-bottom:var(--space-md);
+
+}
+
+
+.trust-box__intro{
+
+    color:var(--color-text-secondary);
+
+    line-height:1.9;
 
     margin-bottom:var(--space-xl);
 
@@ -190,6 +209,16 @@ const authorInfo = authors[author];
     gap:var(--space-md);
 
     align-items:flex-start;
+
+}
+
+
+
+.trust-box__item-text{
+
+    flex:1;
+
+    line-height:1.8;
 
 }
 
@@ -249,5 +278,37 @@ const authorInfo = authors[author];
 
 }
 
+
+
+</style>
+
+
+
+<style is:global>
+
+@media(max-width:640px){
+
+#trust-box{
+
+    padding:var(--space-lg);
+
+}
+
+
+#trust-box .trust-box__list li{
+
+    gap:var(--space-sm);
+
+}
+
+
+#trust-box .trust-box__item-text{
+
+    font-size:var(--text-sm);
+
+}
+
+
+}
 
 </style>

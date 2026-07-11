@@ -1,177 +1,304 @@
 ---
 import type { CollectionEntry } from "astro:content";
-
-import BaseLayout from "./BaseLayout.astro";
-
 import ReadingProgress from "@/components/blog/ReadingProgress.astro";
-import ArticleHeader from "@/components/blog/ArticleHeader.astro";
-import ArticleMeta from "@/components/blog/ArticleMeta.astro";
+import ArticleHero from "@/components/blog/ArticleHero.astro";
 import AuthorCard from "@/components/blog/AuthorCard.astro";
 import ArticleDisclaimer from "@/components/blog/ArticleDisclaimer.astro";
 import ArticleTrustBox from "@/components/blog/ArticleTrustBox.astro";
 import ShareButtons from "@/components/blog/ShareButtons.astro";
 import RelatedArticles from "@/components/blog/RelatedArticles.astro";
 
+
 interface Props {
+
   post: CollectionEntry<"blog">;
+
   relatedPosts?: CollectionEntry<"blog">[];
+
 }
 
+
 const {
+
   post,
+
   relatedPosts = [],
+
 } = Astro.props;
 
+
 const {
+
   title,
+
   description,
+
   image,
+
   imageAlt,
+
   author,
+
   sources,
+
   updatedDate,
+
 } = post.data;
 
+
 const canonical = Astro.url.href;
+
 ---
-
-<BaseLayout
-  title={title}
-  description={description}
-  image={image}
-  canonical={canonical}
-  type="article"
->
-
   <ReadingProgress />
+
 
   <article class="container-narrow article">
 
-    <ArticleHeader post={post} />
+
+    <!-- Article title + metadata -->
+
+    <ArticleHero post={post} />
+
+
+    <!-- Featured image -->
 
     {
       image && (
+
         <img
+
           src={image}
+
           alt={imageAlt ?? title}
+
           class="hero-image"
+
           loading="eager"
+
         />
+
       )
     }
 
-    <ArticleMeta post={post} />
 
-    <AuthorCard author={author} />
+    <!-- Article content -->
 
     <section class="article-content">
+
       <slot />
+
     </section>
+
+
+    <!-- Author information -->
+
+    <AuthorCard
+
+      author={author}
+
+    />
+
+
+    <!-- Medical disclaimer -->
 
     <ArticleDisclaimer />
 
+
+    <!-- Sources / trust -->
+
     <ArticleTrustBox
+
       author={author}
+
       reviewedDate={updatedDate}
+
       sources={sources}
+
     />
+
+
+    <!-- Sharing -->
 
     <ShareButtons
+
       title={title}
+
       url={canonical}
+
     />
 
+
+    <!-- Related -->
+
     <RelatedArticles
+
       posts={relatedPosts}
+
     />
+
 
   </article>
 
-</BaseLayout>
+
+
+
+
 
 <style>
+
 .article {
+
   padding-block: var(--space-3xl);
+
 }
+
 
 .hero-image {
-  width: 100%;
-  display: block;
-  margin-block: var(--space-2xl);
-  border-radius: 1rem;
-  box-shadow: var(--shadow-medium);
+
+  width:100%;
+
+  display:block;
+
+  margin-block:var(--space-2xl);
+
+  border-radius:1rem;
+
+  box-shadow:var(--shadow-medium);
+
 }
+
 
 .article-content {
-  margin-block: var(--space-3xl);
+
+  margin-block:var(--space-3xl);
+
 }
+
 
 .article-content :global(h2) {
-  margin-top: 3rem;
+
+  margin-top:3rem;
+
 }
+
 
 .article-content :global(h3) {
-  margin-top: 2rem;
+
+  margin-top:2rem;
+
 }
+
 
 .article-content :global(p) {
-  margin-bottom: 1.5rem;
+
+  margin-bottom:1.5rem;
+
 }
+
 
 .article-content :global(img) {
-  display: block;
-  width: 100%;
-  margin: 2.5rem auto;
-  border-radius: .75rem;
+
+  display:block;
+
+  width:100%;
+
+  margin:2.5rem auto;
+
+  border-radius:.75rem;
+
 }
+
 
 .article-content :global(ul),
+
 .article-content :global(ol) {
-  margin-bottom: 1.5rem;
-  padding-inline-start: 1.5rem;
+
+  margin-bottom:1.5rem;
+
+  padding-inline-start:1.5rem;
+
 }
+
 
 .article-content :global(li) {
-  margin-bottom: .75rem;
+
+  margin-bottom:.75rem;
+
 }
+
 
 .article-content :global(blockquote) {
-  margin: 2rem 0;
-  padding: 1rem 1.5rem;
-  border-inline-start: 4px solid var(--color-brand-accent);
-  background: var(--color-bg-section);
-  color: var(--color-text-secondary);
-  border-radius: .5rem;
+
+  margin:2rem 0;
+
+  padding:1rem 1.5rem;
+
+  border-inline-start:4px solid var(--color-brand-accent);
+
+  background:var(--color-bg-section);
+
+  color:var(--color-text-secondary);
+
+  border-radius:.5rem;
+
 }
+
 
 .article-content :global(table) {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  margin:2rem 0;
+
 }
+
 
 .article-content :global(th),
+
 .article-content :global(td) {
-  padding: .75rem 1rem;
-  border: 1px solid var(--color-border);
+
+  padding:.75rem 1rem;
+
+  border:1px solid var(--color-border);
+
 }
+
 
 .article-content :global(th) {
-  background: var(--color-bg-section);
-  font-weight: 700;
+
+  background:var(--color-bg-section);
+
+  font-weight:700;
+
 }
+
 
 .article-content :global(hr) {
-  margin: 3rem 0;
-  border: none;
-  border-top: 1px solid var(--color-border);
-}
 
-@media (max-width: 768px) {
+  margin:3rem 0;
 
-  .article {
-    padding-block: var(--space-2xl);
-  }
+  border:none;
+
+  border-top:1px solid var(--color-border);
 
 }
+
+
+</style>
+
+
+<style is:global>
+
+@media(max-width:768px){
+
+#article .article {
+
+  padding-block:var(--space-2xl);
+
+}
+
+}
+
 </style>

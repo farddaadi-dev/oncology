@@ -1,3 +1,5 @@
+export type AuthorId = "farshid" | "nafiseh";
+
 export interface Author {
 
     id: AuthorId;
@@ -49,7 +51,7 @@ export const authors: Record<AuthorId, Author> = {
 
         id: "nafiseh",
 
-        name: "دکتر نفیسه انصارینژاد",
+        name: "دکتر نفیسه انصاری‌نژاد",
 
         title: "فوق تخصص هماتولوژی و انکولوژی",
 

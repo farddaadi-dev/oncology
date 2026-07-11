@@ -5,7 +5,7 @@ interface Props {
 }
 
 const {
-  title = "یادآوری مهم",
+  title = "نکات مهم درباره این مطلب",
   showContactLink = true
 } = Astro.props;
 ---
@@ -34,24 +34,24 @@ const {
         </h2>
 
         <p>
-            مطالب منتشرشده در این وب‌سایت صرفاً با هدف افزایش آگاهی و آموزش بیماران تهیه شده‌اند و جایگزین معاینه، تشخیص یا توصیه اختصاصی پزشک نیستند.
+            مطالب منتشرشده در این وب‌سایت با هدف افزایش آگاهی بیماران و کمک به درک بهتر بیماری‌ها و روش‌های درمان تهیه شده‌اند و جایگزین ویزیت، تشخیص یا توصیه اختصاصی پزشک نیستند.             
         </p>
 
         <p>
-            شرایط هر بیمار منحصر‌به‌فرد است و تصمیم‌گیری درباره تشخیص، آزمایش‌ها و روش درمان باید بر اساس نظر پزشک معالج و شرایط بالینی هر فرد انجام شود.
+            شرایط هر بیمار منحصر‌به‌فرد است و تصمیم‌گیری درباره تشخیص، آزمایش‌ها و روش درمان باید بر اساس نظر پزشک متخصص و شرایط بالینی هر فرد انجام شود.
         </p>
 
         {showContactLink && (
 
             <p class="article-disclaimer__contact">
 
-                در صورت نیاز به مشاوره تخصصی، می‌توانید از طریق
+                در صورت نیاز به مشاوره تخصصی، می‌توانید از طریق 
                 <a href="/contact">
-                    صفحه تماس
+                    صفحه تماس با ما
                 </a>
                 یا
-                <a href="/appointment">
-                    صفحه نوبت‌دهی
+                <a href="/visit">
+                    صفحه ویزیت
                 </a>
                 با ما در ارتباط باشید.
 
@@ -139,11 +139,23 @@ const {
 
     font-weight:600;
 
+    margin-inline:.25rem;
+
 }
 
 .article-disclaimer__contact a:hover{
 
     text-decoration:underline;
+
+}
+
+.article-disclaimer__contact a:focus-visible{
+
+    outline:3px solid var(--color-brand-accent);
+
+    outline-offset:3px;
+
+    border-radius:4px;
 
 }
 
@@ -158,6 +170,8 @@ const {
         grid-template-columns:1fr;
 
         text-align:center;
+
+        padding:var(--space-lg);
 
     }
 

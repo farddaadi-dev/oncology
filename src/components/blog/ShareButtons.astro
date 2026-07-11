@@ -1,0 +1,245 @@
+---
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+
+const shareText = `${title}\n${url}`;
+
+const whatsappUrl =
+  `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
+const telegramUrl =
+  `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+---
+
+<section
+  class="share-buttons"
+  id="share-buttons"
+  aria-labelledby="share-heading"
+>
+
+  <h2 id="share-heading" class="share-buttons__title">
+    اشتراک‌گذاری مقاله
+  </h2>
+  <p class="share-buttons__description">
+اگر این مطلب را مفید می‌دانید، می‌توانید آن را با دیگران به اشتراک بگذارید.
+</p>
+
+  <div class="share-buttons__grid">
+
+    <button
+      type="button"
+      class="share-button"
+      data-copy={url}
+    >
+    <img 
+        src="/public/assets/icons/link.svg"
+        alt=""
+        class="share-button__icon"
+      />
+       لینک کپی
+    </button>
+
+    <a
+      class="share-button"
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="/public/assets/icons/whatsapp.svg"
+        alt=""
+        class="share-button__icon"
+      />
+      واتساپ
+    </a>
+
+    <a
+      class="share-button"
+      href={telegramUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="/public/assets/icons/telegram.svg"
+        alt=""
+        class="share-button__icon"
+      />
+      تلگرام
+    </a>
+
+    
+
+    <a
+  class="share-button"
+  href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}
+>
+      <img
+        src="/public/assets/icons/mail.svg"
+        alt=""
+        class="share-button__icon"
+      />
+  ایمیل
+</a>
+
+  </div>
+
+</section>
+
+<script>
+const copyButton = document.querySelector<HTMLButtonElement>(
+  ".share-button[data-copy]"
+);
+
+copyButton?.addEventListener("click", async () => {
+
+  const url = copyButton.dataset.copy;
+
+  if (!url) return;
+
+  try {
+
+    await navigator.clipboard.writeText(url);
+
+    const original = copyButton.textContent;
+
+    copyButton.textContent = "✓ لینک کپی شد";
+
+    setTimeout(() => {
+
+      copyButton.textContent = original;
+
+    }, 2000);
+
+  } catch {
+
+    alert("امکان کپی لینک وجود ندارد.");
+
+  }
+
+});
+</script>
+
+<style>
+
+.share-buttons{
+
+    padding:var(--space-xl);
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-xl);
+
+    background:var(--color-bg-primary);
+
+}
+
+.share-button:focus-visible{
+
+    outline:3px solid var(--color-brand-accent);
+
+    outline-offset:3px;
+
+}
+
+.share-buttons__grid{
+    direction:rtl;
+}
+
+.share-buttons__title{
+
+    margin-bottom:var(--space-lg);
+
+}
+
+.share-buttons__description{
+
+    color:var(--color-text-secondary);
+
+    margin-bottom:var(--space-lg);
+
+    line-height:1.8;
+
+}
+
+.share-buttons__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+    gap:var(--space-md);
+
+}
+
+.share-button__icon{
+
+    width:22px;
+
+    height:22px;
+
+    object-fit:contain;
+
+    margin-inline-end:.5rem;
+
+}
+
+.share-button{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:48px;
+
+    border:1px solid var(--color-border);
+
+    border-radius:var(--radius-lg);
+
+    background:white;
+
+    color:var(--color-text-primary);
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    font:inherit;
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-normal),
+        border-color var(--transition-normal);
+
+}
+
+.share-button:hover{
+
+    transform:translateY(-2px);
+
+    border-color:var(--color-brand-green);
+
+    background:var(--color-bg-section);
+
+}
+
+</style>
+
+<style is:global>
+
+@media(max-width:768px){
+
+#share-buttons .share-buttons__grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+</style>

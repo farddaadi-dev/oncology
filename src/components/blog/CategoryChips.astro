@@ -1,70 +1,52 @@
 ---
-interface Category {
-
-label: string;
-
-slug: string;
-
-}
+import { categories } from "@/data/categories";
 
 interface Props {
-
-categories: Category[];
-
-active?: string;
-
+    active?: string;
 }
 
 const {
-
-categories,
-
-active = "all"
-
+    active = "all",
 } = Astro.props;
 ---
 
 <nav
-class="category-chips"
-id="category-chips"
-aria-label="دسته‌بندی مقالات"
+    class="category-chips"
+    id="category-chips"
+    aria-label="دسته‌بندی مقالات"
 >
 
-<a
-    href="/blog"
-    class:list={[
-        "category-chip",
-        active === "all" && "is-active"
-    ]}
->
-    همه مقالات
-</a>
+    <a
+        href="/articles"
+        class:list={[
+            "category-chip",
+            active === "all" && "is-active"
+        ]}
+        aria-current={active === "all" ? "page" : undefined}
+    >
+        همه مقالات
+    </a>
 
-{
+    {
+        categories.map((category) => (
 
-    categories.map(category => (
+            <a
+                href={`/articles/category/${category.slug}`}
+                class:list={[
+                    "category-chip",
+                    active === category.slug && "is-active"
+                ]}
+                aria-current={
+                    active === category.slug
+                        ? "page"
+                        : undefined
+                }
+            >
+                {category.label}
+            </a>
 
-        <a
-
-            href={`/blog/category/${category.slug}`}
-
-            class:list={[
-
-                "category-chip",
-
-                active === category.slug && "is-active"
-
-            ]}
-
-        >
-
-            {category.label}
-
-        </a>
-
-    ))
-
-}
+        ))
+    }
 
 </nav>
 
@@ -72,78 +54,89 @@ aria-label="دسته‌بندی مقالات"
 
 .category-chips{
 
-display:flex;
+    display:flex;
 
-flex-wrap:wrap;
+    flex-wrap:wrap;
 
-gap:var(--space-md);
+    gap:var(--space-md);
 
-margin-block:var(--space-xl);
+    margin-block:var(--space-xl);
 
 }
 
 .category-chip{
 
-display:inline-flex;
+    display:inline-flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
 
-padding:.7rem 1.2rem;
+    padding:.7rem 1.2rem;
 
-border-radius:var(--radius-full);
+    border-radius:var(--radius-full);
 
-border:1px solid var(--color-border);
+    border:1px solid var(--color-border);
 
-background:var(--color-bg-primary);
+    background:var(--color-bg-primary);
 
-color:var(--color-text-primary);
+    color:var(--color-text-primary);
 
-text-decoration:none;
+    text-decoration:none;
 
-font-size:var(--text-sm);
+    font-size:var(--text-sm);
 
-font-weight:500;
+    font-weight:500;
 
-transition:
-    background var(--transition-normal),
-    color var(--transition-normal),
-    border-color var(--transition-normal),
-    transform var(--transition-fast);
+    white-space:nowrap;
+
+    transition:
+        background var(--transition-normal),
+        color var(--transition-normal),
+        border-color var(--transition-normal),
+        transform var(--transition-fast);
 
 }
 
 .category-chip:hover{
 
-background:var(--color-bg-section);
+    background:var(--color-bg-section);
 
-border-color:var(--color-brand-green);
+    border-color:var(--color-brand-green);
 
-transform:translateY(-2px);
+    transform:translateY(-1px);
 
 }
 
 .category-chip.is-active{
 
-background:var(--color-brand-green);
+    background:var(--color-brand-green);
 
-color:var(--color-text-inverse);
+    color:var(--color-text-inverse);
 
-border-color:var(--color-brand-green);
+    border-color:var(--color-brand-green);
+
+}
+
+.category-chip:focus-visible{
+
+    outline:3px solid var(--color-brand-accent);
+
+    outline-offset:3px;
 
 }
 
 </style>
 
 <style is:global>
+
 @media(max-width:640px){
 
-#category-chips{
+    #category-chips{
 
-justify-content:center;
+        justify-content:center;
 
-}
+    }
 
 }
 

@@ -6,10 +6,34 @@ interface Props {
     titleLine1: string;
     titleLine2?: string;
     description: string;
-    image: ImageMetadata;
-    alt: string;
+    image?: ImageMetadata;
+    alt?: string;
+
+    showButtons?: boolean;
+
+    primaryButtonText?: string;
+    primaryButtonHref?: string;
+
+    secondaryButtonText?: string;
+    secondaryButtonHref?: string;
 }
-const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
+const {
+    badge,
+    titleLine1,
+    titleLine2,
+    description,
+    image,
+    alt,
+
+    showButtons = true,
+
+    primaryButtonText = "مشاوره آنلاین",
+    primaryButtonHref = "/contact",
+
+    secondaryButtonText = "رزرو نوبت",
+    secondaryButtonHref = "/contact",
+
+} = Astro.props;
 ---
 
 <section class="hero">
@@ -29,25 +53,36 @@ const { badge, titleLine1, titleLine2, description, image, alt } = Astro.props;
             <p class="description animate-fade-up delay-3">
                 {description}
             </p>
-            <div class="hero-button animate-fade-up delay-4">
-                <ButtonLink 
-                href="/contact"
-                text= "مشاوره آنلاین"
-                >
-                  
-                </ButtonLink>
-                <ButtonLink 
-                href="/contact" 
-                variant="secondary"
-                text="رزرو نوبت"
-                >
-                   
-                </ButtonLink>
+            {
+                showButtons && (
+
+                    <div class="hero-button animate-fade-up delay-4">
+
+                        <ButtonLink
+                            href={primaryButtonHref}
+                            text={primaryButtonText}
+                        />
+
+                        <ButtonLink
+                            href={secondaryButtonHref}
+                            variant="secondary"
+                            text={secondaryButtonText}
+                        />
+
+                    </div>
+
+                )
+            }
+        </div>
+        {image && (
+            <div class="visual animate-fade-left delay-2">
+                <Image 
+                    class="heroImg" 
+                    src={image} 
+                    alt={alt ?? titleLine1} 
+                />
             </div>
-        </div>
-        <div class="visual animate-fade-left delay-2">
-            <Image class="heroImg" src={image} alt={alt} />
-        </div>
+        )}
     </div>
 </section>
 

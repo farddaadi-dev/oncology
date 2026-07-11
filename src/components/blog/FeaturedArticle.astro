@@ -1,49 +1,39 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
+import { formatDate } from "@/lib/formatDate";
+import { getReadingTime } from "@/lib/getReadingTime";
+import { getCategoryLabel } from "@/data/categories";
+
 interface Props {
-
-title:string;
-
-description:string;
-
-image:string;
-
-imageAlt?:string;
-
-category:string;
-
-date:string;
-
-readingTime:string;
-
-href:string;
-
+    post: CollectionEntry<"blog">;
 }
 
-const{
+const { post } = Astro.props;
 
-title,
+const {
+    title,
+    excerpt,
+    image,
+    imageAlt,
+    category,
+    publishDate,
+} = post.data;
 
-description,
+import { getPostUrl } from "@/lib/getPostUrl";
 
-image,
+const href = getPostUrl(post);
 
-imageAlt=title,
+const readingTime = getReadingTime(post.body);
 
-category,
-
-date,
-
-readingTime,
-
-href
-
-}=Astro.props;
+const formattedDate = formatDate(publishDate);
 ---
 
 <article class="featured-article" id="featured-article">
 
 <a
     href={href}
+    aria-label={title}
     class="featured-article__image"
 >
 
@@ -59,7 +49,7 @@ href
 
     <span class="featured-article__category">
 
-        {category}
+        {getCategoryLabel(category)}
 
     </span>
 
@@ -75,17 +65,24 @@ href
 
     <p class="featured-article__description">
 
-        {description}
+        {excerpt}
 
     </p>
 
     <div class="featured-article__footer">
 
-        <time datetime={date}>
-
-            {date}
-
+        <time datetime={publishDate.toISOString()}>
+            {formattedDate}
         </time>
+
+        <span
+            class="featured-article__separator"
+            aria-hidden="true"
+        >
+
+        •
+
+        </span>
 
         <span>
 
@@ -152,6 +149,8 @@ object-fit:cover;
 
 display:block;
 
+border:1px solid var(--color-border);
+
 transition:transform .4s ease;
 
 }
@@ -179,6 +178,8 @@ border-radius:999px;
 font-size:var(--text-sm);
 
 font-weight:600;
+
+user-select:none;
 
 }
 
@@ -235,6 +236,22 @@ color:var(--color-brand-accent);
 text-decoration:none;
 
 font-weight:600;
+
+}
+
+.featured-article__separator{
+
+    opacity:.5;
+
+}
+
+.featured-article__title a:focus-visible,
+.featured-article__image:focus-visible,
+.featured-article__link:focus-visible{
+
+    outline:3px solid var(--color-brand-accent);
+
+    outline-offset:4px;
 
 }
 
