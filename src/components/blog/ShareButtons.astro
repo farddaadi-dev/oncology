@@ -35,12 +35,14 @@ const telegramUrl =
       class="share-button"
       data-copy={url}
     >
-    <img 
-        src="/public/assets/icons/link.svg"
+      <img 
+        src="/assets/icons/link.svg"
         alt=""
         class="share-button__icon"
       />
+      <span class="copy-text">
        لینک کپی
+      </span>
     </button>
 
     <a
@@ -50,7 +52,7 @@ const telegramUrl =
       rel="noopener noreferrer"
     >
       <img
-        src="/public/assets/icons/whatsapp.svg"
+        src="/assets/icons/whatsapp.svg"
         alt=""
         class="share-button__icon"
       />
@@ -64,7 +66,7 @@ const telegramUrl =
       rel="noopener noreferrer"
     >
       <img
-        src="/public/assets/icons/telegram.svg"
+        src="/assets/icons/telegram.svg"
         alt=""
         class="share-button__icon"
       />
@@ -78,7 +80,7 @@ const telegramUrl =
   href={`mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`}
 >
       <img
-        src="/public/assets/icons/mail.svg"
+        src="/assets/icons/mail.svg"
         alt=""
         class="share-button__icon"
       />
@@ -93,6 +95,7 @@ const telegramUrl =
 const copyButton = document.querySelector<HTMLButtonElement>(
   ".share-button[data-copy]"
 );
+const copyText = copyButton?.querySelector<HTMLSpanElement>(".copy-text");
 
 copyButton?.addEventListener("click", async () => {
 
@@ -104,15 +107,19 @@ copyButton?.addEventListener("click", async () => {
 
     await navigator.clipboard.writeText(url);
 
-    const original = copyButton.textContent;
+    const original = copyText?.textContent;
 
-    copyButton.textContent = "✓ لینک کپی شد";
+if (copyText) {
+
+    copyText.textContent = "✓ لینک کپی شد";
 
     setTimeout(() => {
 
-      copyButton.textContent = original;
+        copyText.textContent = original ?? "لینک کپی";
 
     }, 2000);
+
+}
 
   } catch {
 
