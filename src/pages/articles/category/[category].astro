@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import BlogGrid from "@/components/blog/BlogGrid.astro";
+
+import Section from "@/components/Section.astro";
+
+import { getCategoryLabel } from "@/data/categories";
+
+
+export async function getStaticPaths() {
+
+    const posts = await getCollection(
+        "blog",
+        ({ data }) => !data.draft
+    );
+
+
+    const categories = [
+        ...new Set(
+            posts.map(
+                post => post.data.category
+            )
+        )
+    ];
+
+
+    return categories.map(category => ({
+
+        params: {
+            category
+        },
+
+        props: {
+
+            posts: posts.filter(
+                post =>
+                    post.data.category === category
+            )
+
+        }
+
+    }));
+
+}
+
+
+const { category } = Astro.params;
+
+const { posts } = Astro.props;
+
+---
+
+<BaseLayout
+    title={`${getCategoryLabel(category)} | مقالات`}
+    description={`مقالات درباره ${getCategoryLabel(category)}`}
+>
+
+
+<Section>
+
+    <h1>
+        {getCategoryLabel(category)}
+    </h1>
+
+
+    <BlogGrid
+        posts={posts}
+    />
+
+</Section>
+
+
+</BaseLayout>

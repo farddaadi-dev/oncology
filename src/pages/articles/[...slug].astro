@@ -29,6 +29,26 @@ const { post } = Astro.props;
 
 const { Content } = await render(post);
 
+
+const allPosts = await getCollection(
+    "blog",
+    ({ data }) => !data.draft
+);
+
+
+const relatedPosts = allPosts
+    .filter(
+        (item) =>
+            item.id !== post.id &&
+            (
+                item.data.category === post.data.category ||
+                item.data.tags.some(tag =>
+                    post.data.tags.includes(tag)
+                )
+            )
+    )
+    .slice(0, 3);
+
 ---
 
 <BaseLayout
@@ -37,7 +57,10 @@ const { Content } = await render(post);
     image={post.data.image ?? "/default-og-image.jpg"}
 >
 
-    <BlogLayout post={post}>
+    <BlogLayout
+        post={post}
+        relatedPosts={relatedPosts}
+    >
 
         <Content />
 
