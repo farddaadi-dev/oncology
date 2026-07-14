@@ -1,0 +1,235 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import Hero from "@/components/Hero.astro";
+
+import Section from "@/components/Section.astro";
+
+import BlogSearch from "@/components/blog/BlogSearch.astro";
+
+import BlogGrid from "@/components/blog/BlogGrid.astro";
+
+
+const posts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft
+);
+
+
+const sortedPosts = posts.sort(
+  (a, b) =>
+    b.data.publishDate.getTime()
+    -
+    a.data.publishDate.getTime()
+);
+
+---
+
+<BaseLayout
+  title="جستجوی مقالات | دکتر فرشید فرداد"
+  description="جستجو در مقالات آموزشی درباره سرطان، بیماری‌های خون و درمان‌ها."
+>
+
+
+<Hero
+    badge="جستجوی مقالات"
+    titleLine1="یافتن مطالب"
+    titleLine2="پزشکی معتبر"
+    description="در میان مقالات آموزشی درباره سرطان، بیماری‌های خون و روش‌های درمان جستجو کنید."
+    showButtons={false}
+/>
+
+
+<Section>
+
+    <BlogSearch mode="live" />
+
+</Section>
+
+
+<Section>
+
+    <h2 id="search-count">
+        {sortedPosts.length} مقاله
+    </h2>
+
+
+    <div id="search-results-container">
+
+        <BlogGrid
+            posts={sortedPosts}
+        />
+
+
+        <p
+            id="no-results"
+            hidden
+        >
+            مقاله‌ای با این عبارت پیدا نشد.
+            <br />
+            لطفاً عبارت دیگری را امتحان کنید.
+        </p>
+
+    </div>
+
+</Section>
+
+
+</BaseLayout>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    const input =
+        document.querySelector<HTMLInputElement>(
+            "#article-search"
+        );
+
+
+    const cards =
+        [
+            ...document.querySelectorAll<HTMLElement>(
+                ".blog-card"
+            )
+        ];
+
+
+    const count =
+        document.querySelector<HTMLElement>(
+            "#search-count"
+        );
+
+
+    const noResults =
+        document.querySelector<HTMLElement>(
+            "#no-results"
+        );
+
+
+    if (!input || !count) return;
+
+
+
+    const filterArticles = () => {
+
+
+        const query =
+            input.value
+                .trim()
+                .toLowerCase();
+
+
+        let visible = 0;
+
+
+
+        cards.forEach((card) => {
+
+
+            const text =
+                card.dataset.search ?? "";
+
+
+
+            const matches =
+                text.includes(query);
+
+
+
+            card.style.display =
+                matches ? "" : "none";
+
+
+
+            if (matches) {
+
+                visible++;
+
+            }
+
+
+        });
+
+
+
+        if (query === "") {
+
+
+            count.textContent =
+                `${cards.length} مقاله`;
+
+
+        } else if (visible === 0) {
+
+
+            count.textContent =
+                "مقاله‌ای پیدا نشد.";
+
+
+        } else {
+
+
+            count.textContent =
+                `${visible} مقاله یافت شد`;
+
+
+        }
+
+
+
+        // 👇 This is the part you asked about
+        if (noResults) {
+
+            noResults.hidden =
+                visible !== 0;
+
+        }
+
+
+    };
+
+
+
+    input.addEventListener(
+        "input",
+        filterArticles
+    );
+
+
+
+    filterArticles();
+
+
+});
+
+</script>
+
+
+<style>
+
+#search-count{
+
+    margin-bottom:var(--space-xl);
+
+}
+
+
+#no-results{
+
+    text-align:center;
+
+    padding:var(--space-2xl);
+
+    color:var(--color-text-secondary);
+
+    font-size:var(--text-lg);
+
+}
+
+
+</style>

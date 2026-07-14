@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
+import SectionHeading from "@/components/SectionHeading.astro";
+
 import Hero from "@/components/Hero.astro";
 
 import Section from "@/components/Section.astro";
@@ -63,7 +65,7 @@ const remainingPosts =
 
 <Section>
 
-    <BlogSearch />
+    <BlogSearch mode="redirect" />
 
 </Section>
 
@@ -73,25 +75,35 @@ const remainingPosts =
     <CategoryChips />
 
 </Section>
+<Section>
+<SectionHeading
+    title="پیشنهاد پزشک"
+    subtitle="مقاله‌ای منتخب برای افزایش آگاهی بیماران و همراهان"
+    ></SectionHeading>
+
 
 
 {
     featuredPost && (
 
-        <Section>
+        
 
             <FeaturedArticle
                 post={featuredPost}
             />
 
-        </Section>
+        
+        
 
     )
 }
 
-
+</Section>
 <Section>
-
+    <SectionHeading
+        title="آخرین مقالات آموزشی"
+        subtitle="جدیدترین مطالب درباره سرطان، بیماری‌های خون و روش‌های درمان"
+        ></SectionHeading>
     <BlogGrid
         posts={remainingPosts}
     />

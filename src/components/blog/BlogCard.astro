@@ -27,7 +27,15 @@ const href = getPostUrl(post);
 const readingTime = getReadingTime(post.body);
 ---
 
-<article class="blog-card">
+<article
+  class="blog-card"
+  data-search={`
+    ${title}
+    ${excerpt}
+    ${category}
+    ${post.data.tags.join(" ")}
+  `.toLowerCase()}
+>
 
   {
     image && (

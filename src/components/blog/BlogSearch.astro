@@ -1,21 +1,20 @@
 ---
 interface Props {
   placeholder?: string;
-  action?: string;
   value?: string;
+  mode?: "redirect" | "live";
 }
 
 const {
   placeholder = "جستجو در مقالات...",
-  action = "/articles",
-  value = ""
+  value = "",
+  mode = "live"
 } = Astro.props;
 ---
 
 <form
+  id="blog-search-form"
   class="blog-search"
-  action={action}
-  method="GET"
   role="search"
   aria-label="جستجو در مقالات"
 >
@@ -68,6 +67,56 @@ const {
   </div>
 
 </form>
+
+<script define:vars={{ mode }}>
+
+  const form =
+    document.querySelector<HTMLFormElement>(
+      "#blog-search-form"
+    );
+  
+  const input =
+    document.querySelector<HTMLInputElement>(
+      "#article-search"
+    );
+  
+  
+  if (form && input) {
+  
+    form.addEventListener(
+      "submit",
+      (event) => {
+  
+        event.preventDefault();
+  
+  
+        if (mode === "redirect") {
+  
+          const query =
+            input.value.trim();
+  
+  
+          if (query) {
+  
+            window.location.href =
+              `/articles/search?q=${encodeURIComponent(query)}`;
+  
+          } else {
+  
+            window.location.href =
+              "/articles/search";
+  
+          }
+  
+        }
+  
+      }
+    );
+  
+  }
+  
+  </script>
+
 
 <style>
 
