@@ -12,6 +12,8 @@ import BlogSearch from "@/components/blog/BlogSearch.astro";
 import BlogGrid from "@/components/blog/BlogGrid.astro";
 
 
+
+
 const posts = await getCollection(
     "blog",
     ({ data }) => !data.draft
@@ -127,12 +129,12 @@ document.querySelector<HTMLElement>(
     "#no-results"
 );
 
-const toPersianDigits = (number) => {
+const toPersianDigits = (number: number): string => {
 
 return number
     .toString()
-    .replace(/\d/g, digit =>
-        "۰۱۲۳۴۵۶۷۸۹"[digit]
+    .replace(/\d/g, (digit: string) =>
+        "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]
     );
 
 };
