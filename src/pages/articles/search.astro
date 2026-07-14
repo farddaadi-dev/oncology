@@ -13,23 +13,26 @@ import BlogGrid from "@/components/blog/BlogGrid.astro";
 
 
 const posts = await getCollection(
-  "blog",
-  ({ data }) => !data.draft
+    "blog",
+    ({ data }) => !data.draft
 );
 
 
 const sortedPosts = posts.sort(
-  (a, b) =>
-    b.data.publishDate.getTime()
-    -
-    a.data.publishDate.getTime()
+    (a,b) =>
+        b.data.publishDate.getTime()
+        -
+        a.data.publishDate.getTime()
 );
+
+const searchQuery =
+    Astro.url.searchParams.get("q") ?? "";
 
 ---
 
 <BaseLayout
-  title="جستجوی مقالات | دکتر فرشید فرداد"
-  description="جستجو در مقالات آموزشی درباره سرطان، بیماری‌های خون و درمان‌ها."
+    title="جستجوی مقالات | دکتر فرشید فرداد"
+    description="جستجو در مقالات آموزشی پزشکی"
 >
 
 
@@ -37,42 +40,42 @@ const sortedPosts = posts.sort(
     badge="جستجوی مقالات"
     titleLine1="یافتن مطالب"
     titleLine2="پزشکی معتبر"
-    description="در میان مقالات آموزشی درباره سرطان، بیماری‌های خون و روش‌های درمان جستجو کنید."
+    description="جستجو در مقالات آموزشی درباره سرطان و بیماری‌های خون."
     showButtons={false}
 />
 
 
 <Section>
 
-    <BlogSearch mode="live" />
+    <BlogSearch value={searchQuery} />
 
 </Section>
 
 
 <Section>
 
-    <h2 id="search-count">
-        {sortedPosts.length} مقاله
-    </h2>
+
+<h2 id="search-count">
+    {sortedPosts.length} مقاله
+</h2>
 
 
-    <div id="search-results-container">
+<div id="search-results">
 
-        <BlogGrid
-            posts={sortedPosts}
-        />
+    <BlogGrid posts={sortedPosts} />
 
 
-        <p
-            id="no-results"
-            hidden
-        >
-            مقاله‌ای با این عبارت پیدا نشد.
-            <br />
-            لطفاً عبارت دیگری را امتحان کنید.
-        </p>
+    <p
+        id="no-results"
+        hidden
+    >
+        مقاله‌ای با این عبارت پیدا نشد.
+        <br />
+        لطفاً عبارت دیگری را امتحان کنید.
+    </p>
 
-    </div>
+</div>
+
 
 </Section>
 
@@ -80,156 +83,153 @@ const sortedPosts = posts.sort(
 </BaseLayout>
 
 
+
 <script>
 
-document.addEventListener("DOMContentLoaded", () => {
+const form =
+document.querySelector<HTMLFormElement>(
+    ".blog-search"
+);
 
 
-    const input =
-        document.querySelector<HTMLInputElement>(
-            "#article-search"
-        );
+form?.addEventListener(
+    "submit",
+    (event)=>{
+
+        event.preventDefault();
+
+    }
+);
 
 
-    const cards =
-        [
-            ...document.querySelectorAll<HTMLElement>(
-                ".blog-card"
-            )
-        ];
+const input =
+document.querySelector<HTMLInputElement>(
+    "#article-search"
+);
 
 
-    const count =
-        document.querySelector<HTMLElement>(
-            "#search-count"
-        );
+const cards =
+[
+...document.querySelectorAll<HTMLElement>(
+    ".blog-card"
+)
+];
 
 
-    const noResults =
-        document.querySelector<HTMLElement>(
-            "#no-results"
-        );
+const count =
+document.querySelector<HTMLElement>(
+    "#search-count"
+);
 
 
-    if (!input || !count) return;
+const noResults =
+document.querySelector<HTMLElement>(
+    "#no-results"
+);
 
+const toPersianDigits = (number) => {
 
-
-    const filterArticles = () => {
-
-
-        const query =
-            input.value
-                .trim()
-                .toLowerCase();
-
-
-        let visible = 0;
-
-
-
-        cards.forEach((card) => {
-
-
-            const text =
-                card.dataset.search ?? "";
-
-
-
-            const matches =
-                text.includes(query);
-
-
-
-            card.style.display =
-                matches ? "" : "none";
-
-
-
-            if (matches) {
-
-                visible++;
-
-            }
-
-
-        });
-
-
-
-        if (query === "") {
-
-
-            count.textContent =
-                `${cards.length} مقاله`;
-
-
-        } else if (visible === 0) {
-
-
-            count.textContent =
-                "مقاله‌ای پیدا نشد.";
-
-
-        } else {
-
-
-            count.textContent =
-                `${visible} مقاله یافت شد`;
-
-
-        }
-
-
-
-        // 👇 This is the part you asked about
-        if (noResults) {
-
-            noResults.hidden =
-                visible !== 0;
-
-        }
-
-
-    };
-
-
-
-    input.addEventListener(
-        "input",
-        filterArticles
+return number
+    .toString()
+    .replace(/\d/g, digit =>
+        "۰۱۲۳۴۵۶۷۸۹"[digit]
     );
 
+};
+
+const filterArticles = ()=>{
 
 
-    filterArticles();
+const query =
+input?.value
+.trim()
+.toLowerCase()
+?? "";
+
+
+
+let visible = 0;
+
+
+
+cards.forEach(card=>{
+
+
+const text =
+card.dataset.search ?? "";
+
+
+const match =
+text.includes(query);
+
+
+
+card.style.display =
+match ? "" : "none";
+
+
+if(match){
+
+visible++;
+
+}
 
 
 });
 
+
+
+if(count){
+
+count.textContent =
+query === ""
+?
+`${toPersianDigits(cards.length)} مقاله`
+:
+visible === 0
+?
+"مقاله‌ای پیدا نشد."
+:
+`${toPersianDigits(visible)} مقاله یافت شد`;
+
+}
+
+
+
+if(noResults){
+
+noResults.hidden =
+visible !== 0;
+
+}
+
+
+};
+
+
+
+input?.addEventListener(
+    "input",
+    filterArticles
+);
+
+
+if (input) {
+
+    const urlQuery =
+        new URLSearchParams(window.location.search)
+            .get("q");
+
+
+    if (urlQuery) {
+
+        input.value = urlQuery;
+
+    }
+
+}
+
+
+filterArticles();
+
 </script>
-
-
-<style>
-
-#search-count{
-
-    margin-bottom:var(--space-xl);
-
-}
-
-
-#no-results{
-
-    text-align:center;
-
-    padding:var(--space-2xl);
-
-    color:var(--color-text-secondary);
-
-    font-size:var(--text-lg);
-
-}
-
-
-</style>

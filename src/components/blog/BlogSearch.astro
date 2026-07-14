@@ -1,20 +1,21 @@
 ---
 interface Props {
   placeholder?: string;
+  action?: string;
   value?: string;
-  mode?: "redirect" | "live";
 }
 
 const {
   placeholder = "جستجو در مقالات...",
-  value = "",
-  mode = "live"
+  action = "/articles/search",
+  value = ""
 } = Astro.props;
 ---
 
 <form
-  id="blog-search-form"
   class="blog-search"
+  action={action}
+  method="GET"
   role="search"
   aria-label="جستجو در مقالات"
 >
@@ -23,7 +24,9 @@ const {
     جستجو در مقالات
   </label>
 
+
   <div class="blog-search__wrapper">
+
 
     <svg
       class="blog-search__icon"
@@ -47,6 +50,7 @@ const {
       />
     </svg>
 
+
     <input
       id="article-search"
       name="q"
@@ -57,6 +61,7 @@ const {
       autocomplete="off"
     />
 
+
     <button
       type="submit"
       class="blog-search__button"
@@ -64,58 +69,10 @@ const {
       جستجو
     </button>
 
+
   </div>
 
 </form>
-
-<script define:vars={{ mode }}>
-
-  const form =
-    document.querySelector<HTMLFormElement>(
-      "#blog-search-form"
-    );
-  
-  const input =
-    document.querySelector<HTMLInputElement>(
-      "#article-search"
-    );
-  
-  
-  if (form && input) {
-  
-    form.addEventListener(
-      "submit",
-      (event) => {
-  
-        event.preventDefault();
-  
-  
-        if (mode === "redirect") {
-  
-          const query =
-            input.value.trim();
-  
-  
-          if (query) {
-  
-            window.location.href =
-              `/articles/search?q=${encodeURIComponent(query)}`;
-  
-          } else {
-  
-            window.location.href =
-              "/articles/search";
-  
-          }
-  
-        }
-  
-      }
-    );
-  
-  }
-  
-  </script>
 
 
 <style>
@@ -125,6 +82,7 @@ const {
     width:100%;
 
 }
+
 
 .blog-search__wrapper{
 
@@ -144,18 +102,8 @@ const {
 
     box-shadow:var(--shadow-soft);
 
-    transition:border-color var(--transition-normal),
-               box-shadow var(--transition-normal);
-
 }
 
-.blog-search__wrapper:focus-within{
-
-    border-color:var(--color-brand-green);
-
-    box-shadow:var(--shadow-medium);
-
-}
 
 .blog-search__icon{
 
@@ -170,6 +118,7 @@ const {
     margin-inline-start:.5rem;
 
 }
+
 
 .blog-search__input{
 
@@ -189,11 +138,6 @@ const {
 
 }
 
-.blog-search__input::placeholder{
-
-    color:var(--color-text-secondary);
-
-}
 
 .blog-search__button{
 
@@ -213,15 +157,8 @@ const {
 
     font-weight:600;
 
-    transition:background var(--transition-normal);
-
 }
 
-.blog-search__button:hover{
-
-    background:var(--color-brand-accent-dark);
-
-}
 
 .sr-only{
 
@@ -244,28 +181,33 @@ const {
     border:0;
 
 }
+
 </style>
+
+
 <style is:global>
 
 @media(max-width:640px){
 
-.blog-search .blog-search__wrapper{
+.blog-search__wrapper{
 
-flex-direction:column;
+    flex-direction:column;
 
-align-items:stretch;
-
-}
-
-.blog-search__wrapper .blog-search__icon{
-
-display:none;
+    align-items:stretch;
 
 }
 
-.blog-search__wrapper .blog-search__button{
 
-width:100%;
+.blog-search__icon{
+
+    display:none;
+
+}
+
+
+.blog-search__button{
+
+    width:100%;
 
 }
 
