@@ -19,7 +19,7 @@ const { pathname } = Astro.url;
       <a href="/articles" class:list={[{ 'active-link': pathname.startsWith('/articles') }]}>مقالات</a>
       <a href="/visit" class:list={[{ 'active-link': pathname.startsWith('/visit') }]}>ویزیت</a>
       <a href="/contact" class:list={[{ 'active-link': pathname.startsWith('/contact') }]}>تماس با ما</a>
-      <a href="/online-consultation" class="cta-consultation">مشاوره آنلاین</a>
+      <a href="/consultation" class="cta-consultation">مشاوره آنلاین</a>
     </nav>
     <button class="hamburger" id="hamburgerBtn" aria-label="منوی موبایل">
       <svg viewBox="0 0 100 80">
@@ -38,7 +38,7 @@ const { pathname } = Astro.url;
     <a href="/articles">مقالات</a>
     <a href="/visit">ویزیت</a>
     <a href="/contact">تماس با ما</a>
-    <a href="/online-consultation" class="cta-consultation">مشاوره آنلاین</a>
+    <a href="/consultation" class="cta-consultation">مشاوره آنلاین</a>
   </div>
   <div class="menu-overlay" id="menuOverlay"></div>
 

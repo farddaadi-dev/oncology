@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import consultationImage from "@/assets/images/consultation-hero.png"
+import ConsultationEligibility from "@/components/ConsultationEligibility.astro"
+import HowItWorks from "@/components/HowItWorks.astro";
+---
+
+<BaseLayout
+    title="مشاوره آنلاین"
+    description="دریافت مشاوره تخصصی آنکولوژی و هماتولوژی از طریق پلتفرم امن آکسون، بدون نیاز به مراجعه حضوری"
+    image="/default-og-image.jpg"
+>
+    <Hero
+        badge="ارتباط آنلاین با پزشک"
+        titleLine1="مشاوره تخصصی"
+        titleLine2="در هر مکان"
+        description="در هر شهری که باشید، می‌توانید مدارک پزشکی خود را ارسال کرده و از راهنمایی تخصصی در زمینه هماتولوژی و آنکولوژی بهره‌مند شوید."
+        image={consultationImage}
+        alt="تصویر مشاوره آنلاین"
+        primaryButtonText="شروع مشاوره آنلاین"
+    >
+    </Hero>
+    <ConsultationEligibility></ConsultationEligibility>
+    <HowItWorks></HowItWorks>
+</BaseLayout>

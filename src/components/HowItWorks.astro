@@ -1,0 +1,100 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import ProcessStep from "./ProcessStep.astro";
+
+const steps = [
+    {
+        icon: "/assets/icons/clipboard.svg",
+        title: "ثبت درخواست",
+        description:
+            "با انتخاب پزشک، وارد سامانه آکسون شده و درخواست مشاوره آنلاین خود را ثبت کنید."
+    },
+
+    {
+        icon: "/assets/icons/file-text.svg",
+        title: "تکمیل اطلاعات پزشکی",
+        description:
+            "اطلاعات فردی، سوابق پزشکی، داروهای مصرفی و شرح مختصری از مشکل خود را وارد کنید."
+    },
+
+    {
+        icon: "/assets/icons/upload.svg",
+        title: "بارگذاری مدارک",
+        description:
+            "آزمایش‌ها، تصاویر پزشکی، گزارش پاتولوژی و سایر مدارک مرتبط را بارگذاری کنید."
+    },
+
+    {
+        icon: "/assets/icons/stethoscope.svg",
+        title: "بررسی توسط پزشک",
+        description:
+            "پزشک مدارک را بررسی کرده و در صورت نیاز اطلاعات تکمیلی از شما درخواست خواهد کرد."
+    },
+
+    {
+        icon: "/assets/icons/video.svg",
+        title: "برگزاری مشاوره",
+        description:
+            "در زمان تعیین‌شده، مشاوره آنلاین از طریق سامانه آکسون انجام خواهد شد."
+    },
+
+    {
+        icon: "/assets/icons/clipboard-check.svg",
+        title: "دریافت توصیه‌ها",
+        description:
+            "در پایان مشاوره، توصیه‌های درمانی، برنامه پیگیری یا در صورت نیاز مراجعه حضوری ارائه می‌شود."
+    }
+];
+---
+
+<Section>
+    <SectionHeading
+        title="مراحل مشاوره"
+        subtitle="مشاوره آنلاین در چند گام ساده"
+    />
+    <p class="description">از ثبت درخواست تا دریافت توصیه‌های تخصصی، تمامی مراحل به‌صورت ساده و شفاف طراحی شده است تا بتوانید با آرامش فرآیند مشاوره را دنبال کنید.</p>
+
+    <div class="steps-grid" id="steps-grid">
+        {steps.map((step, index) => (
+            <ProcessStep
+                number={index + 1}
+                icon={step.icon}
+                title={step.title}
+                description={step.description}
+            />
+        ))}
+    </div>
+</Section>
+
+<style>
+.steps-grid {
+    margin-top: 4rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 3rem 2rem;
+}
+.description {
+    text-align: center;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background-color: var(--color-bg-hero);
+    padding: 1rem;
+}
+</style>
+<style is:global>
+
+@media (max-width: 900px) {
+    #steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    #steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

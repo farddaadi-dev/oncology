@@ -3,19 +3,37 @@ interface Props {
   number: number;
   title: string;
   description?: string;
+  icon?: string;
 }
 
 const {
   number,
   title,
-  description
+  description,
+  icon
 } = Astro.props;
 ---
 
 <article class="process-step">
 
-  <div class="process-step__number">
-    {number}
+  <div class="process-step__circle">
+
+    {icon ? (
+      <>
+        <img
+          src={icon}
+          alt=""
+          class="process-step__icon"
+        />
+  
+        <span class="process-step__badge">
+          {number}
+        </span>
+      </>
+    ) : (
+      number
+    )}
+  
   </div>
 
   <h3>{title}</h3>
@@ -31,25 +49,57 @@ const {
     text-align: center;
   }
 
-  .process-step__number {
-    width: 70px;
-    height: 70px;
+  .process-step__circle {
+  position: relative;
 
-    margin-inline: auto;
-    margin-bottom: 1rem;
+  width: 70px;
+  height: 70px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-inline: auto;
+  margin-bottom: 1rem;
 
-    border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background: var(--color-primary);
-    color: var(--color-brand-accent);
+  border-radius: 50%;
+  border: 1px solid var(--color-brand-accent);
 
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
+  background: var(--color-bg-warm);
+
+  color: var(--color-brand-accent);
+  font-size: var(--text-xl);
+}
+
+.process-step__icon {
+  width: 32px;
+  height: 32px;
+
+  color: white;
+}
+
+.process-step__badge {
+  position: absolute;
+
+  top: -4px;
+  left: -4px;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--color-brand-accent);
+  background-color: white;
+  border: 1px solid var(--color-brand-accent);
+
+  font-size: .75rem;
+  font-weight: 700;
+}
 
   .process-step h3 {
     margin: 0 0 0.75rem;
