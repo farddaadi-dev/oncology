@@ -7,6 +7,7 @@ import ArticleDisclaimer from "@/components/blog/ArticleDisclaimer.astro";
 import ArticleTrustBox from "@/components/blog/ArticleTrustBox.astro";
 import ShareButtons from "@/components/blog/ShareButtons.astro";
 import RelatedArticles from "@/components/blog/RelatedArticles.astro";
+import { Image } from "astro:assets";
 
 
 interface Props {
@@ -63,22 +64,22 @@ const canonical = Astro.url.href;
     <!-- Featured image -->
 
     {
-      image && (
+  image && (
 
-        <img
+    <Image
 
-          src={image}
+      src={image}
 
-          alt={imageAlt ?? title}
+      alt={imageAlt ?? title}
 
-          class="hero-image"
+      class="hero-image"
 
-          loading="eager"
+      loading="eager"
 
-        />
+    />
 
-      )
-    }
+  )
+}
 
 
     <!-- Article content -->

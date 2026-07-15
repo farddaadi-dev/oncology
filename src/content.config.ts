@@ -7,7 +7,8 @@ const blog = defineCollection({
     base: "./src/content/blog",
   }),
 
-  schema: z.object({
+  schema: ({ image }) =>
+  z.object({
     // ===== Basic Information =====
     title: z.string(),
 
@@ -42,7 +43,7 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
 
     // ===== Media =====
-    image: z.string().optional(),
+    image: image().optional(),
 
     imageAlt: z.string().optional(),
 

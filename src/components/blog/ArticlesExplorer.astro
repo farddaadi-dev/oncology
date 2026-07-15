@@ -1,0 +1,87 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import BlogSearch from "./BlogSearch.astro";
+import BlogGrid from "./BlogGrid.astro";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div id="articles-explorer">
+
+  <BlogSearch />
+
+  <p class="search-results" id="search-results">
+    {posts.length} مقاله
+  </p>
+
+  <BlogGrid posts={posts} />
+
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const root =
+    document.getElementById("articles-explorer");
+
+  if (!root) return;
+
+  const input =
+    root.querySelector<HTMLInputElement>("#article-search");
+
+  const result =
+    root.querySelector<HTMLElement>("#search-results");
+
+  const cards =
+    [...root.querySelectorAll<HTMLElement>(".blog-card")];
+
+  if (!input || !result) return;
+
+  const filter = () => {
+
+    const value = input.value
+      .trim()
+      .toLowerCase();
+
+    let visible = 0;
+
+    cards.forEach((card) => {
+
+      const text = card.dataset.search ?? "";
+
+      const match = text.includes(value);
+
+      card.style.display = match ? "flex" : "none";
+
+      if (match) visible++;
+
+    });
+
+    if (value === "") {
+
+      result.textContent = `${cards.length} مقاله`;
+
+    } else if (visible === 0) {
+
+      result.textContent = "مقاله‌ای پیدا نشد.";
+
+    } else {
+
+      result.textContent = `${visible} مقاله یافت شد`;
+
+    }
+
+  };
+
+  input.addEventListener("input", filter);
+
+  filter();
+
+});
+</script>

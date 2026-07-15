@@ -4,6 +4,7 @@ import ReadArticleLink from "./ReadArticleLink.astro";
 import { formatDate } from "@/lib/formatDate";
 import { getReadingTime } from "@/lib/getReadingTime";
 import { getCategoryLabel } from "@/data/categories";
+import { Image } from "astro:assets";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -38,18 +39,19 @@ const readingTime = getReadingTime(post.body);
 >
 
   {
-    image && (
-      <a href={href} class="blog-card__image-link">
-        <img
-          src={image}
-          alt={imageAlt ?? title}
-          class="blog-card__image"
-          loading="lazy"
-          decoding="async"
-        />
-      </a>
-    )
-  }
+  image && (
+    <a href={href} class="blog-card__image-link">
+
+      <Image
+        src={image}
+        alt={imageAlt ?? title}
+        class="blog-card__image"
+        loading="lazy"
+      />
+
+    </a>
+  )
+}
 
   <div class="blog-card__content">
 

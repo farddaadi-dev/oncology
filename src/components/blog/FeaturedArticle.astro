@@ -4,6 +4,7 @@ import ReadArticleLink from "./ReadArticleLink.astro";
 import { formatDate } from "@/lib/formatDate";
 import { getReadingTime } from "@/lib/getReadingTime";
 import { getCategoryLabel } from "@/data/categories";
+import { Image } from "astro:assets";
 
 interface Props {
     post: CollectionEntry<"blog">;
@@ -31,19 +32,23 @@ const formattedDate = formatDate(publishDate);
 
 <article class="featured-article" id="featured-article">
 
+{
+image && (
 <a
     href={href}
     aria-label={title}
     class="featured-article__image"
 >
 
-    <img
+    <Image
         src={image}
-        alt={imageAlt}
+        alt={imageAlt ?? title}
         loading="eager"
     />
 
 </a>
+)
+}
 
 <div class="featured-article__content">
 
