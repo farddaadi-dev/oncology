@@ -20,7 +20,7 @@
     
     /* Backgrounds: Warm, comforting off-whites instead of stark white */
     --color-bg-primary: #FCFBF9;   /* Main page background */
-    --color-bg-secondary: #F2EFEA; /* Section backgrounds, cards, or footers */
+    --color-bg-secondary: #F7F7F1; /* Section backgrounds, cards, or footers */
     --color-bg-dark: #1f241e;
     --color-dark-heading: #1A2E26;
     --color-secondary-gold: #D1A153;
@@ -30,12 +30,15 @@
     --color-bg-section: #F3F6F1;
     --color-bg-hero: #efebdd;
     /* Text: Soft charcoals instead of harsh pure black */
-    --color-text-primary: #2C2E2A;   /* Main body text (highly readable) */
+    --color-text-primary: #66685C;   /* Main body text (highly readable) */
     --color-text-secondary: rgb(92, 96, 87); /* Subtitles, muted text, dates */
     --color-text-inverse: #FFFFFF;   /* Text on top of dark buttons/banners */
   
     /* Borders & Dividers */
-    --color-border: #E5E2DB;
+    --color-text-heading: #30322B;
+    --color-border: #E5E5D8;
+    --color-danger: #d9534f;
+  --color-danger-bg: rgba(217, 83, 79, 0.08);
 
      /* Shaows */
      --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);

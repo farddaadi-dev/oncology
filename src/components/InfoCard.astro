@@ -2,13 +2,11 @@
 interface Props {
   title: string;
   icon: string;
-  color?: string;
 }
 
 const {
   title,
-  icon,
-  color = "var(--color-primary)"
+  icon
 } = Astro.props;
 ---
 
@@ -18,7 +16,6 @@ const {
 
     <div
       class="info-card__icon"
-      style={`background-color: ${color};`}
       aria-hidden="true"
     >
       <img
@@ -34,14 +31,17 @@ const {
 
   </header>
 
+
   <div class="info-card__body">
     <slot />
   </div>
 
 </article>
 
+
 <style>
 .info-card {
+
   display: flex;
   flex-direction: column;
 
@@ -50,9 +50,10 @@ const {
   padding: 2rem;
 
   border: 1px solid var(--color-border);
+
   border-radius: var(--radius-lg);
 
-  background: var(--color-surface);
+  background: white;
 
   box-shadow: var(--shadow-sm);
 
@@ -61,20 +62,30 @@ const {
     box-shadow .25s ease;
 }
 
+
 .info-card:hover {
+
   transform: translateY(-4px);
+
   box-shadow: var(--shadow-md);
+
 }
 
+
 .info-card__header {
+
   display: flex;
   align-items: center;
+
   gap: 1rem;
 
   margin-bottom: 1.5rem;
+
 }
 
+
 .info-card__icon {
+
   flex-shrink: 0;
 
   display: flex;
@@ -85,20 +96,34 @@ const {
   height: 3rem;
 
   border-radius: 50%;
+
+  background: var(--color-bg-secondary);
+
 }
 
+
 .info-card__icon-image {
+
   display: block;
 
   width: 1.5rem;
   height: 1.5rem;
+
 }
+
 
 .info-card__title {
+
   margin: 0;
+
+  font-size: 1.25rem;
+
 }
 
+
 .info-card__body {
+
   flex: 1;
+
 }
 </style>

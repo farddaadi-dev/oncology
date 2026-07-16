@@ -19,7 +19,7 @@ import AlertIcon from "@/assets/icons/triangle-alert.svg";
     description="مشاوره آنلاین برای بسیاری از پرسش‌ها و پیگیری‌های درمانی گزینه‌ای مناسب است، اما در برخی شرایط مراجعه حضوری یا مراجعه فوری به اورژانس ضروری خواهد بود."
   />
 
-  <div class="eligibility-grid">
+  <div class="eligibility-grid" id="eligibility-grid">
 
     <!-- Suitable for online consultation -->
     <InfoCard
@@ -39,7 +39,7 @@ import AlertIcon from "@/assets/icons/triangle-alert.svg";
     <InfoCard
       title="نیازمند مراجعه فوری"
       icon={AlertIcon.src}
-      color="var(--color-danger)"
+      
     >
 
       <IconList
@@ -91,11 +91,12 @@ import AlertIcon from "@/assets/icons/triangle-alert.svg";
   margin-top: 2rem;
 
 }
-
+</style>
+<style is:global>
 
 @media (max-width: 900px) {
 
-  .eligibility-grid {
+  #eligibility-grid {
 
     grid-template-columns: 1fr;
 

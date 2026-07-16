@@ -1,0 +1,82 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import InfoCard from "./InfoCard.astro";
+
+import { consultationLimitations } from "@/data/onlineConsultation";
+import { icons } from "@/data/icons";
+---
+
+<Section background="secondary">
+
+  <SectionHeading
+    subtitle="محدودیت‌های مشاوره آنلاین"
+    title="چه مواردی ممکن است به مراجعه حضوری نیاز داشته باشد؟"
+    description="مشاوره آنلاین می‌تواند در بسیاری از مراحل تشخیص، درمان و پیگیری بیماری کمک‌کننده باشد، اما در برخی شرایط معاینه حضوری یا انجام اقدامات پزشکی ضروری است."
+  />
+
+
+  <div class="limitations-grid">
+
+    {consultationLimitations.map(item => (
+
+      <InfoCard
+        title={item.title}
+        icon={icons[item.icon]}
+      >
+
+        <p>
+          {item.description}
+        </p>
+
+      </InfoCard>
+
+    ))}
+
+  </div>
+
+</Section>
+
+
+<style>
+.limitations-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 2rem;
+
+  margin-top: 3rem;
+
+}
+
+
+.limitations-grid p {
+
+  margin: 0;
+
+  line-height: 1.9;
+
+  color: var(--color-text-secondary);
+
+}
+
+
+@media (max-width: 1000px) {
+
+  .limitations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .limitations-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+</style>

@@ -1,3 +1,5 @@
+import type { IconName } from "./icons";
+
 export const consultationEligibility = {
   suitable: [
     "بررسی و تفسیر نتایج آزمایش‌ها",
@@ -79,3 +81,32 @@ export const consultationPreparation = {
     "حساسیت‌های دارویی (در صورت وجود)"
   ]
 };
+
+export const consultationLimitations: {
+  title: string;
+  icon: IconName;
+  description: string;
+}[] = [
+
+  {
+    title: "نیاز به معاینه فیزیکی",
+    icon: "stethoscope",
+    description:
+      "برخی علائم و نشانه‌ها تنها با معاینه مستقیم بیمار قابل ارزیابی دقیق هستند و ممکن است نیاز به مراجعه حضوری داشته باشند."
+  },
+
+  {
+    title: "نیاز به اقدامات پزشکی",
+    icon: "activity",
+    description:
+      "انجام برخی اقدامات مانند نمونه‌برداری، تزریق، بررسی‌های تشخیصی یا درمان‌های داخل وریدی نیازمند حضور در مرکز درمانی است."
+  },
+
+  {
+    title: "شرایط اورژانسی",
+    icon: "alert",
+    description:
+      "در شرایطی که نیاز به ارزیابی فوری یا مداخله سریع وجود دارد، مراجعه مستقیم به اورژانس یا مرکز درمانی مناسب ضروری است."
+  }
+
+];
