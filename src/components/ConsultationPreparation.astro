@@ -1,0 +1,169 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import InfoCard from "./InfoCard.astro";
+
+import { consultationPreparation } from "@/data/onlineConsultation";
+
+import FileTextIcon from "@/assets/icons/file-text.svg";
+import ClipboardIcon from "@/assets/icons/clipboard-list.svg";
+import CheckIcon from "@/assets/icons/check.svg";
+import InfoIcon from "@/assets/icons/info.svg";
+---
+
+<Section>
+
+  <SectionHeading
+    subtitle="پیش از مشاوره"
+    title="برای مشاوره بهتر چه مدارکی آماده کنیم؟"
+    description="آماده داشتن مدارک و اطلاعات پزشکی پیش از شروع مشاوره به پزشک کمک می‌کند وضعیت شما را دقیق‌تر بررسی کرده و پاسخ مناسب‌تری ارائه دهد."
+  />
+
+  <div class="preparation-grid" id="preparation-grid">
+
+    <InfoCard
+      title="مدارک پزشکی"
+      icon={FileTextIcon.src}
+    >
+
+      <ul class="preparation-list">
+        {consultationPreparation.documents.map(item => (
+          <li>
+
+            <img
+              src={CheckIcon.src}
+              alt=""
+              aria-hidden="true"
+              class="check-icon"
+            />
+
+            <span>{item}</span>
+
+          </li>
+        ))}
+      </ul>
+
+    </InfoCard>
+
+    <InfoCard
+      title="اطلاعات مورد نیاز"
+      icon={ClipboardIcon.src}
+    >
+
+      <ul class="preparation-list">
+        {consultationPreparation.information.map(item => (
+          <li>
+
+            <img
+              src={CheckIcon.src}
+              alt=""
+              aria-hidden="true"
+              class="check-icon"
+            />
+
+            <span>{item}</span>
+
+          </li>
+        ))}
+      </ul>
+
+    </InfoCard>
+
+  </div>
+
+  <aside class="preparation-note">
+
+    <img
+      src={InfoIcon.src}
+      alt=""
+      aria-hidden="true"
+      class="note-icon"
+    />
+
+    <p>
+      در صورتی که تمامی مدارک در دسترس نیست، همچنان می‌توانید درخواست مشاوره
+      ثبت کنید. در صورت نیاز، پزشک مدارک تکمیلی را از شما درخواست خواهد کرد.
+    </p>
+
+  </aside>
+
+</Section>
+
+<style>
+.preparation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+
+  margin-top: 3rem;
+}
+
+.preparation-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.preparation-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+
+  padding: .85rem 0;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.preparation-list li:last-child {
+  border-bottom: none;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  margin-top: .2rem;
+}
+
+.preparation-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-surface-alt);
+
+  border-inline-start: 4px solid var(--color-primary);
+}
+
+.note-icon {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  margin-top: .15rem;
+}
+
+.preparation-note p {
+  margin: 0;
+
+  line-height: 1.9;
+}
+</style>
+<style is:global>
+@media (max-width: 900px) {
+
+  #preparation-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+</style>

@@ -2,12 +2,14 @@
 interface Props {
   title: string;
   subtitle?: string;
+  description?: string;
   align?: "left" | "center" | "right";
 }
 
 const {
   title,
   subtitle,
+  description,
   align = "center"
 } = Astro.props;
 ---
@@ -23,6 +25,11 @@ const {
   {subtitle && (
     <p>{subtitle}</p>
   )}
+
+  {description && (
+    <p class="text">{description}</p>
+  )}
+  
 </header>
 
 <style>
@@ -61,5 +68,11 @@ const {
     line-height: 1.8;
 
     color: #666;
+  }
+
+  .text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text-primary);
   }
 </style>
