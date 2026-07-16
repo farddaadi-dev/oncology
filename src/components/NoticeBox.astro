@@ -1,0 +1,90 @@
+---
+interface Props {
+  icon: string;
+  color?: string;
+  background?: string;
+}
+
+const {
+  icon,
+  color = "var(--color-primary)",
+  background = "var(--color-bg-secondary)"
+} = Astro.props;
+---
+
+<aside
+  class="notice-box"
+  style={`
+    --notice-color: ${color};
+    --notice-bg: ${background};
+  `}
+>
+
+  <div class="notice-box__icon" aria-hidden="true">
+    <img
+      src={icon}
+      alt=""
+      class="notice-box__icon-image"
+    />
+  </div>
+
+  <div class="notice-box__content">
+    <slot />
+  </div>
+
+</aside>
+
+<style>
+.notice-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  padding: 1.5rem;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--notice-bg);
+
+  border-inline-start: 4px solid var(--notice-color);
+}
+
+.notice-box__icon {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.75rem;
+  height: 2.75rem;
+
+  border-radius: 50%;
+
+  background: color-mix(
+    in srgb,
+    var(--notice-color) 12%,
+    white
+  );
+}
+
+.notice-box__icon-image {
+  display: block;
+
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.notice-box__content {
+  flex: 1;
+}
+
+.notice-box__content :global(p) {
+  margin: 0;
+  line-height: 1.9;
+}
+
+.notice-box__content :global(strong) {
+  color: var(--notice-color);
+}
+</style>

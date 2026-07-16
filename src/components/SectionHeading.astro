@@ -20,59 +20,83 @@ const {
     `section-heading--${align}`
   ]}
 >
-  <h2>{title}</h2>
 
   {subtitle && (
-    <p>{subtitle}</p>
+    <p class="section-heading__subtitle">
+      {subtitle}
+    </p>
   )}
 
+  <h2 class="section-heading__title">
+    {title}
+  </h2>
+
   {description && (
-    <p class="text">{description}</p>
+    <p class="section-heading__description">
+      {description}
+    </p>
   )}
-  
+
 </header>
 
 <style>
-  .section-heading {
-    max-width: 800px;
+.section-heading {
+  max-width: 48rem;
 
-    margin-inline: auto;
-    margin-bottom: 3rem;
-  }
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
 
-  .section-heading--center {
-    text-align: center;
-  }
+.section-heading--center {
+  text-align: center;
+}
 
-  .section-heading--right {
-    text-align: right;
-  }
+.section-heading--right {
+  text-align: right;
+}
 
-  .section-heading--left {
-    text-align: left;
-  }
+.section-heading--left {
+  text-align: left;
+}
 
-  .section-heading h2 {
-    margin: 0 0 1rem;
+.section-heading__subtitle {
+  display: inline-block;
 
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    line-height: 1.2;
+  margin: 0 0 .75rem;
+  padding: .35rem 1rem;
 
-    color: var(--color-text-primary);
-  }
+  border-radius: 999px;
 
-  .section-heading p {
-    margin: 0;
+  background-color: var(--color-brand-green-light);
+  color: white;
+  padding: 8px 14px;
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1;
+}
 
-    font-size: 1.125rem;
-    line-height: 1.8;
+.section-heading__title {
+  margin: 0;
 
-    color: #666;
-  }
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
 
-  .text {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--color-text-primary);
-  }
+  color: var(--color-text-primary);
+}
+
+.section-heading__description {
+  max-width: 42rem;
+
+  margin: 1rem auto 0;
+
+  font-size: 1.05rem;
+  line-height: 1.9;
+
+  color: var(--color-text-secondary);
+}
+
+.section-heading--left .section-heading__description,
+.section-heading--right .section-heading__description {
+  margin-inline: 0;
+}
 </style>

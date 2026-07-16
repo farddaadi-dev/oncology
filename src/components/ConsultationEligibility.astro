@@ -1,195 +1,105 @@
 ---
 import Section from "./Section.astro";
 import SectionHeading from "./SectionHeading.astro";
+import InfoCard from "./InfoCard.astro";
+import IconList from "./IconList.astro";
+import NoticeBox from "./NoticeBox.astro";
 
+import { consultationEligibility } from "@/data/onlineConsultation";
 
-
-const appropriateItems = [
-  "بررسی و تفسیر نتایج آزمایش‌ها",
-  "بررسی تصاویر پزشکی (CT، MRI، PET Scan و ...)",
-  "دریافت نظر دوم درباره تشخیص یا درمان",
-  "پیگیری روند درمان و پاسخ به پرسش‌ها",
-  "بررسی عوارض داروها و شیمی‌درمانی",
-  "مشاوره درباره بیماری‌های خون و سرطان",
-  "بررسی گزارش پاتولوژی و نمونه‌برداری",
-  "تصمیم‌گیری درباره مراحل بعدی درمان"
-];
-
-const urgentItems = [
-  "تب ۳۸ درجه یا بالاتر در بیمار تحت شیمی‌درمانی",
-  "تنگی نفس شدید یا درد شدید قفسه سینه",
-  "خونریزی کنترل‌نشده",
-  "کاهش سطح هوشیاری یا گیجی شدید",
-  "درد بسیار شدید و غیرقابل کنترل",
-  "ضعف ناگهانی یا بی‌حسی یک سمت بدن",
-  "تشنج یا از دست دادن هوشیاری"
-];
+import CheckIcon from "@/assets/icons/check.svg";
+import AlertIcon from "@/assets/icons/triangle-alert.svg";
 ---
 
 <Section>
+
   <SectionHeading
+    subtitle="راهنمای انتخاب"
     title="چه زمانی مشاوره آنلاین انتخاب مناسبی است؟"
-    subtitle="مشاوره آنلاین برای بسیاری از پرسش‌ها و پیگیری‌های درمانی گزینه‌ای مناسب است، اما در برخی شرایط مراجعه حضوری یا مراجعه فوری به اورژانس ضروری خواهد بود."
+    description="مشاوره آنلاین برای بسیاری از پرسش‌ها و پیگیری‌های درمانی گزینه‌ای مناسب است، اما در برخی شرایط مراجعه حضوری یا مراجعه فوری به اورژانس ضروری خواهد بود."
   />
 
-  <div class="eligibility-grid" id="eligibility-grid">
-    <!-- Appropriate -->
-    <article class="card suitable">
-      <div class="card-header">
-        <span>
-            <img
-                src="/assets/icons/check.svg"
-                alt=""
-            />
-        </span>
-        <h3>مناسب برای مشاوره آنلاین</h3>
+  <div class="eligibility-grid">
+
+    <!-- Suitable for online consultation -->
+    <InfoCard
+      title="مناسب برای مشاوره آنلاین"
+      icon={CheckIcon.src}
+    >
+
+      <IconList
+        items={consultationEligibility.suitable}
+        icon={CheckIcon.src}
+      />
+
+    </InfoCard>
+
+
+    <!-- Urgent situations -->
+    <InfoCard
+      title="نیازمند مراجعه فوری"
+      icon={AlertIcon.src}
+      color="var(--color-danger)"
+    >
+
+      <IconList
+        items={consultationEligibility.urgent}
+        icon={AlertIcon.src}
+      />
+
+
+      <div class="notice-wrapper">
+
+        <NoticeBox
+          icon={AlertIcon.src}
+          color="var(--color-danger)"
+          background="var(--color-danger-bg)"
+        >
+
+          <p>
+            <strong>توجه:</strong>
+            در صورت وجود هر یک از شرایط فوق، ابتدا به نزدیک‌ترین مرکز درمانی یا
+            اورژانس مراجعه کنید. مشاوره آنلاین جایگزین خدمات اورژانسی نیست.
+          </p>
+
+        </NoticeBox>
+
       </div>
 
-      <ul>
-        {appropriateItems.map(item => (
-          <li>
-            <span class="list-icon">
-                <img
-                    src="/assets/icons/check.svg"
-                    alt=""
-                />
-            </span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </article>
+    </InfoCard>
 
-    <!-- Urgent -->
-    <article class="card urgent">
-      <div class="card-header">
-        <span>
-          <img
-          src="/assets/icons/triangle-alert.svg"
-          alt=""
-          />
-        </span>
-        <h3>نیازمند مراجعه فوری</h3>
-      </div>
-
-      <ul>
-        {urgentItems.map(item => (
-          <li>
-            <span class="list-icon">
-          <img
-          src="/assets/icons/triangle-alert.svg"
-          alt=""
-          />
-        </span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div class="notice">
-        <strong>توجه:</strong>
-        در صورت وجود هر یک از شرایط فوق، ابتدا به نزدیک‌ترین مرکز درمانی یا
-        اورژانس مراجعه کنید. مشاوره آنلاین جایگزین خدمات اورژانسی نیست.
-      </div>
-    </article>
   </div>
+
 </Section>
+
 
 <style>
 .eligibility-grid {
+
   display: grid;
+
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
   gap: 2rem;
+
   margin-top: 3rem;
 }
 
-.card {
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow-normal);
-  border: 1px solid var(--color-border);
-  height: 100%;
-}
 
-.suitable {
-  border-top: 4px solid var(--color-brand-green);
-}
+.notice-wrapper {
 
-.urgent {
-  border-top: 4px solid #d9534f;
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  margin-bottom: 1.5rem;
-}
-
-.card-header h3 {
-  margin: 0;
-  font-size: 1.3rem;
-}
-
-.list-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-}
-
-.icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--color-background-alt);
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  display: flex;
-  align-items: flex-start;
-  gap: .75rem;
-  padding: .75rem 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-.check {
-  color: var(--color-primary);
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-.warning {
-  color: #d9534f;
-  flex-shrink: 0;
-}
-
-.notice {
   margin-top: 2rem;
-  padding: 1rem 1.25rem;
-  background: rgba(217, 83, 79, .08);
-  border-inline-start: 4px solid #d9534f;
-  border-radius: .5rem;
-  line-height: 1.8;
+
 }
-</style>
-<style is:global>
+
+
 @media (max-width: 900px) {
-  #eligibility-grid {
+
+  .eligibility-grid {
+
     grid-template-columns: 1fr;
+
   }
+
 }
 </style>
