@@ -1,3 +1,5 @@
+import type { ImageMetadata } from "astro";
+
 import FarshidImage from "@/assets/images/doctors/farshid.jpeg";
 import NafisehImage from "@/assets/images/doctors/nafiseh.png";
 
@@ -11,7 +13,7 @@ export interface Author {
 
     title: string;
 
-    image: string;
+    image: ImageMetadata;
 
     bio: string;
 
