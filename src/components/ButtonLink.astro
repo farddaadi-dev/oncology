@@ -4,17 +4,22 @@ interface Props {
   text: string;
   variant?: 'primary' | 'secondary';
   class?: string;
+  target?: "_blank" | "_self";
+  rel?: string;
 }
 
 const {
   href,
   text,
-  variant = 'primary'
+  variant = 'primary',
+  target,
+  rel
 } = Astro.props;
 ---
 
 <a
   href={href}
+  rel={rel}
   class={`button button--${variant}`}
 >
   {text}

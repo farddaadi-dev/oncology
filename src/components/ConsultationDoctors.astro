@@ -1,0 +1,73 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import DoctorCard from "./DoctorCard.astro";
+
+import { doctors } from "../data/doctors";
+---
+
+<Section>
+
+  <SectionHeading
+
+    title="پزشک خود را برای مشاوره آنلاین انتخاب کنید"
+
+    subtitle="انتخاب پزشک"
+
+    description="پس از انتخاب پزشک مورد نظر، به صفحه اختصاصی ایشان در سامانه آکسون هدایت خواهید شد و می‌توانید فرآیند رزرو مشاوره آنلاین را تکمیل کنید."
+
+  />
+
+
+  <div class="doctors-grid" id="doctors-grid">
+
+    {doctors.map((doctor) => (
+
+      <DoctorCard
+
+        doctor={doctor}
+
+        buttonText="شروع مشاوره آنلاین"
+
+        buttonHref={doctor.consultationUrl}
+
+        buttonTarget="_blank"
+
+        buttonRel="noopener noreferrer"
+
+      />
+
+    ))}
+
+  </div>
+
+
+</Section>
+
+
+<style>
+
+.doctors-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  justify-content: center;
+
+  gap: 2.5rem;
+
+}
+
+
+@media (max-width: 900px) {
+
+  #doctors-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+</style>

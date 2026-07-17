@@ -3,6 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import aboutImage from "../assets/images/aboutHero.webp";
 import ButtonLink from "../components/ButtonLink.astro";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import DoctorCard from "../components/DoctorCard.astro";
+
+import { doctors } from "../data/doctors";
 ---
 
 <BaseLayout
@@ -20,48 +25,32 @@ import ButtonLink from "../components/ButtonLink.astro";
     >
 
     </Hero>
+    <Section>
+        <SectionHeading 
+            title="همراهان شما در مسیر درمان"
+            subtitle="آشنایی با پزشکان"
+            description="ما باور داریم که درمان موثر تنها بر پایه دانش پزشکی نیست، بلکه نیازمند شناخت شرایط، اهداف و نیازهای هر بیمار است. با تکیه بر تجربه، شواهد علمی و ارتباط انسانی، در کنار بیماران و خانواده‌های آنان هستیم."
+        >
+
+        </SectionHeading>
+        <div class="doctors-grid" id="doctors-grid">
+
+            {doctors.map((doctor) => (
+        
+                <DoctorCard
+                    doctor={doctor}
+                    buttonText="مشاهده رزومه"
+                    buttonHref={doctor.profileUrl}
+                />
+        
+            ))}
+        
+        </div>
+    </Section>
     <section class="doctors-section" id="doctors-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">آشنایی با پزشکان</span>
-                <h2 class="section-title">همراهان شما در مسیر درمان</h2>
-                <p class="section-description">ما باور داریم که درمان موثر تنها بر پایه دانش پزشکی نیست، بلکه نیازمند شناخت شرایط، اهداف و نیازهای هر بیمار است. با تکیه بر تجربه، شواهد علمی و ارتباط انسانی، در کنار بیماران و خانواده‌های آنان هستیم.</p>
-            </div>
-            <div class="doctors-grid">
-                <!-- doctor 1 -->
-                <article class="doctor-card">
-                    <!-- doctor image -->
-                    <img src="" alt="" class="doctor-image">
-                    <div class="doctor-content">
-                        <h3 class="doctor-name">دکتر نفیسه انصاری‌نژاد</h3>
-                        <p class="doctor-specialty">فوق تخصص خون و آنکولوژی</p>
-                        <p class="doctor-bio">ارائه خدمات تخصصی درمان سرطان و بیماریهای خونی با رویکردی مبتنی بر جدیدترین دستاوردهای علمی و توجه ویژه به کیفیت زندگی بیماران.</p>
-                        <div class="resume-button">
-                            <ButtonLink
-                        href="#"
-                        text="مشاهده رزومه"
-                        ></ButtonLink>
-                        </div>
-                    </div>
-                </article>
-                <!-- doctor 2 -->
-                <article class="doctor-card">
-                    <!-- doctor image -->
-                    <img src="" alt="" class="doctor-image">
-                    <div class="doctor-content">
-                        <h3 class="doctor-name">دکتر فرشید فرداد</h3>
-                        <p class="doctor-specialty">فوق تخصص خون و آنکولوژی</p>
-                        <p class="doctor-bio">بیش از دو دهه تجربه در تشخیص و درمان بیماری‌های خون وسرطان با تمرکز بر ارائه مراقبت علمی، فرد محور و مبتنی بر شواهد.</p>
-                        <div class="resume-button">
-                            <ButtonLink
-
-                        href="#"
-                        text="مشاهده رزومه"
-                        ></ButtonLink>
-                        </div>
-                    </div>
-                </article> 
-            </div>
+            
+            
             <div class="philosophy-box">
                 <h3 class="philosophy-title">رویکرد مشترک ما</h3>
                 <div class="philosophy-grid">
@@ -93,74 +82,14 @@ import ButtonLink from "../components/ButtonLink.astro";
         background-color: var(--color-bg-primary);
 
     }
-    .section-header {
-        text-align: center;
-        max-width: 850px;
-        margin: 0 auto 5rem;
-    }
-    .section-subtitle {
-        display: inline-block;
-        color: var(--color-brand-accent-dark);
-        font-size: var(--text-sm);
-        font-weight: 500;
-        margin-bottom: 1rem;
-    }
-    .section-title {
-        font-size: var(--text-2xl);
-        color: var(--color-text-primary);
-        margin-bottom: 1.5rem;
-    }
-    .section-description {
-        color: var(--color-text-secondary);
-        line-height: 2;
-        font-size: var(--text-md);
-    }
+    
     .doctors-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
         margin-bottom: 5rem;
     }
-    .doctor-card {
-        background-color: white;
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: var(--shadow-medium);
-        transition: 0.3s, ease;
-    }
-    .doctor-card:hover {
-        transform: translateY(-8px);
-    }
-    .doctor-image {
-        width: 100%;
-        height: 420px;
-        object-fit: cover;
-    }
-    .doctor-content {
-        padding: 36px;
-    }
-    .doctor-name {
-        font-size: var(--text-xl);
-        color: var(--color-text-primary);
-        margin-bottom: 10px;
-    }
-    .doctor-specialty {
-        color: var(color-brand-accent);
-        font-weight: 700;
-        margin-bottom: 22px;
-    }
-    .doctor-bio {
-        color: var(--color-text-secondary);
-        line-height: 2;
-        margin-bottom: 28px;
-    }
-    .doctor-link {
-        color: var(--color-text-primary);
-        font-weight: 700;
-    }
-    .doctor-link:hover {
-        color: var(--color-brand-accent);
-    }
+    
     .philosophy-box {
         background-color: white;
         padding: 60px;
@@ -189,7 +118,7 @@ import ButtonLink from "../components/ButtonLink.astro";
 
 <style is:global>
     @media (max-width: 992px) {
-        .container .doctors-grid {
+        #doctors-grid {
             grid-template-columns: 1fr;
         }
         .philosophy-box .philosophy-grid {
@@ -208,9 +137,7 @@ import ButtonLink from "../components/ButtonLink.astro";
         .section-header .section-title {
             font-size: var(--text-xl);
         }
-        .doctor-card .doctor-image {
-            height: 340px;
-        }
+        
         .doctor-card .doctor-content {
             padding: 28px;
         }

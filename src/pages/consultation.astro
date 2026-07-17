@@ -6,6 +6,7 @@ import ConsultationEligibility from "@/components/ConsultationEligibility.astro"
 import HowItWorks from "@/components/HowItWorks.astro";
 import ConsultationPreparation from "@/components/ConsultationPreparation.astro";
 import ConsultationLimitation from "@/components/ConsultationLimitation.astro";
+import ConsultationDoctors from "@/components/ConsultationDoctors.astro";
 ---
 
 <BaseLayout
@@ -21,11 +22,13 @@ import ConsultationLimitation from "@/components/ConsultationLimitation.astro";
         image={consultationImage}
         alt="تصویر مشاوره آنلاین"
         primaryButtonText="شروع مشاوره آنلاین"
-    >
-    </Hero>
-    <ConsultationEligibility></ConsultationEligibility>
-    <HowItWorks></HowItWorks>
-    <ConsultationPreparation></ConsultationPreparation>
-    <ConsultationLimitation></ConsultationLimitation>
+    />
+    
+    <ConsultationEligibility />
+    <HowItWorks />
+    <ConsultationPreparation />
+    <ConsultationLimitation />
+    <ConsultationDoctors />
+
 
 </BaseLayout>

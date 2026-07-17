@@ -1,0 +1,182 @@
+---
+import { Image } from "astro:assets";
+import ButtonLink from "./ButtonLink.astro";
+
+import type { Doctor } from "@/data/doctors";
+
+interface Props {
+  doctor: Doctor;
+
+  buttonText: string;
+  buttonHref: string;
+  buttonTarget?: "_blank" | "_self";
+
+  buttonRel?: string;
+}
+
+const {
+  doctor,
+  buttonText,
+  buttonHref,
+  buttonTarget,
+  buttonRel
+} = Astro.props;
+---
+
+<article class="doctor-card">
+    <div class="doctor-image-wrapper">
+        <Image
+            src={doctor.image}
+            alt={doctor.name}
+            class="doctor-image"
+            width={600}
+            height={700}
+        />
+    </div>
+
+  <div class="doctor-content">
+
+    <h3 class="doctor-name">
+      {doctor.name}
+    </h3>
+
+    <p class="doctor-specialty">
+      {doctor.specialty}
+    </p>
+
+    <p class="doctor-bio">
+      {doctor.bio}
+    </p>
+
+    <div class="doctor-card__button">
+
+      <ButtonLink
+        href={buttonHref}
+        text={buttonText}
+        target={buttonTarget}
+        rel={buttonRel}
+      />
+
+    </div>
+
+  </div>
+
+</article>
+
+<style>
+
+.doctor-card {
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-xl);
+
+  overflow: hidden;
+
+  max-width: 420px;
+
+    width: 100%;
+
+    margin-inline: auto;
+
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+}
+
+.doctor-card:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow: var(--shadow-md);
+
+}
+
+.doctor-image-wrapper {
+
+width: 240px;
+height: 300px;
+
+margin: 2rem auto 0;
+
+border-radius: var(--radius-lg);
+
+overflow: hidden;
+
+}
+
+
+.doctor-image {
+
+width: 100%;
+height: 100%;
+
+object-fit: cover;
+
+object-position: center top;
+
+display: block;
+
+}
+
+.doctor-content {
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 1.75rem;
+
+}
+
+.doctor-name {
+
+  margin: 0 0 .5rem;
+
+  color: var(--color-text-primary);
+
+  font-size: 1.5rem;
+
+}
+
+.doctor-specialty {
+
+  margin: 0 0 1.25rem;
+
+  color: var(--color-brand-accent-dark);
+
+  font-weight: 600;
+
+}
+
+.doctor-bio {
+
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  line-height: 1.9;
+
+}
+
+.doctor-card__button {
+
+  margin-top: auto;
+
+  padding-top: 2rem;
+
+}
+
+</style>
