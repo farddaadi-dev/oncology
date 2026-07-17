@@ -1,5 +1,6 @@
 ---
 import { authors } from "@/data/authors";
+import { Image } from "astro:assets";
 
 type AuthorId = keyof typeof authors;
 
@@ -18,7 +19,7 @@ if (!info) {
 
 <section class="author-card">
 
-    <img
+    <image
         src={info.image}
         alt={info.name}
         class="author-card__image"

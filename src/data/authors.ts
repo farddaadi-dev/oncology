@@ -1,3 +1,6 @@
+import FarshidImage from "@/assets/images/doctors/farshid.jpeg";
+import NafisehImage from "@/assets/images/doctors/nafiseh.png";
+
 export type AuthorId = "farshid" | "nafiseh";
 
 export interface Author {
@@ -28,7 +31,7 @@ export const authors: Record<AuthorId, Author> = {
 
         title: "فوق تخصص هماتولوژی، انکولوژی و پیوند مغز استخوان",
 
-        image: "/images/authors/farshid.webp",
+        image: FarshidImage,
 
         bio:
             "متخصص بیماری‌های خون و سرطان با بیش از ۲۰ سال سابقه طبابت و تجربه گسترده در تشخیص و درمان انواع سرطان‌ها، بدخیمی‌های خونی و بیماری‌های خوش‌خیم هماتولوژی.",
@@ -55,7 +58,7 @@ export const authors: Record<AuthorId, Author> = {
 
         title: "فوق تخصص هماتولوژی و انکولوژی",
 
-        image: "/images/authors/nafiseh.webp",
+        image: NafisehImage,
 
         bio:
             "متخصص هماتولوژی و انکولوژی با تمرکز بر درمان سرطان‌های شایع، مراقبت حمایتی و آموزش بیماران.",
