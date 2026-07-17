@@ -6,26 +6,15 @@ import SectionHeading from "../../components/SectionHeading.astro";
 import ServiceGrid from "../../components/ServiceGrid.astro";
 import ServiceCard from "../../components/ServiceCard.astro";
 import servicesImage from "../../assets/images/Services.png"
-import FeatureGrid from "../../components/FeatureGrid.astro";
-import FeatureCard from "../../components/FeatureCard.astro";
-import ProcessGrid from "../../components/ProcessGrid.astro";
-import ProcessStep from "../../components/ProcessStep.astro";
-import Faq from "../../components/Faq.astro";
-import Cta from "../../components/Cta.astro";
-const faqItems = [
-  {
-    question: "آیا برای ویزیت اولیه مدارک قبلی لازم است؟",
-    answer: "بله، لطفاً تمامی آزمایش‌ها، تصویربرداری‌ها و گزارش‌های پزشکی قبلی را همراه داشته باشید."
-  },
-  {
-    question: "بیوپسی مغز استخوان چگونه انجام می‌شود؟",
-    answer: "این اقدام به صورت سرپایی و با بی‌حسی موضعی انجام می‌شود."
-  },
-  {
-    question: "آیا خدمات شیمی درمانی در مطب انجام می‌شود؟",
-    answer: "بیشتر موارد شیمی درمانی‌ها در مطب قابل انجام است. در مواردی که نیاز به درمان چند روزه باشد یا زمان تزریق طولانی باشد،ممکن است بیمار بستری گردد."
-  }
-];
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import ProcessGrid from "@/components/ProcessGrid.astro";
+import ProcessStep from "@/components/ProcessStep.astro";
+import Faq from "@/components/Faq.astro";
+import Cta from "@/components/Cta.astro";
+import {servicesFAQ} from "@/data/servicesFAQ.ts"
+import ButtonLink from "@/components/ButtonLink.astro";
+
 ---
 
 <BaseLayout
@@ -42,9 +31,7 @@ const faqItems = [
     alt="warm clinic environment"
     >
     </Hero>
-    <Section
-    background="primary"
-    >
+    <Section>
         <SectionHeading
         title="خدمات تخصصی"
          subtitle="خدمات تشخیصی و درمانی در حوزه آنکولوژی و هماتولوژی"
@@ -171,7 +158,7 @@ const faqItems = [
         title="سوالات متداول">
         </SectionHeading>
         <Faq 
-        items={faqItems}>
+        items={servicesFAQ}>
         </Faq>
 
     </Section>
@@ -179,6 +166,15 @@ const faqItems = [
     title="دریافت مشاوره تخصصی"
     description="جهت رزرو نوبت یا دریافت اطلاعات بیشتر با ما تماس بگیرید"
     >
+    <ButtonLink
+    href="/online-consultation"
+    text="مشاوره آنلاین"
+  />
 
+  <ButtonLink
+    href="/visit"
+    variant="secondary"
+    text="رزرو نوبت"
+  />
     </Cta>
 </BaseLayout>

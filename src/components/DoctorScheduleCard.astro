@@ -1,35 +1,43 @@
 ---
 import ScheduleRow from "./ScheduleRow.astro";
 
-interface Session {
+// interface Session {
 
-    day:string;
+//     day:string;
 
-    hours:string;
+//     hours:string;
 
-}
+// }
 
-interface Location {
+// interface Location {
 
-    name:string;
+//     name:string;
 
-    phone:string;
+//     phone:string;
 
-    sessions:Session[];
+//     sessions:Session[];
 
-}
+// }
 
-interface Props {
+// interface Props {
 
-    name:string;
+//     name:string;
 
-    specialty:string;
+//     specialty:string;
 
-    image?:string;
+//     image?:string;
 
-    locations:Location[];
+//     locations:Location[];
 
-}
+// }
+
+import type { Doctor } from "@/data/doctors";
+import { Image } from "astro:assets";
+
+
+
+
+type Props = Doctor;
 
 const {
 
@@ -50,9 +58,10 @@ const {
 
         <div class="doctor-image">
 
-            <img
+            <Image
                 src={image}
                 alt={name}
+                class="doctor-photo"
             />
 
         </div>
@@ -124,14 +133,10 @@ const {
 
 }
 
-.doctor-image img{
-
+.doctor-photo{
     width:100%;
-
     display:block;
-
     border-radius:var(--radius-lg);
-
 }
 
 h3 {

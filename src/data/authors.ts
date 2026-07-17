@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
 
-import FarshidImage from "@/assets/images/doctors/farshid.jpeg";
+import FarshidImage from "@/assets/images/doctors/farshid.jpg";
 import NafisehImage from "@/assets/images/doctors/nafiseh.png";
 
 export type AuthorId = "farshid" | "nafiseh";

@@ -1,3 +1,7 @@
+
+
+import type { ImageMetadata } from "astro";
+
 import FarshidImage from "@/assets/images/doctors/farshid.jpg";
 import NafisehImage from "@/assets/images/doctors/nafiseh.png";
 
@@ -21,7 +25,7 @@ export interface Doctor {
 
   specialty: string;
 
-  image: string;
+  image: ImageMetadata;
 
   bio: string;
 

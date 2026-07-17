@@ -1,38 +1,19 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import visitImage from "../assets/images/visit.webp";
-import Section from "../components/Section.astro";
-import NoticeBanner from "../components/NoticeBanner.astro";
-import { doctors } from "../data/doctors";
-import DoctorScheduleCard from "../components/DoctorScheduleCard.astro";
-import SectionHeading from "../components/SectionHeading.astro";
-import ContactGrid from "../components/ContactGrid.astro";
-import ReservationCard from "../components/ReservationCard.astro";
-import Faq from "../components/Faq.astro";
-import Cta from "../components/Cta.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import visitImage from "@/assets/images/visit.webp";
+import Section from "@/components/Section.astro";
+import NoticeBanner from "@/components/NoticeBanner.astro";
+import { doctors } from "@/data/doctors";
+import DoctorScheduleCard from "@/components/DoctorScheduleCard.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ContactGrid from "@/components/ContactGrid.astro";
+import ReservationCard from "@/components/ReservationCard.astro";
+import Faq from "@/components/Faq.astro";
+import Cta from "@/components/Cta.astro";
+import { visitFAQ } from "@/data/visitFAQ";
+import ButtonLink from "@/components/ButtonLink.astro";
 
-const faqItems = [
-    {
-        question: "چگونه می‌توانم نوبت ویزیت بگیرم؟",
-        answer: "برای دریافت نوبت، می‌توانید در ساعات کاری با شماره تلفن مطب یا کلینیک تماس بگیرید. همکاران ما با توجه به برنامه حضور پزشک، نزدیک‌ترین زمان ممکن را برای ویزیت شما تعیین خواهند کرد."
-    }, {
-        question: "آیا مراجعه بدون نوبت امکان‌پذیر است؟", 
-        answer: "به منظور کاهش زمان انتظار بیماران، ویزیت‌ها تنها با تعیین وقت قبلی انجام می‌شوند. در شرایط خاص، لطفاً پیش از مراجعه با مطب تماس بگیرید."
-    }, {
-        question: "هنگام مراجعه چه مدارکی باید همراه داشته باشم؟", 
-        answer: "لطفاً مدارک شناسایی، دفترچه یا بیمه (در صورت نیاز)، نتایج آزمایش‌ها، گزارش‌های تصویربرداری، پاتولوژی، نسخه‌های قبلی و فهرست داروهای مصرفی خود را همراه داشته باشید. همراه داشتن این مدارک به ارزیابی دقیق‌تر وضعیت شما کمک می‌کند."
-    }, {
-        question: "اولین ویزیت معمولاً چقدر زمان می‌برد؟", 
-        answer: "اولین جلسه ویزیت معمولاً نسبت به مراجعات بعدی زمان بیشتری نیاز دارد، زیرا سوابق پزشکی، نتایج بررسی‌ها و برنامه درمانی به طور کامل بررسی و درباره آن با بیمار گفتگو می‌شود."
-    }, {
-        question: "اگر نتوانم در زمان تعیین‌شده مراجعه کنم چه کار باید انجام دهم؟", 
-        answer: "خواهشمندیم در صورت امکان، حداقل ۲۴ ساعت قبل از زمان ویزیت با مطب یا کلینیک تماس بگیرید تا نوبت شما به بیمار دیگری اختصاص داده شود و زمان جدیدی برای شما هماهنگ گردد."
-    }, {
-        question: "آیا امکان مشاوره برای دریافت نظر دوم (Second Opinion) وجود دارد؟", 
-        answer: "بله. در صورت تمایل به دریافت نظر دوم درباره تشخیص یا برنامه درمانی، می‌توانید تمام مدارک پزشکی خود را همراه داشته باشید تا به دقت بررسی شوند."
-    }
-];
 ---
 
 <BaseLayout
@@ -50,7 +31,7 @@ const faqItems = [
     >
 
     </Hero>
-    <Section background="primary">
+    <Section>
         <NoticeBanner
 
     type="warning"
@@ -74,7 +55,7 @@ const faqItems = [
     
     ))}
     </Section>
-    <Section background="primary">
+    <Section>
         <SectionHeading 
         title="رزرو نوبت"
         >
@@ -104,14 +85,23 @@ const faqItems = [
         title="سوالات متداول">
         </SectionHeading>
         <Faq 
-        items={faqItems}>
+        items={visitFAQ}>
         </Faq>
     </Section>
     <Cta 
     title="اطلاعات بیشتری نیاز دارید؟"
     description="برای گرفتن نوبت ویزیت حضوری یا مشاوره آنلاین اقدام کنید"
     >
+    <ButtonLink
+    href="#doctors"
+    text="انتخاب پزشک"
+  />
 
+  <ButtonLink
+    href="/visit"
+    variant="secondary"
+    text="ویزیت حضوری"
+  />
     </Cta>
     
 </BaseLayout>

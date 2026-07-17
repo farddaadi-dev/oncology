@@ -1,10 +1,7 @@
 ---
-import ButtonLink from './ButtonLink.astro';
-
 interface Props {
   title: string;
   description?: string;
-  
 }
 
 const {
@@ -15,7 +12,7 @@ const {
 
 <section class="cta">
 
-  <div class="cta-content">
+  <div class="cta-content" id="cta-content">
 
     <h2>{title}</h2>
 
@@ -23,20 +20,8 @@ const {
       <p>{description}</p>
     )}
 
-    <div class="hero-button">
-      <ButtonLink 
-      href="/contact"
-      text= "مشاوره آنلاین"
-      >
-    
-      </ButtonLink>
-      <ButtonLink 
-      href="/contact" 
-      variant="secondary"
-      text="رزرو نوبت"
-      >
-     
-      </ButtonLink>
+    <div class="cta-actions" id="cta-actions">
+      <slot />
     </div>
 
   </div>
@@ -44,44 +29,67 @@ const {
 </section>
 
 <style>
-  .cta {
-    padding: 4rem 2rem;
+.cta {
+  padding: 4rem 2rem;
+
+  background: white;
+
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 720px;
+
+  margin-inline: auto;
+
+  padding: 3rem;
+
+  border-radius: var(--radius-xl);
+
+  background: var(--color-bg-hero);
+
   
-    
+  box-shadow: var(--shadow-normal);
+}
 
-    text-align: center;
+.cta h2 {
+  margin: 0 0 1rem;
 
-    background: white;
+  font-size: clamp(2rem, 4vw, 2.75rem);
 
-    color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.cta p {
+  max-width: 42rem;
+
+  margin: 0 auto 2rem;
+
+  line-height: 2;
+
+  opacity: .95;
+}
+
+.cta-actions {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+@media (max-width:768px){
+
+  #cta-content{
+    padding:2.25rem 1.5rem;
   }
 
-  .cta-content {
-    max-width: 400px;
-    margin-inline: auto;
-    background-color: var(--color-bg-hero);
-    border-radius: 1.5rem;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  #cta-actions{
+    flex-direction:column;
+    align-items:center;
   }
 
-  .cta h2 {
-    margin: 0 0 1rem;
-
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-  }
-
-  .cta p {
-    margin: 0 0 2rem;
-
-    line-height: 1.8;
-
-    opacity: 0.9;
-  }
-  .hero-button {
-        display: flex;
-        gap: 1rem;
-    }
+}
 </style>

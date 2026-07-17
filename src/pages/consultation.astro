@@ -7,6 +7,9 @@ import HowItWorks from "@/components/HowItWorks.astro";
 import ConsultationPreparation from "@/components/ConsultationPreparation.astro";
 import ConsultationLimitation from "@/components/ConsultationLimitation.astro";
 import ConsultationDoctors from "@/components/ConsultationDoctors.astro";
+import PrivacySecurity from "@/components/PrivacySecurity.astro";
+import ConsultationFAQ from "@/components/ConsultationFAQ.astro";
+import ConsultationCTA from "@/components/consultationCTA.astro";
 ---
 
 <BaseLayout
@@ -22,6 +25,7 @@ import ConsultationDoctors from "@/components/ConsultationDoctors.astro";
         image={consultationImage}
         alt="تصویر مشاوره آنلاین"
         primaryButtonText="شروع مشاوره آنلاین"
+        primaryButtonHref="#choose-doctor"
     />
     
     <ConsultationEligibility />
@@ -29,6 +33,9 @@ import ConsultationDoctors from "@/components/ConsultationDoctors.astro";
     <ConsultationPreparation />
     <ConsultationLimitation />
     <ConsultationDoctors />
+    <PrivacySecurity />
+    <ConsultationFAQ />
+    <ConsultationCTA />
 
 
 </BaseLayout>

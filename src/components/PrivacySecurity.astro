@@ -1,0 +1,98 @@
+---
+import Section from "./Section.astro";
+import SectionHeading from "./SectionHeading.astro";
+import InfoCard from "./InfoCard.astro";
+
+import { icons } from "@/data/icons";
+
+const privacyItems = [
+  {
+    title: "حفظ محرمانگی اطلاعات پزشکی",
+    icon: icons.shield,
+    content:
+      "اطلاعات پزشکی، مدارک درمانی و گفتگوهای شما فقط برای ارائه خدمات مشاوره‌ای و تصمیم‌گیری درمانی استفاده می‌شود."
+  },
+
+  {
+    title: "ارتباط از طریق سامانه آکسون",
+    icon: icons.lock,
+    content:
+      "فرآیند مشاوره آنلاین، ارسال مدارک پزشکی و ارتباط با پزشک از طریق بستر اختصاصی سامانه آکسون انجام می‌شود."
+  },
+
+  {
+    title: "رعایت اصول حرفه‌ای پزشکی",
+    icon: icons.heart,
+    content:
+      "مشاوره پزشکی با رعایت اصول اخلاق حرفه‌ای، احترام به حقوق بیمار و حفظ حریم خصوصی انجام خواهد شد."
+  }
+];
+---
+
+<Section 
+  background="secondary"
+>
+
+  <SectionHeading
+    title="امنیت و محرمانگی اطلاعات شما"
+    description="اطلاعات پزشکی شما با احترام به حریم خصوصی و اصول حرفه‌ای مراقبت می‌شود."
+  />
+
+
+  <div class="privacy-grid" id="privacy-grid">
+
+    {privacyItems.map((item) => (
+
+      <InfoCard
+        title={item.title}
+        icon={item.icon}
+      >
+        <p>
+          {item.content}
+        </p>
+      </InfoCard>
+
+    ))}
+
+  </div>
+
+</Section>
+
+
+<style>
+
+.privacy-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 2rem;
+
+}
+
+
+/* improve text inside cards */
+
+.privacy-grid p {
+
+  margin: 0;
+
+  line-height: 1.9;
+
+  color: var(--color-text-secondary);
+
+}
+
+
+@media (max-width: 992px) {
+
+  #privacy-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+</style>
