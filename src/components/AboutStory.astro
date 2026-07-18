@@ -1,0 +1,107 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import { Image } from 'astro:assets';
+import storyImage from "@/assets/images/about-story.webp";
+---
+
+<Section background="secondary">
+    <SectionHeading
+        subtitle="درباره مجموعه"
+        title="چرا این مسیر را انتخاب کرده‌ایم؟"
+    />
+
+    <div class="story-grid" id="story-grid">
+
+        <div class="story-content">
+
+            <p>
+                باور ما این است که درمان سرطان تنها به انتخاب داروی مناسب
+                محدود نمی‌شود. هر بیمار شرایط، نگرانی‌ها و اهداف درمانی
+                متفاوتی دارد و شایسته دریافت مراقبتی است که متناسب با نیازهای
+                فردی او طراحی شده باشد.
+            </p>
+
+            <p>
+                ما تلاش می‌کنیم با تکیه بر دانش روز، تجربه بالینی و ارتباطی
+                صمیمانه و شفاف، محیطی ایجاد کنیم که بیماران و خانواده‌های آنان
+                با اطمینان بیشتری مسیر درمان را طی کنند و در تمام مراحل،
+                پاسخ پرسش‌های خود را دریافت نمایند.
+            </p>
+
+            <p>
+                هدف ما ارائه مراقبتی علمی، دقیق و انسانی است؛ مراقبتی که در آن
+                تصمیم‌های درمانی بر پایه شواهد معتبر پزشکی و با مشارکت فعال
+                بیمار اتخاذ می‌شود.
+            </p>
+            <div class="about-button">
+                <ButtonLink
+                    href="/visit"
+                    text="درخواست نوبت"
+                >
+               
+                </ButtonLink>
+            </div>
+
+        </div>
+
+        <div class="story-image" id="story-image">
+
+            <Image
+                src={storyImage}
+                alt="پزشک در حال گفتگو با بیمار"
+            />
+
+        </div>
+
+    </div>
+
+</Section>
+
+<style>
+.story-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.story-content p {
+    margin: 0;
+    line-height: 2;
+    color: var(--color-text-secondary);
+}
+
+.about-button {
+    display: flex;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 28px;
+    display: block;
+    box-shadow: var(--shadow-normal);
+}
+
+</style>
+<style is:global>
+@media (max-width: 992px) {
+
+    #story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    #story-image {
+        order: -1;
+    }
+
+}
+</style>

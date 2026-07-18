@@ -1,13 +1,20 @@
 ---
+import { Image } from "astro:assets";
+
+import { icons } from "@/data/icons";
+import type { IconName } from "@/data/icons";
+
 interface Props {
   items: string[];
-  icon: string;
+  icon: IconName;
 }
 
 const {
   items,
   icon
 } = Astro.props;
+
+const iconImage = icons[icon];
 ---
 
 <ul class="checklist">
@@ -15,10 +22,12 @@ const {
   {items.map(item => (
     <li class="checklist__item">
 
-      <img
-        src={icon}
+      <Image
+        src={iconImage}
         alt=""
         aria-hidden="true"
+        width={20}
+        height={20}
         class="checklist__icon"
       />
 
@@ -55,9 +64,6 @@ const {
 
 .checklist__icon {
   display: block;
-
-  width: 1.25rem;
-  height: 1.25rem;
 
   flex-shrink: 0;
 

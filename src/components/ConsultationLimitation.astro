@@ -4,7 +4,7 @@ import SectionHeading from "./SectionHeading.astro";
 import InfoCard from "./InfoCard.astro";
 
 import { consultationLimitations } from "@/data/onlineConsultation";
-import { icons } from "@/data/icons";
+
 ---
 
 <Section background="secondary">
@@ -16,13 +16,13 @@ import { icons } from "@/data/icons";
   />
 
 
-  <div class="limitations-grid">
+  <div class="limitations-grid" id="limitations-grid">
 
     {consultationLimitations.map(item => (
 
       <InfoCard
         title={item.title}
-        icon={icons[item.icon]}
+        icon={item.icon}
       >
 
         <p>
@@ -62,10 +62,11 @@ import { icons } from "@/data/icons";
 
 }
 
-
+</style>
+<style is:global>
 @media (max-width: 1000px) {
 
-  .limitations-grid {
+  #limitations-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -74,7 +75,7 @@ import { icons } from "@/data/icons";
 
 @media (max-width: 700px) {
 
-  .limitations-grid {
+  #limitations-grid {
     grid-template-columns: 1fr;
   }
 

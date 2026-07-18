@@ -7,8 +7,6 @@ import NoticeBox from "./NoticeBox.astro";
 
 import { consultationEligibility } from "@/data/onlineConsultation";
 
-import CheckIcon from "@/assets/icons/check.svg";
-import AlertIcon from "@/assets/icons/triangle-alert.svg";
 ---
 
 <Section>
@@ -24,12 +22,12 @@ import AlertIcon from "@/assets/icons/triangle-alert.svg";
     <!-- Suitable for online consultation -->
     <InfoCard
       title="مناسب برای مشاوره آنلاین"
-      icon={CheckIcon.src}
+      icon="check"
     >
 
       <IconList
         items={consultationEligibility.suitable}
-        icon={CheckIcon.src}
+        icon="check"
       />
 
     </InfoCard>
@@ -38,20 +36,20 @@ import AlertIcon from "@/assets/icons/triangle-alert.svg";
     <!-- Urgent situations -->
     <InfoCard
       title="نیازمند مراجعه فوری"
-      icon={AlertIcon.src}
+      icon="triangleAlert"
       
     >
 
       <IconList
         items={consultationEligibility.urgent}
-        icon={AlertIcon.src}
+        icon="triangleAlert"
       />
 
 
       <div class="notice-wrapper">
 
         <NoticeBox
-          icon={AlertIcon.src}
+          icon="triangleAlert"
           color="var(--color-danger)"
           background="var(--color-danger-bg)"
         >

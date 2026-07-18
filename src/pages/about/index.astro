@@ -1,35 +1,25 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import aboutImage from "../assets/images/aboutHero.webp";
-import ButtonLink from "../components/ButtonLink.astro";
-import Section from "../components/Section.astro";
-import SectionHeading from "../components/SectionHeading.astro";
-import DoctorCard from "../components/DoctorCard.astro";
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AboutHero from '@/components/about/AboutHero.astro'
+import WhyChooseUs from "@/components/about/WhyChooseUs.astro";
 
-import { doctors } from "../data/doctors";
+import Section from '@/components/Section.astro'
+import SectionHeading from '@/components/SectionHeading.astro'
+import DoctorCard from '@/components/DoctorCard.astro'
+import { doctors } from '@/data/doctors'
+import AboutStory from '@/components/AboutStory.astro'
 ---
-
 <BaseLayout
     title="درباره ما"
     description="آشنایی با پزشکان آنکولوژیست تهران، رزومه و دستاوردها"
     image="/default-og-image.jpg"
 	>
-    <Hero
-        badge="درباره ما"
-        titleLine1="همراهی علمی و انسانی"
-        titleLine2="در مسیر درمان"
-        description="ما با رویکردی علمی، فرد محور و مبتنی بر آخرین شواهد پزشکی، در کنار بیماران هستیم تا مسیر درمان با آرامش، دقت و همراهی بیشتری طی شود."
-        image={aboutImage}
-        alt="تصویر یک پزشک که در حال کمک به یک بیمار است"
-    >
-
-    </Hero>
+    <AboutHero />
     <Section>
         <SectionHeading 
             title="همراهان شما در مسیر درمان"
             subtitle="آشنایی با پزشکان"
-            description="ما باور داریم که درمان موثر تنها بر پایه دانش پزشکی نیست، بلکه نیازمند شناخت شرایط، اهداف و نیازهای هر بیمار است. با تکیه بر تجربه، شواهد علمی و ارتباط انسانی، در کنار بیماران و خانواده‌های آنان هستیم."
+            description="تیم پزشکی ما متشکل از دو فوق تخصص هماتولوژی و آنکولوژی است که با تکیه بر دانش روز، تجربه بالینی و رویکردی بیمار‌محور، خدمات تشخیصی و درمانی را ارائه می‌دهند. برای آشنایی بیشتر با سوابق علمی و حرفه‌ای هر پزشک، می‌توانید صفحه اختصاصی ایشان را مشاهده کنید."
         >
 
         </SectionHeading>
@@ -47,6 +37,8 @@ import { doctors } from "../data/doctors";
         
         </div>
     </Section>
+    <AboutStory />
+    <WhyChooseUs />
     <section class="doctors-section" id="doctors-section">
         <div class="container">
             

@@ -1,4 +1,4 @@
-import type { IconName } from "./icons";
+import type { IconName } from "@/data/icons";
 
 export const consultationEligibility = {
   suitable: [
@@ -82,11 +82,13 @@ export const consultationPreparation = {
   ]
 };
 
-export const consultationLimitations: {
+interface ConsultationLimitation {
   title: string;
   icon: IconName;
   description: string;
-}[] = [
+}
+
+export const consultationLimitations: ConsultationLimitation[] = [
 
   {
     title: "نیاز به معاینه فیزیکی",
@@ -104,7 +106,7 @@ export const consultationLimitations: {
 
   {
     title: "شرایط اورژانسی",
-    icon: "alert",
+    icon: "triangleAlert",
     description:
       "در شرایطی که نیاز به ارزیابی فوری یا مداخله سریع وجود دارد، مراجعه مستقیم به اورژانس یا مرکز درمانی مناسب ضروری است."
   }

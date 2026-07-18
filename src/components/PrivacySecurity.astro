@@ -3,29 +3,39 @@ import Section from "./Section.astro";
 import SectionHeading from "./SectionHeading.astro";
 import InfoCard from "./InfoCard.astro";
 
-import { icons } from "@/data/icons";
 
-const privacyItems = [
+
+import type { IconName } from "@/data/icons";
+
+interface PrivacyItem {
+  title: string;
+  icon: IconName;
+  content: string;
+}
+
+const privacyItems: PrivacyItem[] = [
+
   {
     title: "حفظ محرمانگی اطلاعات پزشکی",
-    icon: icons.shield,
+    icon: "shield",
     content:
       "اطلاعات پزشکی، مدارک درمانی و گفتگوهای شما فقط برای ارائه خدمات مشاوره‌ای و تصمیم‌گیری درمانی استفاده می‌شود."
   },
 
   {
-    title: "ارتباط از طریق سامانه آکسون",
-    icon: icons.lock,
+    title: "ارتباط امن از طریق سامانه آکسون",
+    icon: "lock",
     content:
       "فرآیند مشاوره آنلاین، ارسال مدارک پزشکی و ارتباط با پزشک از طریق بستر اختصاصی سامانه آکسون انجام می‌شود."
   },
 
   {
     title: "رعایت اصول حرفه‌ای پزشکی",
-    icon: icons.heart,
+    icon: "heart",
     content:
       "مشاوره پزشکی با رعایت اصول اخلاق حرفه‌ای، احترام به حقوق بیمار و حفظ حریم خصوصی انجام خواهد شد."
   }
+
 ];
 ---
 
@@ -72,19 +82,12 @@ const privacyItems = [
 }
 
 
-/* improve text inside cards */
-
-.privacy-grid p {
-
-  margin: 0;
-
-  line-height: 1.9;
-
-  color: var(--color-text-secondary);
-
-}
 
 
+
+
+</style>
+<style is:global>
 @media (max-width: 992px) {
 
   #privacy-grid {

@@ -1,16 +1,23 @@
 ---
+import type { IconName } from "@/data/icons";
+import { icons } from "@/data/icons";
+import {Image} from "astro:assets";
+
 interface Props {
   title: string;
-  icon: string;
+  icon: IconName;
+  variant?: "default" | "glass";
 }
 
 const {
   title,
-  icon
+  icon,
+  variant = "default"
 } = Astro.props;
+const iconSrc = icons[icon];
 ---
 
-<article class="info-card">
+<article class={`info-card info-card--${variant}`}>
 
   <header class="info-card__header">
 
@@ -18,11 +25,11 @@ const {
       class="info-card__icon"
       aria-hidden="true"
     >
-      <img
-        src={icon}
+      <Image
+        src={iconSrc}
         alt=""
         class="info-card__icon-image"
-      />
+    />
     </div>
 
     <h3 class="info-card__title">
@@ -49,33 +56,65 @@ const {
 
   padding: 2rem;
 
-  border: 1px solid var(--color-border);
-
   border-radius: var(--radius-lg);
-
-  background: white;
-  box-shadow: var(--shadow-normal);
-  
-  /* box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08); */
 
   transition:
     transform .25s ease,
     box-shadow .25s ease;
+
 }
+
+
+/* Default card */
+
+.info-card--default {
+
+  background: white;
+
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-normal);
+
+}
+
+
+/* Glass card */
+
+.info-card--glass {
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.95),
+      rgba(255,255,255,.78)
+    );
+
+  border: 1px solid rgba(255,255,255,.55);
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: var(--shadow-normal);
+
+}
+
 
 
 .info-card:hover {
 
-  transform: translateY(-4px);
+  transform: translateY(-8px);
 
-  /* box-shadow: var(--shadow-medium); */
+  box-shadow: var(--shadow-medium);
 
 }
+
 
 
 .info-card__header {
 
   display: flex;
+
   align-items: center;
 
   gap: 1rem;
@@ -85,46 +124,73 @@ const {
 }
 
 
+
 .info-card__icon {
 
   flex-shrink: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  width: 3rem;
-  height: 3rem;
 
-  border-radius: 50%;
+  width: 4rem;
 
-  background: var(--color-bg-secondary);
+  height: 4rem;
+
+
+  border-radius: 18px;
+
+
+  background:
+    var(--color-bg-secondary);
 
 }
+
 
 
 .info-card__icon-image {
 
   display: block;
 
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.75rem;
+
+  height: 1.75rem;
 
 }
+
 
 
 .info-card__title {
 
   margin: 0;
 
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
+
+  color: var(--color-text-primary);
 
 }
+
 
 
 .info-card__body {
 
   flex: 1;
 
+  color: var(--color-text-secondary);
+
+  line-height: 1.9;
+
 }
+
+
+.info-card__body :global(p) {
+
+  margin: 0;
+
+}
+
+
 </style>

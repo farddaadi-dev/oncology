@@ -1,0 +1,84 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import InfoCard from "@/components/InfoCard.astro";
+
+import { benefits } from "@/data/benefits";
+---
+
+<Section>
+
+    <SectionHeading
+        subtitle="مزیت‌های ما"
+        title="چرا بیماران ما را انتخاب می‌کنند؟"
+        description="ما تلاش می‌کنیم با ترکیب دانش پزشکی، تجربه بالینی و ارتباط انسانی، مراقبتی دقیق و قابل اعتماد ارائه دهیم."
+    />
+
+
+    <div class="benefits-grid" id="benefits-grid">
+
+        {
+            benefits.map((benefit) => (
+
+                <InfoCard
+                    title={benefit.title}
+                    icon={benefit.icon}
+                    variant="glass"
+                >
+                    <p>
+                        {benefit.description}
+                    </p>
+
+                </InfoCard>
+
+            ))
+        }
+
+    </div>
+
+</Section>
+
+
+<style>
+
+.benefits-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 2rem;
+
+}
+
+
+</style>
+
+
+<style is:global>
+
+@media (max-width: 992px) {
+
+    #benefits-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    #benefits-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+</style>
