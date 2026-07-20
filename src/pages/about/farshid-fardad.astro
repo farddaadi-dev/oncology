@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DoctorProfileHero from "@/components/doctors/DoctorProfileHero.astro";
+import ProfessionalJourney from "@/components/doctors/ProfessionalJourney.astro";
+import DoctorBiography from "@/components/doctors/DoctorBiography.astro";
+import DoctorEducation from "@/components/doctors/DoctorEducation.astro";
+import DoctorExperience from "@/components/doctors/DoctorExperience.astro";
+import DoctorResearch from "@/components/doctors/DoctorResearch.astro";
+import Cta from "@/components/Cta.astro";
+
+import { doctors } from "@/data/doctors";
+
+const doctor = doctors.find(
+  item => item.id === "farshid"
+)!;
+---
+
+<BaseLayout
+  title={doctor.name}
+  description="صفحه اختصاصی دکتر فرشید فرداد"
+  image="/default-og-image.jpg"
+>
+
+{doctor && (
+    <>
+      <DoctorProfileHero doctor={doctor} />
+  
+      {/* <DoctorIntroduction doctor={doctor} /> */}
+  
+      <DoctorBiography doctor={doctor} />
+
+      <ProfessionalJourney doctorId={doctor.id} />
+  
+      <DoctorEducation doctor={doctor} />
+  
+      <DoctorExperience doctor={doctor} />
+  
+      <DoctorResearch doctor={doctor} />
+  
+      <Cta
+        title="برای دریافت مشاوره پزشکی در کنار شما هستیم"
+        description="برای رزرو نوبت حضوری یا دریافت مشاوره آنلاین اقدام کنید."
+      >
+        ...
+      </Cta>
+    </>
+  )}
+
+</BaseLayout>

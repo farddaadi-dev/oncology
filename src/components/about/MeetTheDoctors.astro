@@ -1,0 +1,68 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import DoctorCard from "@/components/DoctorCard.astro";
+
+import { doctors } from "@/data/doctors";
+---
+
+<Section background="secondary">
+
+  <SectionHeading
+    subtitle="پزشکان مجموعه"
+    title="با پزشکان خود بیشتر آشنا شوید"
+    description="هر یک از پزشکان مجموعه با سال‌ها تجربه در زمینه هماتولوژی و آنکولوژی، خدمات تخصصی خود را با رویکردی علمی، دقیق و بیمار‌محور ارائه می‌دهند. برای آشنایی بیشتر با سوابق علمی، زمینه‌های تخصصی و دیدگاه درمانی هر پزشک، صفحه اختصاصی ایشان را مشاهده کنید."
+  />
+
+  <div
+    class="doctors-grid"
+    id="doctors-grid"
+  >
+
+    {doctors.map((doctor) => (
+
+      <DoctorCard
+        doctor={doctor}
+        buttonText="آشنایی بیشتر"
+        buttonHref={doctor.profileUrl}
+      />
+
+    ))}
+
+  </div>
+
+</Section>
+
+<style>
+
+.doctors-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(340px,1fr)
+    );
+
+  gap: 3rem;
+
+  margin-top: 3rem;
+
+}
+
+</style>
+
+<style is:global>
+
+@media (max-width: 768px) {
+
+  #doctors-grid {
+
+    gap: 2rem;
+
+  }
+
+}
+
+</style>

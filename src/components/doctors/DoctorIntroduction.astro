@@ -1,0 +1,212 @@
+---
+import { Image } from "astro:assets";
+
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import IconList from "@/components/IconList.astro";
+
+import { icons } from "@/data/icons";
+
+import type { Doctor } from "@/data/doctors";
+
+
+interface Props {
+  doctor: Doctor;
+}
+
+const {
+  doctor
+} = Astro.props;
+
+const highlights = doctor.highlights ?? [
+  "درمان مبتنی بر شواهد علمی",
+  "رویکرد فردمحور در تصمیم‌گیری درمانی",
+  "همراهی بیمار و خانواده در مسیر درمان"
+];
+
+---
+
+<Section>
+
+  <SectionHeading
+    subtitle="معرفی پزشک"
+    title={doctor.name}
+    description={doctor.specialty}
+  />
+
+
+  <div
+    class="introduction-grid"
+    id="introduction-grid"
+  >
+
+    <div class="introduction-content">
+
+
+      {doctor.biography?.map(paragraph => (
+
+        <p>
+          {paragraph}
+        </p>
+
+      ))}
+
+
+<div class="highlights">
+
+    <IconList
+      items={doctor.highlights}
+      icon="check"
+    />
+
+  </div>
+
+
+      <div class="introduction-button" id="introduction-button">
+
+        <ButtonLink
+          href="/visit"
+          text="درخواست نوبت"
+        />
+        <ButtonLink
+          href="/consultation"
+          text="مشاوره آنلاین"
+          variant="secondary"
+        />
+
+      </div>
+
+
+    </div>
+
+
+    <div
+      class="introduction-image"
+      id="introduction-image"
+    >
+
+      <Image
+        src={doctor.image}
+        alt={doctor.name}
+        width={600}
+        height={700}
+      />
+
+    </div>
+
+
+  </div>
+
+</Section>
+
+
+<style>
+
+.introduction-grid {
+
+  display: grid;
+
+  grid-template-columns: 1.1fr 1fr;
+
+  gap: 4rem;
+
+  align-items: center;
+
+}
+
+
+.introduction-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+}
+
+
+.introduction-content p {
+
+  margin: 0;
+
+  line-height: 2;
+
+  color: var(--color-text-secondary);
+
+}
+
+
+
+
+
+.highlights {
+
+  margin-top: .5rem;
+
+}
+
+
+.introduction-button {
+
+  display: flex;
+  gap: 1rem;
+
+}
+
+
+.introduction-image img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-normal);
+
+}
+
+
+</style>
+
+
+<style is:global>
+
+@media (max-width: 992px) {
+
+
+  #introduction-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+
+  }
+
+
+  #introduction-image {
+
+    order: -1;
+
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+
+  
+
+  #introduction-button {
+    flex-direction: column;
+  }
+
+
+}
+
+</style>

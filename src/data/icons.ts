@@ -4,8 +4,8 @@ import ShieldIcon from "@/assets/icons/shield.svg";
 import CheckIcon from "@/assets/icons/check.svg";
 import StethoscopeIcon from "@/assets/icons/stethoscope.svg";
 import ClipboardListIcon from "@/assets/icons/clipboard-list.svg";
-import LockIcon from "@/assets/icons/lock.svg"
-import HeartIcon from "@/assets/icons/heart.svg"
+import LockIcon from "@/assets/icons/lock.svg";
+import HeartIcon from "@/assets/icons/heart.svg";
 import BookOpenCheckIcon from "@/assets/icons/book-open-check.svg";
 import HeartHandshakeIcon from "@/assets/icons/heart-handshake.svg";
 import MessageCircleIcon from "@/assets/icons/message-circle.svg";
@@ -13,6 +13,12 @@ import HeartPulseIcon from "@/assets/icons/heart-pulse.svg";
 import SmileIcon from "@/assets/icons/smile.svg";
 import FileTextIcon from "@/assets/icons/file-text.svg";
 import TriangleAlertIcon from "@/assets/icons/triangle-alert.svg";
+import CalendarClockIcon from "@/assets/icons/calendar-clock.svg";
+import PillIcon from "@/assets/icons/pill.svg";
+import UserPlusIcon from "@/assets/icons/user-plus.svg";
+import CalendarCheckIcon from "@/assets/icons/calendar-check.svg";
+import FlaskConicalIcon from "@/assets/icons/flask-conical.svg";
+import GraduationCapIcon from "@/assets/icons/graduation-cap.svg";
 
 
 export const icons = {
@@ -31,7 +37,13 @@ export const icons = {
   activity: ActivityIcon,
   clipboardList: ClipboardListIcon,
   fileText: FileTextIcon,
-  triangleAlert: TriangleAlertIcon
+  triangleAlert: TriangleAlertIcon,
+  calendarClock: CalendarClockIcon,
+  pill: PillIcon,
+  userPlus: UserPlusIcon,
+  calendarCheck: CalendarCheckIcon,
+  flaskConical: FlaskConicalIcon.src,
+  graduationCap: GraduationCapIcon.src
 };
 
 

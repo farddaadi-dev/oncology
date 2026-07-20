@@ -1,0 +1,220 @@
+---
+import { Image } from "astro:assets";
+
+import Section from "@/components/Section.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+
+import type { Doctor } from "@/data/doctors";
+
+interface Props {
+  doctor: Doctor;
+}
+
+const {
+  doctor
+} = Astro.props;
+---
+
+<Section background="secondary">
+
+  <div class="doctor-hero" id="doctor-hero">
+
+    <div class="doctor-hero__image">
+
+      <Image
+        src={doctor.images.profile}
+        alt={doctor.name}
+        width={600}
+        height={700}
+      />
+
+    </div>
+
+
+    <div class="doctor-hero__content">
+
+      <h1>
+        {doctor.name}
+      </h1>
+
+
+      <p class="doctor-hero__specialty">
+        {doctor.specialty}
+      </p>
+
+
+      <p class="doctor-hero__description">
+        {doctor.heroDescription}
+      </p>
+
+
+      <div class="doctor-hero__actions" id="doctor-hero-actions">
+
+        <ButtonLink
+          href="/visit"
+          text="درخواست نوبت"
+          variant="primary"
+        />
+      
+      
+        <ButtonLink
+          href="/consultation"
+          text="مشاوره آنلاین"
+          variant="secondary"
+        />
+      
+      </div>
+
+    </div>
+
+  </div>
+
+</Section>
+
+
+<style>
+
+.doctor-hero {
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 4rem;
+
+  align-items: center;
+
+}
+
+
+.doctor-hero__image {
+
+  max-width: 360px;
+
+  margin-inline: auto;
+
+  border-radius: var(--radius-xl);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-normal);
+
+}
+
+
+.doctor-hero__image img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+}
+
+
+.doctor-hero__content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.25rem;
+
+}
+
+
+.doctor-hero h1 {
+
+  margin: 0;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.4;
+
+}
+
+
+.doctor-hero__specialty {
+
+  margin: 0;
+
+  color: var(--color-brand-accent-dark);
+
+  font-size: 1.25rem;
+
+  font-weight: 600;
+
+}
+
+
+.doctor-hero__description {
+
+  margin: 0;
+
+  max-width: 42rem;
+
+  color: var(--color-text-secondary);
+
+  line-height: 2;
+
+}
+
+
+.doctor-hero__actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 1rem;
+
+}
+
+</style>
+
+
+<style is:global>
+
+@media (max-width: 900px) {
+
+  #doctor-hero {
+
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+
+  }
+
+
+  #doctor-hero .doctor-hero__image {
+
+    order: -1;
+
+  }
+
+
+  #doctor-hero-actions {
+
+    justify-content: center;
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  #doctor-hero-actions {
+
+    flex-direction: column;
+
+    align-items: center;
+
+  }
+
+}
+
+</style>

@@ -1,0 +1,191 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+import type { DoctorId } from "@/data/doctors";
+import { professionalJourney } from "@/data/professionalJourney";
+
+interface Props {
+  doctorId: DoctorId;
+}
+
+const { doctorId } = Astro.props;
+
+const journey = professionalJourney[doctorId];
+---
+
+<Section>
+
+  <SectionHeading
+    subtitle="مسیر حرفه‌ای"
+    title="تجربه‌ای که در طول سال‌ها شکل گرفته است"
+    description="مروری بر مهم‌ترین مراحل تحصیلی، مسئولیت‌های حرفه‌ای و مسیر علمی پزشک."
+  />
+
+  <div class="timeline">
+
+    {journey.map((item) => (
+
+      <article class="timeline-item">
+
+        <div class="timeline-marker">
+
+          <span>{item.year}</span>
+
+        </div>
+
+        <div class="timeline-card">
+
+          <h3>{item.title}</h3>
+
+          <p>{item.description}</p>
+
+        </div>
+
+      </article>
+
+    ))}
+
+  </div>
+
+</Section>
+
+<style>
+
+.timeline{
+
+  max-width:850px;
+
+  margin:3rem auto 0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:2rem;
+
+}
+
+.timeline-item{
+
+  display:grid;
+
+  grid-template-columns:170px 1fr;
+
+  gap:2rem;
+
+  position:relative;
+
+}
+
+.timeline-item:not(:last-child)::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:48px;
+
+  right:84px;
+
+  width:2px;
+
+  height:calc(100% + 2rem);
+
+  background:var(--color-border);
+
+}
+
+.timeline-marker{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+}
+
+.timeline-marker span{
+
+  background:var(--color-brand-accent);
+
+  color:white;
+
+  border-radius:999px;
+
+  padding:.65rem 1rem;
+
+  font-weight:700;
+
+  min-width:120px;
+
+  text-align:center;
+
+}
+
+.timeline-card{
+
+  background:white;
+
+  border:1px solid var(--color-border);
+
+  border-radius:var(--radius-xl);
+
+  padding:1.5rem;
+
+  box-shadow:var(--shadow-sm);
+
+  transition:.25s ease;
+
+}
+
+.timeline-card:hover{
+
+  transform:translateY(-4px);
+
+  box-shadow:var(--shadow-md);
+
+}
+
+.timeline-card h3{
+
+  margin:0 0 .6rem;
+
+}
+
+.timeline-card p{
+
+  margin:0;
+
+  line-height:1.9;
+
+  color:var(--color-text-secondary);
+
+}
+
+@media (max-width:768px){
+
+.timeline-item{
+
+grid-template-columns:1fr;
+
+gap:1rem;
+
+}
+
+.timeline-item::after{
+
+display:none;
+
+}
+
+.timeline-marker{
+
+justify-content:flex-start;
+
+}
+
+}
+
+</style>

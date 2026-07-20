@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+import type { Doctor } from "@/data/doctors";
+
+interface Props {
+  doctor: Doctor;
+}
+
+const { doctor } = Astro.props;
+---
+
+<Section>
+
+  <SectionHeading
+    subtitle="درباره پزشک"
+    title="نگاهی به مسیر حرفه‌ای"
+  />
+
+  <div class="biography-grid" id="biography-grid">
+
+    <div class="biography-content">
+
+      <p>
+        {doctor.biography.introduction}
+      </p>
+
+      <p>
+        {doctor.biography.experience}
+      </p>
+
+      <p>
+        {doctor.biography.philosophy}
+      </p>
+
+    </div>
+
+
+    <div class="biography-image" id="biography-image">
+
+      <Image
+        src={doctor.images.biography}
+        alt={doctor.name}
+        width={500}
+        height={600}
+      />
+
+    </div>
+
+  </div>
+
+</Section>
+
+<style>
+
+.biography-grid {
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 1fr;
+
+  gap: 4rem;
+
+  align-items: center;
+
+}
+
+
+.biography-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+}
+
+
+.biography-content p {
+
+  margin: 0;
+
+  line-height: 2;
+
+  color: var(--color-text-secondary);
+
+}
+
+
+.biography-image {
+
+  max-width: 360px;
+
+  margin-inline: auto;
+
+  border-radius: var(--radius-xl);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-normal);
+
+}
+
+
+.biography-image img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+}
+
+</style>
+
+<style is:global>
+
+@media (max-width: 992px) {
+
+  #biography-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+
+  }
+
+  #biography-image {
+
+    order: -1;
+
+  }
+
+}
+
+</style>

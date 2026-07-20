@@ -3,12 +3,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import AboutHero from '@/components/about/AboutHero.astro'
 import WhyChooseUs from "@/components/about/WhyChooseUs.astro";
 import TreatmentPhilosophy from "@/components/about/TreatmentPhilosophy.astro";
-import Section from '@/components/Section.astro'
-import SectionHeading from '@/components/SectionHeading.astro'
-import DoctorCard from '@/components/DoctorCard.astro'
-import { doctors } from '@/data/doctors'
 import AboutStory from '@/components/AboutStory.astro'
 import WhatToExpect from '@/components/about/WhatToExpect.astro'
+import MeetTheDoctors from '@/components/about/MeetTheDoctors.astro';
+import Cta from '@/components/Cta.astro';
+import ButtonLink from '@/components/ButtonLink.astro';
 ---
 <BaseLayout
     title="درباره ما"
@@ -20,29 +19,25 @@ import WhatToExpect from '@/components/about/WhatToExpect.astro'
     <AboutStory />
     <TreatmentPhilosophy />
     <WhatToExpect />
-    <Section>
-        <SectionHeading 
-            title="همراهان شما در مسیر درمان"
-            subtitle="آشنایی با پزشکان"
-            description="تیم پزشکی ما متشکل از دو فوق تخصص هماتولوژی و آنکولوژی است که با تکیه بر دانش روز، تجربه بالینی و رویکردی بیمار‌محور، خدمات تشخیصی و درمانی را ارائه می‌دهند. برای آشنایی بیشتر با سوابق علمی و حرفه‌ای هر پزشک، می‌توانید صفحه اختصاصی ایشان را مشاهده کنید."
-        >
-
-        </SectionHeading>
-        <div class="doctors-grid" id="doctors-grid">
-
-            {doctors.map((doctor) => (
-        
-                <DoctorCard
-                    doctor={doctor}
-                    buttonText="مشاهده رزومه"
-                    buttonHref={doctor.profileUrl}
-                />
-        
-            ))}
-        
-        </div>
-    </Section>
+    <MeetTheDoctors />
     <WhyChooseUs />
+    <Cta
+  title="آماده گفت‌وگو درباره مسیر درمان خود هستید؟"
+  description="تیم ما آماده است تا با بررسی شرایط شما، در انتخاب بهترین مسیر تشخیص، درمان یا دریافت نظر دوم همراهتان باشد. برای هماهنگی نوبت حضوری یا ثبت درخواست مشاوره آنلاین، از طریق گزینه‌های زیر اقدام کنید."
+>
+
+  <ButtonLink
+    href="/visit"
+    text="درخواست نوبت حضوری"
+  />
+
+  <ButtonLink
+    href="/consultation"
+    text="مشاوره آنلاین"
+    variant="secondary"
+  />
+
+</Cta>
     
 
 </BaseLayout>
@@ -55,11 +50,18 @@ import WhatToExpect from '@/components/about/WhatToExpect.astro'
     }
     
     .doctors-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
-        margin-bottom: 5rem;
-    }
+
+display: grid;
+
+grid-template-columns:
+  repeat(
+    auto-fit,
+    minmax(340px,1fr)
+  );
+
+gap: 3rem;
+
+}
     
     
     .icon {
@@ -70,7 +72,7 @@ import WhatToExpect from '@/components/about/WhatToExpect.astro'
   
 </style>
 
-<style is:global>
+<!-- <style is:global>
     @media (max-width: 992px) {
         #doctors-grid {
             grid-template-columns: 1fr;
@@ -102,4 +104,4 @@ import WhatToExpect from '@/components/about/WhatToExpect.astro'
             grid-template-columns: 1fr;
         }
     }
-</style>
+</style> -->
