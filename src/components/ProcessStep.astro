@@ -1,9 +1,14 @@
 ---
+import { Image } from "astro:assets";
+
+import { icons } from "@/data/icons";
+import type { IconName } from "@/data/icons";
+
 interface Props {
   number: number;
   title: string;
   description?: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 const {
@@ -12,108 +17,170 @@ const {
   description,
   icon
 } = Astro.props;
+
+const iconImage = icon ? icons[icon] : null;
 ---
 
 <article class="process-step">
 
   <div class="process-step__circle">
 
-    {icon ? (
+    {iconImage ? (
       <>
-        <img
-          src={icon}
+        <Image
+          src={iconImage}
           alt=""
+          width={32}
+          height={32}
           class="process-step__icon"
         />
-  
+
         <span class="process-step__badge">
           {number}
         </span>
       </>
     ) : (
-      number
+      <span class="process-step__number">
+        {number}
+      </span>
     )}
-  
+
   </div>
 
-  <h3>{title}</h3>
+  <h3 class="process-step__title">
+    {title}
+  </h3>
 
   {description && (
-    <p>{description}</p>
+    <p class="process-step__description">
+      {description}
+    </p>
   )}
 
 </article>
 
 <style>
-  .process-step {
-    text-align: center;
-    background-color: white;
-    padding: 1rem 2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
-  }
 
-  .process-step__circle {
-  position: relative;
+.process-step {
 
-  width: 70px;
-  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  height: 100%;
+
+  max-width: 320px;
   margin-inline: auto;
-  margin-bottom: 1rem;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-normal);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+}
+
+.process-step:hover {
+
+  transform: translateY(-4px);
+
+}
+
+.process-step__circle {
+
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 4.5rem;
+  height: 4.5rem;
+
+  margin-bottom: 1.5rem;
+
   border-radius: 50%;
-  border: 1px solid var(--color-brand-accent);
 
-  background: var(--color-bg-warm);
+  border: 2px solid var(--color-brand-green-light);
 
-  color: var(--color-brand-accent);
-  font-size: var(--text-xl);
+  
+
 }
 
 .process-step__icon {
-  width: 32px;
-  height: 32px;
 
-  color: white;
+  display: block;
+
+  width: 2rem;
+  height: 2rem;
+
 }
 
 .process-step__badge {
+
   position: absolute;
 
-  top: -4px;
-  left: -4px;
-
-  width: 24px;
-  height: 24px;
+  top: -6px;
+  left: -6px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 1.5rem;
+  height: 1.5rem;
+
   border-radius: 50%;
 
-  color: var(--color-brand-accent);
-  background-color: white;
+  background: white;
+
   border: 1px solid var(--color-brand-accent);
+
+  color: var(--color-brand-accent);
 
   font-size: .75rem;
   font-weight: 700;
+
 }
 
-  .process-step h3 {
-    margin: 0 0 0.75rem;
-  }
+.process-step__number {
 
-  .process-step p {
-    margin: 0;
+  color: var(--color-brand-accent);
 
-    line-height: 1.8;
+  font-size: var(--text-xl);
 
-    color: #555;
-  }
+  font-weight: 700;
+
+}
+
+.process-step__title {
+
+  margin: 0 0 1rem;
+
+  font-size: var(--text-lg);
+
+  color: var(--color-text-primary);
+
+}
+
+.process-step__description {
+
+  margin: 0;
+
+  line-height: 1.9;
+
+  color: var(--color-text-secondary);
+
+}
+
 </style>

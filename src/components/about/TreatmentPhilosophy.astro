@@ -1,0 +1,77 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import InfoCard from "@/components/InfoCard.astro";
+
+import { treatmentPhilosophy } from "@/data/philosophy";
+---
+
+<Section background="secondary">
+
+    <SectionHeading
+        subtitle="فلسفه درمان"
+        title="رویکرد ما در مسیر درمان"
+        description="ما باور داریم درمان موثر سرطان تنها به انتخاب دارو محدود نمی‌شود؛ بلکه ترکیبی از دانش پزشکی، ارتباط انسانی و توجه به نیازهای فردی بیمار است."
+    />
+
+    <div class="philosophy-grid" id="philosophy-grid">
+
+        {treatmentPhilosophy.map(item => (
+
+            <InfoCard
+                title={item.title}
+                icon={item.icon}
+            >
+
+                <p>
+                    {item.description}
+                </p>
+
+            </InfoCard>
+
+        ))}
+
+    </div>
+
+</Section>
+
+
+<style>
+
+.philosophy-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 2rem;
+
+}
+
+</style>
+
+
+<style is:global>
+
+@media (max-width: 1100px) {
+
+    #philosophy-grid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    #philosophy-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
