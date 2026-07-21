@@ -1,0 +1,50 @@
+---
+import Cta from "@/components/Cta.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+
+import type { Doctor } from "@/data/doctors";
+
+
+interface Props {
+  doctor: Doctor;
+}
+
+
+const { doctor } = Astro.props;
+
+---
+
+<Cta
+
+  title="برای شروع مسیر درمان، همراه شما هستیم"
+
+  description="برای دریافت مشاوره تخصصی و بررسی شرایط پزشکی خود، می‌توانید درخواست ویزیت حضوری یا مشاوره آنلاین ثبت کنید."
+
+>
+
+
+<ButtonLink
+
+  href={doctor.consultationUrl}
+
+  text="مشاوره آنلاین"
+
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+/>
+
+
+<ButtonLink
+
+  href="/visit"
+
+  text="برنامه ویزیت"
+
+  variant="secondary"
+
+/>
+
+
+</Cta>

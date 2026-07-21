@@ -1,0 +1,134 @@
+---
+import type { Doctor } from "@/data/doctors";
+
+import IconList from "@/components/IconList.astro";
+
+interface Props {
+  doctor: Doctor;
+}
+
+const {
+  doctor
+} = Astro.props;
+
+---
+
+<section class="credentials">
+
+  <div class="credentials-container">
+
+
+    <h2>
+      عضویت‌ها و گواهی‌های علمی
+    </h2>
+
+
+    <div class="credentials-grid">
+
+
+      <div class="credential-card">
+
+        <h3>
+          عضویت در انجمن‌های علمی
+        </h3>
+
+
+        <IconList
+          items={doctor.memberships}
+          icon="check"
+        />
+
+      </div>
+
+
+
+      <div class="credential-card">
+
+        <h3>
+          گواهی‌ها و افتخارات حرفه‌ای
+        </h3>
+
+
+        <IconList
+          items={doctor.certifications}
+          icon="check"
+        />
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<style>
+
+.credentials {
+
+  padding: 4rem 1.5rem;
+
+}
+
+
+.credentials-container {
+
+  max-width: 1100px;
+
+  margin-inline:auto;
+
+}
+
+
+h2 {
+
+  text-align:center;
+
+  margin-bottom:2.5rem;
+
+}
+
+
+
+.credentials-grid {
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+  gap:2rem;
+
+}
+
+
+
+.credential-card {
+
+  background:var(--color-surface);
+
+  border-radius:var(--radius-xl);
+
+  padding:2rem;
+
+  border:1px solid var(--color-border);
+
+  box-shadow:var(--shadow-sm);
+
+}
+
+
+
+h3 {
+
+  margin-top:0;
+
+  margin-bottom:1.5rem;
+
+}
+
+
+</style>

@@ -1,0 +1,105 @@
+---
+import PublicationCard from "./PublicationCard.astro";
+import ButtonLink from "../ButtonLink.astro";
+import type { Doctor } from "@/data/doctors";
+
+import { getDoctorPublications } from "@/lib/getPublications";
+
+
+interface Props {
+  doctor: Doctor;
+}
+
+
+const { doctor } = Astro.props;
+
+
+const doctorPublications =
+  getDoctorPublications(doctor.id);
+
+---
+
+<section class="publications">
+
+    <div class="container">
+  
+  
+      <h2>
+        فعالیت‌های علمی و مقالات منتخب
+      </h2>
+  
+  
+      <div class="publications-grid">
+  
+  
+        {doctorPublications.map(publication => (
+  
+          <PublicationCard
+            publication={publication}
+          />
+  
+        ))}
+  
+  
+      </div>
+      <div class="publications-action">
+
+        <ButtonLink
+      
+          href={`${doctor.profileUrl}/publications`}
+      
+          text="مشاهده فهرست کامل مقالات علمی"
+      
+          variant="secondary"
+      
+        />
+      
+      </div>
+  
+  
+    </div>
+  
+  </section>
+
+
+<style>
+
+.publications {
+
+  padding: 4rem 1.5rem;
+
+}
+
+
+h2 {
+
+  text-align:center;
+
+  margin-bottom:2rem;
+
+}
+
+
+.publications-grid {
+
+  display:grid;
+
+  grid-template-columns:repeat(
+    auto-fit,
+    minmax(280px,1fr)
+  );
+
+  gap:1.5rem;
+
+}
+
+.publications-action {
+
+margin-top: 2.5rem;
+
+display:flex;
+
+justify-content:center;
+
+}
+</style>

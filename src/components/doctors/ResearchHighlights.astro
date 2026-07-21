@@ -1,0 +1,154 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ResearchCard from "./ResearchCard.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+
+import type { Doctor } from "@/data/doctors";
+
+interface Props {
+  doctor: Doctor;
+}
+
+const { doctor } = Astro.props;
+---
+
+<Section background="secondary">
+
+  <SectionHeading
+    subtitle="فعالیت‌های علمی"
+    title="پژوهش و فعالیت‌های دانشگاهی"
+    description="فعالیت‌های پژوهشی و علمی بخشی از تعهد به ارائه درمان مبتنی بر شواهد و به‌روز نگه داشتن دانش پزشکی است."
+  />
+
+  <div class="research-grid">
+
+    {doctor.research.map((metric) => (
+
+      <ResearchCard
+        title={metric.title}
+        value={metric.value}
+        description={metric.description}
+        icon={metric.icon}
+      />
+
+    ))}
+
+  </div>
+
+  <div class="research-interests">
+
+    <h3>زمینه‌های پژوهشی</h3>
+
+    <ul>
+
+      {doctor.researchInterests.map(item => (
+
+        <li>{item}</li>
+
+      ))}
+
+    </ul>
+
+  </div>
+
+  {doctor.cvUrl && (
+
+    <div class="research-action">
+
+      <ButtonLink
+        href={doctor.cvUrl}
+        text="دانلود رزومه کامل"
+        variant="secondary"
+        target="_blank"
+      />
+
+    </div>
+
+  )}
+
+</Section>
+
+<style>
+
+.research-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,minmax(0,1fr));
+
+  gap:2rem;
+
+  margin-top:3rem;
+
+}
+
+.research-interests{
+
+  margin-top:3rem;
+
+  padding:2rem;
+
+  background:white;
+
+  border-radius:var(--radius-xl);
+
+  border:1px solid var(--color-border);
+
+}
+
+.research-interests h3{
+
+  margin:0 0 1.25rem;
+
+}
+
+.research-interests ul{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:.75rem;
+
+  list-style:none;
+
+  padding:0;
+
+  margin:0;
+
+}
+
+.research-interests li{
+
+  padding:.6rem 1rem;
+
+  border-radius:999px;
+
+  background:var(--color-bg-warm);
+
+  border:1px solid var(--color-border);
+
+}
+
+.research-action{
+
+  margin-top:2rem;
+
+  display:flex;
+
+  justify-content:center;
+
+}
+
+@media(max-width:900px){
+
+  .research-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+</style>

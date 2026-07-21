@@ -1,0 +1,80 @@
+---
+import { doctors } from "@/data/doctors";
+import { getDoctorPublications } from "@/lib/getPublications";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import PublicationCard from "@/components/doctors/PublicationCard.astro";
+
+export async function getStaticPaths() {
+
+return doctors.map((doctor) => ({
+
+  params: {
+    doctor: doctor.id
+  },
+
+  props: {
+    doctor
+  }
+
+}));
+
+}
+
+const { doctor } = Astro.params;
+
+const doctorPublications =
+  getDoctorPublications(doctor.id);
+
+// const currentDoctor =
+//   doctors.find(
+//     item => item.id === doctor
+//   );
+
+
+// if (!currentDoctor) {
+
+//   return Astro.redirect("/404");
+
+// }
+
+
+// const allPublications =
+//   getDoctorPublications(
+//     currentDoctor.id
+//   );
+
+---
+
+<BaseLayout 
+title={`مقالات علمی ${doctor.name}`}
+description="لیست کامل مقالات منتشر شده"
+image="/default-og-image.jpg"
+>
+
+<section class="publications-page">
+
+
+  <h1>
+    مقالات علمی {doctor.name}
+  </h1>
+
+
+  <div class="publications-grid">
+
+    {
+      doctorPublications.map((publication) => (
+
+        <PublicationCard
+          publication={publication}
+        />
+
+      ))
+    }
+
+  </div>
+
+
+</section>
+    
+    </BaseLayout>

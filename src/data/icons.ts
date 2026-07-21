@@ -42,8 +42,8 @@ export const icons = {
   pill: PillIcon,
   userPlus: UserPlusIcon,
   calendarCheck: CalendarCheckIcon,
-  flaskConical: FlaskConicalIcon.src,
-  graduationCap: GraduationCapIcon.src
+  flaskConical: FlaskConicalIcon,
+  graduationCap: GraduationCapIcon
 };
 
 

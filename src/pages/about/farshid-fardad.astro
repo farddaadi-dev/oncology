@@ -3,12 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import DoctorProfileHero from "@/components/doctors/DoctorProfileHero.astro";
 import ProfessionalJourney from "@/components/doctors/ProfessionalJourney.astro";
 import DoctorBiography from "@/components/doctors/DoctorBiography.astro";
-import DoctorEducation from "@/components/doctors/DoctorEducation.astro";
-import DoctorExperience from "@/components/doctors/DoctorExperience.astro";
-import DoctorResearch from "@/components/doctors/DoctorResearch.astro";
-import Cta from "@/components/Cta.astro";
-
+import MembershipsCertifications from "@/components/doctors/MembershipsCertifications.astro";
+import DoctorCTA from "@/components/doctors/DoctorCTA.astro";
+import DoctorTreatmentApproach from "@/components/doctors/DoctorTreatmentApproach.astro"
+import ResearchHighlights from "@/components/doctors/ResearchHighlights.astro";
 import { doctors } from "@/data/doctors";
+import Publications from "@/components/doctors/Publications.astro";
 
 const doctor = doctors.find(
   item => item.id === "farshid"
@@ -30,19 +30,16 @@ const doctor = doctors.find(
       <DoctorBiography doctor={doctor} />
 
       <ProfessionalJourney doctorId={doctor.id} />
+
+      <ResearchHighlights doctor={doctor}/>
+
+      <DoctorTreatmentApproach doctor={doctor} />
+
+      <Publications doctor={doctor} />
   
-      <DoctorEducation doctor={doctor} />
-  
-      <DoctorExperience doctor={doctor} />
-  
-      <DoctorResearch doctor={doctor} />
-  
-      <Cta
-        title="برای دریافت مشاوره پزشکی در کنار شما هستیم"
-        description="برای رزرو نوبت حضوری یا دریافت مشاوره آنلاین اقدام کنید."
-      >
-        ...
-      </Cta>
+      <MembershipsCertifications doctor={doctor} />
+
+      <DoctorCTA doctor={doctor} />
     </>
   )}
 

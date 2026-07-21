@@ -78,7 +78,7 @@ const journey = professionalJourney[doctorId];
 
 }
 
-.timeline-item:not(:last-child)::after{
+/* .timeline-item:not(:last-child)::after{
 
   content:"";
 
@@ -94,7 +94,7 @@ const journey = professionalJourney[doctorId];
 
   background:var(--color-border);
 
-}
+} */
 
 .timeline-marker{
 
@@ -163,10 +163,11 @@ const journey = professionalJourney[doctorId];
   color:var(--color-text-secondary);
 
 }
-
+</style>
+<style is:global>
 @media (max-width:768px){
 
-.timeline-item{
+.timeline .timeline-item{
 
 grid-template-columns:1fr;
 
@@ -174,13 +175,13 @@ gap:1rem;
 
 }
 
-.timeline-item::after{
+/* .timeline-item::after{
 
 display:none;
 
-}
+} */
 
-.timeline-marker{
+.timeline .timeline-marker{
 
 justify-content:flex-start;
 
