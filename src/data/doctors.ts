@@ -57,6 +57,8 @@ export interface Doctor {
 
   id: DoctorId;
 
+  slug: string;
+
   name: string;
 
   specialty: string;
@@ -120,6 +122,8 @@ export const doctors: Doctor[] = [
 {
 
   id: "nafiseh",
+
+  slug: "nafiseh-ansarinejad",
 
   name: "دکتر نفیسه انصاری‌نژاد",
 
@@ -341,7 +345,7 @@ export const doctors: Doctor[] = [
 
   ],
 
-  cvUrl: "/cv/nafiseh-ansarinejad.pdf",
+  cvUrl: "/cv/nafiseh-ansarinejad-cv.pdf",
 
   publicationsUrl:
 "/about/nafiseh/publications",
@@ -362,6 +366,8 @@ export const doctors: Doctor[] = [
 {
 
   id: "farshid",
+
+  slug: "farshid-fardad",
 
   name: "دکتر فرشید فرداد",
 
@@ -627,7 +633,7 @@ export const doctors: Doctor[] = [
 
   ],
 
-  cvUrl: "/cv/farshid-fardad.pdf",
+  cvUrl: "/cv/farshid-fardad-cv.pdf",
 
   publicationsUrl:
 "/about/farshid/publications",

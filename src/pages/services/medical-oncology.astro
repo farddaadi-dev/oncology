@@ -1,0 +1,286 @@
+---
+import ServiceDetailLayout from "@/layouts/ServiceDetailLayout.astro";
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import { getService } from "@/lib/getService";
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import Faq from "@/components/Faq.astro";
+import { medicalOncologyFAQ } from "@/data/medicalOncologyFAQ";
+
+
+const service = getService("medical-oncology");
+---
+
+<ServiceDetailLayout service={service}>
+
+  <Section>
+    <SectionHeading
+      title="درمان سرطان چگونه انتخاب می‌شود؟"
+      subtitle="رویکرد علمی و شخصی‌سازی‌شده برای هر بیمار"
+    />
+
+    <p>
+      انتخاب درمان مناسب برای سرطان به عوامل متعددی مانند نوع سرطان، مرحله بیماری، ویژگی‌های مولکولی تومور، شرایط عمومی بیمار و درمان‌های قبلی بستگی دارد. هدف ما طراحی برنامه‌ای است که علاوه بر بیشترین اثربخشی درمانی، کیفیت زندگی بیمار را نیز حفظ کند.
+    </p>
+  </Section>
+  <Section background="secondary">
+
+    <SectionHeading
+      title="عوامل مؤثر در انتخاب درمان"
+      subtitle="برنامه درمانی بر اساس شرایط اختصاصی هر بیمار طراحی می‌شود"
+    />
+  
+    <FeatureGrid>
+  
+      <FeatureCard
+        title="نوع سرطان"
+        description="نوع و ویژگی‌های اختصاصی سرطان، نقش مهمی در انتخاب روش درمان دارد."
+        icon="stethoscope"
+      />
+  
+      <FeatureCard
+        title="مرحله بیماری"
+        description="گستردگی بیماری و هدف درمان، در تعیین مسیر درمانی مؤثر است."
+        icon="activity"
+      />
+  
+      <FeatureCard
+        title="ویژگی‌های مولکولی تومور"
+        description="بررسی‌های تخصصی می‌تواند امکان انتخاب درمان‌های دقیق‌تر و هدفمند را فراهم کند."
+        icon="evidence2"
+      />
+  
+      <FeatureCard
+        title="شرایط عمومی بیمار"
+        description="وضعیت سلامت، بیماری‌های همراه و توانایی تحمل درمان در برنامه‌ریزی لحاظ می‌شود."
+        icon="heart"
+      />
+  
+    </FeatureGrid>
+  
+  </Section>
+  <Section>
+
+    <SectionHeading
+      title="شیمی‌درمانی"
+      subtitle="یکی از روش‌های اصلی درمان سرطان با استفاده از داروهای تخصصی"
+    />
+  
+        <p>
+        شیمی‌درمانی یکی از روش‌های اصلی درمان سرطان است که با استفاده از داروهای ضدسرطان، رشد و تکثیر سلول‌های سرطانی را کنترل می‌کند. انتخاب نوع دارو، تعداد جلسات و مدت درمان بر اساس نوع سرطان، مرحله بیماری و شرایط اختصاصی هر بیمار تعیین می‌شود.
+        </p>
+  
+  
+    </Section>
+    <FeatureGrid>
+
+        <FeatureCard
+          title="برنامه درمانی اختصاصی"
+          description="نوع دارو، دوز و زمان‌بندی درمان بر اساس شرایط هر بیمار طراحی می‌شود."
+          icon="clipboardList"
+        />
+      
+        <FeatureCard
+          title="پایش منظم درمان"
+          description="آزمایش‌ها، معاینات و بررسی‌های تصویری برای ارزیابی پاسخ به درمان انجام می‌شود."
+          icon="activity"
+        />
+      
+        <FeatureCard
+          title="کنترل عوارض"
+          description="با اقدامات پیشگیرانه و درمان‌های حمایتی، بسیاری از عوارض قابل کنترل هستند."
+          icon="shield"
+        />
+
+        <FeatureCard
+        title="مراقبت فردمحور"
+        description="تصمیم‌گیری درمانی با توجه به شرایط جسمی، نیازها و اهداف هر بیمار انجام می‌شود."
+        icon="heartHandshake"
+        />
+      
+      </FeatureGrid>
+
+      
+
+      <Section background="secondary">
+
+        <SectionHeading
+          title="ایمونوتراپی"
+          subtitle="فعال‌سازی سیستم ایمنی برای مقابله بهتر با سرطان"
+        />
+      
+        <p>
+          ایمونوتراپی یکی از روش‌های نوین درمان سرطان است که با تقویت توانایی سیستم ایمنی بدن، به شناسایی و مقابله با سلول‌های سرطانی کمک می‌کند. انتخاب این روش به نوع سرطان، ویژگی‌های مولکولی تومور و شرایط اختصاصی بیمار بستگی دارد.
+        </p>
+      
+        <p>
+          در بیماران مناسب، ایمونوتراپی می‌تواند به‌عنوان درمان اصلی، درمان ترکیبی یا در مراحل خاصی از بیماری مورد استفاده قرار گیرد.
+        </p>
+      
+      
+        <FeatureGrid>
+      
+          <FeatureCard
+            title="فعال‌سازی سیستم ایمنی"
+            description="کمک به سیستم ایمنی بدن برای شناسایی بهتر و مقابله با سلول‌های سرطانی."
+            icon="shield"
+          />
+      
+          <FeatureCard
+            title="انتخاب بیمار مناسب"
+            description="انتخاب این درمان بر اساس نوع سرطان، مرحله بیماری و شرایط اختصاصی بیمار انجام می‌شود."
+            icon="clipboardList"
+          />
+      
+          <FeatureCard
+            title="بررسی ویژگی‌های تومور"
+            description="بررسی‌های مولکولی و آزمایش‌های تخصصی می‌توانند در انتخاب درمان مناسب کمک‌کننده باشند."
+            icon="flaskConical"
+          />
+      
+          <FeatureCard
+            title="پایش پاسخ به درمان"
+            description="اثربخشی درمان و عوارض احتمالی به‌صورت منظم بررسی و مدیریت می‌شوند."
+            icon="activity"
+          />
+      
+        </FeatureGrid>
+      
+      </Section>
+      <Section>
+
+        <SectionHeading
+          title="درمان‌های هدفمند"
+          subtitle="هدف قرار دادن ویژگی‌های اختصاصی سلول‌های سرطانی"
+        />
+      
+        <p>
+          درمان‌های هدفمند با تمرکز بر تغییرات مشخص در سلول‌های سرطانی طراحی شده‌اند و می‌توانند رشد و تکثیر سلول‌های غیرطبیعی را کنترل کنند.
+        </p>
+      
+        <p>
+          قبل از انتخاب این درمان‌ها، بررسی‌های تخصصی مانند آزمایش‌های مولکولی و ژنتیکی تومور ممکن است برای تعیین مناسب‌ترین گزینه درمانی انجام شود.
+        </p>
+      
+      
+        <FeatureGrid>
+      
+          <FeatureCard
+            title="درمان دقیق‌تر"
+            description="تمرکز بر ویژگی‌های اختصاصی سلول‌های سرطانی برای انتخاب درمان مناسب‌تر."
+            icon="flaskConical"
+          />
+      
+          <FeatureCard
+            title="بررسی‌های مولکولی"
+            description="ارزیابی تغییرات ژنتیکی و مولکولی تومور برای شناسایی گزینه‌های درمانی مناسب."
+            icon="fileText"
+          />
+      
+          <FeatureCard
+            title="درمان شخصی‌سازی‌شده"
+            description="طراحی برنامه درمانی بر اساس ویژگی‌های منحصر به فرد بیماری هر بیمار."
+            icon="clipboardList"
+          />
+      
+          <FeatureCard
+            title="ارزیابی پاسخ درمان"
+            description="پیگیری منظم اثربخشی درمان و بررسی نیاز به تغییر برنامه درمانی."
+            icon="activity"
+          />
+      
+        </FeatureGrid>
+      
+      </Section>
+      <Section background="secondary">
+
+        <SectionHeading
+          title="پیگیری و ارزیابی روند درمان"
+          subtitle="همراهی بیمار در تمام مراحل درمان"
+        />
+      
+        <p>
+          درمان سرطان تنها به شروع دارو محدود نمی‌شود. ارزیابی منظم پاسخ به درمان، بررسی آزمایش‌ها و تصاویر پزشکی، کنترل عوارض و تنظیم برنامه درمانی از بخش‌های مهم مراقبت از بیمار است.
+        </p>
+      
+        <p>
+          هدف از پیگیری مستمر، اطمینان از اثربخشی درمان، تشخیص به‌موقع مشکلات احتمالی و حفظ بهترین کیفیت زندگی ممکن برای بیمار است.
+        </p>
+      
+      
+        <FeatureGrid>
+      
+          <FeatureCard
+            title="ارزیابی پاسخ به درمان"
+            description="بررسی روند بیماری با استفاده از معاینات، آزمایش‌ها و تصویربرداری‌های لازم."
+            icon="activity"
+          />
+      
+          <FeatureCard
+            title="کنترل عوارض"
+            description="شناسایی و مدیریت عوارض احتمالی درمان برای افزایش ایمنی و راحتی بیمار."
+            icon="shield"
+          />
+      
+          <FeatureCard
+            title="تنظیم برنامه درمانی"
+            description="در صورت نیاز، برنامه درمانی بر اساس پاسخ بیمار و شرایط جدید اصلاح می‌شود."
+            icon="clipboardList"
+          />
+      
+          <FeatureCard
+            title="حفظ کیفیت زندگی"
+            description="توجه به وضعیت جسمی، روحی و توانایی انجام فعالیت‌های روزمره در طول درمان."
+            icon="heartPulse"
+          />
+      
+        </FeatureGrid>
+      
+      </Section>
+  <Section>
+
+    <SectionHeading
+      title="اصول مراقبت در درمان سرطان"
+      subtitle="رویکردی جامع و بیمارمحور"
+    />
+  
+    <FeatureGrid>
+  
+      <FeatureCard
+        title="درمان مبتنی بر شواهد"
+        description="استفاده از جدیدترین راهنماهای علمی و استانداردهای معتبر درمانی"
+        icon="evidence"
+      />
+  
+      <FeatureCard
+        title="برنامه درمانی فردمحور"
+        description="انتخاب درمان متناسب با نوع سرطان و شرایط اختصاصی هر بیمار"
+        icon="personalized"
+      />
+  
+      <FeatureCard
+        title="کنترل عوارض درمان"
+        description="مدیریت علمی علائم و عوارض برای حفظ کیفیت زندگی"
+        icon="followup"
+      />
+  
+      <FeatureCard
+        title="پیگیری مستمر"
+        description="ارزیابی منظم پاسخ به درمان و تنظیم برنامه مراقبتی"
+        icon="life"
+      />
+  
+    </FeatureGrid>
+  
+  </Section>
+  <Section background="secondary">
+    <SectionHeading
+      title="سوالات متداول"
+    />
+  
+    <Faq items={medicalOncologyFAQ} />
+  
+  </Section>
+
+</ServiceDetailLayout>

@@ -3,7 +3,8 @@ import ButtonLink from "./ButtonLink.astro";
 import {Image} from "astro:assets";
 interface Props {
     badge: string;
-    titleLine1: string;
+    title?: string;
+    titleLine1?: string;
     titleLine2?: string;
     description: string;
     image?: ImageMetadata;
@@ -19,6 +20,7 @@ interface Props {
 }
 const {
     badge,
+    title,
     titleLine1,
     titleLine2,
     description,
@@ -40,15 +42,27 @@ const {
     <div class="container-hero">
         <div class="content">
             <div class="badge animate-fade-up delay-1">{badge}</div>
-            <h1 class="hero-title animate-fade-up delay-2">
-                {titleLine1}
-                {titleLine2 && (
+            <h1 class:list={[
+                "hero-title",
+                "animate-fade-up",
+                "delay-2",
+                { "hero-title--single": title }
+            ]}>
+
+                {title ? (
+                    title
+                ) : (
                     <>
-                    <br />
-                    {titleLine2}
+                        {titleLine1}
+                        {titleLine2 && (
+                            <>
+                                <br />
+                                {titleLine2}
+                            </>
+                        )}
                     </>
                 )}
-                
+            
             </h1>
             <p class="description animate-fade-up delay-3">
                 {description}
@@ -79,7 +93,7 @@ const {
                 <Image 
                     class="heroImg" 
                     src={image} 
-                    alt={alt ?? titleLine1} 
+                    alt={alt ?? title ?? titleLine1 ?? ""} 
                 />
             </div>
         )}
@@ -121,6 +135,12 @@ const {
         margin-bottom: 1.25rem;
         font-family: var(--font-estedad);
     }
+
+    .hero-title--single {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
     .description {
         font-size: 1.15rem;
         line-height: 1.9;

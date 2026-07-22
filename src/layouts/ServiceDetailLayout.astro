@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Cta from "@/components/Cta.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import type {Service} from "@/data/services";
+
+interface Props {
+    service: Service;
+}
+
+const { service } = Astro.props;
+
+---
+
+<BaseLayout
+    title={service.title}
+    description={service.description}
+    image="/default-og-image.jpg"
+>
+
+<Hero
+    badge={service.badge}
+    title={service.title}
+    description={service.description}
+    image={service.image}
+    alt={service.alt}
+/>
+
+    <slot />
+
+
+    <Cta
+        title="درباره این خدمت پرسشی دارید؟"
+        description="جهت دریافت مشاوره تخصصی یا رزرو نوبت با ما تماس بگیرید"
+    >
+
+        <ButtonLink
+            href="/consultation"
+            text="مشاوره آنلاین"
+        />
+
+        <ButtonLink
+            href="/visit"
+            variant="secondary"
+            text="رزرو نوبت"
+        />
+
+    </Cta>
+
+</BaseLayout>

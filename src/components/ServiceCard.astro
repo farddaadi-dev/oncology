@@ -1,19 +1,28 @@
 ---
 import ButtonLink from './ButtonLink.astro';
+import type { IconName } from "@/data/icons";
+import { icons } from "@/data/icons";
+import { Image } from "astro:assets";
+
 interface Props {
   title: string;
   description: string;
   href: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 const { title, description, href, icon } = Astro.props;
+const iconSrc = icon ? icons[icon] : undefined;
 ---
 
 <article class="service-card">
-  {icon && (
+
+  {iconSrc && (
     <div class="service-icon">
-      <img src={icon} alt="" />
+      <Image
+        src={iconSrc}
+        alt=""
+      />
     </div>
   )}
 
@@ -22,12 +31,11 @@ const { title, description, href, icon } = Astro.props;
   <p>{description}</p>
 
   <ButtonLink 
-  href={href}
-  text='مشاهده جزئیات'
-  variant='secondary'
-  >
-  </ButtonLink>
-  
+    href={href}
+    text="مشاهده جزئیات"
+    variant="secondary"
+  />
+
 </article>
 
 <style>
@@ -64,11 +72,11 @@ const { title, description, href, icon } = Astro.props;
     justify-content: center;
   }
 
-  .service-icon img {
+  .service-icon :global(img) {
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
+}
 
   .service-card h3 {
     margin: 0;

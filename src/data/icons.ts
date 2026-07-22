@@ -19,7 +19,17 @@ import UserPlusIcon from "@/assets/icons/user-plus.svg";
 import CalendarCheckIcon from "@/assets/icons/calendar-check.svg";
 import FlaskConicalIcon from "@/assets/icons/flask-conical.svg";
 import GraduationCapIcon from "@/assets/icons/graduation-cap.svg";
-
+import EvidenceIcon from "@/assets/icons/evidence.svg";
+import PersonalizedIcon from "@/assets/icons/personalized.svg";
+import FollowupIcon from "@/assets/icons/followup.svg";
+import LifeIcon from "@/assets/icons/life.svg";
+import Evidence2Icon from "@/assets/icons/evidence2.svg"
+import RibbonIcon from "@/assets/icons/ribbon.svg";
+import BloodIcon from "@/assets/icons/blood.svg";
+import SyringeIcon from "@/assets/icons/syringe.svg";
+import SupportiveIcon from "@/assets/icons/supportive.svg";
+import AmbulatoryIcon from "@/assets/icons/ambulatory.svg";
+import ConsultIcon from "@/assets/icons/consult.svg";
 
 export const icons = {
 
@@ -43,7 +53,18 @@ export const icons = {
   userPlus: UserPlusIcon,
   calendarCheck: CalendarCheckIcon,
   flaskConical: FlaskConicalIcon,
-  graduationCap: GraduationCapIcon
+  graduationCap: GraduationCapIcon,
+  evidence: EvidenceIcon,
+  personalized: PersonalizedIcon,
+  followup: FollowupIcon,
+  life: LifeIcon,
+  evidence2: Evidence2Icon,
+  ribbon: RibbonIcon,
+  blood: BloodIcon,
+  syringe: SyringeIcon,
+  supportive: SupportiveIcon,
+  ambulatory: AmbulatoryIcon,
+  consult: ConsultIcon,
 };
 
 

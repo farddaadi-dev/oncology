@@ -1,11 +1,12 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import Section from "../../components/Section.astro"
-import SectionHeading from "../../components/SectionHeading.astro";
-import ServiceGrid from "../../components/ServiceGrid.astro";
-import ServiceCard from "../../components/ServiceCard.astro";
-import servicesImage from "../../assets/images/Services.png"
+import { services } from "@/data/services";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Section from "@/components/Section.astro"
+import SectionHeading from "@/components/SectionHeading.astro";
+import ServiceGrid from "@/components/ServiceGrid.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import servicesImage from "@/assets/images/Services.png"
 import FeatureGrid from "@/components/FeatureGrid.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import ProcessGrid from "@/components/ProcessGrid.astro";
@@ -38,49 +39,17 @@ import ButtonLink from "@/components/ButtonLink.astro";
         >
         </SectionHeading>
         <ServiceGrid>
-            <ServiceCard 
-            title="درمان‌های سرطان"
-            description="شیمی درمانی، ایمونوتراپی، درمان‌های هدفمند و پیگیری درمان بیماران مبتلا به سرطان"
-            href="/services/medical-oncology"
-            icon="/assets/icons/ribbon.svg"
-            >
-            </ServiceCard>
-            <ServiceCard
-            title="بیماری‌های خونی"
-            description="ارزیابی و درمان کم‌خونی، اختلالات انعقادی و سایر بیماری‌های هماتولوژیک"
-            href="/services/hematology"
-            icon="/assets/icons/blood.svg"
-            >
-            </ServiceCard>
-            <ServiceCard
-            title="اقدامات تخصصی"
-            description="بیوپسی مغز استخوان، آسپیراسیون، LP و شیمی‌درمانی داخل نخاعی  "
-            href="/services/procedures"
-            icon="/assets/icons/syringe.svg"
-            >
-            </ServiceCard>
-            <ServiceCard
-            title="مراقبت حمایتی"
-            description="کنترل علمی دردهای سرطانی، تهوع، ضعف و بی‌اشتهایی ناشی از درمان‌ها جهت ارتقای جدی کیفیت زندگی (Quality of Life) بیماران در طول دوره درمان"
-            href="/services/supportive"
-            icon="/assets/icons/supportive.svg"
-            >
-            </ServiceCard>
-            <ServiceCard
-            title="اقدامات سرپایی"
-            description="سرم تراپی، تزریق فرآورده‌های آهن، درمانهای علامتی"
-            href="/services/ambulatory"
-            icon="/assets/icons/ambulatory.svg"
-            >
-            </ServiceCard>
-            <ServiceCard
-            title="مشاوره تخصصی دوم (Second Opinion)"
-            description="بررسی دقیق پرونده‌های پیچیده پزشکی، پاتولوژی و گرافی‌ها جهت تایید تشخیص و ارائه بهترین و دقیق‌ترین پیشنهاد درمانی نوین"
-            href="/services/consult"
-            icon="/assets/icons/consult.svg"
-            >
-            </ServiceCard>
-        </ServiceGrid>
+
+            {Object.entries(services).map(([slug, service]) => (
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                href={`/services/${slug}`}
+                icon={service.icon}
+              />
+            ))}
+          
+          </ServiceGrid>
     </Section>
     <Section
     background="secondary">
@@ -93,24 +62,24 @@ import ButtonLink from "@/components/ButtonLink.astro";
         <FeatureCard 
         title="درمان مبتنی بر شواهد"
         description="استفاده از جدیدترین راهنماهای علمی و استانداردهای بین‌المللی درمان"
-        icon="/assets/icons/evidence.svg">
+        icon="evidence">
     </FeatureCard>
     <FeatureCard
     title="برنامه درمانی فردمحور"
     description="طراحی برنامه درمانی متناسب با شرایط و نیازهای هر بیمار"
-    icon="/assets/icons/personalized.svg"
+    icon="personalized"
     >
     </FeatureCard>
     <FeatureCard
     title="پیگیری مستمر"
     description="ارزیابی منظم روند درمان و مدیریت عوارض احتمالی"
-    icon="/assets/icons/followup.svg"
+    icon="followup"
     >
     </FeatureCard>
     <FeatureCard
     title="مراقبت جامع"
     description="توجه به کیفیت زندگی بیمار در تمام مراحل درمان"
-    icon="/assets/icons/life.svg"
+    icon="life"
     >
     </FeatureCard>
     </FeatureGrid>

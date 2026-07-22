@@ -2,15 +2,19 @@
 import { doctors } from "@/data/doctors";
 import { getDoctorPublications } from "@/lib/getPublications";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-
+import type {Doctor} from "@/data/doctors"
 import PublicationCard from "@/components/doctors/PublicationCard.astro";
+
+interface Props {
+  doctor: Doctor;
+}
 
 export async function getStaticPaths() {
 
 return doctors.map((doctor) => ({
 
   params: {
-    doctor: doctor.id
+    doctor: doctor.slug
   },
 
   props: {
@@ -21,28 +25,17 @@ return doctors.map((doctor) => ({
 
 }
 
-const { doctor } = Astro.params;
+const { doctor: slug } = Astro.params;
 
-const doctorPublications =
-  getDoctorPublications(doctor.id);
+const doctor = doctors.find((d) => d.slug === slug);
 
-// const currentDoctor =
-//   doctors.find(
-//     item => item.id === doctor
-//   );
+if (!doctor) {
+  throw new Error("Doctor not found");
+}
 
-
-// if (!currentDoctor) {
-
-//   return Astro.redirect("/404");
-
-// }
+const doctorPublications = getDoctorPublications(doctor.id);
 
 
-// const allPublications =
-//   getDoctorPublications(
-//     currentDoctor.id
-//   );
 
 ---
 
