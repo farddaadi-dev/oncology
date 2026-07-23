@@ -41,7 +41,7 @@ const {
 
 <style>
 .section-heading {
-  max-width: 48rem;
+  max-width: 44rem;
 
   margin-inline: auto;
   margin-bottom: 3rem;
@@ -62,20 +62,31 @@ const {
 .section-heading__subtitle {
   display: inline-block;
   margin-bottom: 1rem;
-  padding: 4px 12px;
+  padding: 0.45rem 1rem;
+
+  border: 2px solid var(--color-brand-green-light);
   border-radius: var(--radius-full);
+
   color: var(--color-brand-accent-dark);
-  font-size: var(--text-xl);
+
+  font-size: 0.95rem;
   font-weight: 500;
-  border-radius: var(--radius-full);
-  border: 3px solid var(--color-brand-green-light);
 }
 
 .section-heading__title {
-  margin: 0;
- /* font-size: clamp(1.5rem, 4vw, 2rem); */
-  /* line-height: 1.2; */
-  color: var(--color-text-heading);
+    margin: 0;
+
+    /* font-family: var(--font-estedad); */
+
+    font-size: clamp(2rem, 3vw, 2.8rem);
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    color: var(--color-text-heading);
+
+    text-wrap: balance;
 }
 
 .section-heading__description {
@@ -83,7 +94,7 @@ const {
 
   margin: 1rem auto 0;
 
-  /* font-size: 1.05rem; */
+  font-size: 1.1rem;
   line-height: 1.9;
 
   color: var(--color-text-secondary);

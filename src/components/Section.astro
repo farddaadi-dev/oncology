@@ -2,7 +2,7 @@
 interface Props {
   id?: string;
   background?: "white" | "secondary";
-  width?: "normal" | "wide";
+  width?: "narrow" | "normal" | "wide";
 }
 
 const {
@@ -28,16 +28,21 @@ const {
 <style>
   .section {
     padding-block: clamp(4rem, 8vw, 7rem);
+    scroll-margin-top: 7rem;
   }
 
   .section__container {
-    width: min(100% - 2rem, 1200px);
-    margin-inline: auto;
-  }
+  width: min(100% - 3rem, 1200px);
+  margin-inline: auto;
+}
 
-  .section--wide .section__container {
-    width: min(100% - 2rem, 1400px);
-  }
+.section--wide .section__container {
+  width: min(100% - 3rem, 1400px);
+}
+
+.section--narrow .section__container {
+  width: min(100% - 3rem, 900px);
+}
 
   .section--white {
     background-color: white;
