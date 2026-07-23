@@ -72,6 +72,8 @@ export interface Doctor {
 
   heroDescription: string;
 
+  
+
   bio: string;
 
   biography: {
@@ -140,6 +142,24 @@ export const doctors: Doctor[] = [
     clinic: NafisehClinicImage,
 
   },
+
+  locations: [
+    {
+      name: "مطب تخصصی انکولوژی و هماتولوژی",
+      phone: "021-23456789",
+
+      sessions: [
+        {
+          day: "شنبه",
+          hours: "۱۶:۰۰ تا ۱۹:۰۰"
+        },
+        {
+          day: "چهارشنبه",
+          hours: "۱۴:۰۰ تا ۱۷:۰۰"
+        }
+      ]
+    }
+  ],
 
   heroDescription:
     "فوق تخصص خون و آنکولوژی با بیش از یک دهه تجربه در تشخیص و درمان بیماری‌های خون، سرطان‌های شایع و درمان‌های نوین سرطان، با تمرکز بر مراقبت فردمحور و تصمیم‌گیری مبتنی بر شواهد علمی.",
@@ -355,7 +375,7 @@ export const doctors: Doctor[] = [
   consultationUrl:
     "https://axon.me/hcps/104083-nafiseh-ansari-nejad/",
 
-  locations: []
+  
 
 },
 
@@ -384,6 +404,45 @@ export const doctors: Doctor[] = [
     clinic: FarshidClinicImage,
 
   },
+
+  locations: [
+    {
+      name: "مطب تخصصی انکولوژی و هماتولوژی",
+      phone: "021-12345678",
+
+      sessions: [
+        {
+          day: "شنبه",
+          hours: "۱۴:۰۰ تا ۱۷:۰۰"
+        },
+        {
+          day: "دوشنبه",
+          hours: "۱۵:۰۰ تا ۱۸:۰۰"
+        },
+        {
+          day: "چهارشنبه",
+          hours: "۱۳:۰۰ تا ۱۶:۰۰"
+        }
+      ]
+    },
+
+    {
+      name: "کلینیک بیمارستان",
+      phone: "021-87654321",
+
+      sessions: [
+        {
+          day: "یکشنبه",
+          hours: "۱۰:۰۰ تا ۱۳:۰۰"
+        },
+        {
+          day: "سه‌شنبه",
+          hours: "۱۰:۰۰ تا ۱۳:۰۰"
+        }
+      ]
+    }
+  ],
+
 
   heroDescription:
     "فوق تخصص خون و آنکولوژی با بیش از دو دهه تجربه در تشخیص و درمان بیماری‌های خون و سرطان، با رویکردی مبتنی بر شواهد علمی، ارتباط شفاف با بیمار و توجه به کیفیت زندگی.",
@@ -643,7 +702,7 @@ export const doctors: Doctor[] = [
   consultationUrl:
     "https://axon.me/hcps/84371-farshid-fardad/",
 
-  locations: []
+  
 
 }
 

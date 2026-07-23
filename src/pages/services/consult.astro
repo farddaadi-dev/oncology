@@ -1,0 +1,208 @@
+---
+import ServiceDetailLayout from "@/layouts/ServiceDetailLayout.astro";
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import { getService } from "@/lib/getService";
+import ProcessGrid from "@/components/ProcessGrid.astro";
+import ProcessStep from "@/components/ProcessStep.astro";
+import Faq from "@/components/Faq.astro";
+import { consultFAQ } from "@/data/consultFAQ";
+
+const service = getService("consult");
+---
+
+<ServiceDetailLayout service={service}>
+
+  <Section>
+
+    <SectionHeading
+      title="مشاوره تخصصی دوم چیست؟"
+      subtitle="بررسی دقیق پرونده پزشکی برای تصمیم‌گیری مطمئن‌تر"
+    />
+
+    <p>
+      مشاوره تخصصی دوم فرصتی است برای بررسی مجدد تشخیص، شرایط بیماری و گزینه‌های درمانی توسط پزشک متخصص دیگر. این فرآیند می‌تواند به بیمار کمک کند تا شناخت دقیق‌تری از وضعیت خود و مسیرهای درمانی موجود داشته باشد.
+    </p>
+
+    <p>
+      در حوزه انکولوژی و هماتولوژی، به دلیل پیچیدگی بیماری‌ها و تنوع روش‌های درمانی، بررسی جامع پرونده پزشکی نقش مهمی در انتخاب مناسب‌ترین رویکرد درمانی دارد.
+    </p>
+
+  </Section>
+  <Section background="secondary">
+
+    <SectionHeading
+      title="چه زمانی دریافت نظر دوم اهمیت دارد؟"
+      subtitle="در شرایط پیچیده، تصمیم‌گیری آگاهانه اهمیت بیشتری پیدا می‌کند"
+    />
+  
+    <FeatureGrid>
+  
+      <FeatureCard
+        title="تشخیص‌های پیچیده"
+        description="در مواردی که تشخیص بیماری یا مرحله‌بندی آن نیاز به بررسی دقیق‌تر و ارزیابی تخصصی دارد."
+        icon="clipboardList"
+      />
+  
+      <FeatureCard
+        title="شروع درمان‌های مهم"
+        description="پیش از تصمیم‌گیری درباره درمان‌های اصلی مانند شیمی‌درمانی، ایمونوتراپی یا درمان‌های هدفمند."
+        icon="stethoscope"
+      />
+  
+      <FeatureCard
+        title="نیاز به اطمینان بیشتر"
+        description="زمانی که بیمار یا خانواده نیاز دارند گزینه‌های درمانی موجود را بهتر درک کنند."
+        icon="messageCircle"
+      />
+  
+      <FeatureCard
+        title="بررسی درمان‌های نوین"
+        description="ارزیابی امکان استفاده از روش‌های جدید درمانی بر اساس شواهد علمی روز."
+        icon="flaskConical"
+      />
+  
+    </FeatureGrid>
+  
+  </Section>
+  <Section>
+
+    <SectionHeading
+      title="چه مدارکی در مشاوره بررسی می‌شوند؟"
+      subtitle="بررسی جامع اطلاعات پزشکی برای ارائه نظر تخصصی دقیق‌تر"
+    />
+  
+  
+    <p>
+      برای ارائه یک نظر تخصصی قابل اعتماد، بررسی مجموعه‌ای از اطلاعات پزشکی بیمار ضروری است. هرچه پرونده کامل‌تر باشد، امکان ارزیابی دقیق‌تر شرایط بیماری و گزینه‌های درمانی فراهم می‌شود.
+    </p>
+  
+  
+    <FeatureGrid>
+  
+      <FeatureCard
+        title="گزارش‌های پاتولوژی"
+        description="بررسی گزارش نمونه‌برداری و اطلاعات مربوط به نوع و ویژگی‌های بیماری."
+        icon="fileText"
+      />
+  
+      <FeatureCard
+        title="تصاویر پزشکی"
+        description="ارزیابی تصاویر مانند CT، MRI، PET Scan یا سایر بررسی‌های تصویربرداری مرتبط."
+        icon="activity"
+      />
+  
+      <FeatureCard
+        title="آزمایش‌ها و بررسی‌های تخصصی"
+        description="بررسی نتایج آزمایش‌های خونی، مولکولی، ژنتیکی یا سایر ارزیابی‌های مرتبط."
+        icon="flaskConical"
+      />
+  
+      <FeatureCard
+        title="سوابق درمان‌های قبلی"
+        description="بررسی درمان‌های انجام‌شده، پاسخ به درمان و عوارض احتمالی برای تصمیم‌گیری بهتر."
+        icon="clipboardList"
+      />
+  
+    </FeatureGrid>
+  
+  </Section>
+  <Section background="secondary">
+
+    <SectionHeading
+      title="روند انجام مشاوره تخصصی دوم"
+      subtitle="مراحل بررسی پرونده و ارائه نظر تخصصی"
+    />
+  
+  
+    <ProcessGrid>
+
+        <ProcessStep
+          number={1}
+          title="ارسال مدارک پزشکی"
+          description="دریافت گزارش‌ها، تصاویر و اطلاعات درمانی بیمار برای بررسی اولیه پرونده."
+          icon="fileText"
+        />
+      
+        <ProcessStep
+          number={2}
+          title="بررسی اولیه پرونده"
+          description="بررسی کامل مدارک موجود و تعیین نیازهای تکمیلی برای ارزیابی دقیق‌تر."
+          icon="clipboardList"
+        />
+      
+        <ProcessStep
+          number={3}
+          title="ارزیابی تخصصی"
+          description="تحلیل تشخیص، مرحله بیماری، درمان‌های قبلی و گزینه‌های درمانی موجود."
+          icon="stethoscope"
+        />
+      
+        <ProcessStep
+          number={4}
+          title="جلسه مشاوره"
+          description="توضیح شرایط بیماری، پاسخ به پرسش‌ها و بررسی مسیرهای درمانی."
+          icon="messageCircle"
+        />
+      
+        <ProcessStep
+          number={5}
+          title="ارائه پیشنهاد درمانی"
+          description="ارائه دیدگاه تخصصی بر اساس شواهد علمی و شرایط اختصاصی بیمار."
+          icon="check"
+        />
+      
+      </ProcessGrid>
+  
+  </Section>
+  <Section>
+
+    <SectionHeading
+      title="مزایای دریافت مشاوره تخصصی دوم"
+      subtitle="کمک به تصمیم‌گیری آگاهانه‌تر در مسیر درمان"
+    />
+  
+  
+    <FeatureGrid>
+  
+      <FeatureCard
+        title="اطمینان بیشتر در تصمیم‌گیری"
+        description="کمک به بیمار و خانواده برای درک بهتر شرایط بیماری و انتخاب مسیر درمانی با آگاهی بیشتر."
+        icon="shield"
+      />
+  
+      <FeatureCard
+        title="بررسی گزینه‌های درمانی"
+        description="ارزیابی روش‌های مختلف درمانی و بررسی مناسب‌ترین گزینه‌ها بر اساس شرایط فردی بیمار."
+        icon="bookOpenCheck"
+      />
+  
+      <FeatureCard
+        title="درمان مبتنی بر شواهد علمی"
+        description="ارائه پیشنهادهای درمانی بر اساس راهنماهای معتبر و جدیدترین اطلاعات علمی."
+        icon="graduationCap"
+      />
+  
+      <FeatureCard
+        title="شناخت بهتر مسیر بیماری"
+        description="کمک به بیمار برای درک روند بیماری، اهداف درمان و مراحل پیش رو."
+        icon="heartHandshake"
+      />
+  
+    </FeatureGrid>
+  
+  </Section>
+  <Section background="secondary">
+
+    <SectionHeading
+      title="سؤالات متداول"
+    />
+  
+    <Faq items={consultFAQ} />
+  
+  </Section>
+
+
+</ServiceDetailLayout>

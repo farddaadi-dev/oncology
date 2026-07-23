@@ -4,6 +4,7 @@ import Hero from "@/components/Hero.astro";
 import Cta from "@/components/Cta.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
 import type {Service} from "@/data/services";
+import Breadcrumb from "@/components/Breadcrumb.astro";
 
 interface Props {
     service: Service;
@@ -26,7 +27,23 @@ const { service } = Astro.props;
     image={service.image}
     alt={service.alt}
 />
-
+<div class="container">
+    <Breadcrumb
+    items={[
+    {
+        label: "خانه",
+        href: "/"
+    },
+    {
+        label: "خدمات",
+        href: "/services"
+    },
+    {
+        label: service.title
+    }
+    ]}
+    />
+</div>
     <slot />
 
 

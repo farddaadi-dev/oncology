@@ -1,36 +1,6 @@
 ---
 import ScheduleRow from "./ScheduleRow.astro";
 
-// interface Session {
-
-//     day:string;
-
-//     hours:string;
-
-// }
-
-// interface Location {
-
-//     name:string;
-
-//     phone:string;
-
-//     sessions:Session[];
-
-// }
-
-// interface Props {
-
-//     name:string;
-
-//     specialty:string;
-
-//     image?:string;
-
-//     locations:Location[];
-
-// }
-
 import type { Doctor } from "@/data/doctors";
 import { Image } from "astro:assets";
 
@@ -45,11 +15,13 @@ const {
 
     specialty,
 
-    image,
+    images,
 
     locations
 
 }=Astro.props;
+
+const image = images.profile;
 ---
 
 <article class="card doctor-card" id="doctor-card">

@@ -112,7 +112,7 @@ export const services: Record<ServiceSlug, Service> = {
   },
 
   consult: {
-    title: "مشاوره تخصصی دوم (Second Opinion)",
+    title: "مشاوره تخصصی دوم ",
 
     badge: "بررسی تخصصی پرونده‌های پزشکی",
 

@@ -30,6 +30,7 @@ import SyringeIcon from "@/assets/icons/syringe.svg";
 import SupportiveIcon from "@/assets/icons/supportive.svg";
 import AmbulatoryIcon from "@/assets/icons/ambulatory.svg";
 import ConsultIcon from "@/assets/icons/consult.svg";
+import ChevronLeftIcon from "@/assets/icons/chevron-left.svg";
 
 export const icons = {
 
@@ -65,6 +66,7 @@ export const icons = {
   supportive: SupportiveIcon,
   ambulatory: AmbulatoryIcon,
   consult: ConsultIcon,
+  chevronLeft: ChevronLeftIcon,
 };
 
 
