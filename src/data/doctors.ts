@@ -305,7 +305,7 @@ export const doctors: Doctor[] = [
   
     ],
   
-    icon: "heartPulse"
+    icon: ""
   
   },
 
@@ -328,7 +328,7 @@ export const doctors: Doctor[] = [
 
       title: "مقاله علمی",
 
-      value: "یبش از ۲۰",
+      value: "بیش از ۲۰",
 
       description:
         "انتشار مقالات در زمینه سرطان، هماتولوژی، پزشکی انتقال خون و فارماکوژنتیک.",
@@ -632,7 +632,7 @@ export const doctors: Doctor[] = [
   
     ],
   
-    icon: "heartPulse"
+    icon: ""
   
   },
 

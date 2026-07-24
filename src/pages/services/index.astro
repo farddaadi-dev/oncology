@@ -16,6 +16,18 @@ import Cta from "@/components/Cta.astro";
 import {servicesFAQ} from "@/data/servicesFAQ.ts"
 import ButtonLink from "@/components/ButtonLink.astro";
 
+const treatmentServices = Object.entries(services).filter(
+  ([, service]) => service.category === "treatments"
+);
+
+const careServices = Object.entries(services).filter(
+  ([, service]) => service.category === "care"
+);
+
+const consultationServices = Object.entries(services).filter(
+  ([, service]) => service.category === "consultation"
+);
+
 ---
 
 <BaseLayout
@@ -33,23 +45,66 @@ import ButtonLink from "@/components/ButtonLink.astro";
     >
     </Hero>
     <Section>
-        <SectionHeading
-        title="خدمات تخصصی"
-         subtitle="خدمات تشخیصی و درمانی در حوزه آنکولوژی و هماتولوژی"
-        >
-        </SectionHeading>
-        <ServiceGrid>
+      <SectionHeading
+        title="درمان‌های تخصصی سرطان و بیماری‌های خون"
+        subtitle="تشخیص و درمان بیماری‌های خون و سرطان"
+        description="روش‌های درمانی بر اساس جدیدترین شواهد علمی و متناسب با شرایط هر بیمار انتخاب می‌شوند."
+      />
+    
+      <ServiceGrid>
+        {treatmentServices.map(([slug, service]) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={`/services/${slug}`}
+            icon={service.icon}
+          />
+        ))}
+      </ServiceGrid>
+    </Section>
+    <Section background="secondary">
 
-            {Object.entries(services).map(([slug, service]) => (
-              <ServiceCard
-                title={service.title}
-                description={service.description}
-                href={`/services/${slug}`}
-                icon={service.icon}
-              />
-            ))}
-          
-          </ServiceGrid>
+      <SectionHeading
+        title="مراقبت‌ها و خدمات درمانی"
+        subtitle="همراهی بیمار در تمام مراحل درمان"
+        description="خدمات حمایتی و درمانی برای کنترل عوارض، بهبود کیفیت زندگی و ادامه ایمن مسیر درمان."
+      />
+    
+      <ServiceGrid>
+    
+        {careServices.map(([slug, service]) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={`/services/${slug}`}
+            icon={service.icon}
+          />
+        ))}
+    
+      </ServiceGrid>
+    
+    </Section>
+    <Section>
+
+      <SectionHeading
+        title="مشاوره و خدمات پزشکی"
+        subtitle="دسترسی آسان به نظر تخصصی"
+        description="بررسی پرونده‌های پزشکی، ارائه نظر تخصصی و کمک به انتخاب بهترین مسیر درمانی."
+      />
+    
+      <ServiceGrid>
+    
+        {consultationServices.map(([slug, service]) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={`/services/${slug}`}
+            icon={service.icon}
+          />
+        ))}
+    
+      </ServiceGrid>
+    
     </Section>
     <Section
     background="secondary">

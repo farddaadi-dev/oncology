@@ -21,7 +21,7 @@ export const benefits: Benefit[] = [
 
     {
         title: "مراقبت بیمار محور",
-        icon: "heartHandshake",
+        icon: "userCheck",
         description:
             "شرایط، نیازها و اولویت‌های هر بیمار در طراحی مسیر درمان مورد توجه قرار می‌گیرد."
     },

@@ -6,6 +6,10 @@ import proceduresImage from "@/assets/images/services/Procedures.png";
 import supportiveImage from "@/assets/images/services/SupportiveCare.png";
 import ambulatoryImage from "@/assets/images/services/Ambulatory.png";
 import consultImage from "@/assets/images/services/SecondOpinion.png";
+import homeVisitImage from "@/assets/images/services/HomeVisit.png";
+import homeNursingImage from "@/assets/images/services/HomeNursing.png";
+import onlineConsultationImage from "@/assets/images/services/consultation-hero.webp";
+import internationalConsultationImage from "@/assets/images/services/consultation-hero.webp";
 import type { IconName } from "@/data/icons";
 
 export type ServiceSlug =
@@ -14,15 +18,25 @@ export type ServiceSlug =
   | "procedures"
   | "supportive"
   | "ambulatory"
-  | "consult";
+  | "home-visit"
+  | "home-nursing"
+  | "consult"
+  | "online-consultation"
+  | "international-consultation";
 
-export interface Service {
+  export type ServiceCategory =
+  | "treatments"
+  | "care"
+  | "consultation";
+
+  export interface Service {
   title: string;
   badge: string;
   description: string;
   image: ImageMetadata;
   alt: string;
   icon: IconName;
+  category: ServiceCategory;
 }
 
 export const services: Record<ServiceSlug, Service> = {
@@ -41,6 +55,7 @@ export const services: Record<ServiceSlug, Service> = {
     alt: "مشاوره پزشک و بیمار درباره درمان سرطان",
 
     icon: "ribbon",
+    category: "treatments",
   },
 
   hematology: {
@@ -58,6 +73,7 @@ export const services: Record<ServiceSlug, Service> = {
     alt: "ارزیابی بیماری‌های خونی توسط پزشک متخصص",
 
     icon: "blood",
+    category: "treatments",
   },
 
   procedures: {
@@ -75,6 +91,7 @@ export const services: Record<ServiceSlug, Service> = {
     alt: "اقدامات تخصصی هماتولوژی و انکولوژی",
 
     icon: "syringe",
+    category: "treatments",
   },
 
   supportive: {
@@ -92,6 +109,7 @@ export const services: Record<ServiceSlug, Service> = {
     alt: "مراقبت حمایتی از بیمار مبتلا به سرطان",
 
     icon: "supportive",
+    category: "care",
   },
 
   ambulatory: {
@@ -109,6 +127,7 @@ export const services: Record<ServiceSlug, Service> = {
     alt: "خدمات درمانی سرپایی",
 
     icon: "ambulatory",
+    category: "care",
   },
 
   consult: {
@@ -126,5 +145,6 @@ export const services: Record<ServiceSlug, Service> = {
     alt: "بررسی پرونده پزشکی توسط پزشک متخصص",
 
     icon: "consult",
+    category: "consultation",
   },
 };

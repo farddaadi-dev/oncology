@@ -4,6 +4,7 @@ import ButtonLink from "../ButtonLink.astro";
 import type { Doctor } from "@/data/doctors";
 
 import { getDoctorPublications } from "@/lib/getPublications";
+import SectionHeading from "../SectionHeading.astro";
 
 
 interface Props {
@@ -14,19 +15,22 @@ interface Props {
 const { doctor } = Astro.props;
 
 
-const doctorPublications =
-  getDoctorPublications(doctor.id);
-
+const doctorPublications = getDoctorPublications(
+  doctor.id,
+  true
+);
 ---
 
 <section class="publications">
 
     <div class="container">
+      <SectionHeading
+      title="فعالیت‌های علمی و مقالات منتخب"
+      subtitle="پژوهش‌های بالینی"
+      />
   
   
-      <h2>
-        فعالیت‌های علمی و مقالات منتخب
-      </h2>
+      
   
   
       <div class="publications-grid">

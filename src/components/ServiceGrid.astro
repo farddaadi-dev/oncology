@@ -4,19 +4,27 @@
 
 <style>
     .services-grid {
-        width: min(100% - 2rem, 1200px);
-        margin-inline: auto;
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
 
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-xl);
+}
+
+.services-grid > *:last-child:nth-child(4) {
+    grid-column: 2;
+}
 </style>
 
 <style is:global>
     @media (max-width: 1000px) {
         #services-grid {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        #services-grid > *:last-child:nth-child(4) {
+            grid-column: auto;
         }
     }
 

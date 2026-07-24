@@ -14,7 +14,7 @@ const { doctorId } = Astro.props;
 const journey = professionalJourney[doctorId];
 ---
 
-<Section>
+<Section background="secondary">
 
   <SectionHeading
     subtitle="مسیر حرفه‌ای"
@@ -112,7 +112,7 @@ const journey = professionalJourney[doctorId];
 
   color:white;
 
-  border-radius:999px;
+  border-radius:var(--radius-full);
 
   padding:.65rem 1rem;
 
@@ -121,6 +121,7 @@ const journey = professionalJourney[doctorId];
   min-width:120px;
 
   text-align:center;
+  box-shadow: var(--shadow);
 
 }
 
@@ -128,13 +129,13 @@ const journey = professionalJourney[doctorId];
 
   background:white;
 
-  border:1px solid var(--color-border);
+  border:2px solid var(--color-brand-green);
 
   border-radius:var(--radius-xl);
 
   padding:1.5rem;
 
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow);
 
   transition:.25s ease;
 
@@ -144,7 +145,7 @@ const journey = professionalJourney[doctorId];
 
   transform:translateY(-4px);
 
-  box-shadow:var(--shadow-md);
+  box-shadow:none;
 
 }
 

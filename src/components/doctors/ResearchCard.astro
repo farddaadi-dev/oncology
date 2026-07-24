@@ -64,11 +64,11 @@ const persianValue = toPersianDigits(value);
 
   background: white;
 
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-brand-green);
 
   border-radius: var(--radius-xl);
 
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow);
 
   transition:
     transform .25s ease,
@@ -81,9 +81,9 @@ const persianValue = toPersianDigits(value);
 
   transform: translateY(-6px);
 
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
 
-  border-color: var(--color-brand-accent);
+  
 
 }
 
@@ -93,22 +93,22 @@ const persianValue = toPersianDigits(value);
   align-items: center;
   justify-content: center;
 
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
 
   margin-bottom: 1.5rem;
 
-  border-radius: 50%;
-
-  background: var(--color-bg-warm);
+  border-radius: 18px;
+  border: 2px solid var(--color-brand-green);
+  background: white;
 
 }
 
-.research-card__icon img {
+.research-card__icon :global(img) {
 
-  width: 1.75rem;
+  width: 2.2rem;
 
-  height: 1.75rem;
+  height: 2.2rem;
 
 }
 
@@ -116,9 +116,9 @@ const persianValue = toPersianDigits(value);
 
   margin-bottom: .5rem;
 
-  color: var(--color-brand-accent);
+  color: var(--color-text-heading);
 
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
 
   font-weight: 700;
 
@@ -130,7 +130,7 @@ const persianValue = toPersianDigits(value);
 
   margin: 0 0 .75rem;
 
-  color: var(--color-text-primary);
+  color: var(--color-text-green-light);
 
   font-size: 1.25rem;
 

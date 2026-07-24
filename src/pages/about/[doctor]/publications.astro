@@ -4,6 +4,8 @@ import { getDoctorPublications } from "@/lib/getPublications";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type {Doctor} from "@/data/doctors"
 import PublicationCard from "@/components/doctors/PublicationCard.astro";
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 
 interface Props {
   doctor: Doctor;
@@ -33,7 +35,9 @@ if (!doctor) {
   throw new Error("Doctor not found");
 }
 
-const doctorPublications = getDoctorPublications(doctor.id);
+const doctorPublications = getDoctorPublications(
+  doctor.id
+);
 
 
 
@@ -45,12 +49,14 @@ description="لیست کامل مقالات منتشر شده"
 image="/default-og-image.jpg"
 >
 
-<section class="publications-page">
+<Section width="narrow">
+  <SectionHeading
+  title={`مقالات علمی ${doctor.name}`}
+    />
 
 
-  <h1>
-    مقالات علمی {doctor.name}
-  </h1>
+
+ 
 
 
   <div class="publications-grid">
@@ -68,6 +74,15 @@ image="/default-og-image.jpg"
   </div>
 
 
-</section>
+
+</Section>
     
     </BaseLayout>
+<style>
+    .publications-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+</style>
