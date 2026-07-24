@@ -31,6 +31,9 @@ import SupportiveIcon from "@/assets/icons/supportive.svg";
 import AmbulatoryIcon from "@/assets/icons/ambulatory.svg";
 import ConsultIcon from "@/assets/icons/consult.svg";
 import ChevronLeftIcon from "@/assets/icons/chevron-left.svg";
+import EarIcon from "@/assets/icons/ear.svg";
+import FileSearchIcon from "@/assets/icons/file-search.svg";
+import UserCheckIcon from "@/assets/icons/user-check.svg";
 
 export const icons = {
 
@@ -67,6 +70,9 @@ export const icons = {
   ambulatory: AmbulatoryIcon,
   consult: ConsultIcon,
   chevronLeft: ChevronLeftIcon,
+  ear: EarIcon,
+  fileSearch: FileSearchIcon,
+  userCheck: UserCheckIcon,
 };
 
 

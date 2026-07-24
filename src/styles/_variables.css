@@ -1,50 +1,42 @@
 :root {
-    /* =========================================
-       1. Core Brand Colors (Extracted from logo.jpg)
-       ========================================= */
     
-    /* The earthy green from the leaves and circle arc */
     --color-brand-green: rgb(111, 122, 94);       
-    --color-brand-green-light: rgb(138, 150, 119); /* Lighter tint for hover states */
-    --color-brand-green-dark: rgb(85, 94, 71);  /* Darker shade for contrast/text */
-  
-    /* The warm amber/orange from the sun rays */
+    --color-brand-green-light: rgb(138, 150, 119); 
+    --color-brand-green-dark: rgb(85, 94, 71); 
+
     --color-brand-accent: #F08A00;      
-    --color-brand-accent-light: #F4A63B; /* Lighter tint for subtle highlights */
-    --color-brand-accent-dark: #C67200;  /* Darker shade for active states */
+    --color-brand-accent-light: #F4A63B; 
+    --color-brand-accent-dark: #C67200;  
   
-  
-    /* =========================================
-       2. Neutral Colors (For UI, Text, and Backgrounds)
-       ========================================= */
-    
-    /* Backgrounds: Warm, comforting off-whites instead of stark white */
-    --color-bg-primary: #FCFBF9;   /* Main page background */
-    --color-bg-secondary: #F7F7F1; /* Section backgrounds, cards, or footers */
-    --color-bg-dark: #1f241e;
+    --color-text-primary: #66685C; 
+    --color-text-secondary: #5c6057; 
+    --color-text-heading: #30322B;
+
+    --color-bg-hero: #efebdd;
+    --color-bg-primary: #FCFBF9;
     --color-dark-heading: #1A2E26;
+    --color-bg-secondary: #F7F7F1;
+    
+    /*    
+     
+    --color-bg-dark: #1f241e;
+    
     --color-secondary-gold: #D1A153;
     --color-primary-sage: rgb(122, 139, 110);
     --color-body-text: #2F3E37;
     --color-bg-warm: #FDFBF7;
     --color-bg-section: #F3F6F1;
-    --color-bg-hero: #efebdd;
-    /* Text: Soft charcoals instead of harsh pure black */
-    --color-text-primary: #66685C;   /* Main body text (highly readable) */
-    --color-text-secondary: rgb(92, 96, 87); /* Subtitles, muted text, dates */
-    --color-text-inverse: #FFFFFF;   /* Text on top of dark buttons/banners */
-  
-    /* Borders & Dividers */
-    --color-text-heading: #30322B;
+     */
+    
     --color-border: #E5E5D8;
     --color-danger: #d9534f;
   --color-danger-bg: rgba(217, 83, 79, 0.08);
 
      /* Shaows */
-     --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
-     --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.08);
-     --shadow-glow: 0 0 8px rgba(242, 155, 23, 0.18);
-     --shadow-normal: 2px 2px 4px rgba(0, 0, 0, 0.2);
+     
+     --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+     --shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+     
 
      
 

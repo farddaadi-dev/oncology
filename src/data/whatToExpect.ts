@@ -8,7 +8,7 @@ export const expectations: {
 }[] = [
   {
     number: 1,
-    icon: "heart",
+    icon: "ear",
     title: "شنیدن دقیق شرایط شما",
     description:
       "در نخستین ویزیت، زمان کافی برای آشنایی با سوابق پزشکی، علائم، نگرانی‌ها و اهداف درمانی شما اختصاص داده می‌شود."
@@ -16,7 +16,7 @@ export const expectations: {
 
   {
     number: 2,
-    icon: "info",
+    icon: "fileSearch",
     title: "بررسی کامل مدارک پزشکی",
     description:
       "آزمایش‌ها، تصاویر پزشکی، گزارش‌های پاتولوژی و سوابق درمانی با دقت بررسی می‌شوند تا تصویر دقیقی از وضعیت بیماری به دست آید."
@@ -24,7 +24,7 @@ export const expectations: {
 
   {
     number: 3,
-    icon: "stethoscope",
+    icon: "clipboardList",
     title: "طراحی برنامه درمان",
     description:
       "گزینه‌های درمانی بر پایه آخرین شواهد علمی و متناسب با شرایط اختصاصی هر بیمار بررسی و درباره آن‌ها به صورت شفاف گفتگو می‌شود."
@@ -32,7 +32,7 @@ export const expectations: {
 
   {
     number: 4,
-    icon: "activity",
+    icon: "heartHandshake",
     title: "همراهی در تمام مسیر درمان",
     description:
       "در طول درمان و پیگیری‌های بعدی، روند بیماری، پاسخ به درمان و پرسش‌های شما به طور مستمر مورد توجه قرار خواهد گرفت."

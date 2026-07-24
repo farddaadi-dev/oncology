@@ -78,11 +78,11 @@ const iconImage = icon ? icons[icon] : null;
 
   background: white;
 
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-brand-green);
 
   border-radius: var(--radius-lg);
 
-  box-shadow: var(--shadow-normal);
+  box-shadow: var(--shadow);
 
   transition:
     transform .25s ease,
@@ -93,6 +93,7 @@ const iconImage = icon ? icons[icon] : null;
 .process-step:hover {
 
   transform: translateY(-4px);
+  box-shadow: none;
 
 }
 
@@ -121,8 +122,8 @@ const iconImage = icon ? icons[icon] : null;
 
   display: block;
 
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
 
 }
 
@@ -148,7 +149,7 @@ const iconImage = icon ? icons[icon] : null;
 
   color: var(--color-brand-accent);
 
-  font-size: .75rem;
+  font-size: 1rem;
   font-weight: 700;
 
 }
@@ -169,7 +170,7 @@ const iconImage = icon ? icons[icon] : null;
 
   font-size: var(--text-lg);
 
-  color: var(--color-text-primary);
+  color: var(--color-text-heading);
 
 }
 

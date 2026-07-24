@@ -21,9 +21,16 @@
      TRANSITIONS
   ========================== */
 
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
+  
+  --transition-standard:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease;
 
+    --transition-fast:
+    transform .15s ease,
   }
   
   /* =========================================

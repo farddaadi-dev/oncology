@@ -135,7 +135,7 @@ const { pathname } = Astro.url;
   font-weight: 700;
   font-size: var(--text-sm, 14px);
   transition: background-color var(--transition-fast, 0.2s ease), transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.15);
+  box-shadow: var(--shadow);
 }
 
 /* Prevent the active underline effect from sticking to this button */
@@ -146,7 +146,8 @@ const { pathname } = Astro.url;
 .nav-links .cta-consultation:hover {
   background-color: var(--color-brand-accent-dark); /* Slightly darker shade on hover */
   color: #ffffff;
-  transform: translateY(-1px); /* Gentle lift effect */
+  transform: translateY(-1px);
+  box-shadow: none; 
 }
 
 /* =========================
@@ -160,11 +161,12 @@ const { pathname } = Astro.url;
   border-radius: 8px;
   margin-bottom: auto; /* Pushes the button cleanly to the bottom of the drawer menu */
   font-size: 16px;
-  box-shadow: 0 4px 10px rgba(229, 62, 62, 0.2);
+  box-shadow: var(--shadow);
 }
 
 .mobile-menu .cta-consultation:hover {
   background-color: var(--color-brand-accent-dark);
+  box-shadow: none;
 
 }
 /* =========================
@@ -200,7 +202,8 @@ const { pathname } = Astro.url;
   line-height: 1;
   color: var(--color-text-primary);
   cursor: pointer;
-  transition: var(--transition-fast);
+  transition: transform 0.3s ease;
+  z-index: 2100;
 }
 .close-menu:hover {
   transform: rotate(90deg);
@@ -239,10 +242,10 @@ const { pathname } = Astro.url;
 
 .mobile-menu a {
   text-decoration: none;
-  color: #2f372d;
+  color: var(--color-text-secondary);
 
-  font-size: 18px;
-  font-weight: 600;
+  font-size: var(--text-lead);
+  font-weight: 700;
 }
 
 /* =========================
@@ -297,7 +300,7 @@ const { pathname } = Astro.url;
    MOBILE
 ========================= */
 
-@media (max-width: 790px) {
+@media (max-width: 880px) {
 
   .header .header-container {
     height: 72px;

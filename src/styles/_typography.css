@@ -6,6 +6,7 @@
   --text-xl: 1.563rem;  /* 25px - H3 */
   --text-2xl: 1.953rem; /* 31px - H2 */
   --text-3xl: 2.441rem; /* 39px - H1 */
+  --text-lead: 1.125rem; /* 18px - Lead Paragraph */
 }
 
 body {
@@ -29,12 +30,12 @@ h1 {
   
 h2 {
     font-size: var(--text-2xl);
-    margin-top: 2rem;
+    
 }
   
 h3 {
     font-size: var(--text-xl);
-    margin-top: 1.5rem;
+    
 }
   
 p {

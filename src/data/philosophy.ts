@@ -17,7 +17,7 @@ export const treatmentPhilosophy: PhilosophyItem[] = [
 
   {
     title: "تصمیم‌گیری بیمار محور",
-    icon: "heartHandshake",
+    icon: "userCheck",
     description:
       "هر بیمار مسیر متفاوتی دارد و تصمیم‌های درمانی با توجه به شرایط پزشکی، اهداف و ترجیحات او اتخاذ می‌شوند."
   },
