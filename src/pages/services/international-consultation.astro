@@ -1,0 +1,233 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import InternationalDoctorCard from "@/components/doctors/InternationalDoctorCard.astro";
+import DoctorConsultationGrid from "@/components/DoctorConsultationGrid.astro";
+import { doctors } from "@/data/doctors";
+import InfoCard from "@/components/InfoCard.astro";
+import ProcessStep from "@/components/ProcessStep.astro";
+import GridFour from "@/components/GridFour.astro";
+import NoticeBanner from "@/components/NoticeBanner.astro";
+import Faq from "@/components/Faq.astro";
+import { internationalConsultationFAQ } from "@/data/internationalConsultationFAQ";
+import Cta from "@/components/Cta.astro"
+import ButtonLink from "@/components/ButtonLink.astro"
+
+
+
+import internationalConsultationImage from "@/assets/images/services/consultation-hero.webp";
+
+const consultationDoctors = doctors.filter(
+  (doctor) => doctor.internationalConsultation
+);
+---
+
+<BaseLayout
+  title="مشاوره تخصصی برای ایرانیان خارج از کشور"
+  description="مشاوره تخصصی آنکولوژی و هماتولوژی برای ایرانیان مقیم خارج از کشور، بررسی پرونده پزشکی و دریافت نظر تخصصی."
+  image="/default-og-image.jpg"
+>
+
+  <Hero
+    badge="ویژه ایرانیان خارج از کشور"
+
+    titleLine1="مشاوره تخصصی"
+    titleLine2="آنکولوژی و هماتولوژی"
+
+    description="دریافت نظر تخصصی، بررسی پرونده پزشکی و راهنمایی درمانی برای ایرانیان مقیم خارج از کشور، با همراهی پزشکان فوق تخصص خون و آنکولوژی."
+
+    image={internationalConsultationImage}
+
+    alt="مشاوره تخصصی پزشکی برای بیماران خارج از کشور"
+
+    primaryButtonText="انتخاب پزشک و شروع مشاوره"
+    primaryButtonHref="#doctors"
+
+    secondaryButtonText="راهنمای بیماران خارج از کشور"
+    secondaryButtonHref="#guide"
+  />
+
+  <Section>
+
+  <SectionHeading
+    title="مشاوره تخصصی برای ایرانیان خارج از کشور"
+    subtitle="همراهی بیماران در تصمیم‌گیری بهتر درباره مسیر تشخیص و درمان"
+  />
+
+  <p>
+    بسیاری از ایرانیان مقیم خارج از کشور برای بررسی تشخیص، ارزیابی برنامه درمانی
+    یا دریافت نظر دوم، نیاز به ارتباط با پزشک متخصص فارسی‌زبان دارند.
+  </p>
+
+  <p>
+    در این خدمت، پرونده پزشکی بیمار شامل گزارش‌های پاتولوژی، آزمایش‌ها،
+    تصاویر پزشکی و سوابق درمانی بررسی شده و راهنمایی تخصصی متناسب با شرایط بیمار ارائه می‌شود.
+  </p>
+
+  <p>
+    هدف از این مشاوره، کمک به بیماران برای درک بهتر شرایط بیماری،
+    بررسی گزینه‌های درمانی و تصمیم‌گیری آگاهانه درباره ادامه مسیر درمان است.
+  </p>
+
+</Section>
+
+
+
+
+<Section id="guide" background="secondary">
+
+  <SectionHeading
+    title="مراحل دریافت مشاوره تخصصی"
+    subtitle="فرآیند ساده و شفاف برای بررسی پرونده پزشکی شما"
+  />
+
+
+  <div class="expectation-grid">
+    <GridFour>
+
+        <ProcessStep
+        number={1}
+        title="انتخاب پزشک"
+        description="پزشک مورد نظر خود را بر اساس تخصص و نیاز درمانی انتخاب کنید."
+        icon="userPlus"
+        />
+
+
+        <ProcessStep
+        number={2}
+        title="ارسال درخواست"
+        description="از طریق واتساپ با پزشک ارتباط برقرار کرده و درخواست مشاوره خود را ارسال کنید."
+        icon="messageCircle"
+        />
+
+
+    <ProcessStep
+      number={3}
+      title="ارسال مدارک پزشکی"
+      description="گزارش پاتولوژی، آزمایش‌ها و تصاویر پزشکی برای بررسی ارسال می‌شود."
+      icon="fileText"
+    />
+
+
+    <ProcessStep
+      number={4}
+      title="بررسی و ارائه نظر تخصصی"
+      description="پرونده پزشکی بررسی شده و راهنمایی درمانی متناسب ارائه خواهد شد."
+      icon="stethoscope"
+    />
+    </GridFour>
+  </div>
+
+</Section>
+
+<Section>
+
+  <SectionHeading
+    title="آماده‌سازی مدارک پزشکی برای مشاوره"
+    subtitle="برای بررسی دقیق‌تر پرونده، لطفاً مدارک پزشکی مرتبط را آماده و ارسال کنید."
+  />
+    <div>
+  <GridFour>
+
+    <InfoCard
+      title="گزارش پاتولوژی"
+      icon="fileText"
+    >
+    <p>
+        گزارش پاتولوژی و نمونه‌برداری‌های انجام شده، از مهم‌ترین مدارک برای بررسی نوع بیماری و انتخاب مسیر درمان هستند.
+    </p>
+    </InfoCard>
+    <InfoCard
+      title="تصاویر پزشکی"
+      icon="scan"
+    >
+    <p>
+        تصاویر CT، MRI، PET Scan یا سایر بررسی‌های تصویربرداری همراه با گزارش رسمی ارسال شوند.
+    </p>
+    </InfoCard>
+    <InfoCard
+      title="آزمایش‌ها و سوابق درمانی"
+      icon="flaskConical"
+    >
+    <p>
+        نتایج آزمایش‌های خون، داروهای مصرفی و خلاصه درمان‌های قبلی به تصمیم‌گیری دقیق‌تر کمک می‌کند.
+    </p>
+    </InfoCard>
+    <InfoCard
+      title="سوالات و اهداف بیمار"
+      icon="messageCircle"
+    >
+    <p>
+        سوالات، نگرانی‌ها و هدف شما از دریافت مشاوره به پزشک کمک می‌کند بهترین راهنمایی را ارائه دهد.
+    </p>
+    </InfoCard>
+  </GridFour>
+</div>
+</Section>
+<Section id="doctors" background="secondary">
+
+  <SectionHeading
+    title="انتخاب پزشک برای مشاوره تخصصی"
+    subtitle="با انتخاب پزشک مورد نظر، می‌توانید از طریق واتساپ برای شروع فرآیند مشاوره ارتباط برقرار کنید."
+  />
+
+  <DoctorConsultationGrid>
+
+    
+
+    {
+      consultationDoctors.map((doctor) => (
+        <InternationalDoctorCard doctor={doctor} />
+      ))
+    }
+
+  </DoctorConsultationGrid>
+
+</Section>
+<Section>
+
+  <SectionHeading
+    title="محدودیت‌های مشاوره آنلاین"
+    subtitle="نکات مهم درباره فرآیند مشاوره غیرحضوری"
+  />
+
+    
+  <NoticeBanner
+    type="info"
+    title="نکات مهم قبل از درخواست مشاوره"
+    text="مشاوره آنلاین جایگزین ویزیت حضوری، معاینه فیزیکی یا اقدامات اورژانسی نیست. تصمیم‌های درمانی نهایی پس از بررسی کامل مدارک پزشکی و با در نظر گرفتن شرایط بیمار اتخاذ می‌شود. در مواردی که نیاز به اقدام فوری پزشکی وجود دارد، مراجعه به مرکز درمانی نزدیک ضروری است. دقت مشاوره نیز به کامل بودن اطلاعات و مدارک ارسال‌شده توسط بیمار بستگی دارد."
+  />
+
+</Section>
+<Section background="secondary">
+
+  <SectionHeading
+    title="سوالات متداول مشاوره آنلاین"
+    subtitle="پاسخ به پرسش‌های رایج بیماران خارج از کشور"
+  />
+
+  <Faq items={internationalConsultationFAQ} />
+
+</Section>
+
+<Cta
+  title="آماده دریافت مشاوره تخصصی هستید؟"
+  description="پزشک مورد نظر خود را انتخاب کنید و برای شروع فرآیند مشاوره، از طریق واتساپ با ما در ارتباط باشید."
+>
+
+  <ButtonLink
+    href="#doctors"
+    text="انتخاب پزشک"
+  />
+
+  <ButtonLink
+    href="/services"
+    variant="secondary"
+    text="مشاهده خدمات تخصصی"
+  />
+
+</Cta>
+</BaseLayout>
+

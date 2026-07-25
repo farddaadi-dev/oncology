@@ -1,0 +1,198 @@
+---
+import { Image } from "astro:assets";
+import type { Doctor } from "@/data/doctors";
+
+interface Props {
+  doctor: Doctor;
+}
+
+const { doctor } = Astro.props;
+
+const whatsappLink = doctor.internationalConsultation
+  ? `https://wa.me/${doctor.internationalConsultation.whatsapp}?text=${encodeURIComponent(
+      doctor.internationalConsultation.message ?? ""
+    )}`
+  : "#";
+---
+
+<article class="doctor-card">
+
+  <div class="doctor-image-wrapper">
+
+    <Image
+      src={doctor.images.profile}
+      alt={doctor.name}
+      class="doctor-image"
+      width={600}
+      height={700}
+    />
+
+  </div>
+
+
+  <div class="doctor-content">
+
+    <h3 class="doctor-name">
+      {doctor.name}
+    </h3>
+
+    <p class="doctor-specialty">
+      {doctor.specialty}
+    </p>
+
+    <p class="doctor-description">
+      {doctor.bio}
+    </p>
+
+
+    {
+      doctor.internationalConsultation && (
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="whatsapp-button"
+        >
+          شروع گفتگو در واتساپ
+        </a>
+      )
+    }
+
+
+  </div>
+
+</article>
+
+
+<style>
+
+.doctor-card {
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  max-width: 440px;
+
+  margin-inline: auto;
+
+  background: white;
+
+  border-radius: var(--radius-xl);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+
+  border: 2px solid var(--color-brand-green);
+
+}
+
+
+.doctor-image-wrapper {
+
+  width: 260px;
+  height: 330px;
+
+  margin: 2rem auto 0;
+
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-bg-secondary),
+      white
+    );
+
+}
+
+
+.doctor-image {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center top;
+
+  display: block;
+
+}
+
+
+.doctor-content {
+
+  padding: 1.75rem;
+
+  text-align: right;
+
+}
+
+
+.doctor-name {
+
+  margin: 0 0 .5rem;
+
+  color: var(--color-text-heading);
+
+  font-size: 1.5rem;
+
+}
+
+
+.doctor-specialty {
+
+  color: var(--color-brand-accent-dark);
+
+  font-weight: 600;
+
+  margin-bottom: 1rem;
+
+}
+
+
+.doctor-description {
+
+  line-height: 1.9;
+
+  color: var(--color-text-secondary);
+
+}
+
+
+.whatsapp-button {
+
+  padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    white-space: nowrap;
+    transition:
+      background-color .25s ease,
+      color .25s ease,
+      border-color .25s ease,
+      transform .25s ease,
+      box-shadow .25s ease;
+    
+    background-color:transparent;
+    border: 2px solid var(--color-brand-green);
+    color: var(--color-brand-green);
+    box-shadow: var(--shadow);
+}
+
+.whatsapp-button:hover {
+    background-color: var(--color-brand-green);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+</style>

@@ -34,6 +34,12 @@ import ChevronLeftIcon from "@/assets/icons/chevron-left.svg";
 import EarIcon from "@/assets/icons/ear.svg";
 import FileSearchIcon from "@/assets/icons/file-search.svg";
 import UserCheckIcon from "@/assets/icons/user-check.svg";
+import GlobeIcon from "@/assets/icons/globe.svg";
+import HandbagIcon from "@/assets/icons/handbag.svg";
+import HouseIcon from "@/assets/icons/house.svg";
+import MonitorIcon from "@/assets/icons/monitor.svg";
+import ClockIcon from "@/assets/icons/clock.svg";
+import ScanIcon from "@/assets/icons/scan.svg";
 
 export const icons = {
 
@@ -73,6 +79,12 @@ export const icons = {
   ear: EarIcon,
   fileSearch: FileSearchIcon,
   userCheck: UserCheckIcon,
+  globe: GlobeIcon,
+  handbag: HandbagIcon,
+  house: HouseIcon,
+  monitor: MonitorIcon,
+  clock: ClockIcon,
+  scan: ScanIcon,
 };
 
 

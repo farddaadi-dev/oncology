@@ -1,0 +1,23 @@
+---
+---
+
+<div class="doctor-consultation-grid" id="doctor-consultation-grid">
+  <slot />
+</div>
+
+<style>
+.doctor-consultation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+</style>
+
+<style is:global>
+@media (max-width: 768px) {
+  #doctor-consultation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

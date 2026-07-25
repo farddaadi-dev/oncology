@@ -1,0 +1,51 @@
+<div class="care-services-grid" id="care-services-grid">
+  <slot />
+</div>
+
+
+<style>
+  .care-services-grid {
+
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: var(--space-xl);
+
+  }
+
+
+</style>
+
+
+<style is:global>
+
+@media (max-width: 1000px) {
+
+  #care-services-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+
+}
+
+
+
+@media (max-width: 600px) {
+
+  #care-services-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  
+}
+
+</style>

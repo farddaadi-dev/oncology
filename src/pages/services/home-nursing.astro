@@ -1,0 +1,158 @@
+---
+import ServiceDetailLayout from "@/layouts/ServiceDetailLayout.astro";
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import Faq from "@/components/Faq.astro";
+
+import { getService } from "@/lib/getService";
+import { homeNursingFAQ } from "@/data/homeNursingFAQ";
+
+const service = getService("home-nursing");
+---
+
+<ServiceDetailLayout service={service}>
+
+  <Section>
+
+    <SectionHeading
+      title="خدمات پرستاری در منزل چگونه ارائه می‌شود؟"
+      subtitle="مراقبت ایمن و تخصصی در محیط آرام خانه"
+    />
+
+    <p>
+      خدمات پرستاری در منزل برای بیمارانی ارائه می‌شود که نیاز به مراقبت،
+      پیگیری و انجام اقدامات پرستاری در محیط خانه دارند.
+      این خدمات با هماهنگی پزشک و بر اساس شرایط اختصاصی هر بیمار برنامه‌ریزی می‌شود
+      تا روند درمان با ایمنی و آرامش بیشتری ادامه پیدا کند.
+    </p>
+
+  </Section>
+
+
+  <Section background="secondary">
+
+    <SectionHeading
+      title="چه بیمارانی به خدمات پرستاری در منزل نیاز دارند؟"
+      subtitle="مراقبت متناسب با وضعیت بیمار"
+    />
+
+    <FeatureGrid>
+
+      <FeatureCard
+        title="بیماران تحت درمان سرطان"
+        description="کمک به مراقبت از بیماران در طول دوره‌های درمانی و مدیریت نیازهای روزمره."
+        icon="ribbon"
+      />
+
+      <FeatureCard
+        title="بیماران پس از ترخیص"
+        description="ادامه مراقبت پس از بستری و کمک به بازگشت ایمن بیمار به شرایط عادی."
+        icon="heartPulse"
+      />
+
+      <FeatureCard
+        title="بیماران سالمند"
+        description="ارائه مراقبت حمایتی برای سالمندانی که نیاز به کمک روزانه دارند."
+        icon="heart"
+      />
+
+      <FeatureCard
+        title="بیماران با نیازهای ویژه"
+        description="مراقبت از بیمارانی که به پایش و حمایت بیشتری نیاز دارند."
+        icon="userCheck"
+      />
+
+    </FeatureGrid>
+
+  </Section>
+
+
+  <Section>
+
+    <SectionHeading
+      title="خدمات پرستاری قابل ارائه"
+      subtitle="مراقبت حرفه‌ای با تمرکز بر ایمنی بیمار"
+    />
+
+    <FeatureGrid>
+
+      <FeatureCard
+        title="تزریقات و اقدامات پرستاری"
+        description="انجام اقدامات پرستاری طبق دستور پزشک و نیاز بیمار."
+        icon="syringe"
+      />
+
+      <FeatureCard
+        title="پایش علائم حیاتی"
+        description="بررسی وضعیت عمومی بیمار و گزارش تغییرات مهم به پزشک."
+        icon="activity"
+      />
+
+      <FeatureCard
+        title="مراقبت از بیمار"
+        description="کمک در امور مراقبتی روزانه و حمایت از بیمار و خانواده."
+        icon="heartHandshake"
+      />
+
+      <FeatureCard
+        title="آموزش خانواده"
+        description="آموزش نکات ضروری برای مراقبت بهتر از بیمار در منزل."
+        icon="graduationCap"
+      />
+
+    </FeatureGrid>
+
+  </Section>
+
+
+  <Section background="secondary">
+
+    <SectionHeading
+      title="مزایای خدمات پرستاری در منزل"
+      subtitle="ادامه مراقبت در محیط آشنا و آرام خانه"
+    />
+
+    <FeatureGrid>
+
+      <FeatureCard
+        title="افزایش راحتی بیمار"
+        description="دریافت مراقبت بدون نیاز به حضور طولانی در مراکز درمانی."
+        icon="smile"
+      />
+
+      <FeatureCard
+        title="کاهش نگرانی خانواده"
+        description="همراهی افراد متخصص برای مراقبت بهتر از بیمار."
+        icon="heartHandshake"
+      />
+
+      <FeatureCard
+        title="هماهنگی با پزشک معالج"
+        description="ارائه اطلاعات لازم برای تصمیم‌گیری بهتر درمانی."
+        icon="stethoscope"
+      />
+
+      <FeatureCard
+        title="مراقبت فردمحور"
+        description="تنظیم خدمات بر اساس شرایط و نیازهای هر بیمار."
+        icon="personalized"
+      />
+
+    </FeatureGrid>
+
+  </Section>
+
+
+  <Section>
+
+    <SectionHeading
+      title="سوالات متداول"
+    />
+
+    <Faq items={homeNursingFAQ} />
+
+  </Section>
+
+</ServiceDetailLayout>

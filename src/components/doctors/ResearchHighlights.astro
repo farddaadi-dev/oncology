@@ -21,7 +21,7 @@ const { doctor } = Astro.props;
     description="فعالیت‌های پژوهشی و علمی بخشی از تعهد به ارائه درمان مبتنی بر شواهد و به‌روز نگه داشتن دانش پزشکی است."
   />
 
-  <div class="research-grid">
+  <div class="research-grid" id="research-grid">
 
     {doctor.research.map((metric) => (
 
@@ -144,10 +144,11 @@ const { doctor } = Astro.props;
   justify-content:center;
 
 }
-
+</style>
+<style is:global>
 @media(max-width:900px){
 
-  .research-grid{
+  #research-grid{
 
     grid-template-columns:1fr;
 

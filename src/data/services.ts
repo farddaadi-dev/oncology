@@ -37,6 +37,8 @@ export type ServiceSlug =
   alt: string;
   icon: IconName;
   category: ServiceCategory;
+  href?: string;
+
 }
 
 export const services: Record<ServiceSlug, Service> = {
@@ -130,8 +132,42 @@ export const services: Record<ServiceSlug, Service> = {
     category: "care",
   },
 
-  consult: {
-    title: "مشاوره تخصصی دوم ",
+  
+  "home-visit": {
+  title: "ویزیت در منزل",
+
+  badge: "خدمات پزشکی در منزل",
+
+  description:
+    "ویزیت تخصصی بیماران در منزل برای افرادی که به دلیل شرایط جسمی یا محدودیت حرکتی امکان مراجعه به مطب را ندارند.",
+
+  image: homeVisitImage,
+
+  alt: "ویزیت پزشک متخصص در منزل بیمار",
+
+  icon: "house",
+
+  category: "care",
+},
+ "home-nursing": {
+  title: "پرستاری در منزل",
+
+  badge: "مراقبت‌های پرستاری تخصصی",
+
+  description:
+    "ارائه خدمات پرستاری در منزل شامل تزریقات، مراقبت از بیمار، آموزش خانواده و پیگیری درمان با هماهنگی پزشک.",
+
+  image: homeNursingImage,
+
+  alt: "ارائه خدمات پرستاری در منزل",
+
+  icon: "handbag",
+
+  category: "care",
+},
+
+consult: {
+    title: "دریافت نظر دوم",
 
     badge: "بررسی تخصصی پرونده‌های پزشکی",
 
@@ -147,4 +183,39 @@ export const services: Record<ServiceSlug, Service> = {
     icon: "consult",
     category: "consultation",
   },
+
+ "online-consultation": {
+  title: "مشاوره آنلاین",
+
+  badge: "ارتباط آنلاین با پزشک",
+
+  description:
+    "دریافت مشاوره تخصصی از طریق ارتباط آنلاین برای بررسی وضعیت بیماری، پاسخ به پرسش‌ها و راهنمایی درباره روند درمان.",
+
+  image: onlineConsultationImage,
+
+  alt: "مشاوره آنلاین با پزشک متخصص",
+
+  icon: "monitor",
+
+  category: "consultation",
+
+  href: "/consultation",
+}, 
+ "international-consultation": {
+  title: "مشاوره برای ایرانیان خارج از کشور",
+
+  badge: "مشاوره بین‌المللی",
+
+  description:
+    "ارائه مشاوره تخصصی برای ایرانیان مقیم خارج از کشور، بررسی مدارک پزشکی و ارائه برنامه درمانی متناسب با شرایط بیمار.",
+
+  image: internationalConsultationImage,
+
+  alt: "مشاوره تخصصی برای بیماران خارج از کشور",
+
+  icon: "globe",
+
+  category: "consultation",
+},
 };

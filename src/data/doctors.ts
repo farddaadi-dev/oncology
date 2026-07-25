@@ -110,6 +110,11 @@ export interface Doctor {
 
   consultationUrl: string;
 
+    internationalConsultation?: {
+    whatsapp: string;
+    message?: string;
+  };
+
   locations: Location[];
 }
 
@@ -305,7 +310,7 @@ export const doctors: Doctor[] = [
   
     ],
   
-    icon: ""
+    
   
   },
 
@@ -374,6 +379,12 @@ export const doctors: Doctor[] = [
 
   consultationUrl:
     "https://axon.me/hcps/104083-nafiseh-ansari-nejad/",
+
+    internationalConsultation: {
+  whatsapp: "98912XXXXXXX",
+  message:
+    "سلام. برای دریافت مشاوره تخصصی آنکولوژی و هماتولوژی از خارج از کشور پیام می‌دهم."
+},
 
   
 
@@ -632,7 +643,7 @@ export const doctors: Doctor[] = [
   
     ],
   
-    icon: ""
+    
   
   },
 
@@ -702,7 +713,11 @@ export const doctors: Doctor[] = [
   consultationUrl:
     "https://axon.me/hcps/84371-farshid-fardad/",
 
-  
+  internationalConsultation: {
+  whatsapp: "98912XXXXXXX",
+  message:
+    "سلام. برای دریافت مشاوره تخصصی آنکولوژی و هماتولوژی از خارج از کشور پیام می‌دهم."
+},
 
 }
 

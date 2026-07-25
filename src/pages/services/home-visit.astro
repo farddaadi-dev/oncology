@@ -1,0 +1,202 @@
+---
+import ServiceDetailLayout from "@/layouts/ServiceDetailLayout.astro";
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import ProcessGrid from "@/components/ProcessGrid.astro";
+import ProcessStep from "@/components/ProcessStep.astro";
+import Faq from "@/components/Faq.astro";
+import { getService } from "@/lib/getService";
+import { homeVisitFAQ } from "@/data/homeVisitFAQ";
+
+const service = getService("home-visit");
+---
+
+<ServiceDetailLayout service={service}>
+
+  <Section>
+
+  <SectionHeading
+    title="ویزیت تخصصی در منزل"
+    subtitle="دریافت خدمات پزشکی در محیط آرام خانه"
+  />
+
+  <p>
+    برخی بیماران به دلیل شرایط جسمی، محدودیت حرکتی یا نیاز به مراقبت و پیگیری منظم،
+    ممکن است مراجعه حضوری برایشان دشوار باشد. ویزیت در منزل امکان ارزیابی پزشکی،
+    بررسی روند درمان و ارائه توصیه‌های تخصصی را در محیط خانه فراهم می‌کند.
+  </p>
+
+</Section>
+
+<Section background="secondary">
+
+  <SectionHeading
+    title="چه بیمارانی ممکن است به ویزیت در منزل نیاز داشته باشند؟"
+    subtitle="تسهیل دسترسی به خدمات پزشکی برای بیماران با شرایط خاص"
+  />
+
+  <FeatureGrid>
+
+    <FeatureCard
+      title="محدودیت حرکتی"
+      description="برای بیمارانی که به دلیل ضعف جسمی یا شرایط بیماری، مراجعه به مطب برایشان دشوار است."
+      icon="userCheck"
+    />
+
+    <FeatureCard
+      title="بیماران تحت درمان سرطان"
+      description="پیگیری علائم، بررسی عوارض درمان و ارزیابی وضعیت عمومی بیمار در طول مسیر درمان."
+      icon="heartPulse"
+    />
+
+    <FeatureCard
+      title="پیگیری‌های دوره‌ای"
+      description="ارزیابی منظم وضعیت بیمار و هماهنگی مراقبت‌های پزشکی مورد نیاز."
+      icon="calendarClock"
+    />
+
+    <FeatureCard
+        title="پیگیری پس از بستری"
+        description="ادامه مراقبت پزشکی پس از ترخیص از بیمارستان"
+        icon="clipboardList"
+    />
+
+  </FeatureGrid>
+
+</Section>
+
+<Section>
+
+  <SectionHeading
+    title="خدمات ارائه شده در ویزیت در منزل"
+    subtitle="مراقبت تخصصی در مسیر درمان سرطان و بیماری‌های خونی"
+  />
+
+  <FeatureGrid>
+
+    <FeatureCard
+      title="ارزیابی وضعیت بیمار"
+      description="بررسی علائم، وضعیت عمومی، عوارض درمان و شرایط بالینی بیمار در منزل."
+      icon="stethoscope"
+    />
+
+    <FeatureCard
+      title="پیگیری درمان سرطان"
+      description="ارزیابی روند درمان، بررسی پاسخ به درمان و مدیریت مشکلات احتمالی در طول مسیر درمان."
+      icon="activity"
+    />
+
+    <FeatureCard
+      title="کنترل عوارض درمان"
+      description="بررسی و مدیریت علائمی مانند ضعف، تهوع، درد یا مشکلات ناشی از درمان‌های سرطان."
+      icon="shield"
+    />
+
+    <FeatureCard
+      title="هماهنگی مراقبت‌ها"
+      description="ارائه توصیه‌های لازم و هماهنگی با سایر اعضای تیم درمان در صورت نیاز."
+      icon="heartHandshake"
+    />
+
+  </FeatureGrid>
+
+</Section>
+
+<Section background="secondary">
+
+  <SectionHeading
+    title="مزایای ویزیت تخصصی در منزل"
+    subtitle="حفظ کیفیت مراقبت در کنار راحتی بیمار و خانواده"
+  />
+
+  <FeatureGrid>
+
+    <FeatureCard
+      title="کاهش رفت‌وآمد"
+      description="کاهش نیاز به مراجعه حضوری برای بیمارانی که شرایط جسمی دشوارتری دارند."
+      icon="heartPulse"
+    />
+
+    <FeatureCard
+      title="مراقبت فردمحور"
+      description="ارزیابی شرایط بیمار در محیط واقعی زندگی و توجه به نیازهای اختصاصی او."
+      icon="personalized"
+    />
+
+    <FeatureCard
+      title="همراهی خانواده"
+      description="آموزش و راهنمایی خانواده برای مراقبت بهتر از بیمار."
+      icon="heartHandshake"
+    />
+
+    <FeatureCard
+      title="پیگیری مستمر"
+      description="امکان ارزیابی منظم وضعیت بیمار و تنظیم برنامه مراقبتی."
+      icon="calendarClock"
+    />
+
+  </FeatureGrid>
+
+</Section>
+
+<Section>
+
+  <SectionHeading
+    title="روند درخواست ویزیت در منزل"
+    subtitle="مراحل دریافت خدمات تخصصی"
+  />
+
+  <ProcessGrid>
+
+    <ProcessStep
+      number={1}
+      title="تماس و هماهنگی"
+      description="ارتباط با مطب و ثبت درخواست ویزیت"
+      icon="calendarCheck"
+    />
+
+    <ProcessStep
+      number={2}
+      title="بررسی شرایط بیمار"
+      description="ارزیابی اولیه وضعیت بیمار و مدارک پزشکی"
+      icon="clipboardList"
+    />
+
+    <ProcessStep
+      number={3}
+      title="ویزیت تخصصی"
+      description="معاینه و بررسی وضعیت بیمار در منزل"
+      icon="stethoscope"
+    />
+
+    <ProcessStep
+        number={4}
+        title="ارائه توصیه و برنامه درمانی"
+        description="تعیین اقدامات لازم و ارائه توصیه‌های تخصصی برای ادامه درمان"
+        icon="pill"
+    />
+
+    <ProcessStep
+      number={5}
+      title="پیگیری درمان"
+      description="ارائه توصیه‌های لازم و ادامه مراقبت در صورت نیاز"
+      icon="calendarClock"
+    />
+
+  </ProcessGrid>
+
+</Section>
+
+<Section background="secondary">
+
+  <SectionHeading
+    title="سوالات متداول"
+  />
+
+  <Faq items={homeVisitFAQ} />
+
+</Section>
+
+</ServiceDetailLayout>
