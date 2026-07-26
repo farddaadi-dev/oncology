@@ -9,6 +9,8 @@ import type { ServiceSlug } from "@/data/services";
 
 import { services } from "@/data/services";
 
+
+
 const featuredServices: ServiceSlug[] = [
   "medical-oncology",
   "hematology",
@@ -27,7 +29,7 @@ const selectedServices = featuredServices.map(
 
 ---
 
-<Section>
+<Section background ="secondary">
 
   <SectionHeading
     title="خدمات تخصصی ما"
@@ -57,7 +59,7 @@ const selectedServices = featuredServices.map(
     <ButtonLink
       href="/services"
       text="مشاهده همه خدمات"
-      variant="secondary"
+      
     />
 
   </div>

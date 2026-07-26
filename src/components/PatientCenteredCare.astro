@@ -1,0 +1,43 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import FeatureGrid from "@/components/FeatureGrid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+---
+
+<Section>
+
+  <SectionHeading
+    title="همراه شما در مسیر درمان"
+    subtitle="مراقبت پزشکی تنها درمان بیماری نیست؛ بلکه آگاهی، اعتماد و همراهی در تمام مراحل مسیر درمان را نیز شامل می‌شود."
+  />
+
+  <FeatureGrid>
+
+    <FeatureCard
+      title="ارتباط شفاف با بیمار"
+      description="ارائه توضیحات کامل درباره بیماری، گزینه‌های درمانی و مراحل مختلف مراقبت برای تصمیم‌گیری آگاهانه."
+      icon="messageCircle"
+    />
+
+    <FeatureCard
+      title="درمان مبتنی بر شواهد"
+      description="انتخاب روش‌های درمانی بر اساس جدیدترین راهنماهای علمی و استانداردهای معتبر پزشکی."
+      icon="evidence"
+    />
+
+    <FeatureCard
+      title="توجه به کیفیت زندگی"
+      description="در نظر گرفتن شرایط فردی، نیازها و اولویت‌های بیمار در طراحی برنامه درمانی."
+      icon="heart"
+    />
+
+    <FeatureCard
+      title="پیگیری مستمر"
+      description="همراهی بیمار در طول درمان و ارزیابی منظم روند مراقبت برای حفظ ایمنی و کیفیت درمان."
+      icon="followup"
+    />
+
+  </FeatureGrid>
+
+</Section>

@@ -1,0 +1,54 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ProcessGrid from "@/components/ProcessGrid.astro";
+import ProcessStep from "@/components/ProcessStep.astro";
+---
+
+<Section>
+
+  <SectionHeading
+    title="مسیر دریافت خدمات درمانی"
+    subtitle="از اولین تماس تا شروع و پیگیری درمان در کنار شما هستیم"
+  />
+
+  <ProcessGrid>
+
+    <ProcessStep
+      number={1}
+      title="درخواست نوبت"
+      description="تماس با مطب یا ارسال درخواست مشاوره"
+      icon="calendarCheck"
+    />
+
+    <ProcessStep
+      number={2}
+      title="بررسی شرایط بیمار"
+      description="بررسی سوابق پزشکی، آزمایش‌ها و مدارک درمانی"
+      icon="clipboardList"
+    />
+
+    <ProcessStep
+      number={3}
+      title="ویزیت و ارزیابی"
+      description="ارزیابی دقیق بیماری و بررسی گزینه‌های درمانی"
+      icon="stethoscope"
+    />
+
+    <ProcessStep
+      number={4}
+      title="انتخاب برنامه درمان"
+      description="طراحی مسیر درمانی متناسب با شرایط هر بیمار"
+      icon="activity"
+    />
+
+    <ProcessStep
+      number={5}
+      title="پیگیری مستمر"
+      description="همراهی و ارزیابی روند درمان در طول مسیر"
+      icon="heartPulse"
+    />
+
+  </ProcessGrid>
+
+</Section>

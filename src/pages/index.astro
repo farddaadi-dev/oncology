@@ -6,6 +6,11 @@ import HomeIntroduction from "@/components/HomeIntroduction.astro";
 import HomeServices from '@/components/HomeServices.astro';
 import HomeWhyChoose from "@/components/HomeWhyChoose.astro";
 import MeetTheDoctors from "@/components/about/MeetTheDoctors.astro"
+import HomeTreatmentJourney from "@/components/HomeTreatmentJourney.astro"
+import HomeArticles from "@/components/HomeArticles.astro"
+import PatientCenteredCare from "@/components/PatientCenteredCare.astro"
+import Cta from "@/components/Cta.astro"
+import ButtonLink from "@/components/ButtonLink.astro"
 ---
 
 <BaseLayout 
@@ -26,12 +31,32 @@ import MeetTheDoctors from "@/components/about/MeetTheDoctors.astro"
 	<HomeWhyChoose />
 	<MeetTheDoctors
 
-  subtitle="تیم درمانی"
+  		subtitle="تیم درمانی"
 
-  title="پزشکان متخصص شما"
+  		title="پزشکان متخصص شما"
 
-  description="با پزشکان فوق تخصص خون و آنکولوژی آشنا شوید و مسیر درمان خود را با اطمینان بیشتری آغاز کنید."
-  background='white'
+  		description="با پزشکان فوق تخصص خون و آنکولوژی آشنا شوید و مسیر درمان خود را با اطمینان بیشتری آغاز کنید."
+  		background='secondary'
 
-/>
+	/>
+	<HomeTreatmentJourney />
+	<HomeArticles />
+	<PatientCenteredCare />
+	<Cta
+  title="برای شروع مسیر درمان، با ما در ارتباط باشید"
+  description="اگر درباره تشخیص، درمان یا دریافت نظر دوم پزشکی نیاز به راهنمایی دارید، می‌توانید برای مشاوره آنلاین یا تعیین وقت ویزیت اقدام کنید."
+>
+
+  <ButtonLink
+    href="/visit"
+    text="درخواست نوبت حضوری"
+  />
+
+  <ButtonLink
+    href="/consultation"
+    variant="secondary"
+    text="مشاوره آنلاین"
+  />
+
+</Cta>
 </BaseLayout>

@@ -1,0 +1,59 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import BlogGrid from "@/components/blog/BlogGrid.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+
+import { getCollection } from "astro:content";
+
+const posts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft
+);
+
+const latestPosts = posts
+  .sort(
+    (a,b) =>
+      b.data.publishDate.getTime()
+      -
+      a.data.publishDate.getTime()
+  )
+  .slice(0,3);
+
+---
+
+<Section background="secondary">
+
+  <SectionHeading
+    title="مقالات آموزشی"
+    subtitle="مطالب علمی برای افزایش آگاهی درباره سرطان، بیماری‌های خون و روش‌های درمان"
+  />
+
+  <BlogGrid
+    posts={latestPosts}
+  />
+
+  <div class="articles-button">
+
+    <ButtonLink
+      href="/articles"
+      text="مشاهده همه مقالات"
+    />
+
+  </div>
+
+</Section>
+
+
+<style>
+
+.articles-button {
+
+  display:flex;
+  justify-content:center;
+
+  margin-top:3rem;
+
+}
+
+</style>
