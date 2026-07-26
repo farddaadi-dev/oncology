@@ -40,6 +40,7 @@ import HouseIcon from "@/assets/icons/house.svg";
 import MonitorIcon from "@/assets/icons/monitor.svg";
 import ClockIcon from "@/assets/icons/clock.svg";
 import ScanIcon from "@/assets/icons/scan.svg";
+import Clock1Icon from "@/assets/icons/clock1.svg"
 
 export const icons = {
 
@@ -85,6 +86,7 @@ export const icons = {
   monitor: MonitorIcon,
   clock: ClockIcon,
   scan: ScanIcon,
+  clock1: Clock1Icon,
 };
 
 

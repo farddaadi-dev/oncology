@@ -2,6 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import homeImage from '../assets/images/hero.webp';
+import HomeIntroduction from "@/components/HomeIntroduction.astro";
+import HomeServices from '@/components/HomeServices.astro';
+import HomeWhyChoose from "@/components/HomeWhyChoose.astro";
+import MeetTheDoctors from "@/components/about/MeetTheDoctors.astro"
 ---
 
 <BaseLayout 
@@ -11,10 +15,23 @@ import homeImage from '../assets/images/hero.webp';
 	>
 	<Hero 
 		badge="مطب فوق تخصصی هماتولوژی و آنکولوژی"
-		titleLine1="تخصص در درمان"
-		titleLine2="تعهد به لبخند"
-		description="مشاوره، تشخیص و درمان نوین با رویکردی دقیق، علمی و انسانی ما در تمامی مراحل درمان، همراه و پشتیبان شما هستیم."
+		titleLine1="درمان سرطان"
+		titleLine2="با دانش روز و همراهی انسانی"
+		description="ارائه خدمات تخصصی در تشخیص و درمان سرطان و بیماری‌های خون، با رویکردی علمی، دقیق و بیمارمحور. در تمام مراحل مسیر درمان همراه شما هستیم."
 		image={homeImage}
 		alt="تصویر یک اتاق با محیط گرم همراه با کتاب و گیاه"
 	/>
+	<HomeIntroduction />
+	<HomeServices />
+	<HomeWhyChoose />
+	<MeetTheDoctors
+
+  subtitle="تیم درمانی"
+
+  title="پزشکان متخصص شما"
+
+  description="با پزشکان فوق تخصص خون و آنکولوژی آشنا شوید و مسیر درمان خود را با اطمینان بیشتری آغاز کنید."
+  background='white'
+
+/>
 </BaseLayout>

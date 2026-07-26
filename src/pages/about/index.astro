@@ -17,9 +17,10 @@ import ButtonLink from '@/components/ButtonLink.astro';
     <AboutHero />
     
     <AboutStory />
+    <MeetTheDoctors />
     <TreatmentPhilosophy />
     <WhatToExpect />
-    <MeetTheDoctors />
+    
     <WhyChooseUs />
     <Cta
   title="آماده گفت‌وگو درباره مسیر درمان خود هستید؟"
@@ -42,66 +43,3 @@ import ButtonLink from '@/components/ButtonLink.astro';
 
 </BaseLayout>
 
-<style>
-    .doctors-section {
-        padding: 7.5rem 0;
-        background-color: var(--color-bg-primary);
-
-    }
-    
-    .doctors-grid {
-
-display: grid;
-
-grid-template-columns:
-  repeat(
-    auto-fit,
-    minmax(340px,1fr)
-  );
-
-gap: 3rem;
-
-}
-    
-    
-    .icon {
-        display: block;
-        color: var(--color-brand-accent);
-        margin: 0 auto 14px;
-    }
-  
-</style>
-
-<!-- <style is:global>
-    @media (max-width: 992px) {
-        #doctors-grid {
-            grid-template-columns: 1fr;
-        }
-        .philosophy-box .philosophy-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .resume-button {
-            display: flex;
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 768px) {
-        #doctors-section {
-            padding: 80px 0;
-        }
-        .section-header .section-title {
-            font-size: var(--text-xl);
-        }
-        
-        .doctor-card .doctor-content {
-            padding: 28px;
-        }
-        .container .philosophy-box {
-            padding: 36px 24px;
-        }
-        .philosophy-box .philosophy-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style> -->

@@ -14,8 +14,9 @@ import BlogSearch from "@/components/blog/BlogSearch.astro";
 import CategoryChips from "@/components/blog/CategoryChips.astro";
 
 import FeaturedArticle from "@/components/blog/FeaturedArticle.astro";
-
+import ButtonLink from "@/components/ButtonLink.astro"
 import BlogGrid from "@/components/blog/BlogGrid.astro";
+import Cta from "@/components/Cta.astro"
 
 
 const posts = await getCollection(
@@ -110,5 +111,22 @@ const remainingPosts =
 
 </Section>
 
+<Cta
+title="سوالی درباره شرایط درمان خود دارید؟"
+description="برای دریافت نظر تخصصی یا بررسی پرونده پزشکی اقدام کنید."
+>
+    <ButtonLink
+    href="/visit"
+    text="درخواست نوبت حضوری"
+  />
 
+  <ButtonLink
+    href="/consultation"
+    text="مشاوره آنلاین"
+    variant="secondary"
+  />
+
+    
+
+</Cta>
 </BaseLayout>

@@ -17,8 +17,8 @@ import ButtonLink from "@/components/ButtonLink.astro";
 ---
 
 <BaseLayout
-    title="ویزیت"
-    description="روزها و ساعات ویزیت حضوری پزشکان در کلینیک و بیمارستان"
+    title="ویزیت حضوری متخصص خون و سرطان | برنامه حضور پزشکان"
+    description="برنامه و ساعات ویزیت حضوری دکتر فرشید فرداد و دکتر نفیسه انصاری‌نژاد در مطب و بیمارستان. جهت هماهنگی نوبت با مطب تماس بگیرید."
     image="/default-og-image.jpg"
 	>
     <Hero 
@@ -38,11 +38,15 @@ import ButtonLink from "@/components/ButtonLink.astro";
 
     title="توجه"
 
-    text="برنامه حضور پزشکان ممکن است در ایام تعطیل یا مناسبت‌های رسمی تغییر کند. لطفاً پیش از مراجعه با مطب تماس بگیرید."
+    text="برنامه حضور پزشکان ممکن است به دلایل درمانی، تعطیلات رسمی یا شرایط پیش‌بینی نشده تغییر کند. لطفاً پیش از مراجعه، جهت هماهنگی نهایی با مطب تماس بگیرید."
 
 />
     </Section>
-    <Section background="secondary">
+    <Section background="secondary" id="doctors">
+        <SectionHeading
+            title="برنامه ویزیت پزشکان"
+            subtitle="روزها و ساعات حضور پزشکان در مراکز درمانی"
+        />
         {doctors.map((doctor) => (
 
         <DoctorScheduleCard
@@ -80,7 +84,7 @@ import ButtonLink from "@/components/ButtonLink.astro";
             </ReservationCard>
         </ContactGrid>
     </Section>
-    <Section>
+    <Section background="secondary">
         <SectionHeading 
         title="سوالات متداول">
         </SectionHeading>
@@ -98,9 +102,9 @@ import ButtonLink from "@/components/ButtonLink.astro";
   />
 
   <ButtonLink
-    href="/visit"
+    href="/consultation"
     variant="secondary"
-    text="ویزیت حضوری"
+    text="مشاوره آنلاین"
   />
     </Cta>
     

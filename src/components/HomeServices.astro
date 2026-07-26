@@ -1,0 +1,81 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ServiceGrid from "@/components/ServiceGrid.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+
+import type { ServiceSlug } from "@/data/services";
+
+import { services } from "@/data/services";
+
+const featuredServices: ServiceSlug[] = [
+  "medical-oncology",
+  "hematology",
+  "procedures",
+  "ambulatory",
+  "online-consultation",
+  "international-consultation"
+];
+
+const selectedServices = featuredServices.map(
+  (slug) => ({
+    slug,
+    ...services[slug]
+  })
+);
+
+---
+
+<Section>
+
+  <SectionHeading
+    title="خدمات تخصصی ما"
+    subtitle="ارائه خدمات تشخیصی، درمانی و مراقبتی در حوزه سرطان و بیماری‌های خون"
+  />
+
+  <ServiceGrid>
+
+    {
+      selectedServices.map((service) => (
+
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          href={`/services/${service.slug}`}
+          icon={service.icon}
+        />
+
+      ))
+    }
+
+  </ServiceGrid>
+
+
+  <div class="services-button">
+
+    <ButtonLink
+      href="/services"
+      text="مشاهده همه خدمات"
+      variant="secondary"
+    />
+
+  </div>
+
+
+</Section>
+
+
+<style>
+
+.services-button {
+
+display:flex;
+
+justify-content:center;
+
+margin-top:3rem;
+
+}
+
+</style>

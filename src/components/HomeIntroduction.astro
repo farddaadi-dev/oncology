@@ -1,0 +1,75 @@
+---
+import ButtonLink from "@/components/ButtonLink.astro";
+import Section from "@/components/Section.astro"
+import SectionHeading from "./SectionHeading.astro";
+---
+<Section>
+    <SectionHeading
+    title="مراقبت تخصصی، علمی و انسانی
+      در مسیر درمان سرطان"
+      subtitle="درباره ما"
+    />
+    <div class="home-introduction__content">
+    <p>
+      درمان سرطان نیازمند ترکیبی از دانش تخصصی،
+      تجربه بالینی و ارتباط نزدیک میان پزشک و بیمار است.
+      هدف ما ارائه مراقبتی دقیق و مبتنی بر شواهد علمی
+      در تمام مراحل مسیر درمان است.
+    </p>
+
+    <p>
+      با تمرکز بر درمان‌های نوین سرطان و بیماری‌های خون،
+      تلاش می‌کنیم هر بیمار برنامه درمانی متناسب با
+      شرایط فردی خود دریافت کند.
+    </p>
+    </div>
+    <div class="home-introduction__button">
+
+      <ButtonLink
+        href="/about"
+        text="آشنایی بیشتر با ما"
+      />
+
+    </div>
+</Section>
+
+
+
+<style>
+
+
+.home-introduction__content {
+
+max-width: 850px;
+
+margin-inline:auto;
+
+text-align:center;
+
+}
+
+
+
+p {
+
+line-height:2;
+
+color:var(--color-text-secondary);
+
+text-align: center;
+
+font-size: var(--text-lead);
+
+}
+
+
+.home-introduction__button {
+display: flex;
+margin-top:2rem;
+justify-content: center;
+align-items: center;
+
+}
+
+
+</style>

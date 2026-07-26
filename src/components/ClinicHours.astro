@@ -1,0 +1,154 @@
+---
+import { clinicHours } from "@/data/clinicHours";
+import { Image } from "astro:assets";
+import { icons } from "@/data/icons";
+import type { IconName } from "@/data/icons";
+const clockIcon = icons.clock1;
+---
+
+<div class="hours-card">
+
+  <div class="hours-icon">
+
+  <Image
+    src={clockIcon}
+    alt=""
+    class="hours-icon-image"
+  />
+
+</div>
+
+  <div class="hours-content">
+
+    {
+      clinicHours.map((item) => (
+
+        <div class="hours-row">
+
+          <span>
+            {item.day}
+          </span>
+
+          <strong>
+            {item.hours}
+          </strong>
+
+        </div>
+
+      ))
+    }
+
+  </div>
+
+</div>
+
+
+<style>
+
+.hours-card {
+
+display:flex;
+
+gap:1.5rem;
+
+padding:2rem;
+
+background:white;
+
+border:1px solid var(--color-brand-green);
+
+border-radius:var(--radius-lg);
+
+box-shadow:var(--shadow);
+
+}
+
+
+.hours-icon {
+
+width:100px;
+height:100px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+
+
+
+
+flex-shrink:0;
+
+}
+
+
+.hours-icon-image {
+
+width:6rem;
+height:6rem;
+
+}
+
+
+.hours-content {
+
+flex:1;
+
+}
+
+
+.hours-row {
+
+display:flex;
+
+justify-content:space-between;
+
+gap:1rem;
+
+padding:.75rem 0;
+
+border-bottom:1px solid var(--color-border);
+
+}
+
+
+.hours-row:last-child {
+
+border-bottom:none;
+
+}
+
+
+.hours-row span {
+
+color:var(--color-text-secondary);
+
+}
+
+
+.hours-row strong {
+
+color:var(--color-text-heading);
+
+}
+
+
+@media(max-width:600px){
+
+.hours-card{
+
+flex-direction:column;
+
+}
+
+.hours-row{
+
+flex-direction:column;
+
+gap:.25rem;
+
+}
+
+}
+
+</style>

@@ -17,22 +17,23 @@ const { title, phone, href, address } = Astro.props;
 
   <p>{address}</p>
   <p>{phone}</p>
-
+  <div class="button">
   <ButtonLink 
   href={href}
   text='تماس'
-  variant='secondary'
+  
   >
   </ButtonLink>
-  
+  </div>
 </article>
 
 <style>
   .service-card {
-    background: var(--color-bg-hero);
-    border-radius: 1rem;
+    background: white;
+    border-radius: var(--radius-lg);
     padding: 2rem;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow);
+    border: 2px solid var(--color-brand-green);
 
     display: flex;
     flex-direction: column;
@@ -45,29 +46,30 @@ const { title, phone, href, address } = Astro.props;
     height: 100%;
   }
 
-  .service-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.12);
-  }
+  
 
   
   .service-card h3 {
     margin: 0;
-
+    text-align: center;
     font-size: 1.4rem;
     font-weight: 700;
 
-    color: var(--color-text-primary);
+    color: var(--color-brand-accent);
   }
 
   .service-card p {
     margin: 0;
 
-    color: #555;
+    color: var(--color-text-primary);
     line-height: 1.8;
+    font-size: var(--text-lead);
 
     flex-grow: 1;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

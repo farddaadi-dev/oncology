@@ -12,6 +12,7 @@ import Faq from "@/components/Faq.astro";
 import Cta from "@/components/Cta.astro";
 import { contactFAQ } from "@/data/contactFAQ";
 import ButtonLink from "@/components/ButtonLink.astro";
+import ClinicHours from "@/components/ClinicHours.astro";
 
 
 ---
@@ -25,7 +26,7 @@ import ButtonLink from "@/components/ButtonLink.astro";
     badge="ارتباط با کلینیک"
     titleLine1="اطلاعات تماس،"
     titleLine2="آدرس و نوبت‌دهی"
-    description="جهت هماهنگی زمان ویزیت و طرح سوالات خود، از طریق راه‌های ارتباطی زیر با منشی مطب در تماس باشید"
+    description="جهت هماهنگی زمان ویزیت و طرح سوالات خود، از طریق راه‌های ارتباطی زیر با پذیرش مطب در تماس باشید"
     image={contactHero}
     alt="تصویر بخش پذیرش کلینیک"
     >
@@ -56,7 +57,18 @@ import ButtonLink from "@/components/ButtonLink.astro";
             </ContactCard>
         </ContactGrid>
     </Section>
+
     <Section background="secondary">
+
+  <SectionHeading
+    title="ساعات پاسخگویی پذیرش"
+    subtitle="برای هماهنگی نوبت و دریافت اطلاعات می‌توانید در ساعات زیر با مطب تماس بگیرید"
+  />
+
+  <ClinicHours />
+
+</Section>
+    <Section>
       <SectionHeading 
         title="نقشه و مسیریابی کلینیک"
         subtitle="برای مشاهده مسیر، پلتفرم موردنظر خود را انتخاب کنید"
@@ -74,7 +86,7 @@ import ButtonLink from "@/components/ButtonLink.astro";
         </div>
       </div>
     </Section>
-    <Section>
+    <Section background="secondary">
         <SectionHeading 
         title="سوالات متداول">
         </SectionHeading>
@@ -87,15 +99,15 @@ import ButtonLink from "@/components/ButtonLink.astro";
     description="برای گرفتن نوبت ویزیت حضوری یا مشاوره آنلاین اقدام کنید"
     >
     <ButtonLink
-    href="#doctors"
-    text="انتخاب پزشک"
-  />
+ href="/consultation"
+ text="مشاوره آنلاین"
+/>
 
-  <ButtonLink
-    href="/visit"
-    variant="secondary"
-    text="ویزیت حضوری"
-  />
+<ButtonLink
+ href="/visit"
+ variant="secondary"
+ text="رزرو نوبت"
+/>
     </Cta>
 </BaseLayout>
 
@@ -103,6 +115,8 @@ import ButtonLink from "@/components/ButtonLink.astro";
 <style>
   .map-hour {
     display: flex;
+    gap: 2rem;
+    align-items: flex-start;
   }
 
   .work-hour {
@@ -110,6 +124,10 @@ import ButtonLink from "@/components/ButtonLink.astro";
   }
   .map {
     flex: 3;
+  }
+  .work-hour p {
+    color: var(--color-text-primary);
+    font-size: var(--text-lead);
   }
   
 </style>

@@ -4,15 +4,30 @@ import SectionHeading from "@/components/SectionHeading.astro";
 import DoctorCard from "@/components/DoctorCard.astro";
 
 import { doctors } from "@/data/doctors";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  background?: "white" | "secondary";
+}
+
+const {
+  title = "با پزشکان خود بیشتر آشنا شوید",
+  subtitle = "پزشکان مجموعه",
+  description =
+    "هر یک از پزشکان مجموعه با سال‌ها تجربه در زمینه هماتولوژی و آنکولوژی، خدمات تخصصی خود را با رویکردی علمی، دقیق و بیمار‌محور ارائه می‌دهند.",
+  background ="secondary"
+} = Astro.props;
 ---
 
-<Section background="secondary">
+<Section background={background}>
 
   <SectionHeading
-    subtitle="پزشکان مجموعه"
-    title="با پزشکان خود بیشتر آشنا شوید"
-    description="هر یک از پزشکان مجموعه با سال‌ها تجربه در زمینه هماتولوژی و آنکولوژی، خدمات تخصصی خود را با رویکردی علمی، دقیق و بیمار‌محور ارائه می‌دهند. برای آشنایی بیشتر با سوابق علمی، زمینه‌های تخصصی و دیدگاه درمانی هر پزشک، صفحه اختصاصی ایشان را مشاهده کنید."
-  />
+    subtitle={subtitle}
+    title={title}
+    description={description}
+/>
 
   <div
     class="doctors-grid"
