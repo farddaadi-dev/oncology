@@ -3,49 +3,50 @@ import Section from "./Section.astro";
 import SectionHeading from "./SectionHeading.astro";
 import ProcessStep from "./ProcessStep.astro";
 
+
 const steps = [
     {
-        icon: "/assets/icons/clipboard.svg",
+        icon: "filePlusCorner",
         title: "ثبت درخواست",
         description:
             "با انتخاب پزشک، وارد سامانه آکسون شده و درخواست مشاوره آنلاین خود را ثبت کنید."
     },
 
     {
-        icon: "/assets/icons/file-text.svg",
+        icon: "clipboardList",
         title: "تکمیل اطلاعات پزشکی",
         description:
             "اطلاعات فردی، سوابق پزشکی، داروهای مصرفی و شرح مختصری از مشکل خود را وارد کنید."
     },
 
     {
-        icon: "/assets/icons/upload.svg",
+        icon: "upload",
         title: "بارگذاری مدارک",
         description:
             "آزمایش‌ها، تصاویر پزشکی، گزارش پاتولوژی و سایر مدارک مرتبط را بارگذاری کنید."
     },
 
     {
-        icon: "/assets/icons/stethoscope.svg",
+        icon: "stethoscope",
         title: "بررسی توسط پزشک",
         description:
             "پزشک مدارک را بررسی کرده و در صورت نیاز اطلاعات تکمیلی از شما درخواست خواهد کرد."
     },
 
     {
-        icon: "/assets/icons/video.svg",
+        icon: "messageCircle",
         title: "برگزاری مشاوره",
         description:
             "در زمان تعیین‌شده، مشاوره آنلاین از طریق سامانه آکسون انجام خواهد شد."
     },
 
     {
-        icon: "/assets/icons/clipboard-check.svg",
+        icon: "fileCheck",
         title: "دریافت توصیه‌ها",
         description:
             "در پایان مشاوره، توصیه‌های درمانی، برنامه پیگیری یا در صورت نیاز مراجعه حضوری ارائه می‌شود."
     }
-];
+] as const;
 ---
 
 <Section

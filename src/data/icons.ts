@@ -41,6 +41,9 @@ import MonitorIcon from "@/assets/icons/monitor.svg";
 import ClockIcon from "@/assets/icons/clock.svg";
 import ScanIcon from "@/assets/icons/scan.svg";
 import Clock1Icon from "@/assets/icons/clock1.svg"
+import FileCheckIcon from "@/assets/icons/file-check.svg";
+import FilePlusCornerIcon from "@/assets/icons/file-plus-corner.svg";
+import UploadIcon from "@/assets/icons/upload.svg";
 
 export const icons = {
 
@@ -87,6 +90,9 @@ export const icons = {
   clock: ClockIcon,
   scan: ScanIcon,
   clock1: Clock1Icon,
+  fileCheck: FileCheckIcon,
+  filePlusCorner: FilePlusCornerIcon,
+  upload: UploadIcon,
 };
 
 

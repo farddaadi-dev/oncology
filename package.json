@@ -9,10 +9,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "site-map": "node scripts/generate-site-map.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.3",
     "astro": "^7.1.3"
   }
 }
+
+
