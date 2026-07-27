@@ -15,14 +15,26 @@ function extractImports(file) {
 export function parseProject(project) {
 
   const allFiles = [
-    ...project.pages,
-    ...project.components,
-    ...project.layouts
-  ];
+  ...project.pages,
+  ...project.components,
+  ...project.layouts,
+  ...project.data,
+  ...project.content,
+  ...project.assets
+];
 
-  return allFiles.map(file => ({
+  return allFiles.map(file => {
+
+  const parseImports =
+    file.endsWith(".astro") ||
+    file.endsWith(".ts") ||
+    file.endsWith(".js");
+
+  return {
     file,
-    imports: extractImports(file)
-  }));
+    imports: parseImports ? extractImports(file) : []
+  };
+
+});
 
 }

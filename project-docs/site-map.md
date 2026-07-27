@@ -1,6 +1,6 @@
 # Oncology Website Architecture
 
-Generated: 7/27/2026, 7:20:16 AM
+Generated: 2026-07-27, 4:58:30 p.m.
 
 ---
 
