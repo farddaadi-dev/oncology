@@ -1,26 +1,37 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const docsDir = path.join(process.cwd(), "project-docs");
+import { scanProject } from "./lib/scanner.mjs";
+import { parseProject } from "./lib/parser.mjs";
+import { resolveProject } from "./lib/resolver.mjs";
+import { buildGraph } from "./lib/graph.mjs";
+import { generateMarkdown } from "./lib/markdown.mjs";
 
-if (!fs.existsSync(docsDir)) {
-  fs.mkdirSync(docsDir);
-}
 
-const now = new Date().toLocaleString();
+const files = scanProject();
 
-const content = `# Site Map
+const parsed = parseProject(files);
 
-Generated: ${now}
+const resolved = resolveProject(parsed);
 
-The automatic project scanner is not implemented yet.
+const graph = buildGraph(resolved);
 
-`;
+
+const markdown = generateMarkdown(graph);
+
+
+const output = path.join(
+  process.cwd(),
+  "project-docs",
+  "site-map.md"
+);
+
 
 fs.writeFileSync(
-  path.join(docsDir, "site-map.md"),
-  content,
+  output,
+  markdown,
   "utf8"
 );
 
-console.log("✓ project-docs/site-map.md generated");
+
+console.log(`✓ Generated ${output}`);
