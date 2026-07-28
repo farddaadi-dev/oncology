@@ -7,7 +7,12 @@ import { resolveProject } from "./lib/resolver.mjs";
 import { buildGraph } from "./lib/graph.mjs";
 import { generateMarkdown } from "./lib/markdown.mjs";
 import { generateMermaid } from "./lib/mermaid.mjs";
-import { generateDocumentation } from "./lib/documentation.mjs";
+import { 
+  generateDocumentation,
+  generateComponentUsage,
+  generatePageFiles
+} from "./lib/documentation.mjs";
+import { generateComponentDocumentation } from "./lib/componentDocumentation.mjs";
 
 
 const files = scanProject();
@@ -23,7 +28,12 @@ const markdown = generateMarkdown(graph);
 
 const mermaid = generateMermaid(graph);
 
+const componentDocs = generateComponentDocumentation(graph);
+
 const documentation = generateDocumentation(graph);
+
+const componentUsage = generateComponentUsage(graph);
+
 
 const docsDir = path.join(
   process.cwd(),
@@ -50,6 +60,21 @@ const documentationOutput = path.join(
   "page-documentation.md"
 );
 
+const componentOutput = path.join(
+  docsDir,
+  "component-documentation.md"
+);
+
+const componentUsageOutput = path.join(
+  docsDir,
+  "component-usage.md"
+);
+
+const pagesDir = generatePageFiles(
+  graph,
+  docsDir
+);
+
 
 
 fs.writeFileSync(
@@ -73,7 +98,22 @@ fs.writeFileSync(
   "utf8"
 );
 
+fs.writeFileSync(
+  componentOutput,
+  componentDocs,
+  "utf8"
+);
+
+fs.writeFileSync(
+  componentUsageOutput,
+  componentUsage,
+  "utf8"
+);
+
 console.log("✓ Generated project documentation:");
 console.log(`  - ${output}`);
 console.log(`  - ${mermaidOutput}`);
 console.log(`  - ${documentationOutput}`);
+console.log(`  - ${componentOutput}`);
+console.log(`  - ${componentUsageOutput}`);
+console.log(`  - ${pagesDir}`);
