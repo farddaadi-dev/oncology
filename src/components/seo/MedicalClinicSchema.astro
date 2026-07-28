@@ -1,0 +1,30 @@
+---
+import { clinic } from "@/data/clinic";
+
+const siteUrl = Astro.site ?? new URL("http://localhost:4321");
+
+const clinicSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+
+  name: clinic.name,
+  description: clinic.description,
+  telephone: clinic.telephone,
+
+  address: {
+    "@type": "PostalAddress",
+    ...clinic.address,
+  },
+
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: clinic.openingHours.days,
+    opens: clinic.openingHours.opens,
+    closes: clinic.openingHours.closes,
+  },
+
+
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(clinicSchema)} />

@@ -7,6 +7,7 @@ import { resolveProject } from "./lib/resolver.mjs";
 import { buildGraph } from "./lib/graph.mjs";
 import { generateMarkdown } from "./lib/markdown.mjs";
 import { generateMermaid } from "./lib/mermaid.mjs";
+import { generateReadme } from "./lib/readme.mjs";
 import { 
   generateDocumentation,
   generateComponentUsage,
@@ -27,6 +28,8 @@ const graph = buildGraph(resolved);
 const markdown = generateMarkdown(graph);
 
 const mermaid = generateMermaid(graph);
+
+const readme = generateReadme();
 
 const componentDocs = generateComponentDocumentation(graph);
 
@@ -75,6 +78,11 @@ const pagesDir = generatePageFiles(
   docsDir
 );
 
+const readmeOutput = path.join(
+  docsDir,
+  "README.md"
+);
+
 
 
 fs.writeFileSync(
@@ -110,6 +118,12 @@ fs.writeFileSync(
   "utf8"
 );
 
+fs.writeFileSync(
+  readmeOutput,
+  readme,
+  "utf8"
+);
+
 console.log("✓ Generated project documentation:");
 console.log(`  - ${output}`);
 console.log(`  - ${mermaidOutput}`);
@@ -117,3 +131,4 @@ console.log(`  - ${documentationOutput}`);
 console.log(`  - ${componentOutput}`);
 console.log(`  - ${componentUsageOutput}`);
 console.log(`  - ${pagesDir}`);
+console.log(`  - ${readmeOutput}`);

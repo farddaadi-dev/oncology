@@ -19,7 +19,7 @@ interface Props {
 const {
   title,
   description,
-  image = "/default-og-image.jpg",
+  image = "/og-home.jpg",
   canonical,
   noindex = false,
   type = "website",
@@ -50,13 +50,13 @@ const imageURL = new URL(image, siteUrl);
 />
 
 <meta
-  name="theme-color"
-  content="#6F7A5E"
+ name="theme-color"
+ content="#A3A47A"
 />
 
 <meta
   name="author"
-  content="Dr. Farshid Fardad"
+  content="Dr. Farshid Fardad and Dr. Nafiseh Ansarinejad"
 />
 
 <meta
@@ -137,6 +137,16 @@ const imageURL = new URL(image, siteUrl);
   content={imageURL}
 />
 
+<meta
+  property="og:image:width"
+  content="1200"
+/>
+
+<meta
+  property="og:image:height"
+  content="630"
+/>
+
 <!-- ========================================= -->
 <!-- X (Twitter) -->
 <!-- ========================================= -->
@@ -159,6 +169,11 @@ const imageURL = new URL(image, siteUrl);
 <meta
   name="twitter:image"
   content={imageURL}
+/>
+
+<meta
+  name="twitter:image:alt"
+  content={title}
 />
 
 <!-- ========================================= -->
