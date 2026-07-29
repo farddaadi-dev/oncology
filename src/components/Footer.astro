@@ -1,5 +1,6 @@
 ---
-
+import { Image } from 'astro:assets';
+import footerImage from "@/assets/images/footer.svg"
 ---
 
 <footer class="main-footer">
@@ -7,7 +8,14 @@
         
         <!-- Column 1: Clinic Overview -->
         <div class="footer-column brand-column">
-            <h3>دکتر نفیسه انصاری‌نژاد <br>دکتر فرشید فرداد</h3>
+            <div class="logoNames">
+                <Image
+                    src={footerImage} 
+                    alt="لوگوی کلینیک دکتر نفیسه انصاری‌نژاد و دکتر فرشید فرداد"
+                    class="footer-logo"
+                />
+                <h3>دکتر نفیسه انصاری‌نژاد <br>دکتر فرشید فرداد</h3>
+            </div>
             <p class="brand-desc">وب‌سایت علمی و درمانی فوق تخصصی بیماری‌های خون و سرطان بالینی (هماتولوژی و آنکولوژی) در تهران.</p>
             <div class="social-links">
                 <!-- Instagram Link -->
@@ -26,20 +34,35 @@
         <div class="footer-column links-column">
             <h4>دسترسی سریع</h4>
             <ul>
-                <li><a href="index.html">خانه</a></li>
-                <li><a href="about.html">درباره ما</a></li>
-                <li><a href="services.html">خدمات</a></li>
-                <li><a href="articles.html">مقاله‌ها</a></li>
-                <li><a href="schedule.html">ویزیت</a></li>
-                <li><a href="contact.html">تماس با ما</a></li>
+                <li><a href="/">خانه</a></li>
+                <li><a href="/about">درباره ما</a></li>
+                <li><a href="/services">خدمات</a></li>
+                <li><a href="/articles">مقاله‌ها</a></li>
+                <li><a href="/visit">ویزیت</a></li>
+                <li><a href="/contact">تماس با ما</a></li>
             </ul>
         </div>
 
         <!-- Column 3: Contact Info Summary -->
         <div class="footer-column contact-column">
             <h4>اطلاعات تماس مطب</h4>
-            <p><img src="/assets/images/map-pin-line.svg" alt="" class="footer-address"> <strong>آدرس:</strong>تهران،صادقیه،خ ستارخان،بلوار شهدای صادقیه،خ پرویز،پ ۱۵، طبقه ششم</p>
-            <p><img src="/assets/images/phone-line.svg" alt="" class="footer-address"> <strong>تلفن مطب:</strong> <span class="phone-number">۰۲۱۴۶۱۲۹۱۴۳</span></p>
+            <p>
+                <a 
+                href="https://maps.app.goo.gl/VioMofy5TQbrUsMD7" 
+                target="_blank"
+                class="address-link">
+
+                <img 
+                    src="/assets/images/map-pin-line.svg" 
+                    alt="" 
+                    class="footer-address"><strong>آدرس:</strong>تهران، صادقیه، خیابان ستارخان، بلوار شهدای صادقیه، خیابان پرویز، پلاک ۱۵، طبقه ششم</a></p>
+            <p>
+                <img src="/assets/images/phone-line.svg" alt="" class="footer-address">
+                <strong>تلفن مطب:</strong>
+                <a href="tel:+982146129143" class="phone-number">
+                 ۰۲۱۴۶۱۲۹۱۴۳
+                </a>
+            </p>
             <p><img src="/assets/images/time-line.svg" alt="" class="footer-address"> <strong>ساعات پاسخگویی:</strong> شنبه تا چهارشنبه، از ساعت ۹ الی ۲۰</p>
         </div>
 
@@ -81,10 +104,24 @@
 }
 
 /* --- Brand Column (Right side) --- */
+.logoNames {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    width:90px;
+    height: 90px;
+    margin-bottom: 1rem;
+}
+
 .brand-column h3 {
     color: #ffffff;
     font-size: 1.3rem;
-    margin-bottom: 15px;
+    margin-top: 18px;
+    
 }
 
 .brand-desc {
@@ -135,7 +172,7 @@
 
 /* --- Links Column (Center) --- */
 .links-column h4, .contact-column h4 {
-    color: var(--color-secondary-gold); /* Highlight headers with your gold accent */
+    color: var(--color-brand-accent); /* Highlight headers with your gold accent */
     font-size: 1.1rem;
     margin-bottom: 20px;
     position: relative;
@@ -158,7 +195,7 @@
 }
 
 .links-column a:hover {
-    color: var(--color-secondary-gold);
+    color: var(--color-brand-accent);
 }
 
 /* --- Contact Column (Left side) --- */
@@ -172,9 +209,37 @@
     color: #cbd5e1;
 }
 
+.address-link {
+  color: inherit;
+  text-decoration: none;
+
+  line-height: inherit;
+
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.address-link:hover {
+  color: var(--color-brand-accent);
+}
+
+.address-link:focus-visible {
+  outline: 2px solid var(--color-secondary-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .phone-number {
     direction: ltr; /* Keeps the area code format looking correct */
     display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.phone-number:hover {
+  color: var(--color-brand-accent);
 }
 
 /* --- Footer Bottom Bar & Disclaimer --- */
@@ -196,11 +261,11 @@
     font-size: 0.85rem;
     line-height: 1.8;
     color: #94a3b8; /* Muted slate color for secondary metadata texts */
-    text-align: justify;
+    text-align: right;
     background-color: rgba(255, 255, 255, 0.02);
     padding: 15px;
     border-radius: 6px;
-    border-right: 3px solid var(--color-secondary-gold); /* Gold strip alert design */
+    border-right: 3px solid var(--color-brand-accent); /* Gold strip alert design */
 }
 
 .copyright-text {

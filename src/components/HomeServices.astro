@@ -11,14 +11,14 @@ import { services } from "@/data/services";
 
 
 
-const featuredServices: ServiceSlug[] = [
+const featuredServices = [
   "medical-oncology",
   "hematology",
+  "online-consultation",
   "procedures",
   "ambulatory",
-  "online-consultation",
   "international-consultation"
-];
+] satisfies ServiceSlug[];
 
 const selectedServices = featuredServices.map(
   (slug) => ({
@@ -32,9 +32,10 @@ const selectedServices = featuredServices.map(
 <Section background ="secondary">
 
   <SectionHeading
-    title="خدمات تخصصی ما"
-    subtitle="ارائه خدمات تشخیصی، درمانی و مراقبتی در حوزه سرطان و بیماری‌های خون"
-  />
+  title="خدمات تخصصی ما"
+  subtitle="خدمات درمانی"
+  description="ارائه خدمات تشخیصی، درمانی و مراقبتی در حوزه سرطان و بیماری‌های خون"
+/>
 
   <ServiceGrid>
 

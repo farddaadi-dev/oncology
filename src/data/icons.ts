@@ -44,6 +44,9 @@ import Clock1Icon from "@/assets/icons/clock1.svg"
 import FileCheckIcon from "@/assets/icons/file-check.svg";
 import FilePlusCornerIcon from "@/assets/icons/file-plus-corner.svg";
 import UploadIcon from "@/assets/icons/upload.svg";
+import OnlineConsultaionIcon from "@/assets/icons/Online-consultation.svg"
+import HandshakeIcon from "@/assets/icons/handshake.svg"
+import FamilyIcon from "@/assets/icons/family.svg"
 
 export const icons = {
 
@@ -93,6 +96,9 @@ export const icons = {
   fileCheck: FileCheckIcon,
   filePlusCorner: FilePlusCornerIcon,
   upload: UploadIcon,
+  onlineConsultation: OnlineConsultaionIcon,
+  handshake: HandshakeIcon,
+  family: FamilyIcon,
 };
 
 

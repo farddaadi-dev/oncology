@@ -196,7 +196,7 @@ consult: {
 
   alt: "مشاوره آنلاین با پزشک متخصص",
 
-  icon: "monitor",
+  icon: "onlineConsultation",
 
   category: "consultation",
 
