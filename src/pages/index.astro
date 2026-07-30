@@ -11,6 +11,7 @@ import HomeArticles from "@/components/HomeArticles.astro"
 import PatientCenteredCare from "@/components/PatientCenteredCare.astro"
 import Cta from "@/components/Cta.astro"
 import ButtonLink from "@/components/ButtonLink.astro"
+import MovingImage from "@/assets/images/logo-background.webp"
 ---
 
 <BaseLayout 
@@ -23,6 +24,12 @@ import ButtonLink from "@/components/ButtonLink.astro"
 	<HomeIntroduction />
 	<HomeServices />
 	<HomeWhyChoose />
+	<section 
+		class= "moving"
+		style= {`background-image: url(${MovingImage.src});`}
+		>
+	</section>
+	
 	<MeetTheDoctors
 
   		subtitle="تیم درمانی"
@@ -30,7 +37,7 @@ import ButtonLink from "@/components/ButtonLink.astro"
   		title="پزشکان متخصص شما"
 
   		description="با پزشکان فوق تخصص خون و آنکولوژی آشنا شوید و مسیر درمان خود را با اطمینان بیشتری آغاز کنید."
-  		background='secondary'
+  		background='white'
 
 	/>
 	<HomeTreatmentJourney />
@@ -54,3 +61,12 @@ import ButtonLink from "@/components/ButtonLink.astro"
 
 </Cta>
 </BaseLayout>
+
+<style>
+	.moving {
+		height: 200px;
+		background-attachment: fixed;
+		background-repeat: repeat;
+		background-size: 240px auto;
+	}
+</style>
