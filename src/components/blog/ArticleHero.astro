@@ -48,11 +48,11 @@ const readingTime = getReadingTime(post.body ?? "");
     </div>
 
 
-    <h1 class="article-hero__title">
+    <span class="article-hero__title">
 
         {title}
 
-    </h1>
+    </span>
 
 
     <p class="article-hero__description">
@@ -110,6 +110,7 @@ const readingTime = getReadingTime(post.body ?? "");
 .article-hero{
 
     margin-bottom:var(--space-3xl);
+    
 
 }
 
@@ -126,9 +127,9 @@ const readingTime = getReadingTime(post.body ?? "");
 
     border-radius:var(--radius-full);
 
-    background:var(--color-bg-section);
+    background:var(--color-brand-green);
 
-    color:var(--color-brand-green);
+    color: white;
 
     font-size:var(--text-sm);
 
@@ -138,6 +139,8 @@ const readingTime = getReadingTime(post.body ?? "");
 
 
 .article-hero__title{
+
+    display: block;
 
     margin:0;
 
@@ -149,7 +152,7 @@ const readingTime = getReadingTime(post.body ?? "");
 
     line-height:1.5;
 
-    color:var(--color-dark-heading);
+    color:var(--color-brand-accent-dark);
 
 }
 

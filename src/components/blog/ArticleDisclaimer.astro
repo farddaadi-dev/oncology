@@ -45,14 +45,12 @@ const {
 
             <p class="article-disclaimer__contact">
 
-                در صورت نیاز به مشاوره تخصصی، می‌توانید از طریق 
-                <a href="/contact">
-                    صفحه تماس با ما
-                </a>
+                در صورت نیاز به مشاوره تخصصی، می‌توانید از طریق
+                <span><a href="/contact">صفحه تماس</a></span>
                 یا
-                <a href="/visit">
+                <span><a href="/visit">
                     صفحه ویزیت
-                </a>
+                </a></span>
                 با ما در ارتباط باشید.
 
             </p>
@@ -96,9 +94,11 @@ const {
 
     border-radius:50%;
 
-    background:var(--color-bg-primary);
+    background:white;
 
     color:var(--color-brand-accent);
+
+    border: 2px solid var(--color-brand-green-light);
 
     flex-shrink:0;
 
@@ -133,13 +133,14 @@ const {
 
 .article-disclaimer__contact a{
 
-    color:var(--color-brand-green);
+    color:purple;
 
     text-decoration:none;
 
     font-weight:600;
 
-    margin-inline:.25rem;
+    margin-inline:0.25rem;
+    display: inline-block;
 
 }
 

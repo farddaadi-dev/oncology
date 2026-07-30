@@ -23,7 +23,7 @@ import EvidenceIcon from "@/assets/icons/evidence.svg";
 import PersonalizedIcon from "@/assets/icons/personalized.svg";
 import FollowupIcon from "@/assets/icons/followup.svg";
 import LifeIcon from "@/assets/icons/life.svg";
-import Evidence2Icon from "@/assets/icons/evidence2.svg"
+import Evidence2Icon from "@/assets/icons/evidence2.svg";
 import RibbonIcon from "@/assets/icons/ribbon.svg";
 import BloodIcon from "@/assets/icons/blood.svg";
 import SyringeIcon from "@/assets/icons/syringe.svg";
@@ -40,13 +40,17 @@ import HouseIcon from "@/assets/icons/house.svg";
 import MonitorIcon from "@/assets/icons/monitor.svg";
 import ClockIcon from "@/assets/icons/clock.svg";
 import ScanIcon from "@/assets/icons/scan.svg";
-import Clock1Icon from "@/assets/icons/clock1.svg"
+import Clock1Icon from "@/assets/icons/clock1.svg";
 import FileCheckIcon from "@/assets/icons/file-check.svg";
 import FilePlusCornerIcon from "@/assets/icons/file-plus-corner.svg";
 import UploadIcon from "@/assets/icons/upload.svg";
-import OnlineConsultaionIcon from "@/assets/icons/Online-consultation.svg"
-import HandshakeIcon from "@/assets/icons/handshake.svg"
-import FamilyIcon from "@/assets/icons/family.svg"
+import OnlineConsultaionIcon from "@/assets/icons/Online-consultation.svg";
+import HandshakeIcon from "@/assets/icons/handshake.svg";
+import FamilyIcon from "@/assets/icons/family.svg";
+import Info2Icon from "@/assets/icons/info2.svg";
+import TipIcon from "@/assets/icons/tip.svg";
+import WarningIcon from "@/assets/icons/warning.svg";
+import SuccessIcon from "@/assets/icons/success.svg";
 
 export const icons = {
 
@@ -99,6 +103,10 @@ export const icons = {
   onlineConsultation: OnlineConsultaionIcon,
   handshake: HandshakeIcon,
   family: FamilyIcon,
+  info2: Info2Icon,
+  tip: TipIcon,
+  warning: WarningIcon,
+  success: SuccessIcon,
 };
 
 

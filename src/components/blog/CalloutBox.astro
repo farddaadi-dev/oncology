@@ -1,4 +1,6 @@
 ---
+import { icons } from '@/data/icons';
+
 interface Props {
 
 title: string;
@@ -15,17 +17,14 @@ variant = "info"
 
 } = Astro.props;
 
-const icons = {
-
-info: "ℹ️",
-
-tip: "💡",
-
-warning: "⚠️",
-
-success: "✅"
-
+const variantIcons = {
+  info: icons.info2,
+  tip: icons.tip,             
+  warning: icons.warning,
+  success: icons.success,
 };
+
+const Icon = variantIcons[variant];
 ---
 
 <aside
@@ -39,7 +38,7 @@ class:list={[
 
     <span class="callout__icon">
 
-        {icons[variant]}
+        <Icon />
 
     </span>
 
@@ -73,7 +72,7 @@ margin-block:var(--space-2xl);
 
 background:var(--color-bg-primary);
 
-box-shadow:var(--shadow-soft);
+box-shadow:var(--shadow);
 
 }
 
@@ -97,10 +96,16 @@ font-size:var(--text-lg);
 
 }
 
-.callout__icon{
+.callout__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-font-size:1.4rem;
-
+.callout__icon :global(svg) {
+  width: 4rem;
+  height: 4rem;
 }
 
 .callout__content>:last-child{

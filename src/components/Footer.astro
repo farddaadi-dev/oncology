@@ -9,12 +9,15 @@ import footerImage from "@/assets/images/footer.svg"
         <!-- Column 1: Clinic Overview -->
         <div class="footer-column brand-column">
             <div class="logoNames">
-                <Image
-                    src={footerImage} 
-                    alt="لوگوی کلینیک دکتر نفیسه انصاری‌نژاد و دکتر فرشید فرداد"
-                    class="footer-logo"
-                />
+                <a href="/">
+                    <Image
+                        src={footerImage} 
+                        alt="لوگوی کلینیک دکتر نفیسه انصاری‌نژاد و دکتر فرشید فرداد"
+                        class="footer-logo"
+                    />
+                </a>
                 <h3>دکتر نفیسه انصاری‌نژاد <br>دکتر فرشید فرداد</h3>
+                
             </div>
             <p class="brand-desc">وب‌سایت علمی و درمانی فوق تخصصی بیماری‌های خون و سرطان بالینی (هماتولوژی و آنکولوژی) در تهران.</p>
             <div class="social-links">
@@ -41,6 +44,7 @@ import footerImage from "@/assets/images/footer.svg"
                 <li><a href="/visit">ویزیت</a></li>
                 <li><a href="/contact">تماس با ما</a></li>
             </ul>
+            <p class="online-footer"><a href="/consultation">مشاوره آنلاین</a></p>
         </div>
 
         <!-- Column 3: Contact Info Summary -->
@@ -128,12 +132,14 @@ import footerImage from "@/assets/images/footer.svg"
     font-size: 0.95rem;
     line-height: 1.8;
     color: #cbd5e1;
+    text-align: center;
 }
 
 .social-links {
     display: flex;
     gap: 12px;
     margin-top: 20px;
+    justify-content: center;
 }
 
 /* --- Customized Social Branding Hover Colors --- */
@@ -172,7 +178,7 @@ import footerImage from "@/assets/images/footer.svg"
 
 /* --- Links Column (Center) --- */
 .links-column h4, .contact-column h4 {
-    color: var(--color-brand-accent); /* Highlight headers with your gold accent */
+    color: var(--color-brand-accent-light); /* Highlight headers with your gold accent */
     font-size: 1.1rem;
     margin-bottom: 20px;
     position: relative;
@@ -187,6 +193,10 @@ import footerImage from "@/assets/images/footer.svg"
     text-align: center;
 }
 
+.links-column p {
+    text-align: center;
+}
+
 .links-column a {
     color: #cbd5e1;
     text-decoration: none;
@@ -195,7 +205,7 @@ import footerImage from "@/assets/images/footer.svg"
 }
 
 .links-column a:hover {
-    color: var(--color-brand-accent);
+    color: var(--color-brand-accent-light);
 }
 
 /* --- Contact Column (Left side) --- */
@@ -221,11 +231,11 @@ import footerImage from "@/assets/images/footer.svg"
 }
 
 .address-link:hover {
-  color: var(--color-brand-accent);
+  color: var(--color-brand-accent-light);
 }
 
 .address-link:focus-visible {
-  outline: 2px solid var(--color-secondary-gold);
+  outline: 2px solid var(--color-brand-accent-light);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -239,7 +249,7 @@ import footerImage from "@/assets/images/footer.svg"
 }
 
 .phone-number:hover {
-  color: var(--color-brand-accent);
+  color: var(--color-brand-accent-light);
 }
 
 /* --- Footer Bottom Bar & Disclaimer --- */
@@ -283,9 +293,7 @@ import footerImage from "@/assets/images/footer.svg"
         text-align: center;
     }
     
-    .social-links {
-        justify-content: center;
-    }
+    
     
     .links-column ul {
         justify-items: center;
