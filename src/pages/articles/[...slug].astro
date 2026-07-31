@@ -41,7 +41,7 @@ const relatedPosts = allPosts
         (item) =>
             item.id !== post.id &&
             (
-                item.data.category === post.data.category ||
+                item.data.categories === post.data.categories ||
                 item.data.tags.some(tag =>
                     post.data.tags.includes(tag)
                 )

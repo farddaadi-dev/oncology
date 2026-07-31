@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const {
   title,
   excerpt,
-  category,
+  categories,
   image,
   imageAlt,
   publishDate,
@@ -33,7 +33,7 @@ const readingTime = getReadingTime(post.body);
   data-search={`
     ${title}
     ${excerpt}
-    ${category}
+    ${categories.join(" ")}
     ${post.data.tags.join(" ")}
   `.toLowerCase()}
 >
@@ -55,9 +55,15 @@ const readingTime = getReadingTime(post.body);
 
   <div class="blog-card__content">
 
+      <div class="blog-card__categories">
+  {
+    categories.map((category) => (
       <span class="blog-card__category">
         {getCategoryLabel(category)}
       </span>
+    ))
+  }
+</div>
 
       <h3 class="blog-card__title">
         {title}
@@ -169,33 +175,29 @@ transition:
 
 }
 
-.blog-card__category{
+.blog-card__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: var(--space-sm);
+}
 
-    align-self:flex-start;
-
-    margin-bottom:var(--space-sm);
-
-    padding:.3rem .75rem;
-
-    border-radius:999px;
-
-    background:var(--color-bg-section);
-
-    color:var(--color-brand-green);
-
-    font-size:var(--text-sm);
-
-    font-weight:600;
-
-    user-select:none;
-
+.blog-card__category {
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-bg-section);
+  color: var(--color-brand-green);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  user-select: none;
 }
 
 .blog-card__title{
 
     margin:0 0 var(--space-md);
 
-    color:var(--color-dark-heading);
+    color:var(--color-brand-accent);
 
 }
 

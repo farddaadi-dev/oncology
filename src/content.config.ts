@@ -25,7 +25,9 @@ const blog = defineCollection({
     ]),
 
     // ===== Classification =====
-    category: z.enum([
+categories: z
+  .array(
+    z.enum([
       "patient-education",
       "treatment-updates",
       "cancers",
@@ -34,9 +36,10 @@ const blog = defineCollection({
       "nutrition",
       "research-news",
     ]),
+  )
+  .min(1, "Choose at least one category."),
 
-    tags: z.array(z.string()).default([]),
-
+tags: z.array(z.string()).default([]),
     // ===== Dates =====
     publishDate: z.coerce.date(),
 

@@ -17,7 +17,7 @@ const {
     excerpt,
     image,
     imageAlt,
-    category,
+    categories,
     publishDate,
 } = post.data;
 
@@ -52,11 +52,15 @@ image && (
 
 <div class="featured-article__content">
 
-    <span class="featured-article__category">
-
+    <div class="featured-article__categories">
+  {
+    categories.map((category) => (
+      <span class="featured-article__category">
         {getCategoryLabel(category)}
-
-    </span>
+      </span>
+    ))
+  }
+</div>
 
     <h2 class="featured-article__title">
 
@@ -159,31 +163,28 @@ transform:scale(1.03);
 
 }
 
-.featured-article__category{
+.featured-article__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--space-md);
+}
 
-display:inline-block;
-
-padding:.4rem 1rem;
-
-margin-bottom:var(--space-md);
-
-background:var(--color-bg-section);
-
-color:var(--color-brand-green-dark);
-
-border-radius:999px;
-
-font-size:var(--text-sm);
-
-font-weight:600;
-
-user-select:none;
-
+.featured-article__category {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--color-bg-section);
+  color: var(--color-brand-green-dark);
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  user-select: none;
 }
 
 .featured-article__title{
 
 margin-bottom:var(--space-md);
+color: var(--color-brand-accent);
 
 }
 

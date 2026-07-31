@@ -22,7 +22,7 @@ const { post } = Astro.props;
 const {
     title,
     description,
-    category,
+    categories,
     author,
     publishDate,
     updatedDate,
@@ -41,11 +41,15 @@ const readingTime = getReadingTime(post.body ?? "");
     id="article-hero"
 >
 
-    <div class="article-hero__category">
-
+    <div class="article-hero__categories">
+  {
+    categories.map((category) => (
+      <span class="article-hero__category">
         {getCategoryLabel(category)}
-
-    </div>
+      </span>
+    ))
+  }
+</div>
 
 
     <span class="article-hero__title">
@@ -115,26 +119,22 @@ const readingTime = getReadingTime(post.body ?? "");
 }
 
 
-.article-hero__category{
+.article-hero__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--space-lg);
+}
 
-    display:inline-flex;
-
-    align-items:center;
-
-    padding:.4rem 1rem;
-
-    margin-bottom:var(--space-lg);
-
-    border-radius:var(--radius-full);
-
-    background:var(--color-brand-green);
-
-    color: white;
-
-    font-size:var(--text-sm);
-
-    font-weight:600;
-
+.article-hero__category {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--color-brand-green);
+  color: white;
+  font-size: var(--text-sm);
+  font-weight: 600;
 }
 
 

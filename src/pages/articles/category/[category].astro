@@ -20,8 +20,8 @@ export async function getStaticPaths() {
 
     const categories = [
         ...new Set(
-            posts.map(
-                post => post.data.category
+            posts.flatMap(
+                (post) => post.data.categories
             )
         )
     ];
@@ -36,9 +36,9 @@ export async function getStaticPaths() {
         props: {
 
             posts: posts.filter(
-                post =>
-                    post.data.category === category
-            )
+                (post) =>
+                    post.data.categories.includes(category),
+            ),
 
         }
 
@@ -61,8 +61,8 @@ const { posts } = Astro.props;
 
 <Section>
 
-    <h1>
-        {getCategoryLabel(category)}
+    <h1 style="color: var(--color-brand-accent-dark); margin-bottom: 5rem;">
+        {`مقالات درباره ${getCategoryLabel(category)}`}
     </h1>
 
 
@@ -74,3 +74,4 @@ const { posts } = Astro.props;
 
 
 </BaseLayout>
+
