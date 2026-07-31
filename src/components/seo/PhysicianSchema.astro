@@ -1,0 +1,70 @@
+---
+import type { Doctor } from "@/data/doctors";
+
+interface Props {
+  doctor: Doctor;
+}
+
+const { doctor } = Astro.props;
+
+const siteUrl =
+  Astro.site ?? new URL("http://localhost:4321");
+
+
+const physicianSchema = {
+
+  "@context": "https://schema.org",
+
+  "@type": "Physician",
+
+  "@id":
+    `${siteUrl}${doctor.profileUrl}#physician`,
+
+  name:
+    doctor.name,
+
+  description:
+    doctor.bio,
+
+  image:
+    new URL(
+      doctor.images.profile.src,
+      siteUrl
+    ).toString(),
+
+  url:
+    new URL(
+      doctor.profileUrl,
+      siteUrl
+    ).toString(),
+
+  medicalSpecialty: [
+    "Hematology",
+    "Medical Oncology"
+  ],
+
+  worksFor: {
+    "@type": "MedicalClinic",
+    "@id":
+      `${siteUrl}#clinic`
+  },
+
+  knowsAbout:
+    doctor.researchInterests,
+
+  memberOf:
+    doctor.memberships.map(
+      item => ({
+        "@type": "Organization",
+        "name": item
+      })
+    )
+
+};
+
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(physicianSchema)}
+/>

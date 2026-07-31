@@ -7,21 +7,46 @@ const clinicSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
 
+  "@id": `${siteUrl}#clinic`,
+  url: siteUrl.toString(),
   name: clinic.name,
   description: clinic.description,
+  image: new URL("/og-home.jpg", siteUrl).toString(),
+  logo: new URL("/logo.png", siteUrl).toString(),
   telephone: clinic.telephone,
 
   address: {
     "@type": "PostalAddress",
     ...clinic.address,
   },
+  geo: {
+  "@type": "GeoCoordinates",
+  latitude: 35.72095677237865, 
+  longitude: 51.336603394889956
+},
 
-  openingHoursSpecification: {
+  openingHoursSpecification: [
+    {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: clinic.openingHours.days,
     opens: clinic.openingHours.opens,
     closes: clinic.openingHours.closes,
-  },
+  }
+],
+  medicalSpecialty: [
+  "Hematology",
+  "Medical Oncology"
+],
+availableLanguage: [
+  {
+    "@type": "Language",
+    name: "Persian"
+  }
+],
+  areaServed: {
+  "@type": "City",
+  name: "Tehran"
+},
 
 
 };

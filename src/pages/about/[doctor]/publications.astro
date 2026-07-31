@@ -51,8 +51,10 @@ image="/default-og-image.jpg"
 
 <Section width="narrow">
   <SectionHeading
+  subtitle="فعالیت‌های علمی و پژوهشی"
   title={`مقالات علمی ${doctor.name}`}
-    />
+  description="مروری بر مقالات منتشر شده، پژوهش‌ها و فعالیت‌های علمی در حوزه هماتولوژی و آنکولوژی."
+/>
 
 
 
@@ -80,9 +82,13 @@ image="/default-og-image.jpg"
     </BaseLayout>
 <style>
     .publications-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+
+display: grid;
+
+grid-template-columns: 1fr;
+
+gap: 1.5rem;
+
+}
 
 </style>

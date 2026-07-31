@@ -115,6 +115,12 @@ export interface Doctor {
     message?: string;
   };
 
+  seo: {
+    title: string;
+    description: string;
+    ogImage: string;
+  };
+
   locations: Location[];
 }
 
@@ -376,6 +382,19 @@ export const doctors: Doctor[] = [
 "/about/nafiseh/publications",
 
   profileUrl: "/about/nafiseh-ansarinejad",
+
+  seo: {
+
+    title:
+      "دکتر نفیسه انصاری‌نژاد | فوق تخصص خون و آنکولوژی",
+  
+    description:
+      "آشنایی با سوابق علمی، تجربه بالینی و رویکرد درمانی دکتر نفیسه انصاری‌نژاد در زمینه بیماری‌های خون و سرطان.",
+  
+    ogImage:
+      "/og-nafiseh.jpg"
+  
+  },
 
   consultationUrl:
     "https://axon.me/hcps/104083-nafiseh-ansari-nejad/",
@@ -709,6 +728,19 @@ export const doctors: Doctor[] = [
 "/about/farshid/publications",
 
   profileUrl: "/about/farshid-fardad",
+
+  seo: {
+
+    title:
+      "دکتر فرشید فرداد | فوق تخصص خون و آنکولوژی",
+  
+    description:
+      "آشنایی با سوابق علمی، تجربه بالینی و رویکرد درمانی دکتر فرشید فرداد در زمینه بیماری‌های خون و سرطان.",
+  
+    ogImage:
+      "/og-farshid.jpg"
+  
+  },
 
   consultationUrl:
     "https://axon.me/hcps/84371-farshid-fardad/",

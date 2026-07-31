@@ -10,7 +10,7 @@ import { expectations } from "@/data/whatToExpect";
 
   <SectionHeading
     subtitle="همراهی با شما"
-    title="در طول مسیر درمان چه انتظاری می‌توانید داشته باشید؟"
+    title="در مسیر درمان، چه مراحلی را همراه شما طی می‌کنیم؟"
     description="از نخستین ویزیت تا پیگیری‌های درمان، تلاش می‌کنیم تجربه‌ای شفاف، منظم و همراه با احترام و آرامش برای شما فراهم کنیم."
   />
 
@@ -42,7 +42,7 @@ import { expectations } from "@/data/whatToExpect";
 
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   gap: 2rem;
 
@@ -62,12 +62,7 @@ import { expectations } from "@/data/whatToExpect";
 
   }
 
-  #expectation-grid::before {
-
-    display: none;
-
-  }
-
+ 
 }
 
 @media (max-width: 768px) {

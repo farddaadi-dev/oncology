@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import MedicalClinicSchema from '@/components/seo/MedicalClinicSchema.astro';
 import AboutHero from '@/components/about/AboutHero.astro'
 import WhyChooseUs from "@/components/about/WhyChooseUs.astro";
 import TreatmentPhilosophy from "@/components/about/TreatmentPhilosophy.astro";
@@ -10,18 +11,17 @@ import Cta from '@/components/Cta.astro';
 import ButtonLink from '@/components/ButtonLink.astro';
 ---
 <BaseLayout
-    title="درباره ما"
-    description="آشنایی با پزشکان آنکولوژیست تهران، رزومه و دستاوردها"
-    image="/default-og-image.jpg"
+    title="درباره دکتر نفیسه انصاری‌نژاد و دکتر فرشید فرداد | فوق تخصص خون و سرطان"
+    description="با دکتر نفیسه انصاری‌نژاد و دکتر فرشید فرداد، فوق تخصص بیماری‌های خون و سرطان، آشنا شوید و درباره سوابق علمی، تجربه بالینی و رویکرد درمانی آن‌ها بیشتر بدانید."
+    image="/og-about.jpg"
 	>
-    <AboutHero />
-    
-    <AboutStory />
-    <MeetTheDoctors />
-    <TreatmentPhilosophy />
-    <WhatToExpect />
-    
-    <WhyChooseUs />
+  <MedicalClinicSchema />  
+  <AboutHero /> 
+  <AboutStory />
+  <MeetTheDoctors />
+  <TreatmentPhilosophy />
+  <WhatToExpect /> 
+  <WhyChooseUs />
     <Cta
   title="آماده گفت‌وگو درباره مسیر درمان خود هستید؟"
   description="تیم ما آماده است تا با بررسی شرایط شما، در انتخاب بهترین مسیر تشخیص، درمان یا دریافت نظر دوم همراهتان باشد. برای هماهنگی نوبت حضوری یا ثبت درخواست مشاوره آنلاین، از طریق گزینه‌های زیر اقدام کنید."

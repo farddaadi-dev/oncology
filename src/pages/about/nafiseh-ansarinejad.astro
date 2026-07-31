@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PhysicianSchema from "@/components/seo/PhysicianSchema.astro";
 import DoctorProfileHero from "@/components/doctors/DoctorProfileHero.astro";
 import ProfessionalJourney from "@/components/doctors/ProfessionalJourney.astro";
 import DoctorBiography from "@/components/doctors/DoctorBiography.astro";
@@ -12,15 +13,19 @@ import Publications from "@/components/doctors/Publications.astro";
 
 const doctor = doctors.find(
   item => item.id === "nafiseh"
-)!;
+);
+
+if (!doctor) {
+  throw new Error("Doctor not found");
+}
 ---
 
 <BaseLayout
-  title={doctor.name}
-  description="صفحه اختصاصی دکتر نفیسه انصاری‌نژاد"
-  image="/default-og-image.jpg"
+  title={doctor.seo.title}
+  description={doctor.seo.description}
+  image={doctor.seo.ogImage}
 >
-
+<PhysicianSchema doctor={doctor} />
 {doctor && (
     <>
       <DoctorProfileHero doctor={doctor} />
@@ -31,17 +36,16 @@ const doctor = doctors.find(
 
       <ProfessionalJourney doctorId={doctor.id} />
 
+      <MembershipsCertifications doctor={doctor} />
+
       <ResearchHighlights doctor={doctor}/>
 
-      <DoctorTreatmentApproach doctor={doctor} />
-
       <Publications doctor={doctor} />
-  
-      <MembershipsCertifications doctor={doctor} />
+
+      <DoctorTreatmentApproach doctor={doctor} />
 
       <DoctorCTA doctor={doctor} />
     </>
   )}
-
 
 </BaseLayout>
