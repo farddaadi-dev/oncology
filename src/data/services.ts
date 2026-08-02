@@ -1,10 +1,10 @@
 import type { ImageMetadata } from "astro";
 
-import medicalOncologyImage from "@/assets/images/services/MedicalOncology.png";
-import hematologyImage from "@/assets/images/services/Hematology.png";
-import proceduresImage from "@/assets/images/services/Procedures.png";
-import supportiveImage from "@/assets/images/services/SupportiveCare.png";
-import ambulatoryImage from "@/assets/images/services/Ambulatory.png";
+import medicalOncologyImage from "@/assets/images/services/medical-oncology.webp";
+import hematologyImage from "@/assets/images/services/hematology.webp";
+import proceduresImage from "@/assets/images/services/procedures.webp";
+import supportiveImage from "@/assets/images/services/supportive-care.webp";
+import ambulatoryImage from "@/assets/images/services/ambulatory.webp";
 import consultImage from "@/assets/images/services/SecondOpinion.png";
 import homeVisitImage from "@/assets/images/services/HomeVisit.png";
 import homeNursingImage from "@/assets/images/services/HomeNursing.png";
