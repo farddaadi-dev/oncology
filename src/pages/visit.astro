@@ -13,14 +13,18 @@ import Faq from "@/components/Faq.astro";
 import Cta from "@/components/Cta.astro";
 import { visitFAQ } from "@/data/visitFAQ";
 import ButtonLink from "@/components/ButtonLink.astro";
+import MedicalClinicSchema from "@/components/seo/MedicalClinicSchema.astro";
 
 ---
 
 <BaseLayout
     title="ویزیت حضوری متخصص خون و سرطان | برنامه حضور پزشکان"
     description="برنامه و ساعات ویزیت حضوری دکتر فرشید فرداد و دکتر نفیسه انصاری‌نژاد در مطب و بیمارستان. جهت هماهنگی نوبت با مطب تماس بگیرید."
-    image="/default-og-image.jpg"
+    image="/og-visit.jpg"
 	>
+    <Fragment slot="head">
+        <MedicalClinicSchema />
+    </Fragment>
     <Hero 
         badge="زمان‌بندی ویزیت"
         titleLine1="برنامه حضور پزشکان"

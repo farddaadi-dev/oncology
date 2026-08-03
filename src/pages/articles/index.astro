@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-
+import CollectionSchema from "@/components/seo/CollectionSchema.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import SectionHeading from "@/components/SectionHeading.astro";
@@ -50,10 +50,16 @@ const remainingPosts =
 ---
 
 <BaseLayout
-    title="مقالات آموزشی | دکتر فرشید فرداد"
-    description="مقالات آموزشی درباره سرطان، بیماری‌های خون، روش‌های درمان و مراقبت از بیماران."
+    title="مقالات آموزشی هماتولوژی و آنکولوژی"
+    description="مقالات آموزشی معتبر درباره سرطان، بیماری‌های خون، شیمی‌درمانی، ایمونوتراپی، درمان‌های هدفمند، مراقبت از بیماران و آخرین دستاوردهای پزشکی."
+    image="/og-articles.jpg"
 >
-
+<Fragment slot="head">
+    <CollectionSchema
+        title="مقالات آموزشی هماتولوژی و انکولوژی"
+        description="مقالات آموزشی معتبر درباره سرطان، بیماری‌های خون، روش‌های درمان و مراقبت از بیماران."
+    />
+</Fragment>
 
 <Hero
     badge="مقالات آموزشی"

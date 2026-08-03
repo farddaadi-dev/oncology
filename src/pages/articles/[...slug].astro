@@ -3,11 +3,17 @@ import { getCollection, render } from "astro:content";
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
-
+import ArticleSchema from "@/components/seo/ArticleSchema.astro";
+import { getDoctor } from "@/data/doctors";
 
 export async function getStaticPaths() {
 
     const posts = await getCollection("blog");
+    const author = getDoctor(post.data.author);
+
+if (!author) {
+  throw new Error("Author not found");
+}
 
     return posts.map((post) => ({
 
@@ -54,9 +60,11 @@ const relatedPosts = allPosts
 <BaseLayout
     title={post.data.title}
     description={post.data.description}
-    image="/default-og-image.jpg"
+    image="/og-articles.jpg"
 >
-
+<Fragment slot="head">
+    <ArticleSchema post={post} />
+</Fragment>
     <BlogLayout
         post={post}
         relatedPosts={relatedPosts}

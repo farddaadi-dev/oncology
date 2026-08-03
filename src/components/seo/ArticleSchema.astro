@@ -1,0 +1,109 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { doctors } from "@/data/doctors";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("http://localhost:4321");
+
+const doctor = doctors.find(
+  (item) => item.id === post.data.author
+);
+
+if (!doctor) {
+  throw new Error(`Doctor not found for author: ${post.data.author}`);
+}
+
+
+const articleUrl = new URL(
+  `/articles/${post.id}`,
+  siteUrl
+).toString();
+
+
+const imageUrl = post.data.image
+  ? new URL(
+      post.data.image.src,
+      siteUrl
+    ).toString()
+  : new URL(
+      "/og-articles.jpg",
+      siteUrl
+    ).toString();
+
+
+const schema = {
+
+  "@context": "https://schema.org",
+
+  "@type": "MedicalScholarlyArticle",
+
+  "@id": articleUrl,
+
+  headline: post.data.title,
+
+  description: post.data.description,
+
+  image: imageUrl,
+
+  datePublished:
+    post.data.publishDate.toISOString(),
+
+  ...(post.data.updatedDate && {
+    dateModified:
+      post.data.updatedDate.toISOString()
+  }),
+
+
+  author: {
+
+    "@type": "Physician",
+
+    name: doctor.name,
+
+    url: new URL(
+      doctor.profileUrl,
+      siteUrl
+    ).toString(),
+
+  },
+
+
+  publisher: {
+
+    "@type": "MedicalClinic",
+
+    name: "کلینیک دکتر فرشید فرداد",
+
+    url: siteUrl.toString(),
+
+  },
+
+
+  mainEntityOfPage: {
+
+    "@type": "WebPage",
+
+    "@id": articleUrl
+
+  },
+
+
+  articleSection:
+    post.data.categories,
+
+  keywords:
+    post.data.tags.join(", ")
+
+};
+
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(schema)}
+/>

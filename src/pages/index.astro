@@ -19,7 +19,9 @@ import MovingImage from "@/assets/images/logo-background.webp"
 	description= "مرکز تخصصی هماتولوژی و آنکولوژی دکتر فرشید فرداد و دکتر نفیسه انصاری‌نژاد. ارائه خدمات تشخیص و درمان سرطان، شیمی‌درمانی، درمان‌های نوین سرطان و بیماری‌های خون در تهران با رویکردی علمی و بیمارمحور."
 	image="/og-home.jpg"
 	>
-	<MedicalClinicSchema />
+	<Fragment slot="head">
+        <MedicalClinicSchema />
+    </Fragment>
 	<HomeHero />
 	<HomeIntroduction />
 	<HomeServices />

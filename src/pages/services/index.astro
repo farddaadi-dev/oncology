@@ -16,6 +16,7 @@ import Cta from "@/components/Cta.astro";
 import {servicesFAQ} from "@/data/servicesFAQ.ts"
 import ButtonLink from "@/components/ButtonLink.astro";
 import CareServiceGrid from "@/components/CareServiceGrid.astro";
+import MedicalClinicSchema from "@/components/seo/MedicalClinicSchema.astro";
 
 const treatmentServices = Object.entries(services).filter(
   ([, service]) => service.category === "treatments"
@@ -34,8 +35,11 @@ const consultationServices = Object.entries(services).filter(
 <BaseLayout
     title="خدمات تخصصی آنکولوژی و هماتولوژی | شیمی‌درمانی، ایمونوتراپی و مشاوره سرطان"
     description="ارائه خدمات تخصصی خون و سرطان شامل شیمی‌درمانی، ایمونوتراپی، درمان هدفمند، نمونه‌برداری مغز استخوان، تزریق آهن و مشاوره تخصصی آنکولوژی."
-    image="/default-og-image.jpg"
+    image="/og-services.jpg"
 	>
+  <Fragment slot="head">
+    <MedicalClinicSchema />
+</Fragment>
     <Hero 
     badge="مطب فوق تخصصی هماتولوژی و آنکولوژی"
     titleLine1="خدمات تخصصی"

@@ -10,13 +10,17 @@ import ConsultationDoctors from "@/components/ConsultationDoctors.astro";
 import PrivacySecurity from "@/components/PrivacySecurity.astro";
 import ConsultationFAQ from "@/components/ConsultationFAQ.astro";
 import ConsultationCTA from "@/components/consultationCTA.astro";
+import MedicalClinicSchema from "@/components/seo/MedicalClinicSchema.astro";
 ---
 
 <BaseLayout
     title="مشاوره آنلاین"
     description="دریافت مشاوره تخصصی آنکولوژی و هماتولوژی از طریق پلتفرم امن آکسون، بدون نیاز به مراجعه حضوری"
-    image="/default-og-image.jpg"
+    image="/og-consultation.jpg"
 >
+<Fragment slot="head">
+    <MedicalClinicSchema />
+</Fragment>
     <Hero
         badge="ارتباط آنلاین با پزشک"
         titleLine1="مشاوره تخصصی"

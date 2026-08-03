@@ -13,6 +13,7 @@ import Cta from "@/components/Cta.astro";
 import { contactFAQ } from "@/data/contactFAQ";
 import ButtonLink from "@/components/ButtonLink.astro";
 import ClinicHours from "@/components/ClinicHours.astro";
+import MedicalClinicSchema from "@/components/seo/MedicalClinicSchema.astro";
 
 
 ---
@@ -20,8 +21,11 @@ import ClinicHours from "@/components/ClinicHours.astro";
 <BaseLayout
     title="تماس با ما"
     description="اطلاعات تماس شامل شماره تلفن، آدرس، نقشه و لینک شبکه‌های اجتماعی"
-    image="/default-og-image.jpg"
+    image="/og-contact.jpg"
 	>
+  <Fragment slot="head">
+    <MedicalClinicSchema />
+</Fragment>
     <Hero 
     badge="ارتباط با کلینیک"
     titleLine1="اطلاعات تماس،"

@@ -5,6 +5,7 @@ import Cta from "@/components/Cta.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
 import type {Service} from "@/data/services";
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import MedicalClinicSchema from "@/components/seo/MedicalClinicSchema.astro";
 
 interface Props {
     service: Service;
@@ -17,9 +18,11 @@ const { service } = Astro.props;
 <BaseLayout
     title={service.title}
     description={service.description}
-    image="/default-og-image.jpg"
+    image="/og-services.jpg"
 >
-
+<Fragment slot="head">
+    <MedicalClinicSchema />
+</Fragment>
 <Hero
     badge={service.badge}
     title={service.title}

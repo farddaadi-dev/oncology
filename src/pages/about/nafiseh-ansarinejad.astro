@@ -25,7 +25,9 @@ if (!doctor) {
   description={doctor.seo.description}
   image={doctor.seo.ogImage}
 >
-<PhysicianSchema doctor={doctor} />
+<Fragment slot="head">
+  <PhysicianSchema doctor={doctor} />
+</Fragment>
 {doctor && (
     <>
       <DoctorProfileHero doctor={doctor} />
