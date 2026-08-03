@@ -51,6 +51,7 @@ import Info2Icon from "@/assets/icons/info2.svg";
 import TipIcon from "@/assets/icons/tip.svg";
 import WarningIcon from "@/assets/icons/warning.svg";
 import SuccessIcon from "@/assets/icons/success.svg";
+import PhoneIcon from "@/assets/icons/phone.svg"
 
 export const icons = {
 
@@ -107,6 +108,7 @@ export const icons = {
   tip: TipIcon,
   warning: WarningIcon,
   success: SuccessIcon,
+  phone: PhoneIcon,
 };
 
 

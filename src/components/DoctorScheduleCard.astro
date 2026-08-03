@@ -1,6 +1,6 @@
 ---
 import ScheduleRow from "./ScheduleRow.astro";
-
+import { icons } from "@/data/icons";
 import type { Doctor } from "@/data/doctors";
 import { Image } from "astro:assets";
 
@@ -58,9 +58,15 @@ const image = images.profile;
 
                     <h4>{location.name}</h4>
 
-                    <a href={`tel:${location.phone}`}>
+                    <a href={`tel:${location.phone}`} class="phone-link">
 
-                        📞 {location.phone}
+                        <Image
+                            src={icons.phone}
+                            alt=""
+                            class="phone-icon"
+                        />
+
+                        {location.phone}
 
                     </a>
 
@@ -180,6 +186,21 @@ h3 {
 
     gap:.25rem;
     padding-inline: var(--space-lg);
+
+}
+
+.phone-link {
+
+display:flex;
+align-items:center;
+gap:.4rem;
+
+}
+
+.phone-icon {
+
+width:1.1rem;
+height:1.1rem;
 
 }
 
