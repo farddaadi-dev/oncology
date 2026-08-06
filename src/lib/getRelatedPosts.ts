@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 interface Options {
   currentPost: CollectionEntry<"blog">;
-  allPosts: CollectionEntry<"blog">;
+  allPosts: CollectionEntry<"blog">[];
   limit?: number;
 }
 
@@ -20,7 +20,7 @@ export function getRelatedPosts({
   return allPosts
 
     // Exclude the current article
-    .filter(post => post.slug !== currentPost.slug)
+    .filter(post => post.id !== currentPost.id)
 
     // Score every article
     .map<ScoredPost>(post => {
@@ -30,9 +30,11 @@ export function getRelatedPosts({
       //
       // Same category
       //
-      if (post.data.category === currentPost.data.category) {
-        score += 3;
-      }
+      const sharedCategories = post.data.categories.filter(category =>
+        currentPost.data.categories.includes(category)
+      );
+      
+      score += sharedCategories.length * 3;
 
       //
       // Shared tags
@@ -43,12 +45,7 @@ export function getRelatedPosts({
 
       score += sharedTags.length * 2;
 
-      //
-      // Bonus for featured articles
-      //
-      if (post.data.featured) {
-        score += 1;
-      }
+      
 
       return {
         post,
